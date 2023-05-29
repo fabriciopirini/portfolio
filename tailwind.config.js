@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./app/**/*.{js,ts,jsx,tsx,mdx}', './components/**/*.{js,ts,jsx,tsx,mdx}'],
+  future: { hoverOnlyWhenSupported: true },
   theme: {
     extend: {
       textColor: {
@@ -34,5 +35,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-debug-screens')],
+  plugins: [require('tailwindcss-debug-screens'), require('tailwindcss-animate')],
 }

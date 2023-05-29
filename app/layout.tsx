@@ -1,5 +1,5 @@
-import { League_Spartan } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
+import { League_Spartan } from 'next/font/google'
 
 import '@/app/globals.css'
 

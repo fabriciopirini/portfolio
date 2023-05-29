@@ -4,22 +4,25 @@
 
 @layer base {
   :root {
-    --color-text-primary: #F9F9F9;
-    --color-text-accent: #FFDD91;
+    --color-text-primary: #f9f9f9;
+    --color-text-accent: #ffc557;
 
     --color-bg-primary: #343639;
-    --color-bg-secondary: #3E3F41;
-    --color-bg-secondary-hover: #F0BF6C;
+    --color-bg-secondary: #3e3f41;
+    --color-bg-secondary-hover: var(--color-text-accent);
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
   }
 
   /* @media (prefers-color-scheme: light) {
     :root {
-      --color-text-primary: #1C1C1E;
-      --color-text-accent: #E47C4A;
+      --color-text-primary: #1c1c1e;
+      --color-text-accent: #e47c4a;
 
-      --color-bg-primary: #F9F9F9;
-      --color-bg-secondary: #ECECEC;
-      --color-bg-secondary-hover: #DADADA;
+      --color-bg-primary: #f9f9f9;
+      --color-bg-secondary: #ececec;
+      --color-bg-secondary-hover: #dadada;
     }
   } */
 }

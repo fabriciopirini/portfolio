@@ -1,7 +1,10 @@
-import ProfilePic from '@/public/assets/portrait-grayscale-2.png'
-import Logo from '@/public/assets/logo.svg'
+import { GithubIcon, LinkedinIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+
+import { CTAButton } from '@/components/CTAButton'
+import Logo from '@/public/assets/logo.svg'
+import ProfilePic from '@/public/assets/portrait-grayscale-2.png'
 
 export default function Home() {
   return (
@@ -24,8 +27,8 @@ export default function Home() {
           </ul>
         </div>
       </nav>
-      <section className="flex w-full flex-grow flex-col items-start justify-center px-4 text-6xl md:px-14">
-        <div className="mx-auto flex h-full w-auto flex-grow flex-col justify-center gap-8 text-4xl  md:w-full lg:ml-0 lg:w-auto">
+      <section className="flex w-full grow flex-col items-start justify-center px-4 text-6xl md:flex-row md:px-14">
+        <div className="mx-auto flex h-full w-auto grow flex-col justify-center gap-8 text-4xl  md:w-full lg:ml-0 lg:w-auto">
           <div>
             <p>
               I&apos;m{' '}
@@ -34,21 +37,34 @@ export default function Home() {
             <p>Frontend Engineer</p>
             <p>Based in Norway</p>
           </div>
-          <div>
-            <button className="rounded-xl border-4 border-accent bg-inherit px-6 py-2 text-2xl text-accent transition duration-500 hover:scale-105 hover:bg-accent hover:text-primary-background motion-reduce:scale-100 motion-reduce:duration-0">
-              Contact Me
-            </button>
+          <div className="flex flex-row gap-6 pb-8">
+            <CTAButton type="secondary" text="Contact me" />
+            <CTAButton external text="Resume" href="https://bit.ly/fabriciopirini-updated-CV" />
           </div>
         </div>
-        <div className="flex h-full w-full">
+        <div className="flex h-full w-full md:w-auto">
           <Image
-            className="relative bottom-0 right-0 z-[-1] mx-auto mt-8 h-96 w-auto sm:h-[500px] md:h-[600px] lg:absolute lg:mr-36 lg:mt-0 lg:h-[700px] xl:h-[800px]"
+            className="relative z-[-1] mx-auto mt-8 h-96 w-auto grow sm:h-[500px] md:absolute md:bottom-0 md:right-0 md:h-[600px] lg:mr-36 lg:mt-0 lg:h-[700px] lg:grow-0"
             src={ProfilePic}
             alt="Profile Picture"
             width={500}
             height={800}
             style={{ objectFit: 'contain' }}
           />
+
+          <div className="relative ml-auto mt-auto flex flex-col gap-6 py-6">
+            <div className="mx-auto h-36 w-[2px] border-l-4 border-accent" />
+            <a
+              href="https://www.linkedin.com/in/fabriciopirini/"
+              target="_blank"
+              className="rounded-full bg-primary p-3"
+            >
+              <LinkedinIcon size={40} />
+            </a>
+            <a href="https://github.com/fabriciopirini" target="_blank" className="rounded-full bg-primary p-3">
+              <GithubIcon size={40} />
+            </a>
+          </div>
         </div>
       </section>
     </main>

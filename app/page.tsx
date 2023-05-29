@@ -11,7 +11,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center px-4 md:px-20">
       <nav className="flex w-full items-center justify-between py-16 text-3xl font-light">
         <div className="absolute hidden md:block">
-          <Image className="h-12 w-auto 2xl:h-16" src={Logo} alt="Logo" width={75} height={75} />
+          <Image className="h-10 w-auto 2xl:h-16" src={Logo} alt="Logo" width={64} height={64} />
         </div>
         <div className="flex w-full flex-row items-center">
           <ul className="flex w-full flex-row items-center justify-center gap-8 lg:gap-20">
@@ -51,22 +51,17 @@ export default function Home() {
             height={800}
             style={{ objectFit: 'contain' }}
           />
-
-          <div className="relative ml-auto mt-auto flex flex-col gap-6 py-6">
-            <div className="mx-auto h-36 w-[2px] border-l-4 border-accent" />
-            <a
-              href="https://www.linkedin.com/in/fabriciopirini/"
-              target="_blank"
-              className="rounded-full bg-primary p-3"
-            >
-              <LinkedinIcon size={40} />
-            </a>
-            <a href="https://github.com/fabriciopirini" target="_blank" className="rounded-full bg-primary p-3">
-              <GithubIcon size={40} />
-            </a>
-          </div>
         </div>
       </section>
+      <div className="fixed bottom-0 right-0 flex h-full flex-col justify-end gap-6 px-2 py-6 md:justify-center md:px-4">
+        <div className="mx-auto h-36 w-[2px] border-l-4 border-accent" />
+        <a href="https://www.linkedin.com/in/fabriciopirini/" target="_blank" className="rounded-full bg-primary p-3">
+          <LinkedinIcon size={40} />
+        </a>
+        <a href="https://github.com/fabriciopirini" target="_blank" className="rounded-full bg-primary p-3">
+          <GithubIcon size={40} />
+        </a>
+      </div>
     </main>
   )
 }

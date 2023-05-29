@@ -30,6 +30,11 @@ module.exports = {
           DEFAULT: 'var(--color-text-accent)',
         },
       },
+      colors: {
+        linkedIn: {
+          DEFAULT: 'rgb(10, 102, 194)',
+        },
+      },
       minHeight: {
         comfortable: 'calc(max(100vh, 900px))',
       },

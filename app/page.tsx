@@ -28,7 +28,7 @@ export default function Home() {
         </div>
       </nav>
       <section className="flex w-full grow flex-col items-start justify-center px-4 text-6xl md:flex-row md:px-14">
-        <div className="mx-auto flex h-full w-auto grow flex-col justify-center gap-8 text-4xl md:w-full md:pt-10 lg:ml-0 lg:w-auto">
+        <div className="mx-auto flex h-full w-auto grow flex-col justify-center gap-8 text-4xl md:w-full md:pt-10 lg:ml-0 lg:w-auto xl:my-auto">
           <div>
             <p>
               I&apos;m{' '}

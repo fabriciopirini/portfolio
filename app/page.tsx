@@ -44,7 +44,7 @@ export default function Home() {
         </div>
         <div className="flex h-full w-full md:w-auto">
           <Image
-            className="relative z-[-1] mx-auto mt-8 h-96 w-auto grow sm:h-[500px] md:absolute md:bottom-0 md:right-0 md:h-[600px] lg:mr-36 lg:mt-0 lg:h-[700px] lg:grow-0"
+            className="relative z-[-1] mx-auto mt-8 h-96 w-auto grow brightness-[0.85] sm:h-[500px] md:absolute md:bottom-0 md:right-0 md:h-[600px] lg:mr-36 lg:mt-0 lg:h-[700px] lg:grow-0"
             src={ProfilePic}
             alt="Profile Picture"
             width={500}

@@ -37,7 +37,7 @@ export default function Home() {
             <p>Frontend Engineer</p>
             <p>Based in Norway</p>
           </div>
-          <div className="flex flex-col gap-6 pb-8 sm:flex-row">
+          <div className="flex flex-col-reverse gap-6 pb-8 sm:flex-row">
             <CTAButton type="secondary" text="Contact me" />
             <CTAButton external text="Resume" href="https://bit.ly/fabriciopirini-updated-CV" />
           </div>

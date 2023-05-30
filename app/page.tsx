@@ -19,7 +19,7 @@ export default function Home() {
               <Link href="#">About</Link>
             </li>
             <li>
-              <Link href="#">Portifolio</Link>
+              <Link href="#">Portfolio</Link>
             </li>
             <li>
               <Link href="#">Contact</Link>
@@ -41,7 +41,7 @@ export default function Home() {
             <p>Based in Norway</p>
           </div>
           <div className="flex flex-col-reverse gap-6 pb-8 sm:flex-row">
-            <CTAButton type="secondary" text="Contact me" />
+            <CTAButton type="secondary" text="Contact me" href="/" />
             <CTAButton external text="Resume" href="https://bit.ly/fabriciopirini-updated-CV" />
           </div>
         </div>
@@ -53,6 +53,7 @@ export default function Home() {
             width={500}
             height={800}
             style={{ objectFit: 'contain' }}
+            priority
           />
         </div>
       </section>
@@ -62,6 +63,7 @@ export default function Home() {
           href="https://www.linkedin.com/in/fabriciopirini/"
           target="_blank"
           className="rounded-full bg-primary p-3 text-primary transition-colors duration-500 hover:bg-linkedIn hover:text-primary"
+          aria-label="Checkout my LinkedIn profile"
         >
           <LinkedinIcon size={40} />
         </a>
@@ -69,6 +71,7 @@ export default function Home() {
           href="https://github.com/fabriciopirini"
           target="_blank"
           className="rounded-full bg-primary p-3 text-primary transition-colors duration-500 hover:bg-white hover:text-primary-background"
+          aria-label="Checkout my Github profile"
         >
           <GithubIcon size={40} />
         </a>

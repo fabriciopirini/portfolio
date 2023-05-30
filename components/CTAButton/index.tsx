@@ -7,7 +7,7 @@ import { ExternalLinkIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const CTAButtonStyles = cva(
-  'rounded-xl border-4 border-accent bg-inherit py-4 text-center px-6 sm:px-10 text-2xl text-primary transition duration-500  motion-safe:hover:scale-105 cursor-pointer',
+  'rounded-xl border-4 border-accent bg-inherit py-3 sm:py-4 text-center px-6 sm:px-10 text-primary transition duration-500  motion-safe:hover:scale-105 cursor-pointer',
   {
     variants: {
       intent: {

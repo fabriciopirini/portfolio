@@ -41,13 +41,13 @@ export const CTAButton = React.forwardRef((props: CTAButtonProps, ref) => {
     <motion.a
       ref={ref as Ref<HTMLAnchorElement>}
       whileHover={{
-        scale: 1.1,
+        scale: 1.05,
         transition: {
           duration: 0.3,
         },
       }}
       whileTap={{
-        scale: 0.5,
+        scale: 0.9,
         transition: {
           duration: 0.2,
         },

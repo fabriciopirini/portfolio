@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { cva } from 'class-variance-authority'
+import { motion } from 'framer-motion'
 import { ExternalLinkIcon } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
@@ -26,20 +27,27 @@ type CTAButtonProps = {
   text: string
   external?: boolean
   href?: string
+  isAnimated?: boolean
 }
 
-export const CTAButton = ({ type = 'primary', text, external = false, href }: CTAButtonProps) => {
+export const CTAButton = ({ type = 'primary', text, external = false, href, isAnimated = false }: CTAButtonProps) => {
   const [isAnimationRunning, setIsAnimationRunning] = useState(false)
 
   return (
-    <a
+    <motion.a
       className={cn(CTAButtonStyles({ intent: type }), isAnimationRunning && 'animate-none')}
       onClick={() => setIsAnimationRunning(true)}
       onAnimationEnd={() => setIsAnimationRunning(false)}
       {...(external && { target: '_blank', rel: 'noopener noreferrer', href })}
+      {...(isAnimated && {
+        variants: {
+          hidden: { opacity: 0 },
+          show: { opacity: 1, y: 0, transition: { type: 'spring' } },
+        },
+      })}
     >
       {text}
       {external && <ExternalLinkIcon size={20} className="ml-2 inline-block" />}
-    </a>
+    </motion.a>
   )
 }

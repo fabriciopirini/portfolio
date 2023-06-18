@@ -1,8 +1,8 @@
-import { GithubIcon, GlobeIcon, Laptop2Icon, LinkedinIcon, MenuIcon } from 'lucide-react'
+import { GithubIcon, LinkedinIcon, MenuIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { CTAButton } from '@/components/CTAButton'
+import { NameBanner } from '@/components/Name'
 import Logo from '@/public/assets/logo.svg'
 import ProfilePic from '@/public/assets/portrait-grayscale-2.png'
 
@@ -32,24 +32,7 @@ export default function Home() {
       </nav>
       <section className="flex w-full grow flex-col items-start justify-center px-4 text-6xl md:flex-row md:px-14">
         <div className="mx-auto flex h-full w-auto grow flex-col justify-center gap-8 text-3xl md:w-full md:pt-10 lg:ml-0 lg:w-auto lg:text-4xl xl:my-auto">
-          <div>
-            <p className="flex flex-col gap-3 pb-5 sm:flex-row sm:items-center">
-              <span>I&apos;m</span>
-              <span className="inline-block text-5xl font-medium text-accent md:text-6xl">Fabricio Pirini</span>
-            </p>
-            <p className="flex flex-row items-baseline gap-3">
-              <Laptop2Icon size={20} className="inline-block" />
-              Frontend Engineer
-            </p>
-            <p className="flex flex-row items-baseline gap-3">
-              <GlobeIcon size={20} className="inline-block" />
-              Based in Norway
-            </p>
-          </div>
-          <div className="flex flex-col-reverse gap-6 pb-8 sm:flex-row">
-            <CTAButton type="secondary" text="Contact me" href="/" />
-            <CTAButton external text="Resume" href="https://bit.ly/fabriciopirini-updated-CV" />
-          </div>
+          <NameBanner />
         </div>
         <div className="flex h-full w-full md:w-auto">
           <Image

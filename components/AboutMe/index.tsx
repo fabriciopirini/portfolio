@@ -1,5 +1,5 @@
 export const AboutMe = () => (
-  <section className="container h-96 w-full pt-4 md:pt-10">
+  <section className="container w-full py-16 md:py-32">
     <h2 className="text-5xl font-bold">About</h2>
     <div className="flex flex-col gap-5 py-6 pl-0 pr-16 text-2xl md:flex-row">
       <hr className="mt-4 block h-1 w-full bg-accent md:inline-block md:w-1/12" />

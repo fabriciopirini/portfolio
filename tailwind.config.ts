@@ -41,6 +41,9 @@ export const config = {
         accent: {
           DEFAULT: 'var(--color-text-accent)',
         },
+        'skill-card': {
+          DEFAULT: 'var(--color-bg-skill-card)',
+        },
       },
       colors: {
         linkedIn: {

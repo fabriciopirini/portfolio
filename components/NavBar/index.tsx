@@ -1,11 +1,9 @@
-import { MenuIcon } from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link'
 
 import Logo from '@/public/assets/logo.svg'
 
 export const NavBar = () => (
-  <nav className="flex w-full items-center justify-between py-10 text-3xl font-light md:py-16">
+  <nav className="absolute flex w-full items-center justify-between px-4 py-10 text-3xl font-light md:px-20 md:py-16">
     <div className="absolute hidden md:block">
       <Image className="h-10 w-auto 2xl:h-16" src={Logo} alt="Logo" width={64} height={64} />
     </div>

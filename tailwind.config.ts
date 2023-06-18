@@ -32,6 +32,7 @@ export const config = {
       backgroundColor: {
         primary: {
           DEFAULT: 'var(--color-bg-primary)',
+          hero: 'var(--color-bg-primary-hero)',
         },
         secondary: {
           DEFAULT: 'var(--color-bg-secondary)',

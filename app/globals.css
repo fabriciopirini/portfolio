@@ -7,7 +7,8 @@
     --color-text-primary: #f9f9f9;
     --color-text-accent: #ffc557;
 
-    --color-bg-primary: #343639;
+    --color-bg-primary: #383a44;
+    --color-bg-primary-hero: #343639;
     --color-bg-secondary: #3e3f41;
     --color-bg-secondary-hover: var(--color-text-accent);
 

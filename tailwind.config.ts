@@ -1,8 +1,19 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ['./app/**/*.{js,ts,jsx,tsx,mdx}', './components/**/*.{js,ts,jsx,tsx,mdx}'],
+import type { Config } from 'tailwindcss'
+import tailwindAnimate from 'tailwindcss-animate'
+import tailwindDebugScreens from 'tailwindcss-debug-screens'
+
+export const config = {
+  darkMode: ['class'],
+  content: ['./components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}'],
   future: { hoverOnlyWhenSupported: true },
   theme: {
+    container: {
+      center: true,
+      padding: '2rem',
+      screens: {
+        '2xl': '1400px',
+      },
+    },
     extend: {
       textColor: {
         primary: {
@@ -40,5 +51,7 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-debug-screens'), require('tailwindcss-animate')],
-}
+  plugins: [tailwindDebugScreens, tailwindAnimate],
+} satisfies Config
+
+export default config

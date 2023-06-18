@@ -14,7 +14,7 @@ export default function Home() {
           <Image className="h-10 w-auto 2xl:h-16" src={Logo} alt="Logo" width={64} height={64} />
         </div>
         <div className="hidden w-full items-center sm:flex sm:flex-row">
-          <ul className="flex w-full flex-row items-center justify-center gap-8 lg:gap-20">
+          <ul className="flex w-full select-none flex-row items-center justify-center gap-8 lg:gap-20">
             <li>
               <Link href="#">About</Link>
             </li>

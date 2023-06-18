@@ -1,6 +1,8 @@
 'use client'
 
+import type { Ref } from 'react'
 import { useState } from 'react'
+import React from 'react'
 import { cva } from 'class-variance-authority'
 import { motion } from 'framer-motion'
 import { ExternalLinkIcon } from 'lucide-react'
@@ -8,12 +10,12 @@ import { ExternalLinkIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const CTAButtonStyles = cva(
-  'rounded-xl border-4 border-accent bg-inherit py-3 sm:py-4 text-center px-6 sm:px-10 text-primary transition duration-500  motion-safe:hover:scale-105 cursor-pointer',
+  'rounded-xl bg-inherit py-3 sm:py-4 text-center px-6 sm:px-10 text-primary cursor-pointer select-none',
   {
     variants: {
       intent: {
         primary: 'bg-accent text-primary-background',
-        secondary: 'text-accent hover:bg-accent hover:text-primary-background',
+        secondary: 'border-4 border-accent text-accent ',
       },
       external: {
         true: 'flex items-baseline justify-center',
@@ -23,18 +25,33 @@ const CTAButtonStyles = cva(
 )
 
 type CTAButtonProps = {
-  type?: 'primary' | 'secondary'
   text: string
+  type?: 'primary' | 'secondary'
   external?: boolean
   href?: string
   isAnimated?: boolean
 }
 
-export const CTAButton = ({ type = 'primary', text, external = false, href, isAnimated = false }: CTAButtonProps) => {
+export const CTAButton = React.forwardRef((props: CTAButtonProps, ref) => {
   const [isAnimationRunning, setIsAnimationRunning] = useState(false)
+
+  const { type = 'primary', text, external = false, href, isAnimated = false } = props
 
   return (
     <motion.a
+      ref={ref as Ref<HTMLAnchorElement>}
+      whileHover={{
+        scale: 1.1,
+        transition: {
+          duration: 0.3,
+        },
+      }}
+      whileTap={{
+        scale: 0.5,
+        transition: {
+          duration: 0.2,
+        },
+      }}
       className={cn(CTAButtonStyles({ intent: type }), isAnimationRunning && 'animate-none')}
       onClick={() => setIsAnimationRunning(true)}
       onAnimationEnd={() => setIsAnimationRunning(false)}
@@ -45,9 +62,12 @@ export const CTAButton = ({ type = 'primary', text, external = false, href, isAn
           show: { opacity: 1, y: 0, transition: { type: 'spring' } },
         },
       })}
+      {...props}
     >
       {text}
       {external && <ExternalLinkIcon size={20} className="ml-2 inline-block" />}
     </motion.a>
   )
-}
+})
+
+CTAButton.displayName = 'CTAButton'

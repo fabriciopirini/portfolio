@@ -1,7 +1,7 @@
 import { GithubIcon, LinkedinIcon } from 'lucide-react'
 
 export const SocialsSidebar = () => (
-  <div className="fixed bottom-0 right-0 flex h-full flex-col justify-end gap-6 px-2 py-6 md:justify-center md:px-4">
+  <div className="fixed bottom-0 right-0 z-50 flex h-full flex-col justify-end gap-6 px-2 py-6 md:justify-center md:px-4">
     <div className="mx-auto h-16 w-[2px] border-l-4 border-accent" />
     <a
       href="https://www.linkedin.com/in/fabriciopirini/"

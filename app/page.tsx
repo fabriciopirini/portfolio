@@ -7,7 +7,7 @@ import { SocialsSidebar } from '@/components/SocialsSidebar'
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center">
-      <NavBar />
+      {/* <NavBar /> */}
       <SocialsSidebar />
       <Hero />
       <AboutMe />

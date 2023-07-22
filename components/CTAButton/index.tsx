@@ -10,15 +10,15 @@ import { ExternalLinkIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const CTAButtonStyles = cva(
-  'rounded-xl bg-inherit py-3 sm:py-4 text-center flex items-center px-6 sm:px-10 text-primary cursor-pointer select-none',
+  'rounded-xl bg-inherit py-3 sm:py-4 text-center flex items-center px-6 sm:px-10 justify-center text-primary cursor-pointer select-none',
   {
     variants: {
       intent: {
         primary: 'bg-accent text-primary-background',
-        secondary: 'border-4 border-accent text-accent ',
+        secondary: 'border-4 border-accent text-accent bg-primary-hero',
       },
       external: {
-        true: 'items-baseline justify-center',
+        true: 'items-baseline',
       },
     },
   }

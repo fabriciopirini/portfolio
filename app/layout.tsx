@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { League_Spartan } from 'next/font/google'
 
 import { HeroPattern } from '@/components/HeroPattern'
+import { NavBar } from '@/components/NavBar'
 
 import '@/app/globals.css'
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           process.env.VERCEL_ENV === 'production' ? '' : 'debug-screens'
         }`}
       >
+        {/* <NavBar /> */}
         {children}
         {/* <HeroPattern /> */}
         <Analytics />

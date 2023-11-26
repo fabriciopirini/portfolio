@@ -1,10 +1,11 @@
+import tailwindTypography from '@tailwindcss/typography'
 import type { Config } from 'tailwindcss'
 import tailwindAnimate from 'tailwindcss-animate'
 import tailwindDebugScreens from 'tailwindcss-debug-screens'
 
 export const config = {
   darkMode: ['class'],
-  content: ['./components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}'],
+  content: ['./components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}', './content/**/*.mdx'],
   future: { hoverOnlyWhenSupported: true },
   theme: {
     container: {
@@ -55,7 +56,7 @@ export const config = {
       },
     },
   },
-  plugins: [tailwindDebugScreens, tailwindAnimate],
+  plugins: [tailwindDebugScreens, tailwindAnimate, tailwindTypography],
 } satisfies Config
 
 export default config

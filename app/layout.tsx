@@ -1,9 +1,6 @@
 import { Analytics } from '@vercel/analytics/react'
 import { League_Spartan } from 'next/font/google'
 
-import { HeroPattern } from '@/components/HeroPattern'
-import { NavBar } from '@/components/NavBar'
-
 import '@/app/globals.css'
 
 const inter = League_Spartan({ subsets: ['latin'] })

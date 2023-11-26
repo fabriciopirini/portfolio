@@ -8,7 +8,8 @@
   "rules": {
     "@typescript-eslint/consistent-type-imports": "warn",
     "@typescript-eslint/ban-ts-comment": ["error", { "ts-ignore": "allow-with-description" }],
-    "tailwindcss/classnames-order": "off" // conflicts with prettier-plugin-tailwindcss
+    "tailwindcss/classnames-order": "off", // conflicts with prettier-plugin-tailwindcss
+    "@typescript-eslint/no-unused-vars": "warn"
   },
   "overrides": [
     {

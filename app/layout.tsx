@@ -1,4 +1,5 @@
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { League_Spartan } from 'next/font/google'
 
 import '@/app/globals.css'
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         {/* <HeroPattern /> */}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

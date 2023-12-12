@@ -27,25 +27,25 @@ export const NameBanner = () => {
         },
       }}
     >
-      <motion.p
+      <motion.h1
         className="flex flex-col gap-3 pb-5 sm:flex-row sm:items-center"
         variants={FADE_DOWN_ANIMATION_VARIANTS}
       >
         <span>I&apos;m</span>
         <span className="inline-block text-5xl font-medium text-accent md:text-6xl">Fabricio Pirini</span>
-      </motion.p>
-      <motion.p className="flex flex-row items-baseline gap-3" variants={FADE_DOWN_ANIMATION_VARIANTS}>
+      </motion.h1>
+      <motion.h2 className="flex flex-row items-baseline gap-3" variants={FADE_DOWN_ANIMATION_VARIANTS}>
         <Laptop2Icon size={20} className="inline-block" />
         Senior Frontend Engineer
-      </motion.p>
-      <motion.p className="flex flex-row items-baseline gap-3" variants={FADE_DOWN_ANIMATION_VARIANTS}>
+      </motion.h2>
+      <motion.h2 className="flex flex-row items-baseline gap-3" variants={FADE_DOWN_ANIMATION_VARIANTS}>
         <Clock7Icon size={20} className="inline-block" />
         {diffYears ?? 6}+ years of experience
-      </motion.p>
-      <motion.p className="mb-4 flex flex-row items-baseline gap-3" variants={FADE_DOWN_ANIMATION_VARIANTS}>
+      </motion.h2>
+      <motion.h2 className="mb-4 flex flex-row items-baseline gap-3" variants={FADE_DOWN_ANIMATION_VARIANTS}>
         <GlobeIcon size={20} className="inline-block" />
         Based in Norway
-      </motion.p>
+      </motion.h2>
       <motion.div className="flex flex-col-reverse gap-6 pb-8 sm:flex-row">
         <CTAButton type="secondary" external text="Resume" href="https://bit.ly/fabriciopirini-updated-CV" isAnimated />
         <Popover>

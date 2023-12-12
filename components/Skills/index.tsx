@@ -38,7 +38,7 @@ export const Skills = () => {
             className="flex h-36 w-36 flex-col items-center justify-center gap-2 rounded-2xl bg-skill-card p-8 shadow-2xl md:h-48 md:w-48 md:gap-4 md:p-16"
           >
             <Image className="h-auto w-auto" width={150} height={150} src={skill.icon} alt={skill.name} />
-            <span className="text-lg font-semibold">{skill.name}</span>
+            <h3 className="text-lg font-semibold">{skill.name}</h3>
           </div>
         ))}
       </div>

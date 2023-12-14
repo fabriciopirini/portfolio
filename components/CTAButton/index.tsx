@@ -21,52 +21,71 @@ const CTAButtonStyles = cva(
         true: 'items-baseline',
       },
     },
-  }
+  },
 )
+
+const animation = {
+  whileHover: {
+    scale: 1.05,
+    transition: {
+      duration: 0.3,
+    },
+  },
+  whileTap: {
+    scale: 0.9,
+    transition: {
+      duration: 0.2,
+    },
+  },
+  variants: {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, y: 0, transition: { type: 'spring' } },
+  },
+}
 
 type CTAButtonProps = {
   text: string
   type?: 'primary' | 'secondary'
   external?: boolean
   href?: string
-  isAnimated?: boolean
 }
 
-export const CTAButton = React.forwardRef((props: CTAButtonProps, ref) => {
+export const CTAButton = React.forwardRef(({ type = 'primary', ...props }: CTAButtonProps, ref) => {
   const [isAnimationRunning, setIsAnimationRunning] = useState(false)
 
-  const { type = 'primary', text, external = false, href, isAnimated = false } = props
+  const { text, external = false, href } = props
+
+  if (external) {
+    return (
+      <motion.a
+        ref={ref as Ref<HTMLAnchorElement>}
+        target="_blank"
+        rel="noopener noreferrer"
+        href={href}
+        className={cn(CTAButtonStyles({ intent: type }), isAnimationRunning && 'animate-none')}
+        onClick={() => setIsAnimationRunning(true)}
+        onAnimationEnd={() => setIsAnimationRunning(false)}
+        {...animation}
+        {...props}
+      >
+        {text}
+        {external && <ExternalLinkIcon size={20} className="ml-2 inline-block" />}
+      </motion.a>
+    )
+  }
 
   return (
-    <motion.a
-      ref={ref as Ref<HTMLAnchorElement>}
-      whileHover={{
-        scale: 1.05,
-        transition: {
-          duration: 0.3,
-        },
-      }}
-      whileTap={{
-        scale: 0.9,
-        transition: {
-          duration: 0.2,
-        },
-      }}
+    <motion.button
+      ref={ref as Ref<HTMLButtonElement>}
       className={cn(CTAButtonStyles({ intent: type }), isAnimationRunning && 'animate-none')}
       onClick={() => setIsAnimationRunning(true)}
       onAnimationEnd={() => setIsAnimationRunning(false)}
-      {...(external && { target: '_blank', rel: 'noopener noreferrer', href })}
-      {...(isAnimated && {
-        variants: {
-          hidden: { opacity: 0 },
-          show: { opacity: 1, y: 0, transition: { type: 'spring' } },
-        },
-      })}
+      {...animation}
       {...props}
     >
       {text}
       {external && <ExternalLinkIcon size={20} className="ml-2 inline-block" />}
-    </motion.a>
+    </motion.button>
   )
 })
 

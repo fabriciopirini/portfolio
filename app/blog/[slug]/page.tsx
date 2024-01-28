@@ -5,7 +5,7 @@ import { getBlogPosts } from '@/app/db/blog'
 import { CustomMDX } from '@/components/CustomMDX'
 
 export async function generateMetadata({ params }): Promise<Metadata | undefined> {
-  const post = getBlogPosts().find((post) => post.slug === params.slug)
+  const post = getBlogPosts().find(post => post.slug === params.slug)
   if (!post) {
     return
   }
@@ -55,7 +55,7 @@ function formatDate(date: string) {
 }
 
 export default function Blog({ params }) {
-  const post = getBlogPosts().find((post) => post.slug === params.slug)
+  const post = getBlogPosts().find(post => post.slug === params.slug)
 
   if (!post) {
     notFound()

@@ -1,11 +1,10 @@
 'use client'
 
-import type { Ref } from 'react'
-import { useState } from 'react'
-import React from 'react'
 import { cva } from 'class-variance-authority'
 import { motion } from 'framer-motion'
 import { ExternalLinkIcon } from 'lucide-react'
+import type { Ref } from 'react'
+import React, { useState } from 'react'
 
 import { cn } from '@/lib/utils'
 
@@ -21,7 +20,7 @@ const CTAButtonStyles = cva(
         true: 'items-baseline',
       },
     },
-  },
+  }
 )
 
 const animation = {
@@ -50,13 +49,14 @@ type CTAButtonProps = {
   href?: string
 }
 
-export const CTAButton = React.forwardRef(({ type = 'primary', ...props }: CTAButtonProps, ref) => {
+export const CTAButton = React.forwardRef(({ type = 'primary', external = false, ...props }: CTAButtonProps, ref) => {
   const [isAnimationRunning, setIsAnimationRunning] = useState(false)
 
-  const { text, external = false, href } = props
+  const { text, href } = props
 
   if (external) {
     return (
+      // biome-ignore lint/a11y/useValidAnchor: It is a valid anchor with a valid href
       <motion.a
         ref={ref as Ref<HTMLAnchorElement>}
         target="_blank"

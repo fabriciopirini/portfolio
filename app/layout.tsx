@@ -1,6 +1,6 @@
+import Thumbnail from '@/public/assets/thumbnail.png'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import Thumbnail from '@/public/assets/thumbnail.png'
 import { Metadata } from 'next'
 import { League_Spartan } from 'next/font/google'
 
@@ -10,16 +10,16 @@ const inter = League_Spartan({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://fabriciopirini.com'),
-  title: 'Fabricio Pirini - Senior Frontend Engineer & Web Development Expert',
+  title: 'Fabricio Pirini - Senior Web Fullstack Engineer',
   description:
-    'Meet Fabricio Pirini, a seasoned Senior Frontend Engineer with over 6 years of experience specializing in React, Next.js, and Typescript.',
+    'Meet Fabricio Pirini, a seasoned Senior Web Fullstack Engineer with over 6 years of experience specializing in the Frontend with React, Next.js, and Typescript.',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://fabriciopirini.com',
-    title: 'Fabricio Pirini - Senior Frontend Engineer & Web Development Expert',
+    title: 'Fabricio Pirini - Senior Web Fullstack Engineer',
     description:
-      'Meet Fabricio Pirini, a seasoned Senior Frontend Engineer with over 6 years of experience specializing in React, Next.js, and Typescript.',
+      'Meet Fabricio Pirini, a seasoned Senior Web Fullstack Engineer with over 6 years of experience specializing in the Frontend with React, Next.js, and Typescript.',
     siteName: 'Fabricio Pirini',
     images: [
       {

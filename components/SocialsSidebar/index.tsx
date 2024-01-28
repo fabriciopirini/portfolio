@@ -8,6 +8,7 @@ export const SocialsSidebar = () => (
       target="_blank"
       className="rounded-full bg-primary p-3 text-primary transition-colors duration-500 hover:bg-linkedIn hover:text-primary"
       aria-label="Checkout my LinkedIn profile"
+      rel="noreferrer"
     >
       <LinkedinIcon size={40} />
     </a>
@@ -16,6 +17,7 @@ export const SocialsSidebar = () => (
       target="_blank"
       className="rounded-full bg-primary p-3 text-primary transition-colors duration-500 hover:bg-white hover:text-primary-background"
       aria-label="Checkout my Github profile"
+      rel="noreferrer"
     >
       <GithubIcon size={40} />
     </a>

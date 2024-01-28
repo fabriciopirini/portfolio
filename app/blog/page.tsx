@@ -20,7 +20,7 @@ export default function BlogPage() {
           }
           return 1
         })
-        .map((post) => (
+        .map(post => (
           <Link key={post.slug} className="mb-4 flex flex-col space-y-1" href={`/blog/${post.slug}`}>
             <div className="flex w-full flex-col">
               <p className="text-xl tracking-tight text-neutral-100 underline">{post.metadata.title}</p>

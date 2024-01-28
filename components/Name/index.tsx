@@ -47,7 +47,7 @@ export const NameBanner = () => {
         Based in Norway
       </motion.h2>
       <motion.div className="flex flex-col-reverse gap-6 pb-8 sm:flex-row">
-        <CTAButton type="secondary" external text="Resume" href="https://bit.ly/fabriciopirini-updated-CV" />
+        <CTAButton type="secondary" text="Resume" href="https://bit.ly/fabriciopirini-updated-CV" external />
         <Popover>
           <PopoverTrigger asChild>
             <CTAButton type="primary" text="Contact me" />

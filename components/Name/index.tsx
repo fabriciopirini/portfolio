@@ -1,4 +1,5 @@
 'use client'
+
 import { motion } from 'framer-motion'
 import { Clock7Icon, GlobeIcon, Laptop2Icon, Linkedin, Mail } from 'lucide-react'
 
@@ -47,10 +48,10 @@ export const NameBanner = () => {
         <span>Based in Norway</span>
       </motion.h2>
       <motion.div className="flex flex-col-reverse gap-6 pb-8 sm:flex-row">
-        <CTAButton type="secondary" text="Resume" href="https://bit.ly/fabriciopirini-updated-CV" external />
+        <CTAButton href="/api/resume" text="Resume" type="secondary" as="link" download />
         <Popover>
           <PopoverTrigger asChild>
-            <CTAButton type="primary" text="Contact me" />
+            <CTAButton type="primary" text="Contact me" as="button" />
           </PopoverTrigger>
           <PopoverContent className="mt-4 rounded-xl border-2 border-accent bg-white drop-shadow-md" align="center">
             <motion.div

@@ -22,6 +22,7 @@
     "next-mdx-remote": "^4.4.1",
     "next-sitemap": "^4.2.3",
     "postcss": "^8.4.32",
+    "posthog-js": "^1.106.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sharp": "^0.33.0",

@@ -5,6 +5,7 @@ import { Metadata } from 'next'
 import { League_Spartan } from 'next/font/google'
 
 import '@/app/globals.css'
+import { CSPostHogProvider } from '@/components/Providers'
 
 const inter = League_Spartan({ subsets: ['latin'] })
 
@@ -54,17 +55,19 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} overflow-x-hidden antialiased ${
-          process.env.VERCEL_ENV === 'production' ? '' : 'debug-screens'
-        }`}
-      >
-        {/* <NavBar /> */}
-        {children}
-        {/* <HeroPattern /> */}
-        <Analytics />
-        <SpeedInsights />
-      </body>
+      <CSPostHogProvider>
+        <body
+          className={`${inter.className} overflow-x-hidden antialiased ${
+            process.env.VERCEL_ENV === 'production' ? '' : 'debug-screens'
+          }`}
+        >
+          {/* <NavBar /> */}
+          {children}
+          {/* <HeroPattern /> */}
+          <Analytics />
+          <SpeedInsights />
+        </body>
+      </CSPostHogProvider>
     </html>
   )
 }

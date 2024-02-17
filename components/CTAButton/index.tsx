@@ -65,6 +65,7 @@ export const CTAButton = React.forwardRef(({ type = 'primary', external = false,
         className={cn(CTAButtonStyles({ intent: type }), isAnimationRunning && 'animate-none')}
         onClick={() => setIsAnimationRunning(true)}
         onAnimationEnd={() => setIsAnimationRunning(false)}
+        suppressHydrationWarning
         {...animation}
         {...props}
       >
@@ -80,6 +81,7 @@ export const CTAButton = React.forwardRef(({ type = 'primary', external = false,
       className={cn(CTAButtonStyles({ intent: type }), isAnimationRunning && 'animate-none')}
       onClick={() => setIsAnimationRunning(true)}
       onAnimationEnd={() => setIsAnimationRunning(false)}
+      suppressHydrationWarning
       {...animation}
       {...props}
     >

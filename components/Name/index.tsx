@@ -36,15 +36,15 @@ export const NameBanner = () => {
       </motion.h1>
       <motion.h2 className="flex flex-row items-baseline gap-3" variants={FADE_DOWN_ANIMATION_VARIANTS}>
         <Laptop2Icon size={20} className="inline-block" />
-        Senior Frontend Engineer
+        <span>Senior Frontend Engineer</span>
       </motion.h2>
       <motion.h2 className="flex flex-row items-baseline gap-3" variants={FADE_DOWN_ANIMATION_VARIANTS}>
         <Clock7Icon size={20} className="inline-block" />
-        {diffYears ?? 6}+ years of experience
+        <span>{`${diffYears ?? 6}+ years of experience`}</span>
       </motion.h2>
       <motion.h2 className="mb-4 flex flex-row items-baseline gap-3" variants={FADE_DOWN_ANIMATION_VARIANTS}>
         <GlobeIcon size={20} className="inline-block" />
-        Based in Norway
+        <span>Based in Norway</span>
       </motion.h2>
       <motion.div className="flex flex-col-reverse gap-6 pb-8 sm:flex-row">
         <CTAButton type="secondary" text="Resume" href="https://bit.ly/fabriciopirini-updated-CV" external />

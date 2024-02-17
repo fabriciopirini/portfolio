@@ -10,7 +10,7 @@ export const Hero = () => (
     </div>
     <div className="flex h-full w-full md:w-auto">
       <Image
-        className="relative z-20 mx-auto mt-8 h-auto min-h-[300px] w-5/6 grow brightness-[0.85] sm:w-4/6 md:absolute md:bottom-0 md:right-0 md:h-2/3 md:w-auto lg:mr-36 lg:mt-0 lg:grow-0"
+        className="relative z-20 mx-auto mt-8 h-auto min-h-[300px] max-h-[500px] w-5/6 grow brightness-[0.85] sm:w-4/6 md:absolute md:bottom-0 md:right-0 md:h-2/3 md:w-auto lg:mr-36 lg:mt-0 lg:grow-0 2xl:max-h-[700px]"
         src={ProfilePic}
         alt="Profile Picture"
         width={500}

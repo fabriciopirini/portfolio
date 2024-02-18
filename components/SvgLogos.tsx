@@ -200,8 +200,8 @@ export const AzureLogo = ({ className }) => {
           gradientTransform="matrix(1 0 0 -1 1075 158)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#114a8b" />
-          <stop offset="1" stop-color="#0669bc" />
+          <stop offset="0" stopColor="#114a8b" />
+          <stop offset="1" stopColor="#0669bc" />
         </linearGradient>
         <linearGradient
           id={`b_${uniqueId}`}
@@ -212,11 +212,11 @@ export const AzureLogo = ({ className }) => {
           gradientTransform="matrix(1 0 0 -1 1075 158)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-opacity=".3" />
-          <stop offset=".07" stop-opacity=".2" />
-          <stop offset=".32" stop-opacity=".1" />
-          <stop offset=".62" stop-opacity=".05" />
-          <stop offset="1" stop-opacity="0" />
+          <stop offset="0" stopOpacity=".3" />
+          <stop offset=".07" stopOpacity=".2" />
+          <stop offset=".32" stopOpacity=".1" />
+          <stop offset=".62" stopOpacity=".05" />
+          <stop offset="1" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id={`c_${uniqueId}`}
@@ -227,8 +227,8 @@ export const AzureLogo = ({ className }) => {
           gradientTransform="matrix(1 0 0 -1 1075 158)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#3ccbf4" />
-          <stop offset="1" stop-color="#2892df" />
+          <stop offset="0" stopColor="#3ccbf4" />
+          <stop offset="1" stopColor="#2892df" />
         </linearGradient>
       </defs>
     </svg>
@@ -297,8 +297,8 @@ export const TailwindCSSLogo = ({ className }) => {
       />
       <defs>
         <linearGradient x1="-2.778%" y1="32%" x2="100%" y2="67.556%" id={`a_${uniqueId}`}>
-          <stop stop-color="#2298BD" offset="0%" />
-          <stop stop-color="#0ED7B5" offset="100%" />
+          <stop stopColor="#2298BD" offset="0%" />
+          <stop stopColor="#0ED7B5" offset="100%" />
         </linearGradient>
       </defs>
     </svg>
@@ -343,7 +343,7 @@ export const SanityLogo = ({ className }) => (
 
 export const FigmaLogo = ({ className }) => (
   <svg width="54" height="80" viewBox="0 0 54 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-    <g clip-path="url(#clip0_912_3)">
+    <g clipPath="url(#clip0_912_3)">
       <path
         d="M13.3333 80.0002C20.6933 80.0002 26.6667 74.0268 26.6667 66.6668V53.3335H13.3333C5.97333 53.3335 0 59.3068 0 66.6668C0 74.0268 5.97333 80.0002 13.3333 80.0002Z"
         fill="#0ACF83"

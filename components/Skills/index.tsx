@@ -75,7 +75,7 @@ export const Skills = () => {
         {skills.map(skill => (
           <div
             key={skill.name}
-            className="flex h-auto w-40 flex-col items-center justify-between gap-2 rounded-2xl bg-skill-card drop-shadow-2xl duration-300 hover:scale-[1.05] p-8 md:h-56 md:w-56 md:gap-4"
+            className="flex h-auto w-40 flex-col items-center justify-between gap-2 rounded-2xl bg-skill-card drop-shadow-2xl duration-300 transition-transform focus:scale-105 hover:scale-105 ease-in-out p-8 md:h-56 md:w-56 md:gap-4"
           >
             {skill.icon}
             {/* <Image className="h-auto w-auto" width={150} height={150} src={skill.icon} alt={skill.name} /> */}

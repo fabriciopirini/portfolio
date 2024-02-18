@@ -6,7 +6,7 @@ export async function GET(request: Request) {
   const resumeUrl = 'https://raw.githubusercontent.com/fabriciopirini/utils/master/Resume/Fabricio_Pirini_CV.pdf'
 
   try {
-    const response = await fetch(resumeUrl)
+    const response = await fetch(resumeUrl, { cache: 'no-store' })
 
     if (!response.ok) {
       throw new Error(`Failed to fetch the resume: ${response.statusText}`)

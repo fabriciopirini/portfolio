@@ -1,9 +1,9 @@
 export const AboutMe = () => (
   <section className="container w-full py-16 md:py-32">
     <h2 className="text-5xl font-bold">About</h2>
-    <div className="flex flex-col gap-5 py-6 text-2xl md:flex-row md:pl-0 md:pr-16">
-      <hr className="mt-4 block h-1 w-full bg-accent md:inline-block md:w-1/12" />
-      <p className="w-full md:w-11/12 md:text-left bg-[#383a44]/60 z-10">
+    <hr className="mt-4 block h-1 w-full bg-accent md:inline-block md:w-1/12" />
+    <div className="flex flex-col gap-5 py-6 text-2xl md:flex-row md:pl-0 md:pr-6">
+      <p className="w-full md:text-left bg-[#383a44]/60 z-10">
         Greetings! I&apos;m Fabricio, an ambitious Computer Engineer with a demonstrated track record in Web
         Development, currently spearheading front-end operations at Norsk Gjenvinning. My technical arsenal includes
         mastery of industry-leading tools like React, Next.js, and Typescript. As a proud alumnus of UNIFEI and an

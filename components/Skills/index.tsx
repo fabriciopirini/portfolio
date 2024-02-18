@@ -1,43 +1,84 @@
-import Image from 'next/image'
+import {
+  AzureLogo,
+  FigmaLogo,
+  GraphQLLogo,
+  JavaScriptLogo,
+  NextjsLogo,
+  NodejsLogo,
+  PlaywrightLogo,
+  ReactLogo,
+  SanityLogo,
+  TailwindCSSLogo,
+  TypeScriptLogo,
+  VercelLogo,
+} from '@/components/SvgLogos'
+import { cn } from '@/lib/utils'
+
+const LogoStyles = 'h-16 w-16 min-h-16 min-w-16 md:h-24 md:w-24 md:min-h-24 md:min-w-24'
 
 export const Skills = () => {
   const skills = [
     {
       name: 'JavaScript',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+      icon: <JavaScriptLogo className={cn(LogoStyles)} />,
     },
     {
       name: 'TypeScript',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+      icon: <TypeScriptLogo className={cn(LogoStyles)} />,
     },
     {
       name: 'React',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+      icon: <ReactLogo className={cn(LogoStyles)} />,
     },
     {
       name: 'Next.js',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
+      icon: <NextjsLogo className={cn(LogoStyles)} />,
     },
     {
       name: 'Node.js',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+      icon: <NodejsLogo className={cn(LogoStyles)} />,
     },
     {
       name: 'GraphQL',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg',
+      icon: <GraphQLLogo className={cn(LogoStyles)} />,
     },
-  ]
+    {
+      name: 'Vercel',
+      icon: <VercelLogo className={cn(LogoStyles)} />,
+    },
+    {
+      name: 'Azure',
+      icon: <AzureLogo className={cn(LogoStyles)} />,
+    },
+    {
+      name: 'Playwright',
+      icon: <PlaywrightLogo className={cn(LogoStyles)} />,
+    },
+    {
+      name: 'TailwindCSS',
+      icon: <TailwindCSSLogo className={cn(LogoStyles)} />,
+    },
+    {
+      name: 'Figma',
+      icon: <FigmaLogo className={cn(LogoStyles)} />,
+    },
+    {
+      name: 'CMS',
+      icon: <SanityLogo className={cn(LogoStyles)} />,
+    },
+  ] as const
 
   return (
     <section className="container w-full pt-4 md:pt-10">
-      <h2 className="text-center text-5xl font-bold">My Skills</h2>
+      <h2 className="text-center text-5xl font-bold">Technology</h2>
       <div className="flex flex-row flex-wrap items-center justify-center gap-5 py-6 text-2xl md:flex-[1_1_21%]">
-        {skills.map((skill, index) => (
+        {skills.map(skill => (
           <div
-            key={index}
-            className="flex h-36 w-36 flex-col items-center justify-center gap-2 rounded-2xl bg-skill-card p-8 shadow-2xl md:h-48 md:w-48 md:gap-4 md:p-16"
+            key={skill.name}
+            className="flex h-auto w-40 flex-col items-center justify-between gap-2 rounded-2xl bg-skill-card drop-shadow-2xl duration-300 hover:scale-[1.05] p-8 md:h-56 md:w-56 md:gap-4"
           >
-            <Image className="h-auto w-auto" width={150} height={150} src={skill.icon} alt={skill.name} />
+            {skill.icon}
+            {/* <Image className="h-auto w-auto" width={150} height={150} src={skill.icon} alt={skill.name} /> */}
             <h3 className="text-lg font-semibold">{skill.name}</h3>
           </div>
         ))}

@@ -54,6 +54,15 @@ export const config = {
       minHeight: {
         comfortable: 'calc(max(100vh, 900px))',
       },
+      boxShadow: {
+        'elevation-low': 'var(--shadow-elevation-low)',
+        'elevation-medium': 'var(--shadow-elevation-medium)',
+        'elevation-high': 'var(--shadow-elevation-high)',
+      },
+      dropShadow: {
+        // 'card-accent': '1px 2px 8px hsl(var(--shadow-color))',
+        'card-accent': '0 1px 2px hsl(var(--shadow-color))',
+      },
     },
   },
   plugins: [tailwindDebugScreens, tailwindAnimate, tailwindTypography],

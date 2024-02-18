@@ -5,6 +5,7 @@ import { GoogleGeminiEffect } from '@/components/GoogleGeminiEffect'
 import { Hero } from '@/components/Hero'
 import { Skills } from '@/components/Skills'
 import { SocialsSidebar } from '@/components/SocialsSidebar'
+import { WorkExperience } from '@/components/WorkExperience'
 import { useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 
@@ -21,12 +22,15 @@ export default function Home() {
   ]
 
   return (
-    <main ref={ref} className="flex min-h-screen flex-col items-center">
+    <main ref={ref} className="flex min-h-screen flex-col items-center mb-3 md:mb-10">
       {/* <NavBar /> */}
       <SocialsSidebar />
       <Hero />
-      <AboutMe />
-      <Skills />
+      <div className="md:px-10">
+        <AboutMe />
+        <Skills />
+        <WorkExperience />
+      </div>
       {/* <div className="fixed w-screen h-screen inset-0 rotate-90 lg:rotate-0 lg:container lg:w-full lg:h-full overflow-hidden">
         <GoogleGeminiEffect pathLengths={pathLengths} />
       </div> */}

@@ -35,7 +35,7 @@ export const NameBanner = () => {
         className="flex flex-col gap-3 pb-5 sm:flex-row sm:items-center"
         variants={FADE_DOWN_ANIMATION_VARIANTS}
       >
-        <span>I&apos;m</span>
+        <span>I&apos;m</span>{' '}
         <span className="inline-block text-5xl font-medium text-accent md:text-6xl">Fabricio Pirini</span>
       </motion.h1>
       <motion.h2 className="flex flex-row items-baseline gap-3" variants={FADE_DOWN_ANIMATION_VARIANTS}>

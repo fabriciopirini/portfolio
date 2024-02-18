@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 import { NameBanner } from '@/components/Name'
-import ProfilePic from '@/public/assets/portrait-grayscale-2.png'
+import ProfilePic from '@/public/assets/portrait-grayscale-2.avif'
 
 export const Hero = () => (
   <section className="flex min-h-screen w-full grow flex-col items-start justify-center bg-primary-hero px-8 pt-16 text-6xl shadow-xl md:flex-row md:px-36 md:pt-0">

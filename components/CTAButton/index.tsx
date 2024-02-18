@@ -8,6 +8,7 @@ import React, { useState } from 'react'
 
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
+import { usePostHog } from 'posthog-js/react'
 
 export const CTAButtonStyles = cva(
   'rounded-xl bg-inherit text-3xl py-3 sm:py-4 text-center flex items-center px-5 sm:px-8 justify-center text-primary cursor-pointer select-none',
@@ -44,6 +45,7 @@ const animation = {
 }
 
 type CTAButtonProps = {
+  id?: string
   text: string
   type?: 'primary' | 'secondary'
   external?: boolean
@@ -56,6 +58,8 @@ export const CTAButton = React.forwardRef(
   ({ type = 'primary', external = false, as, download, ...props }: CTAButtonProps, ref) => {
     const [isAnimationRunning, setIsAnimationRunning] = useState(false)
 
+    const posthog = usePostHog()
+
     const { text, href } = props
 
     if (as === 'link') {
@@ -66,7 +70,10 @@ export const CTAButton = React.forwardRef(
           {...(external && { target: '_blank', rel: 'noopener noreferrer' })}
           href={href}
           className={cn(CTAButtonStyles({ intent: type, external }), isAnimationRunning && 'animate-none')}
-          onClick={() => setIsAnimationRunning(true)}
+          onClick={() => {
+            setIsAnimationRunning(true)
+            posthog?.capture(props.id || 'cta_button_click')
+          }}
           onAnimationEnd={() => setIsAnimationRunning(false)}
           suppressHydrationWarning
           {...animation}
@@ -83,7 +90,10 @@ export const CTAButton = React.forwardRef(
       <motion.button
         ref={ref as Ref<HTMLButtonElement>}
         className={cn(CTAButtonStyles({ intent: type }), isAnimationRunning && 'animate-none')}
-        onClick={() => setIsAnimationRunning(true)}
+        onClick={() => {
+          setIsAnimationRunning(true)
+          posthog?.capture(props.id || 'cta_button_click')
+        }}
         onAnimationEnd={() => setIsAnimationRunning(false)}
         suppressHydrationWarning
         {...animation}

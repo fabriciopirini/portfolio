@@ -2,12 +2,15 @@
 
 import { motion } from 'framer-motion'
 import { Clock7Icon, GlobeIcon, Laptop2Icon, Linkedin, Mail } from 'lucide-react'
+import { usePostHog } from 'posthog-js/react'
 
 import { CTAButton } from '@/components/CTAButton'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { FADE_DOWN_ANIMATION_VARIANTS, FADE_RIGHT_ANIMATION_VARIANTS } from '@/lib/constants'
 
 export const NameBanner = () => {
+  const posthog = usePostHog()
+
   const date1 = new Date('2017-09-01') // 1 year before I started working as a developer at Sportradar (that includes my internship)
   const date2 = new Date()
 
@@ -48,8 +51,13 @@ export const NameBanner = () => {
         <span>Based in Norway</span>
       </motion.h2>
       <motion.div className="flex flex-col-reverse gap-6 pb-8 sm:flex-row">
-        <CTAButton type="secondary" as="link" href="/api/resume" text="Resume" download />
-        <Popover>
+        <CTAButton id="resume_download" type="secondary" as="link" href="/api/resume" text="Resume" download />
+        <Popover
+          onOpenChange={value => {
+            const event = value ? 'contact_me_open' : 'contact_me_close'
+            posthog?.capture(event)
+          }}
+        >
           <PopoverTrigger asChild>
             <CTAButton type="primary" as="button" text="Contact me" />
           </PopoverTrigger>
@@ -68,25 +76,33 @@ export const NameBanner = () => {
               }}
               className="flex flex-row items-center justify-around gap-3"
             >
+              {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
               <motion.a
                 href="mailto:fabriciopirini@gmail.com"
                 className="flex flex-col gap-2"
                 variants={FADE_RIGHT_ANIMATION_VARIANTS}
+                onClick={() => posthog?.capture('contact_me_email')}
               >
                 <div className="rounded-full bg-primary p-4">
                   <Mail size={32} className="mx-auto inline-block" />
                 </div>
                 <span className="mx-auto text-lg text-primary-background">Email</span>
+                <span className="sr-only">Send email to Fabricio</span>
               </motion.a>
+              {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
               <motion.a
                 href="https://www.linkedin.com/in/fabriciopirini/"
+                target="_blank"
+                rel="noreferrer"
                 className="flex flex-col items-center justify-center gap-2"
                 variants={FADE_RIGHT_ANIMATION_VARIANTS}
+                onClick={() => posthog?.capture('contact_me_linkedin')}
               >
                 <div className="rounded-full bg-primary p-4">
                   <Linkedin size={32} className="mx-auto inline-block" />
                 </div>
                 <span className="mx-auto text-lg text-primary-background">LinkedIn</span>
+                <span className="sr-only">Visit Fabricio's LinkedIn profile</span>
               </motion.a>
             </motion.div>
           </PopoverContent>

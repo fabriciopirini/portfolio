@@ -48,10 +48,10 @@ export const NameBanner = () => {
         <span>Based in Norway</span>
       </motion.h2>
       <motion.div className="flex flex-col-reverse gap-6 pb-8 sm:flex-row">
-        <CTAButton href="/api/resume" text="Resume" type="secondary" as="link" download />
+        <CTAButton type="secondary" as="link" href="/api/resume" text="Resume" download />
         <Popover>
           <PopoverTrigger asChild>
-            <CTAButton type="primary" text="Contact me" as="button" />
+            <CTAButton type="primary" as="button" text="Contact me" />
           </PopoverTrigger>
           <PopoverContent className="mt-4 rounded-xl border-2 border-accent bg-white drop-shadow-md" align="center">
             <motion.div

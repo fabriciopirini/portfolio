@@ -49,12 +49,11 @@ type CTAButtonProps = {
   external?: boolean
   download?: boolean
   href?: string
-  onClick?: () => void
   as?: 'button' | 'link'
 }
 
 export const CTAButton = React.forwardRef(
-  ({ type = 'primary', external = false, onClick, as, download, ...props }: CTAButtonProps, ref) => {
+  ({ type = 'primary', external = false, as, download, ...props }: CTAButtonProps, ref) => {
     const [isAnimationRunning, setIsAnimationRunning] = useState(false)
 
     const { text, href } = props
@@ -67,10 +66,7 @@ export const CTAButton = React.forwardRef(
           {...(external && { target: '_blank', rel: 'noopener noreferrer' })}
           href={href}
           className={cn(CTAButtonStyles({ intent: type, external }), isAnimationRunning && 'animate-none')}
-          onClick={() => {
-            setIsAnimationRunning(true)
-            onClick?.()
-          }}
+          onClick={() => setIsAnimationRunning(true)}
           onAnimationEnd={() => setIsAnimationRunning(false)}
           suppressHydrationWarning
           {...animation}

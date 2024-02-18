@@ -39,6 +39,7 @@
     "@types/react-dom": "^18.2.19",
     "tailwindcss-debug-screens": "^2.2.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vercel": "^33.5.1"
   }
 }

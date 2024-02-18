@@ -1,16 +1,35 @@
+'use client'
+
 import { AboutMe } from '@/components/AboutMe'
+import { GoogleGeminiEffect } from '@/components/GoogleGeminiEffect'
 import { Hero } from '@/components/Hero'
 import { Skills } from '@/components/Skills'
 import { SocialsSidebar } from '@/components/SocialsSidebar'
+import { useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 
 export default function Home() {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll()
+
+  const pathLengths = [
+    useTransform(scrollYProgress, [0, 1], [0.1, 1]),
+    useTransform(scrollYProgress, [0, 1], [0.075, 1]),
+    useTransform(scrollYProgress, [0, 1], [0.05, 1]),
+    useTransform(scrollYProgress, [0, 1], [0.025, 1]),
+    useTransform(scrollYProgress, [0, 1], [0, 1]),
+  ]
+
   return (
-    <main className="flex min-h-screen flex-col items-center">
+    <main ref={ref} className="flex min-h-screen flex-col items-center">
       {/* <NavBar /> */}
       <SocialsSidebar />
       <Hero />
       <AboutMe />
       <Skills />
+      {/* <div className="fixed w-screen h-screen inset-0 rotate-90 lg:rotate-0 lg:container lg:w-full lg:h-full overflow-hidden">
+        <GoogleGeminiEffect pathLengths={pathLengths} />
+      </div> */}
     </main>
   )
 }

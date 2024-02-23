@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
-export const GraphQLLogo = ({ className }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" className={className}>
+export const GraphQLLogo = ({ className, ...props }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" className={className} {...props}>
     <g fill="#E434AA">
       <path d="M18.39 96.852l-4.6-2.657L65.04 5.434l4.597 2.656zm0 0" />
       <path d="M12.734 87.105H115.23v5.31H12.734zm0 0" />
@@ -15,7 +15,7 @@ export const GraphQLLogo = ({ className }) => (
   </svg>
 )
 
-export const NodejsLogo = ({ className }) => {
+export const NodejsLogo = ({ className, ...props }) => {
   const [uniqueId, setUniqueId] = useState('')
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export const NodejsLogo = ({ className }) => {
   }, [])
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" className={className}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" className={className} {...props}>
       <path
         fill={`url(#a_${uniqueId})`}
         d="M66.958.825a6.07 6.07 0 0 0-6.035 0L11.103 29.76c-1.895 1.072-2.96 3.095-2.96 5.24v57.988c0 2.143 1.183 4.167 2.958 5.24l49.82 28.934a6.07 6.07 0 0 0 6.036 0l49.82-28.935c1.894-1.072 2.958-3.096 2.958-5.24V35c0-2.144-1.183-4.167-2.958-5.24z"
@@ -85,8 +85,8 @@ export const NodejsLogo = ({ className }) => {
   )
 }
 
-export const ReactLogo = ({ className }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" className={className}>
+export const ReactLogo = ({ className, ...props }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" className={className} {...props}>
     <g fill="#61DAFB">
       <circle cx="64" cy="64" r="11.4" />
       <path d="M107.3 45.2c-2.2-.8-4.5-1.6-6.9-2.3.6-2.4 1.1-4.8 1.5-7.1 2.1-13.2-.2-22.5-6.6-26.1-1.9-1.1-4-1.6-6.4-1.6-7 0-15.9 5.2-24.9 13.9-9-8.7-17.9-13.9-24.9-13.9-2.4 0-4.5.5-6.4 1.6-6.4 3.7-8.7 13-6.6 26.1.4 2.3.9 4.7 1.5 7.1-2.4.7-4.7 1.4-6.9 2.3C8.2 50 1.4 56.6 1.4 64s6.9 14 19.3 18.8c2.2.8 4.5 1.6 6.9 2.3-.6 2.4-1.1 4.8-1.5 7.1-2.1 13.2.2 22.5 6.6 26.1 1.9 1.1 4 1.6 6.4 1.6 7.1 0 16-5.2 24.9-13.9 9 8.7 17.9 13.9 24.9 13.9 2.4 0 4.5-.5 6.4-1.6 6.4-3.7 8.7-13 6.6-26.1-.4-2.3-.9-4.7-1.5-7.1 2.4-.7 4.7-1.4 6.9-2.3 12.5-4.8 19.3-11.4 19.3-18.8s-6.8-14-19.3-18.8zM92.5 14.7c4.1 2.4 5.5 9.8 3.8 20.3-.3 2.1-.8 4.3-1.4 6.6-5.2-1.2-10.7-2-16.5-2.5-3.4-4.8-6.9-9.1-10.4-13 7.4-7.3 14.9-12.3 21-12.3 1.3 0 2.5.3 3.5.9zM81.3 74c-1.8 3.2-3.9 6.4-6.1 9.6-3.7.3-7.4.4-11.2.4-3.9 0-7.6-.1-11.2-.4-2.2-3.2-4.2-6.4-6-9.6-1.9-3.3-3.7-6.7-5.3-10 1.6-3.3 3.4-6.7 5.3-10 1.8-3.2 3.9-6.4 6.1-9.6 3.7-.3 7.4-.4 11.2-.4 3.9 0 7.6.1 11.2.4 2.2 3.2 4.2 6.4 6 9.6 1.9 3.3 3.7 6.7 5.3 10-1.7 3.3-3.4 6.6-5.3 10zm8.3-3.3c1.5 3.5 2.7 6.9 3.8 10.3-3.4.8-7 1.4-10.8 1.9 1.2-1.9 2.5-3.9 3.6-6 1.2-2.1 2.3-4.2 3.4-6.2zM64 97.8c-2.4-2.6-4.7-5.4-6.9-8.3 2.3.1 4.6.2 6.9.2 2.3 0 4.6-.1 6.9-.2-2.2 2.9-4.5 5.7-6.9 8.3zm-18.6-15c-3.8-.5-7.4-1.1-10.8-1.9 1.1-3.3 2.3-6.8 3.8-10.3 1.1 2 2.2 4.1 3.4 6.1 1.2 2.2 2.4 4.1 3.6 6.1zm-7-25.5c-1.5-3.5-2.7-6.9-3.8-10.3 3.4-.8 7-1.4 10.8-1.9-1.2 1.9-2.5 3.9-3.6 6-1.2 2.1-2.3 4.2-3.4 6.2zM64 30.2c2.4 2.6 4.7 5.4 6.9 8.3-2.3-.1-4.6-.2-6.9-.2-2.3 0-4.6.1-6.9.2 2.2-2.9 4.5-5.7 6.9-8.3zm22.2 21l-3.6-6c3.8.5 7.4 1.1 10.8 1.9-1.1 3.3-2.3 6.8-3.8 10.3-1.1-2.1-2.2-4.2-3.4-6.2zM31.7 35c-1.7-10.5-.3-17.9 3.8-20.3 1-.6 2.2-.9 3.5-.9 6 0 13.5 4.9 21 12.3-3.5 3.8-7 8.2-10.4 13-5.8.5-11.3 1.4-16.5 2.5-.6-2.3-1-4.5-1.4-6.6zM7 64c0-4.7 5.7-9.7 15.7-13.4 2-.8 4.2-1.5 6.4-2.1 1.6 5 3.6 10.3 6 15.6-2.4 5.3-4.5 10.5-6 15.5C15.3 75.6 7 69.6 7 64zm28.5 49.3c-4.1-2.4-5.5-9.8-3.8-20.3.3-2.1.8-4.3 1.4-6.6 5.2 1.2 10.7 2 16.5 2.5 3.4 4.8 6.9 9.1 10.4 13-7.4 7.3-14.9 12.3-21 12.3-1.3 0-2.5-.3-3.5-.9zM96.3 93c1.7 10.5.3 17.9-3.8 20.3-1 .6-2.2.9-3.5.9-6 0-13.5-4.9-21-12.3 3.5-3.8 7-8.2 10.4-13 5.8-.5 11.3-1.4 16.5-2.5.6 2.3 1 4.5 1.4 6.6zm9-15.6c-2 .8-4.2 1.5-6.4 2.1-1.6-5-3.6-10.3-6-15.6 2.4-5.3 4.5-10.5 6-15.5 13.8 4 22.1 10 22.1 15.6 0 4.7-5.8 9.7-15.7 13.4z" />
@@ -94,8 +94,8 @@ export const ReactLogo = ({ className }) => (
   </svg>
 )
 
-export const TypeScriptLogo = ({ className }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" className={className}>
+export const TypeScriptLogo = ({ className, ...props }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" className={className} {...props}>
     <path fill="#fff" d="M22.67 47h99.67v73.67H22.67z" />
     <path
       data-name="original"
@@ -105,8 +105,8 @@ export const TypeScriptLogo = ({ className }) => (
   </svg>
 )
 
-export const NextjsLogo = ({ className }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" className={className}>
+export const NextjsLogo = ({ className, ...props }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" className={className} {...props}>
     <circle cx="64" cy="64" r="64" />
     <path
       fill="url(#a)"
@@ -142,8 +142,8 @@ export const NextjsLogo = ({ className }) => (
   </svg>
 )
 
-export const JavaScriptLogo = ({ className }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" className={className}>
+export const JavaScriptLogo = ({ className, ...props }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" className={className} {...props}>
     <path fill="#F0DB4F" d="M1.408 1.408h125.184v125.185H1.408z" />
     <path
       fill="#323330"
@@ -152,7 +152,7 @@ export const JavaScriptLogo = ({ className }) => (
   </svg>
 )
 
-export const VercelLogo = ({ className }) => (
+export const VercelLogo = ({ className, ...props }) => (
   <svg
     viewBox="0 0 256 222"
     width="256"
@@ -160,12 +160,13 @@ export const VercelLogo = ({ className }) => (
     xmlns="http://www.w3.org/2000/svg"
     preserveAspectRatio="xMidYMid"
     className={className}
+    {...props}
   >
     <path fill="#fff" d="m128 0 128 221.705H0z" />
   </svg>
 )
 
-export const AzureLogo = ({ className }) => {
+export const AzureLogo = ({ className, ...props }) => {
   const [uniqueId, setUniqueId] = useState('')
 
   useEffect(() => {
@@ -173,7 +174,7 @@ export const AzureLogo = ({ className }) => {
   }, [])
 
   return (
-    <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" className={className} {...props}>
       <path
         fill={`url(#a_${uniqueId})`}
         d="M33.34 6.54h26.04l-27.03 80.1a4.15 4.15 0 0 1-3.94 2.81H8.15a4.14 4.14 0 0 1-3.93-5.47L29.4 9.38a4.15 4.15 0 0 1 3.94-2.83z"
@@ -235,7 +236,7 @@ export const AzureLogo = ({ className }) => {
   )
 }
 
-export const PlaywrightLogo = ({ className }) => (
+export const PlaywrightLogo = ({ className, ...props }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="400"
@@ -243,6 +244,7 @@ export const PlaywrightLogo = ({ className }) => (
     viewBox="0 0 400 400"
     fill="none"
     className={className}
+    {...props}
   >
     <path
       d="M136.444 221.556C123.558 225.213 115.104 231.625 109.535 238.032C114.869 233.364 122.014 229.08 131.652 226.348C141.51 223.554 149.92 223.574 156.869 224.915V219.481C150.941 218.939 144.145 219.371 136.444 221.556ZM108.946 175.876L61.0895 188.484C61.0895 188.484 61.9617 189.716 63.5767 191.36L104.153 180.668C104.153 180.668 103.578 188.077 98.5847 194.705C108.03 187.559 108.946 175.876 108.946 175.876ZM149.005 288.347C81.6582 306.486 46.0272 228.438 35.2396 187.928C30.2556 169.229 28.0799 155.067 27.5 145.928C27.4377 144.979 27.4665 144.179 27.5336 143.446C24.04 143.657 22.3674 145.473 22.7077 150.721C23.2876 159.855 25.4633 174.016 30.4473 192.721C41.2301 233.225 76.8659 311.273 144.213 293.134C158.872 289.185 169.885 281.992 178.152 272.81C170.532 279.692 160.995 285.112 149.005 288.347ZM161.661 128.11V132.903H188.077C187.535 131.206 186.989 129.677 186.447 128.11H161.661Z"
@@ -275,7 +277,7 @@ export const PlaywrightLogo = ({ className }) => (
   </svg>
 )
 
-export const TailwindCSSLogo = ({ className }) => {
+export const TailwindCSSLogo = ({ className, ...props }) => {
   const [uniqueId, setUniqueId] = useState('')
 
   useEffect(() => {
@@ -290,6 +292,7 @@ export const TailwindCSSLogo = ({ className }) => {
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid"
       className={className}
+      {...props}
     >
       <path
         fill={`url(#a_${uniqueId})`}
@@ -305,7 +308,7 @@ export const TailwindCSSLogo = ({ className }) => {
   )
 }
 
-export const SanityLogo = ({ className }) => (
+export const SanityLogo = ({ className, ...props }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="512"
@@ -313,6 +316,7 @@ export const SanityLogo = ({ className }) => (
     preserveAspectRatio="xMidYMid"
     viewBox="0 0 512 104"
     className={className}
+    {...props}
   >
     <path fill="#F37368" d="M381.462 36.986v64.834h-20.886V26.833z" />
     <path
@@ -341,8 +345,16 @@ export const SanityLogo = ({ className }) => (
   </svg>
 )
 
-export const FigmaLogo = ({ className }) => (
-  <svg width="54" height="80" viewBox="0 0 54 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+export const FigmaLogo = ({ className, ...props }) => (
+  <svg
+    width="54"
+    height="80"
+    viewBox="0 0 54 80"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+    {...props}
+  >
     <g clipPath="url(#clip0_912_3)">
       <path
         d="M13.3333 80.0002C20.6933 80.0002 26.6667 74.0268 26.6667 66.6668V53.3335H13.3333C5.97333 53.3335 0 59.3068 0 66.6668C0 74.0268 5.97333 80.0002 13.3333 80.0002Z"

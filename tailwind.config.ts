@@ -3,6 +3,18 @@ import type { Config } from 'tailwindcss'
 import tailwindAnimate from 'tailwindcss-animate'
 import tailwindDebugScreens from 'tailwindcss-debug-screens'
 
+import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette'
+
+const addVariablesForColors = ({ addBase, theme }: any) => {
+  const allColors = flattenColorPalette(theme('colors'))
+  // Adds '--' to all color names and sets them as CSS variables
+  const newVars = Object.fromEntries(Object.entries(allColors).map(([key, val]) => [`--${key}`, val]))
+
+  addBase({
+    ':root': newVars,
+  })
+}
+
 export const config = {
   darkMode: ['class'],
   content: ['./components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}', './content/**/*.mdx'],
@@ -54,18 +66,9 @@ export const config = {
       minHeight: {
         comfortable: 'calc(max(100vh, 900px))',
       },
-      boxShadow: {
-        'elevation-low': 'var(--shadow-elevation-low)',
-        'elevation-medium': 'var(--shadow-elevation-medium)',
-        'elevation-high': 'var(--shadow-elevation-high)',
-      },
-      dropShadow: {
-        // 'card-accent': '1px 2px 8px hsl(var(--shadow-color))',
-        'card-accent': '0 1px 2px hsl(var(--shadow-color))',
-      },
     },
   },
-  plugins: [tailwindDebugScreens, tailwindAnimate, tailwindTypography],
+  plugins: [tailwindDebugScreens, tailwindAnimate, tailwindTypography, addVariablesForColors],
 } satisfies Config
 
 export default config

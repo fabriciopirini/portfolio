@@ -1,10 +1,10 @@
 import Image from 'next/image'
 
+import { ExternalLinkIcon } from 'lucide-react'
 import NGLogo from '/public/assets/logos/ng-logo-squared.avif'
 import OdaLogo from '/public/assets/logos/oda-logo.avif'
-import SportradarLogo from '/public/assets/logos/sportradar-logo.avif'
 import SidiLogo from '/public/assets/logos/sidi-logo.avif'
-import { ExternalLinkIcon } from 'lucide-react'
+import SportradarLogo from '/public/assets/logos/sportradar-logo.avif'
 
 export const WorkExperience = () => {
   const localizer = new Intl.DateTimeFormat('en', {

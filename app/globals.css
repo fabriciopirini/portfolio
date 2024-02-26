@@ -23,6 +23,14 @@
     --bg-animation-color-mid: #a685e2;
     --bg-animation-color-end: #72757e;
 
+    --bg-animation-stroke-width: 0.5;
+    --bg-animation-stroke-opacity: 0.5;
+
+    @media (max-width: 768px) {
+      --bg-animation-stroke-width: 1.5;
+      --bg-animation-stroke-opacity: 0.8;
+    }
+
     /* @media (prefers-color-scheme: light) {
       --color-text-primary: #50555c;
       --color-text-accent: #cc8a00;

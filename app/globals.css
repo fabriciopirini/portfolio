@@ -11,7 +11,7 @@
     --color-bg-primary-hero: #343639;
     --color-bg-secondary: #3e3f41;
     --color-bg-secondary-hover: var(--color-text-accent);
-    --color-bg-skill-card: #3d3e42;
+    --color-bg-skill-card: #42454b; /* Adjusted to make slightly lighter for better contrast */
 
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 47.4% 11.2%;
@@ -55,6 +55,7 @@
 }
 
 @layer base {
+  html,
   body {
     @apply bg-primary text-primary;
     font-feature-settings: "rlig" 1, "calt" 1;

@@ -32,32 +32,33 @@ export const config = {
     extend: {
       textColor: {
         primary: {
-          DEFAULT: 'var(--color-text-primary)',
-          background: 'var(--color-bg-primary)',
+          DEFAULT: 'hsl(var(--color-text-primary))',
+          background: 'hsl(var(--color-bg-primary))',
         },
         accent: {
-          DEFAULT: 'var(--color-text-accent)',
+          DEFAULT: 'hsl(var(--color-text-accent))',
         },
       },
       borderColor: {
         accent: {
-          DEFAULT: 'var(--color-text-accent)',
+          DEFAULT: 'hsl(var(--color-text-accent))',
         },
+        'shop-card': 'hsl(var(--shop-card-border-color) / <alpha-value>)',
       },
       backgroundColor: {
         primary: {
-          DEFAULT: 'var(--color-bg-primary)',
-          hero: 'var(--color-bg-primary-hero)',
+          DEFAULT: 'hsl(var(--color-bg-primary))',
+          hero: 'hsl(var(--color-bg-primary-hero))',
         },
         secondary: {
-          DEFAULT: 'var(--color-bg-secondary)',
-          hover: 'var(--color-bg-secondary-hover)',
+          DEFAULT: 'hsl(var(--color-bg-secondary))',
+          hover: 'hsl(var(--color-bg-secondary-hover))',
         },
         accent: {
-          DEFAULT: 'var(--color-text-accent)',
+          DEFAULT: 'hsl(var(--color-text-accent))',
         },
         'skill-card': {
-          DEFAULT: 'var(--color-bg-skill-card)',
+          DEFAULT: 'hsl(var(--color-bg-skill-card))',
         },
       },
       colors: {

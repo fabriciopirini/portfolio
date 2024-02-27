@@ -6,7 +6,7 @@ import { Prose } from '@/components/prose'
 
 export const runtime = 'edge'
 
-// export const revalidate = 43200 // 12 hours in seconds
+export const revalidate = 43200 // 12 hours in seconds
 
 export const generateMetadata = async ({ params }: { params: { page: string } }): Promise<Metadata> => {
   const page = PRODUCTS.find((product) => product.id === params.page)

@@ -34,7 +34,6 @@ const ThreeItemGridItem = ({
     <Link className="relative block aspect-square size-full" href={`/shop/product/${item.id}`}>
       <GridTileImage
         src={item.featuredImage.url}
-        fill
         sizes={size === 'full' ? '(min-width: 768px) 66vw, 100vw' : '(min-width: 768px) 33vw, 100vw'}
         priority={priority}
         alt={item.name}
@@ -43,6 +42,8 @@ const ThreeItemGridItem = ({
           title: item.name,
           amount: item.price,
         }}
+        hasColoredBorder
+        fill
       />
     </Link>
   </div>

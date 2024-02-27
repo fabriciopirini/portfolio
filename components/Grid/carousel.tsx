@@ -8,7 +8,7 @@ export const Carousel = () => {
   const carouselProducts = [...PRODUCTS, ...PRODUCTS, ...PRODUCTS, ...PRODUCTS]
 
   return (
-    <div className="h-[var(--carousel-height)] w-full overflow-x-auto pb-6 pt-1">
+    <div className="h-[var(--carousel-height)] w-full overflow-x-auto pb-6 pt-1 md:overflow-hidden">
       <ul className="flex animate-carousel-mobile gap-4 md:animate-carousel">
         {carouselProducts.map((product, i) => (
           <li

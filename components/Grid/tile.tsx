@@ -7,6 +7,7 @@ export const GridTileImage = ({
   isInteractive = true,
   active,
   label,
+  hasColoredBorder = false,
   ...props
 }: {
   isInteractive?: boolean
@@ -16,6 +17,7 @@ export const GridTileImage = ({
     amount: number
     position?: 'bottom' | 'center'
   }
+  hasColoredBorder?: boolean
 } & React.ComponentProps<typeof Image>) => {
   return (
     <div
@@ -25,6 +27,7 @@ export const GridTileImage = ({
           relative: label,
           'border-2 border-accent': active,
           'border-neutral-800': !active,
+          'border-shop-card/50': !active && hasColoredBorder,
         }
       )}
     >

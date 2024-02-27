@@ -64,7 +64,7 @@ const ProductPage = ({ params }: { params: { slug: string } }) => {
         }}
       />
       <div className="mx-auto max-w-screen-2xl px-4">
-        <div className="flex flex-col rounded-lg border border-neutral-800 bg-black p-8 md:p-12 lg:flex-row lg:gap-8">
+        <div className="border-shop-card/50 flex flex-col rounded-lg border bg-black p-8 md:p-12 lg:flex-row lg:gap-8">
           <div className="size-full basis-full lg:basis-4/6">
             <Gallery
               images={product.images.map((image) => ({

@@ -71,7 +71,7 @@ export const CTAButton = React.forwardRef(
           className={cn(CTAButtonStyles({ intent: type, external }), isAnimationRunning && 'animate-none')}
           onClick={() => {
             setIsAnimationRunning(true)
-            posthog?.capture(props.id || 'cta_button_click')
+            posthog?.capture(props.id ?? 'cta_button_click')
           }}
           onAnimationEnd={() => setIsAnimationRunning(false)}
           suppressHydrationWarning
@@ -91,7 +91,7 @@ export const CTAButton = React.forwardRef(
         className={cn(CTAButtonStyles({ intent: type }), isAnimationRunning && 'animate-none')}
         onClick={() => {
           setIsAnimationRunning(true)
-          posthog?.capture(props.id || 'cta_button_click')
+          posthog?.capture(props.id ?? 'cta_button_click')
         }}
         onAnimationEnd={() => setIsAnimationRunning(false)}
         suppressHydrationWarning

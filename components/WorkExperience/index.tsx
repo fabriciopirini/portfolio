@@ -1,6 +1,6 @@
+import { ExternalLinkIcon } from 'lucide-react'
 import Image from 'next/image'
 
-import { ExternalLinkIcon } from 'lucide-react'
 import NGLogo from '/public/assets/logos/ng-logo-squared.avif'
 import OdaLogo from '/public/assets/logos/oda-logo.avif'
 import SidiLogo from '/public/assets/logos/sidi-logo.avif'
@@ -117,7 +117,7 @@ export const WorkExperience = () => {
                       className="flex items-baseline gap-2 hover:underline"
                     >
                       {experience.company}{' '}
-                      <ExternalLinkIcon size={18} className="h-[0.5em] min-h-[0.5em] w-[0.5em] min-w-[0.5em]" />
+                      <ExternalLinkIcon size={18} className="size-[0.5em] min-h-[0.5em] min-w-[0.5em]" />
                     </a>
                   </h3>
                   <p className="text-xl font-light italic text-accent sm:hidden">{experience.location}</p>

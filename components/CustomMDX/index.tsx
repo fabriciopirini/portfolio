@@ -1,7 +1,7 @@
-import { MDXRemote } from 'next-mdx-remote/rsc'
+import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import { MDXRemote } from 'next-mdx-remote/rsc'
 import { highlight } from 'sugar-high'
 
 const Table = ({ data }) => {
@@ -62,8 +62,8 @@ const ProsCard = ({ title, pros }) => {
       <div className="mt-4">
         {pros.map((pro) => (
           <div key={pro} className="mb-2 flex items-baseline font-medium">
-            <div className="mr-2 h-4 w-4">
-              <svg className="h-4 w-4 text-emerald-500" viewBox="0 0 24 24">
+            <div className="mr-2 size-4">
+              <svg className="size-4 text-emerald-500" viewBox="0 0 24 24">
                 <g fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
                   <path d="M22 4L12 14.01l-3-3" />
@@ -85,12 +85,12 @@ const ConsCard = ({ title, cons }) => {
       <div className="mt-4">
         {cons.map((con) => (
           <div key={con} className="mb-2 flex items-baseline font-medium">
-            <div className="mr-2 h-4 w-4">
+            <div className="mr-2 size-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                className="h-4 w-4 text-red-500"
+                className="size-4 text-red-500"
               >
                 <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
               </svg>

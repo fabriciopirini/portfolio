@@ -34,7 +34,7 @@ export const Skills = () => (
             className="[&_span.atropos-highlight]:bg-[radial-gradient(circle_at_50%,rgba(255,255,255,0.15)_0%,transparent_50%)] [&_span.atropos-inner]:rounded-2xl [&_span.atropos-inner]:bg-skill-card"
           >
             <div
-              className="flex h-auto w-40 flex-col items-center justify-between gap-2 overflow-hidden rounded-2xl bg-skill-card p-8 drop-shadow-2xl md:h-56 md:w-56 md:gap-4"
+              className="flex h-auto w-40 flex-col items-center justify-between gap-2 overflow-hidden rounded-2xl bg-skill-card p-8 drop-shadow-2xl md:size-56 md:gap-4"
               data-atropos-offset="0"
             >
               <div className="flex h-full flex-col items-center justify-between" data-atropos-offset="15">

@@ -24,7 +24,7 @@ export const generateMetadata = async ({ params }: { params: { page: string } })
   }
 }
 
-export const Page = async ({ params }: { params: { page: string } }) => {
+const Page = async ({ params }: { params: { page: string } }) => {
   const page = PRODUCTS.find((product) => product.id === params.page)
 
   if (!page) return notFound()

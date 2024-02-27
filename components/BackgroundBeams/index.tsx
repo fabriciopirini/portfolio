@@ -1,8 +1,9 @@
 'use client'
 
-import { cn } from '@/lib/utils'
-import { motion } from 'framer-motion'
 import React from 'react'
+import { motion } from 'framer-motion'
+
+import { cn } from '@/lib/utils'
 
 export const BackgroundBeams = ({ className }: { className?: string }) => {
   return (
@@ -13,7 +14,7 @@ export const BackgroundBeams = ({ className }: { className?: string }) => {
       )}
     >
       <svg
-        className="pointer-events-none absolute z-0 h-full w-full "
+        className="pointer-events-none absolute z-0 size-full "
         width="100%"
         height="100%"
         viewBox="0 0 696 316"

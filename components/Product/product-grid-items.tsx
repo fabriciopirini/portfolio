@@ -1,14 +1,15 @@
+import Link from 'next/link'
+
 import type { PRODUCTS } from '@/app/contants'
 import { Grid } from '@/components/Grid'
 import { GridTileImage } from '@/components/Grid/tile'
-import Link from 'next/link'
 
 export const ProductGridItems = ({ products }: { products: (typeof PRODUCTS)[number][] }) => {
   return (
     <>
       {products.map((product) => (
         <Grid.Item key={product.id} className="animate-fadeIn">
-          <Link className="relative inline-block h-full w-full" href={`/shop/product/${product.id}`}>
+          <Link className="relative inline-block size-full" href={`/shop/product/${product.id}`}>
             <GridTileImage
               alt={product.name}
               label={{

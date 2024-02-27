@@ -24,7 +24,7 @@ const Table = ({ data }) => {
   )
 }
 
-const CustomLink = props => {
+const CustomLink = (props) => {
   const href = props.href
 
   if (href.startsWith('/')) {
@@ -42,11 +42,11 @@ const CustomLink = props => {
   return <a target="_blank" rel="noopener noreferrer" {...props} />
 }
 
-const RoundedImage = props => {
+const RoundedImage = (props) => {
   return <Image alt={props.alt} className="rounded-lg" {...props} />
 }
 
-const Callout = props => {
+const Callout = (props) => {
   return (
     <div className="mb-8 flex items-center rounded border border-neutral-700 bg-neutral-800 p-1 px-4 py-3 text-sm text-neutral-100">
       <div className="mr-4 flex w-4 items-center">{props.emoji}</div>
@@ -60,7 +60,7 @@ const ProsCard = ({ title, pros }) => {
     <div className="my-4 w-full rounded-xl border border-emerald-900 bg-neutral-900 p-6">
       <span>{`You might use ${title} if...`}</span>
       <div className="mt-4">
-        {pros.map(pro => (
+        {pros.map((pro) => (
           <div key={pro} className="mb-2 flex items-baseline font-medium">
             <div className="mr-2 h-4 w-4">
               <svg className="h-4 w-4 text-emerald-500" viewBox="0 0 24 24">
@@ -83,7 +83,7 @@ const ConsCard = ({ title, cons }) => {
     <div className="my-6 w-full rounded-xl border border-red-900 bg-neutral-900 p-6">
       <span>{`You might not use ${title} if...`}</span>
       <div className="mt-4">
-        {cons.map(con => (
+        {cons.map((con) => (
           <div key={con} className="mb-2 flex items-baseline font-medium">
             <div className="mr-2 h-4 w-4">
               <svg
@@ -108,7 +108,7 @@ const Code = ({ children, ...props }) => {
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
 }
 
-const slugify = str => {
+const slugify = (str) => {
   return str
     .toString()
     .toLowerCase()
@@ -119,7 +119,7 @@ const slugify = str => {
     .replace(/\-\-+/g, '-') // Replace multiple - with single -
 }
 
-const createHeading = level => {
+const createHeading = (level) => {
   const Heading = ({ children }) => {
     const slug = slugify(children)
     return React.createElement(
@@ -148,7 +148,7 @@ const components = {
   h4: createHeading(4),
   h5: createHeading(5),
   h6: createHeading(6),
-  p: props => <p className="text-xl" {...props} />,
+  p: (props) => <p className="text-xl" {...props} />,
   Image: RoundedImage,
   a: CustomLink,
   Callout,
@@ -158,6 +158,6 @@ const components = {
   Table,
 }
 
-export const CustomMDX = props => {
+export const CustomMDX = (props) => {
   return <MDXRemote {...props} components={{ ...components, ...(props.components || {}) }} />
 }

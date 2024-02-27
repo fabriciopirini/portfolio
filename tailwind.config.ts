@@ -1,4 +1,7 @@
+import plugin from 'tailwindcss/plugin'
+
 import tailwindTypography from '@tailwindcss/typography'
+import tailwindContainerQueries from '@tailwindcss/container-queries'
 import type { Config } from 'tailwindcss'
 import tailwindAnimate from 'tailwindcss-animate'
 import tailwindDebugScreens from 'tailwindcss-debug-screens'
@@ -66,9 +69,34 @@ export const config = {
       minHeight: {
         comfortable: 'calc(max(100vh, 900px))',
       },
+      animation: {
+        fadeIn: 'fadeIn .3s ease-in-out',
+        carousel: 'marquee 60s linear infinite',
+        blink: 'blink 1.4s both infinite',
+      },
     },
   },
-  plugins: [tailwindDebugScreens, tailwindAnimate, tailwindTypography, addVariablesForColors],
+  plugins: [
+    tailwindContainerQueries,
+    tailwindDebugScreens,
+    tailwindAnimate,
+    tailwindTypography,
+    addVariablesForColors,
+    plugin(({ matchUtilities, theme }) => {
+      matchUtilities(
+        {
+          'animation-delay': (value) => {
+            return {
+              'animation-delay': value,
+            }
+          },
+        },
+        {
+          values: theme('transitionDelay'),
+        }
+      )
+    }),
+  ],
 } satisfies Config
 
 export default config

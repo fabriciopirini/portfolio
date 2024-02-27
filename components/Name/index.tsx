@@ -53,7 +53,7 @@ export const NameBanner = () => {
       <motion.div className="flex flex-col-reverse gap-6 pb-8 sm:flex-row">
         <CTAButton id="resume_download" type="secondary" as="link" href="/api/resume" text="Resume" download />
         <Popover
-          onOpenChange={value => {
+          onOpenChange={(value) => {
             const event = value ? 'contact_me_open' : 'contact_me_close'
             posthog?.capture(event)
           }}
@@ -102,7 +102,7 @@ export const NameBanner = () => {
                   <Linkedin size={32} className="mx-auto inline-block" />
                 </div>
                 <span className="mx-auto text-lg text-primary-background">LinkedIn</span>
-                <span className="sr-only">Visit Fabricio's LinkedIn profile</span>
+                <span className="sr-only">Visit Fabricio&apos;s LinkedIn profile</span>
               </motion.a>
             </motion.div>
           </PopoverContent>

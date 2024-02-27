@@ -96,17 +96,17 @@ export const WorkExperience = () => {
     <section className="container w-full py-16 md:py-32">
       <h2 className="text-5xl font-bold">Experience</h2>
       <hr className="mt-4 block h-1 w-full bg-accent md:inline-block md:w-1/12" />
-      <div className="flex flex-col w-full gap-14 py-6 text-2xl md:pr-10 xl:pr-0">
-        {experiences.map(experience => (
+      <div className="flex w-full flex-col gap-14 py-6 text-2xl md:pr-10 xl:pr-0">
+        {experiences.map((experience) => (
           <div key={experience.company} className="flex flex-col gap-5">
-            <div className="flex-col sm:flex-row flex items-start sm:items-center justify-between gap-4">
+            <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
               <div className="flex items-center gap-4">
                 <Image
                   src={experience.logo}
                   width={50}
                   height={62}
                   alt={experience.company}
-                  className="object-cover w-[50px] h-[62px]"
+                  className="h-[62px] w-[50px] object-cover"
                 />
                 <div className="flex flex-col sm:flex-row">
                   <h3 className="text-3xl font-bold">
@@ -114,30 +114,30 @@ export const WorkExperience = () => {
                       href={experience.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex gap-2 items-baseline hover:underline"
+                      className="flex items-baseline gap-2 hover:underline"
                     >
                       {experience.company}{' '}
-                      <ExternalLinkIcon size={18} className="h-[0.5em] w-[0.5em] min-h-[0.5em] min-w-[0.5em]" />
+                      <ExternalLinkIcon size={18} className="h-[0.5em] min-h-[0.5em] w-[0.5em] min-w-[0.5em]" />
                     </a>
                   </h3>
-                  <p className="text-xl sm:hidden italic font-light text-accent">{experience.location}</p>
+                  <p className="text-xl font-light italic text-accent sm:hidden">{experience.location}</p>
                 </div>
               </div>
-              <p className="text-xl italic hidden sm:block font-light text-accent">{experience.location}</p>
+              <p className="hidden text-xl font-light italic text-accent sm:block">{experience.location}</p>
             </div>
-            <div className="flex flex-col w-full gap-10">
-              {experience.roles.map(role => (
+            <div className="flex w-full flex-col gap-10">
+              {experience.roles.map((role) => (
                 <div key={`${experience.company}-${role.title}`} className="flex flex-col gap-2">
-                  <div className="flex flex-col sm:flex-row justify-between w-full">
+                  <div className="flex w-full flex-col justify-between sm:flex-row">
                     <p className="text-2xl font-semibold">{role.title}</p>
-                    <p className="text-lg sm:text-xl italic font-light">{`${localizer.format(role.startDate)} - ${
+                    <p className="text-lg font-light italic sm:text-xl">{`${localizer.format(role.startDate)} - ${
                       role.endDate ? localizer.format(role.endDate) : 'Present'
                     }`}</p>
                   </div>
                   {role.bullets ? (
                     <ul key={`${experience.company}-${role.title}`} className="flex flex-col gap-2">
-                      {role.bullets.map(bullet => (
-                        <li key={bullet} className="text-xl list-item list-disc list-inside">
+                      {role.bullets.map((bullet) => (
+                        <li key={bullet} className="list-item list-inside list-disc text-xl">
                           {bullet}
                         </li>
                       ))}

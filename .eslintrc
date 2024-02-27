@@ -1,0 +1,93 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "sourceType": "module",
+    "ecmaVersion": "latest",
+    "ecmaFeatures": {
+      "jsx": true,
+    },
+  },
+  "env": {
+    "es2024": true,
+  },
+  "plugins": ["unused-imports", "simple-import-sort", "@typescript-eslint", "react", "jsx-a11y"],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:tailwindcss/recommended",
+  ],
+  "rules": {
+    // consistent type imports if value not used
+    "@typescript-eslint/consistent-type-imports": [
+      "warn",
+      {
+        "prefer": "type-imports",
+        "disallowTypeAnnotations": true,
+      },
+    ],
+    "@typescript-eslint/ban-ts-comment": ["error", { "ts-ignore": "allow-with-description" }],
+    "@typescript-eslint/no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "off",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" },
+    ],
+    // For now until the move the project to TS
+    "@typescript-eslint/no-explicit-any": "off",
+    // named imports are better to keep component names consistent
+    "import/no-default-export": "warn",
+    "jsx-a11y/alt-text": "off",
+    "react-hooks/exhaustive-deps": "off",
+
+    // plugin:@typescript-eslint/recommended rules
+    "@typescript-eslint/prefer-optional-chain": "warn",
+    "@typescript-eslint/prefer-nullish-coalescing": "warn",
+    "@typescript-eslint/no-non-null-assertion": "warn",
+
+    // plugin:react/recommended rules
+    "react/hook-use-state": ["warn", { "allowDestructuredState": false }],
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+
+    // plugin:tailwindcss/recommended rules
+    "tailwindcss/classnames-order": "off", // conflicts with prettier-plugin-tailwindcss
+    // TODO: Figure out how to make this work with tw (E.g: tw.div``)
+    "tailwindcss/no-custom-classname": ["warn", { "callees": ["classnames", "cn", "clsx", "tw"] }],
+
+    // plugin:jsx-a11y rules
+    "jsx-a11y/control-has-associated-label": 1,
+  },
+  "overrides": [
+    {
+      "files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
+      "rules": {
+        "simple-import-sort/imports": [
+          "warn",
+          {
+            "groups": [
+              // Packages `react` related packages come first.
+              ["^react", "^@?\\w"],
+              // Internal packages.
+              ["^(@/.*|$)"],
+              // Side effect imports.
+              ["^\\u0000"],
+              // Parent imports. Put `..` last.
+              ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+              // Other relative imports. Put same-folder imports and `.` last.
+              ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+              // Style imports.
+              ["^.+\\.?(css)$"],
+            ],
+          },
+        ],
+      },
+    },
+    {
+      "files": ["app/**/page.tsx", "app/**/layout.tsx", "app/**/opengraph-image.tsx"],
+      "rules": { "import/no-default-export": "off" },
+    },
+  ],
+}

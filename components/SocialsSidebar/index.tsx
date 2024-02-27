@@ -18,7 +18,7 @@ export const SocialsSidebar = () => {
         onClick={() => posthog?.capture('contact_me_linkedin_sidebar')}
       >
         <LinkedinIcon size={40} />
-        <span className="sr-only">Visit Fabricio's LinkedIn profile</span>
+        <span className="sr-only">Visit Fabricio&apos;s LinkedIn profile</span>
       </a>
       {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
       <a
@@ -31,7 +31,7 @@ export const SocialsSidebar = () => {
         onClick={() => posthog?.capture('contact_me_github_sidebar')}
       >
         <GithubIcon size={40} />
-        <span className="sr-only">Visit Fabricio's Github profile</span>
+        <span className="sr-only">Visit Fabricio&apos;s Github profile</span>
       </a>
       <div className="mx-auto hidden h-16 w-[2px] border-l-4 border-accent md:block" />
     </div>

@@ -1,14 +1,13 @@
 'use client'
 
+import type { Ref } from 'react'
+import React, { useState } from 'react'
 import { cva } from 'class-variance-authority'
 import { motion } from 'framer-motion'
 import { DownloadIcon, ExternalLinkIcon } from 'lucide-react'
-import type { Ref } from 'react'
-import React, { useState } from 'react'
+import { usePostHog } from 'posthog-js/react'
 
 import { cn } from '@/lib/utils'
-import Link from 'next/link'
-import { usePostHog } from 'posthog-js/react'
 
 export const CTAButtonStyles = cva(
   'rounded-xl bg-inherit text-3xl py-3 sm:py-4 text-center flex items-center px-5 sm:px-8 justify-center text-primary cursor-pointer select-none',
@@ -80,8 +79,8 @@ export const CTAButton = React.forwardRef(
           {...props}
         >
           {text}
-          {external && <ExternalLinkIcon size={24} className="h-6 w-6 min-h-6 min-w-6 ml-2 inline-block" />}
-          {download && <DownloadIcon size={24} className="h-6 w-6 min-h-6 min-w-6 ml-2 inline-block" />}
+          {external && <ExternalLinkIcon size={24} className="ml-2 inline-block size-6 min-h-6 min-w-6" />}
+          {download && <DownloadIcon size={24} className="ml-2 inline-block size-6 min-h-6 min-w-6" />}
         </motion.a>
       )
     }

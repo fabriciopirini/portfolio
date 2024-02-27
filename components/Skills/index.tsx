@@ -23,7 +23,7 @@ export const Skills = () => (
     <section className="container w-full pt-4 md:pt-10">
       <h2 className="text-center text-5xl font-bold">Technology</h2>
       <div className="flex flex-row flex-wrap items-center justify-center gap-5 py-6 text-2xl md:flex-[1_1_21%]">
-        {skills.map(skill => (
+        {skills.map((skill) => (
           <Atropos
             key={skill.name}
             shadow={false}
@@ -31,13 +31,13 @@ export const Skills = () => (
             rotateXMax={20}
             rotateYMax={20}
             rotateTouch="scroll-y"
-            className="[&_span.atropos-highlight]:bg-[radial-gradient(circle_at_50%,rgba(255,255,255,0.15)_0%,transparent_50%)] [&_span.atropos-inner]:bg-skill-card [&_span.atropos-inner]:rounded-2xl"
+            className="[&_span.atropos-highlight]:bg-[radial-gradient(circle_at_50%,rgba(255,255,255,0.15)_0%,transparent_50%)] [&_span.atropos-inner]:rounded-2xl [&_span.atropos-inner]:bg-skill-card"
           >
             <div
-              className="flex h-auto w-40 flex-col items-center justify-between gap-2 rounded-2xl bg-skill-card drop-shadow-2xl p-8 md:h-56 md:w-56 md:gap-4 overflow-hidden"
+              className="flex h-auto w-40 flex-col items-center justify-between gap-2 overflow-hidden rounded-2xl bg-skill-card p-8 drop-shadow-2xl md:h-56 md:w-56 md:gap-4"
               data-atropos-offset="0"
             >
-              <div className="flex flex-col items-center justify-between h-full" data-atropos-offset="15">
+              <div className="flex h-full flex-col items-center justify-between" data-atropos-offset="15">
                 {skill.icon}
                 <h3 className="text-lg font-semibold">{skill.name}</h3>
               </div>

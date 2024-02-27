@@ -6,6 +6,8 @@ import { League_Spartan } from 'next/font/google'
 
 import '@/app/globals.css'
 import { CSPostHogProvider } from '@/components/Providers'
+import { cn } from '@/lib/utils'
+import { Suspense } from 'react'
 
 const inter = League_Spartan({ subsets: ['latin'] })
 
@@ -54,16 +56,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.className} suppressHydrationWarning>
       <CSPostHogProvider>
         <body
-          className={`${inter.className} overflow-x-hidden antialiased ${
-            process.env.VERCEL_ENV === 'production' ? '' : 'debug-screens'
-          }`}
+          className={cn('overflow-x-hidden antialiased', {
+            'debug-screens': process.env.VERCEL_ENV !== 'production',
+          })}
         >
           {/* <NavBar /> */}
-          {children}
-          {/* <HeroPattern /> */}
+          <Suspense>
+            <main>{children}</main>
+          </Suspense>
           <Analytics />
           <SpeedInsights />
         </body>

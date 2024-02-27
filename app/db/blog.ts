@@ -16,7 +16,7 @@ function parseFrontmatter(fileContent: string) {
   const frontMatterLines = frontMatterBlock.trim().split('\n')
   const metadata: Partial<Metadata> = {}
 
-  frontMatterLines.forEach(line => {
+  frontMatterLines.forEach((line) => {
     const [key, ...valueArr] = line.split(': ')
     let value = valueArr.join(': ').trim()
     value = value.replace(/^['"](.*)['"]$/, '$1') // Remove quotes
@@ -27,7 +27,7 @@ function parseFrontmatter(fileContent: string) {
 }
 
 function getMDXFiles(dir) {
-  return fs.readdirSync(dir).filter(file => path.extname(file) === '.mdx')
+  return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx')
 }
 
 function readMDXFile(filePath) {
@@ -37,7 +37,7 @@ function readMDXFile(filePath) {
 
 function getMDXData(dir) {
   const mdxFiles = getMDXFiles(dir)
-  return mdxFiles.map(file => {
+  return mdxFiles.map((file) => {
     const { metadata, content } = readMDXFile(path.join(dir, file))
     const slug = path.basename(file, path.extname(file))
     return {

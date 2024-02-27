@@ -1,4 +1,4 @@
-import type { PRODUCTS } from '@/app/contants'
+import type { PRODUCTS } from '@/app/services'
 import { Price } from '@/components/Product/price'
 import { Prose } from '@/components/prose'
 import { Button } from '@/components/ui/button'

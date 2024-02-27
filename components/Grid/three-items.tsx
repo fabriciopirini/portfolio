@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { PRODUCTS } from '@/app/contants'
+import { PRODUCTS } from '@/app/services'
 import { GridTileImage } from '@/components/Grid/tile'
 import { cn } from '@/lib/utils'
 
@@ -37,6 +37,7 @@ const ThreeItemGridItem = ({
       className="relative block aspect-square size-full"
     >
       <GridTileImage
+        staticImage={item.featuredImage.staticImage}
         src={item.featuredImage.url}
         sizes={size === 'full' ? '(min-width: 768px) 66vw, 100vw' : '(min-width: 768px) 33vw, 100vw'}
         priority={priority}

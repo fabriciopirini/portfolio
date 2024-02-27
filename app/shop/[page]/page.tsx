@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import { PRODUCTS } from '@/app/contants'
+import { PRODUCTS } from '@/app/services'
 import { Prose } from '@/components/prose'
 
 export const runtime = 'edge'

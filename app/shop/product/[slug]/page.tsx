@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import { PRODUCTS } from '@/app/contants'
+import { PRODUCTS } from '@/app/services'
 import { Gallery } from '@/components/Product/galery'
 import { ProductDescription } from '@/components/Product/product-description'
 import { RelatedProducts } from '@/components/Product/related-products'
@@ -67,10 +67,13 @@ const ProductPage = ({ params }: { params: { slug: string } }) => {
         <div className="border-shop-card/50 flex flex-col rounded-lg border bg-black p-8 md:p-12 lg:flex-row lg:gap-8">
           <div className="size-full basis-full lg:basis-4/6">
             <Gallery
-              images={product.images.map((image) => ({
-                src: image.url,
-                altText: image.altText,
-              }))}
+              images={[
+                {
+                  src: product.featuredImage.url,
+                  staticImage: product.featuredImage.staticImage,
+                  altText: product.featuredImage.altText,
+                },
+              ]}
             />
           </div>
 

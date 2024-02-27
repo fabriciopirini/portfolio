@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { PRODUCTS } from '@/app/contants'
+import { PRODUCTS } from '@/app/services'
 import { GridTileImage } from '@/components/Grid/tile'
 
 export const RelatedProducts = ({ id }: { id: string }) => {
@@ -25,9 +25,10 @@ export const RelatedProducts = ({ id }: { id: string }) => {
                   title: product.name,
                   amount: product.price,
                 }}
-                src={product.featuredImage?.url}
-                fill
                 sizes="(min-width: 1024px) 20vw, (min-width: 768px) 25vw, (min-width: 640px) 33vw, (min-width: 475px) 50vw, 100vw"
+                src={product.featuredImage?.url}
+                staticImage={product.featuredImage?.staticImage}
+                fill
               />
             </Link>
           </li>

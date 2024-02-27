@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 import { Label } from '@/components/Product/label'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { cn } from '@/lib/utils'
 
 export const GridTileImage = ({
@@ -8,6 +9,7 @@ export const GridTileImage = ({
   active,
   label,
   hasColoredBorder = false,
+  staticImage,
   ...props
 }: {
   isInteractive?: boolean
@@ -18,6 +20,7 @@ export const GridTileImage = ({
     position?: 'bottom' | 'center'
   }
   hasColoredBorder?: boolean
+  staticImage?: JSX.Element
 } & React.ComponentProps<typeof Image>) => {
   return (
     <div
@@ -31,7 +34,11 @@ export const GridTileImage = ({
         }
       )}
     >
-      {props.src ? (
+      {staticImage ? (
+        <div className="flex size-full items-center justify-center p-20">
+          <AspectRatio ratio={16 / 9}>{staticImage}</AspectRatio>
+        </div>
+      ) : props.src ? (
         <Image
           className={cn('relative h-full w-full object-contain', {
             'transition duration-300 ease-in-out group-hover:scale-105': isInteractive,

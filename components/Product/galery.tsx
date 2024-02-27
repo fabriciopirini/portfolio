@@ -6,9 +6,10 @@ import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
 
 import { GridTileImage } from '@/components/Grid/tile'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { createUrl } from '@/lib/utils'
 
-export const Gallery = ({ images }: { images: { src: string; altText: string }[] }) => {
+export const Gallery = ({ images }: { images: { src: string; altText: string; staticImage?: JSX.Element }[] }) => {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const imageSearchParam = searchParams.get('image')
@@ -30,7 +31,11 @@ export const Gallery = ({ images }: { images: { src: string; altText: string }[]
   return (
     <>
       <div className="relative aspect-square size-full max-h-[550px] overflow-hidden">
-        {images[imageIndex] && (
+        {images[imageIndex]?.staticImage ? (
+          <div className="flex size-full items-center justify-between">
+            <AspectRatio ratio={16 / 9}>{images[imageIndex]?.staticImage}</AspectRatio>
+          </div>
+        ) : images[imageIndex] ? (
           <Image
             className="size-full object-contain"
             fill
@@ -39,7 +44,7 @@ export const Gallery = ({ images }: { images: { src: string; altText: string }[]
             src={images[imageIndex]?.src as string}
             priority={true}
           />
-        )}
+        ) : null}
 
         {images.length > 1 ? (
           <div className="absolute bottom-[15%] flex w-full justify-center">

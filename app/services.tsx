@@ -1,9 +1,15 @@
-import hoodie1 from '@/public/assets/products/hoodie-1.png'
-import babyOnesieWhite from '@/public/assets/products/baby-onesie-white-1.png'
-import tShirtCirclesWhite from '@/public/assets/products/t-shirt-circles-white.png'
-import cowboyHatTan from '@/public/assets/products/cowboy-hat-tan-2.png'
-import bagWhite from '@/public/assets/products/bag-white.png'
+import { SEOImage } from '@/components/ServicesImages/SEO'
+import { cn } from '@/lib/utils'
 import babyCapGray from '@/public/assets/products/baby-cap-gray.png'
+import babyOnesieWhite from '@/public/assets/products/baby-onesie-white-1.png'
+import bagWhite from '@/public/assets/products/bag-white.png'
+import cowboyHatTan from '@/public/assets/products/cowboy-hat-tan-2.png'
+import hoodie1 from '@/public/assets/products/hoodie-1.png'
+import tShirtCirclesWhite from '@/public/assets/products/t-shirt-circles-white.png'
+
+const IMAGE_STYLES = cn(
+  'relative h-full w-full object-contain transition duration-300 ease-in-out group-hover:scale-105'
+)
 
 export const PRODUCTS = [
   {
@@ -12,6 +18,7 @@ export const PRODUCTS = [
     price: 100,
     description: 'This is a product.',
     featuredImage: {
+      staticImage: <SEOImage className={IMAGE_STYLES} />,
       url: hoodie1.src,
       alt: 'Hoodie',
       width: hoodie1.width,
@@ -31,6 +38,7 @@ export const PRODUCTS = [
     price: 200,
     description: 'This is a product.',
     featuredImage: {
+      staticImage: <SEOImage className={IMAGE_STYLES} />,
       url: tShirtCirclesWhite.src,
       alt: 'T-Shirt Circles White',
       width: tShirtCirclesWhite.width,
@@ -50,6 +58,7 @@ export const PRODUCTS = [
     price: 300,
     description: 'This is a product.',
     featuredImage: {
+      staticImage: <SEOImage className={IMAGE_STYLES} />,
       url: bagWhite.src,
       alt: 'Bag White',
       width: bagWhite.width,
@@ -69,6 +78,7 @@ export const PRODUCTS = [
     price: 400,
     description: 'This is a product.',
     featuredImage: {
+      staticImage: <SEOImage className={IMAGE_STYLES} />,
       url: babyOnesieWhite.src,
       alt: 'Baby Onesie White',
       width: babyOnesieWhite.width,
@@ -88,6 +98,7 @@ export const PRODUCTS = [
     price: 500,
     description: 'This is a product.',
     featuredImage: {
+      staticImage: <SEOImage className={IMAGE_STYLES} />,
       url: cowboyHatTan.src,
       alt: 'Cowboy Hat Tan',
       width: cowboyHatTan.width,
@@ -107,6 +118,7 @@ export const PRODUCTS = [
     price: 600,
     description: 'This is a product.',
     featuredImage: {
+      staticImage: <SEOImage className={IMAGE_STYLES} />,
       url: babyCapGray.src,
       alt: 'Baby Cap Gray',
       width: babyCapGray.width,

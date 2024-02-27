@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import type { PRODUCTS } from '@/app/contants'
+import type { PRODUCTS } from '@/app/services'
 import { Grid } from '@/components/Grid'
 import { GridTileImage } from '@/components/Grid/tile'
 

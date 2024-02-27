@@ -1,4 +1,4 @@
-import { PRODUCTS } from '@/app/contants'
+import { PRODUCTS } from '@/app/services'
 import { OpengraphImage } from '@/components/opengraph-image'
 
 export const runtime = 'edge'

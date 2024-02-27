@@ -44,11 +44,11 @@ export const Gallery = ({ images }: { images: { src: string; altText: string }[]
         {images.length > 1 ? (
           <div className="absolute bottom-[15%] flex w-full justify-center">
             <div className="mx-auto flex h-11 items-center rounded-full border border-black bg-neutral-900/80 text-neutral-500 backdrop-blur">
-              <Link aria-label="Previous product image" href={previousUrl} className={buttonClassName} scroll={false}>
+              <Link href={previousUrl} aria-label="Previous product image" className={buttonClassName} scroll={false}>
                 <ArrowLeftIcon className="h-5" />
               </Link>
               <div className="mx-1 h-6 w-px bg-neutral-500" />
-              <Link aria-label="Next product image" href={nextUrl} className={buttonClassName} scroll={false}>
+              <Link href={nextUrl} aria-label="Next product image" className={buttonClassName} scroll={false}>
                 <ArrowRightIcon className="h-5" />
               </Link>
             </div>
@@ -67,8 +67,8 @@ export const Gallery = ({ images }: { images: { src: string; altText: string }[]
             return (
               <li key={image.src} className="size-20">
                 <Link
-                  aria-label="Enlarge product image"
                   href={createUrl(pathname, imageSearchParams)}
+                  aria-label="Enlarge product image"
                   scroll={false}
                   className="size-full"
                 >

@@ -15,7 +15,11 @@ export const Carousel = () => {
             key={`${product.id}${i}`}
             className="relative aspect-square h-[30vh] max-h-[275px] w-2/3 max-w-[475px] flex-none md:w-1/3"
           >
-            <Link href={`/shop/product/${product.id}`} className="relative size-full">
+            <Link
+              href={`/shop/product/${product.id}`}
+              aria-label={`Go to ${product.name} product page`}
+              className="relative size-full"
+            >
               <GridTileImage
                 alt={product.name}
                 label={{

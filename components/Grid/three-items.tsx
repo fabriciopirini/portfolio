@@ -31,7 +31,11 @@ const ThreeItemGridItem = ({
       'md:col-span-2 md:row-span-1': size === 'half',
     })}
   >
-    <Link className="relative block aspect-square size-full" href={`/shop/product/${item.id}`}>
+    <Link
+      href={`/shop/product/${item.id}`}
+      aria-label={`Go to ${item.name} product page`}
+      className="relative block aspect-square size-full"
+    >
       <GridTileImage
         src={item.featuredImage.url}
         sizes={size === 'full' ? '(min-width: 768px) 66vw, 100vw' : '(min-width: 768px) 33vw, 100vw'}

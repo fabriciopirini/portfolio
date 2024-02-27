@@ -9,7 +9,11 @@ export const ProductGridItems = ({ products }: { products: (typeof PRODUCTS)[num
     <>
       {products.map((product) => (
         <Grid.Item key={product.id} className="animate-fadeIn">
-          <Link className="relative inline-block size-full" href={`/shop/product/${product.id}`}>
+          <Link
+            href={`/shop/product/${product.id}`}
+            aria-label={`Go to ${product.name} product page`}
+            className="relative inline-block size-full"
+          >
             <GridTileImage
               alt={product.name}
               label={{

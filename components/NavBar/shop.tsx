@@ -10,12 +10,16 @@ import Logo from '@/public/assets/logo.svg'
 export const ShopNavbar = () => {
   return (
     <nav className="relative flex h-[var(--nav-height-shop)] items-center justify-between p-4 lg:px-6">
-      <Link href="/" className="flex items-center gap-1 text-base" prefetch={false}>
+      <Link href="/" aria-label="Back to main site" className="flex items-center gap-1 text-base" prefetch={false}>
         <ChevronLeftIcon size={14} />
         <span className="hidden md:block">Back to main site</span>
       </Link>
       <div className="flex">
-        <Link href="/shop" className="flex w-full items-center justify-center gap-2 md:w-auto">
+        <Link
+          href="/shop"
+          aria-label="Go to the shop home page"
+          className="flex w-full items-center justify-center gap-2 md:w-auto"
+        >
           <LogoSquare className="border border-accent" />
           <div className="hidden flex-none text-lg font-semibold uppercase sm:block">Fab&apos;s shop</div>
         </Link>

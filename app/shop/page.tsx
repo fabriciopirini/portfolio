@@ -12,7 +12,7 @@ export const metadata = {
 
 const ShopFrontPage = () => {
   return (
-    <div className="flex h-full-with-shop-nav flex-col">
+    <div className="flex flex-col">
       <ThreeItemGrid />
       <Carousel />
     </div>

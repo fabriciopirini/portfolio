@@ -5,11 +5,11 @@ import { GridTileImage } from '@/components/Grid/tile'
 
 export const Carousel = () => {
   // Purposefully duplicating products to make the carousel loop and not run out of products on wide screens.
-  const carouselProducts = [...PRODUCTS, ...PRODUCTS, ...PRODUCTS]
+  const carouselProducts = [...PRODUCTS, ...PRODUCTS, ...PRODUCTS, ...PRODUCTS]
 
   return (
-    <div className="h-[var(--carousel-height)] w-full overflow-hidden pb-6 pt-1">
-      <ul className="flex animate-carousel gap-4">
+    <div className="h-[var(--carousel-height)] w-full pb-6 pt-1">
+      <ul className="flex animate-carousel-mobile gap-4 md:animate-carousel">
         {carouselProducts.map((product, i) => (
           <li
             key={`${product.id}${i}`}

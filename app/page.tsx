@@ -8,7 +8,7 @@ import { WorkExperience } from '@/components/WorkExperience'
 
 const Home = () => {
   return (
-    <main className="mb-3 flex min-h-screen flex-col items-center md:mb-10">
+    <div className="mb-3 flex min-h-screen flex-col items-center md:mb-10">
       {/* <NavBar /> */}
       <SocialsSidebar />
       <Hero />
@@ -17,7 +17,7 @@ const Home = () => {
         <Skills />
         <WorkExperience />
       </div>
-    </main>
+    </div>
   )
 }
 

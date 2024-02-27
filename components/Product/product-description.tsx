@@ -1,21 +1,20 @@
 import type { PRODUCTS } from '@/app/contants'
 import { Price } from '@/components/Product/price'
-import Prose from '@/components/prose'
+import { Prose } from '@/components/prose'
+import { Button } from '@/components/ui/button'
 
 export const ProductDescription = ({ product }: { product: (typeof PRODUCTS)[number] }) => {
   return (
     <>
-      <div className="mb-6 flex flex-col border-b pb-6 dark:border-neutral-700">
+      <div className="mb-6 flex flex-col border-b border-neutral-700 pb-6">
         <h1 className="mb-2 text-5xl font-medium">{product.name}</h1>
-        <div className="mr-auto w-auto rounded-full bg-blue-600 p-2 text-sm text-white">
-          <Price amount={product.price} />
-        </div>
+        <Price amount={product.price} className="px-4" />
       </div>
       {product.description ? (
-        <Prose className="mb-6 text-sm leading-tight dark:text-white/[60%]">{product.description}</Prose>
+        <Prose className="mb-6 text-sm leading-tight text-white/[60%]">{product.description}</Prose>
       ) : null}
 
-      <button type="button">Buy Now</button>
+      <Button className="w-full bg-accent text-lg text-primary-background lg:w-48">Buy Now</Button>
     </>
   )
 }

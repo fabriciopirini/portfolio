@@ -8,7 +8,7 @@ type Metadata = {
   image?: string
 }
 
-function parseFrontmatter(fileContent: string) {
+const parseFrontmatter = (fileContent: string) => {
   const frontmatterRegex = /---\s*([\s\S]*?)\s*---/
   const match = frontmatterRegex.exec(fileContent)
   const frontMatterBlock = match![1]
@@ -26,16 +26,16 @@ function parseFrontmatter(fileContent: string) {
   return { metadata: metadata as Metadata, content }
 }
 
-function getMDXFiles(dir) {
+const getMDXFiles = (dir) => {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx')
 }
 
-function readMDXFile(filePath) {
+const readMDXFile = (filePath) => {
   const rawContent = fs.readFileSync(filePath, 'utf-8')
   return parseFrontmatter(rawContent)
 }
 
-function getMDXData(dir) {
+const getMDXData = (dir) => {
   const mdxFiles = getMDXFiles(dir)
   return mdxFiles.map((file) => {
     const { metadata, content } = readMDXFile(path.join(dir, file))
@@ -48,6 +48,6 @@ function getMDXData(dir) {
   })
 }
 
-export function getBlogPosts() {
+export const getBlogPosts = () => {
   return getMDXData(path.join(process.cwd(), 'content'))
 }

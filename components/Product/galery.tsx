@@ -25,14 +25,14 @@ export const Gallery = ({ images }: { images: { src: string; altText: string }[]
   const previousUrl = createUrl(pathname, previousSearchParams)
 
   const buttonClassName =
-    'h-full px-6 transition-all ease-in-out hover:scale-110 hover:text-black dark:hover:text-white flex items-center justify-center'
+    'h-full px-6 transition-all ease-in-out hover:scale-110 hover:text-white flex items-center justify-center'
 
   return (
     <>
-      <div className="relative aspect-square h-full max-h-[550px] w-full overflow-hidden">
+      <div className="relative aspect-square size-full max-h-[550px] overflow-hidden">
         {images[imageIndex] && (
           <Image
-            className="h-full w-full object-contain"
+            className="size-full object-contain"
             fill
             sizes="(min-width: 1024px) 66vw, 100vw"
             alt={images[imageIndex]?.altText as string}
@@ -43,7 +43,7 @@ export const Gallery = ({ images }: { images: { src: string; altText: string }[]
 
         {images.length > 1 ? (
           <div className="absolute bottom-[15%] flex w-full justify-center">
-            <div className="mx-auto flex h-11 items-center rounded-full border border-white bg-neutral-50/80 text-neutral-500 backdrop-blur dark:border-black dark:bg-neutral-900/80">
+            <div className="mx-auto flex h-11 items-center rounded-full border border-black bg-neutral-900/80 text-neutral-500 backdrop-blur">
               <Link aria-label="Previous product image" href={previousUrl} className={buttonClassName} scroll={false}>
                 <ArrowLeftIcon className="h-5" />
               </Link>
@@ -65,12 +65,12 @@ export const Gallery = ({ images }: { images: { src: string; altText: string }[]
             imageSearchParams.set('image', index.toString())
 
             return (
-              <li key={image.src} className="h-20 w-20">
+              <li key={image.src} className="size-20">
                 <Link
                   aria-label="Enlarge product image"
                   href={createUrl(pathname, imageSearchParams)}
                   scroll={false}
-                  className="h-full w-full"
+                  className="size-full"
                 >
                   <GridTileImage alt={image.altText} src={image.src} width={80} height={80} active={isActive} />
                 </Link>

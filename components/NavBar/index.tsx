@@ -1,10 +1,14 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
+import { ShopNavbar } from '@/components/NavBar/shop'
 import Logo from '@/public/assets/logo.svg'
 
-export const NavBar = () => (
-  <nav className="absolute flex w-full items-center justify-between px-4 py-10 text-3xl font-light md:px-20 md:py-16">
+const LandingNavBar = () => (
+  <nav className="absolute z-10 flex w-full items-center justify-between px-4 py-10 text-3xl font-light md:px-20 md:py-16">
     <div className="absolute hidden md:block">
       <Link href="/">
         <Image className="h-10 w-auto 2xl:h-16" src={Logo} alt="Logo" width={64} height={64} />
@@ -26,3 +30,11 @@ export const NavBar = () => (
     <div className="flex w-full flex-row justify-end sm:hidden">{/* <MenuIcon size={36} /> */}</div>
   </nav>
 )
+
+export const NavBar = () => {
+  const pathname = usePathname()
+
+  const isShop = pathname.includes('/shop')
+
+  return isShop ? <ShopNavbar /> : null
+}

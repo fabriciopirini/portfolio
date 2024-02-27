@@ -1,13 +1,15 @@
-import Thumbnail from '@/public/assets/thumbnail.png'
+import { Suspense } from 'react'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import { League_Spartan } from 'next/font/google'
 
-import '@/app/globals.css'
+import { NavBar } from '@/components/NavBar'
 import { CSPostHogProvider } from '@/components/Providers'
 import { cn } from '@/lib/utils'
-import { Suspense } from 'react'
+import Thumbnail from '@/public/assets/thumbnail.png'
+
+import '@/app/globals.css'
 
 const inter = League_Spartan({ subsets: ['latin'] })
 
@@ -54,16 +56,16 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en" className={inter.className} suppressHydrationWarning>
       <CSPostHogProvider>
         <body
-          className={cn('overflow-x-hidden antialiased', {
+          className={cn('min-h-svh overflow-x-hidden antialiased', {
             'debug-screens': process.env.VERCEL_ENV !== 'production',
           })}
         >
-          {/* <NavBar /> */}
+          <NavBar />
           <Suspense>
             <main>{children}</main>
           </Suspense>
@@ -74,3 +76,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   )
 }
+
+export default RootLayout

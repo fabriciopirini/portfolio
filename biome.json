@@ -1,7 +1,7 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
   "organizeImports": {
-    "enabled": true
+    "enabled": false
   },
   "linter": {
     "enabled": true,
@@ -33,6 +33,7 @@
   },
   "javascript": {
     "formatter": {
+      "enabled": false,
       "arrowParentheses": "asNeeded",
       "jsxQuoteStyle": "double",
       "semicolons": "asNeeded",
@@ -42,7 +43,7 @@
     }
   },
   "formatter": {
-    "enabled": true,
+    "enabled": false,
     "formatWithErrors": false,
     "indentStyle": "space",
     "indentWidth": 2,

@@ -26,6 +26,8 @@
     --bg-animation-stroke-width: 0.5;
     --bg-animation-stroke-opacity: 0.5;
 
+    --nav-height-shop: 6rem;
+
     @media (max-width: 768px) {
       --bg-animation-stroke-width: 1.5;
       --bg-animation-stroke-opacity: 0.8;

@@ -4,10 +4,10 @@ import type { Metadata } from 'next/types'
 import { getBlogPosts } from '@/app/db/blog'
 import { CustomMDX } from '@/components/CustomMDX'
 
-export async function generateMetadata({ params }): Promise<Metadata | undefined> {
+export const generateMetadata = async ({ params }): Promise<Metadata | undefined> => {
   const post = getBlogPosts().find((post) => post.slug === params.slug)
   if (!post) {
-    return
+    return notFound()
   }
 
   const { title, publishedAt: publishedTime, summary: description } = post.metadata
@@ -25,7 +25,47 @@ export async function generateMetadata({ params }): Promise<Metadata | undefined
   }
 }
 
-function formatDate(date: string) {
+const Blog = ({ params }) => {
+  const post = getBlogPosts().find((post) => post.slug === params.slug)
+
+  if (!post) {
+    notFound()
+  }
+
+  return (
+    <section className="flex flex-col items-center p-10">
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            headline: post.metadata.title,
+            datePublished: post.metadata.publishedAt,
+            dateModified: post.metadata.publishedAt,
+            description: post.metadata.summary,
+            url: `https://fabriciopirini.com/blog/${post.slug}`,
+            author: {
+              '@type': 'Person',
+              name: 'Fabricio Pirini',
+            },
+          }),
+        }}
+      />
+      <h1 className="max-w-[850px] text-4xl font-medium tracking-tighter">{post.metadata.title}</h1>
+      <div className="mb-8 mt-2 flex max-w-[850px] items-center justify-between">
+        <p className="text-sm text-neutral-400">{formatDate(post.metadata.publishedAt)}</p>
+      </div>
+      <article className="prose prose-invert max-w-[850px]">
+        <CustomMDX source={post.content} />
+      </article>
+    </section>
+  )
+}
+
+const formatDate = (date: string) => {
   const currentDate = new Date()
   const targetDate = new Date(date)
 
@@ -54,41 +94,4 @@ function formatDate(date: string) {
   return `${fullDate} (${formattedDate})`
 }
 
-export default function Blog({ params }) {
-  const post = getBlogPosts().find((post) => post.slug === params.slug)
-
-  if (!post) {
-    notFound()
-  }
-
-  return (
-    <section className="flex flex-col items-center p-10">
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'BlogPosting',
-            headline: post.metadata.title,
-            datePublished: post.metadata.publishedAt,
-            dateModified: post.metadata.publishedAt,
-            description: post.metadata.summary,
-            url: `https://fabriciopirini.com/blog/${post.slug}`,
-            author: {
-              '@type': 'Person',
-              name: 'Fabricio Pirini',
-            },
-          }),
-        }}
-      />
-      <h1 className="max-w-[850px] text-4xl font-medium tracking-tighter">{post.metadata.title}</h1>
-      <div className="mb-8 mt-2 flex max-w-[850px] items-center justify-between">
-        <p className="text-sm text-neutral-400">{formatDate(post.metadata.publishedAt)}</p>
-      </div>
-      <article className="prose prose-invert max-w-[850px]">
-        <CustomMDX source={post.content} />
-      </article>
-    </section>
-  )
-}
+export default Blog

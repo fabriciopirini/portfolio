@@ -7,7 +7,7 @@ export const metadata = {
   description: 'Read my thoughts on software development, design, and more.',
 }
 
-export default function BlogPage() {
+const BlogPage = () => {
   const allBlogs = getBlogPosts()
 
   return (
@@ -30,3 +30,5 @@ export default function BlogPage() {
     </section>
   )
 }
+
+export default BlogPage

@@ -1,7 +1,7 @@
 import { Price } from '@/components/Product/price'
 import { cn } from '@/lib/utils'
 
-const Label = ({
+export const Label = ({
   title,
   amount,
   position = 'bottom',
@@ -16,12 +16,10 @@ const Label = ({
         'lg:px-20 lg:pb-[35%]': position === 'center',
       })}
     >
-      <div className="flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
-        <h3 className="mr-4 line-clamp-2 flex-grow pl-2 leading-none tracking-tight">{title}</h3>
-        <Price className="flex-none rounded-full bg-blue-600 p-2 text-white" amount={amount} />
+      <div className="flex items-center gap-4 rounded-full border border-neutral-800 bg-black/70 p-1 font-semibold text-white backdrop-blur-md">
+        <h3 className="line-clamp-2 grow pl-2 text-sm leading-none tracking-tight">{title}</h3>
+        <Price amount={amount} />
       </div>
     </div>
   )
 }
-
-export default Label

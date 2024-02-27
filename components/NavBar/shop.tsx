@@ -21,7 +21,7 @@ export const ShopNavbar = () => {
           className="flex w-full items-center justify-center gap-2 md:w-auto"
         >
           <LogoSquare className="border border-accent" />
-          <div className="hidden flex-none text-lg font-semibold uppercase sm:block">Fab&apos;s shop</div>
+          <h1 className="hidden flex-none text-lg font-semibold uppercase sm:block">Fab&apos;s shop</h1>
         </Link>
       </div>
       <div className="flex items-center justify-end gap-2 rounded-full bg-accent px-5 py-3 text-xl text-primary-background">

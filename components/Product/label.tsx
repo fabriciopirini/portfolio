@@ -17,7 +17,7 @@ export const Label = ({
       })}
     >
       <div className="flex items-center gap-4 rounded-full border border-neutral-800 bg-black/70 p-1 font-semibold text-white backdrop-blur-md">
-        <h3 className="line-clamp-2 grow pl-2 text-sm leading-none tracking-tight">{title}</h3>
+        <h2 className="line-clamp-2 grow pl-2 text-sm leading-none tracking-tight">{title}</h2>
         <Price amount={amount} />
       </div>
     </div>

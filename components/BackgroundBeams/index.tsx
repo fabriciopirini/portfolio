@@ -64,10 +64,10 @@ export const BackgroundBeams = ({ className }: { className?: string }) => {
               <stop offset="50%" stopColor="#A685E2" stopOpacity="1" />
               <stop offset="75%" stopColor="#A685E2" stopOpacity="0.5" />
               <stop offset="100%" stopColor="#72757E" stopOpacity="0" /> */}
-              <stop stopColor="var(--bg-animation-color-start)" stopOpacity="0" />
-              <stop stopColor="var(--bg-animation-color-start)" />
-              <stop offset="32.5%" stopColor="var(--bg-animation-color-mid)" />
-              <stop offset="100%" stopColor="var(--bg-animation-color-end)" stopOpacity="0" />
+              <stop stopColor="hsl(var(--bg-animation-color-start))" stopOpacity="0" />
+              <stop stopColor="hsl(var(--bg-animation-color-start))" />
+              <stop offset="32.5%" stopColor="hsl(var(--bg-animation-color-mid))" />
+              <stop offset="100%" stopColor="hsl(var(--bg-animation-color-end))" stopOpacity="0" />
             </motion.linearGradient>
           ))}
 
@@ -79,8 +79,8 @@ export const BackgroundBeams = ({ className }: { className?: string }) => {
             gradientUnits="userSpaceOnUse"
             gradientTransform="translate(352 34) rotate(90) scale(555 1560.62)"
           >
-            <stop offset="0.0666667" stopColor="var(--color-text-primary)" stopOpacity="0.5" />
-            <stop offset="0.243243" stopColor="var(--color-text-primary)" stopOpacity="0.5" />
+            <stop offset="0.0666667" stopColor="hsl(var(--color-text-primary))" stopOpacity="0.5" />
+            <stop offset="0.243243" stopColor="hsl(var(--color-text-primary))" stopOpacity="0.5" />
             <stop offset="0.43594" stopColor="white" stopOpacity="0" />
           </radialGradient>
         </defs>

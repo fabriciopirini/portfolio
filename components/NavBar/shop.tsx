@@ -10,7 +10,7 @@ import Logo from '@/public/assets/logo.svg'
 export const ShopNavbar = () => {
   return (
     <nav className="relative flex h-[var(--nav-height-shop)] items-center justify-between p-4 lg:px-6">
-      <Link href="/" className="flex items-center gap-1 text-base">
+      <Link href="/" className="flex items-center gap-1 text-base" prefetch={false}>
         <ChevronLeftIcon size={14} />
         <span className="hidden md:block">Back to main site</span>
       </Link>
@@ -28,7 +28,7 @@ export const ShopNavbar = () => {
   )
 }
 
-const LogoSquare = ({ size, className }: { size?: 'sm' | undefined; className?: string }) => {
+export const LogoSquare = ({ size, className }: { size?: 'sm' | undefined; className?: string }) => {
   return (
     <div
       className={cn(

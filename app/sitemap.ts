@@ -2,7 +2,7 @@ const URL = process.env.NEXT_PUBLIC_VERCEL_URL
 
 // https://claritydev.net/blog/nextjs-dynamic-sitemap-pages-app-directory
 const Sitemap = async () => {
-  const routes = ['', '/shop', '/blog'].map((route) => ({
+  const routes = [''].map((route) => ({
     url: `${URL}${route}`,
     lastModified: new Date().toISOString(),
   }))

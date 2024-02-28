@@ -20,7 +20,7 @@ export const generateMetadata = async ({ params }): Promise<Metadata | undefined
       description,
       type: 'article',
       publishedTime,
-      url: `https://fabriciopirini.com/blog/${post.slug}`,
+      url: `${process.env.NEXT_PUBLIC_VERCEL_URL}/blog/${post.slug}`,
     },
   }
 }
@@ -46,7 +46,7 @@ const Blog = ({ params }) => {
             datePublished: post.metadata.publishedAt,
             dateModified: post.metadata.publishedAt,
             description: post.metadata.summary,
-            url: `https://fabriciopirini.com/blog/${post.slug}`,
+            url: `${process.env.NEXT_PUBLIC_VERCEL_URL}/blog/${post.slug}`,
             author: {
               '@type': 'Person',
               name: 'Fabricio Pirini',

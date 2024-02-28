@@ -1,9 +1,8 @@
-'use client'
-
 import { ChevronLeftIcon, CoinsIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { Basket } from '@/components/Basket'
 import { cn } from '@/lib/utils'
 import Logo from '@/public/assets/logo.svg'
 
@@ -24,9 +23,12 @@ export const ShopNavbar = () => {
           <h1 className="hidden flex-none text-lg font-semibold uppercase sm:block">Fab&apos;s shop</h1>
         </Link>
       </div>
-      <div className="flex items-center justify-end gap-2 rounded-full bg-accent px-5 py-3 text-xl text-primary-background">
-        139
-        <CoinsIcon size={20} />
+      <div className="flex items-center justify-center gap-5">
+        <div className="flex items-center justify-end gap-2 rounded-full bg-accent px-5 py-3 text-xl text-primary-background">
+          139
+          <CoinsIcon size={20} />
+        </div>
+        <Basket />
       </div>
     </nav>
   )

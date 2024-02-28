@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "rm -rf .next && next dev",
     "build": "next build",
-    "postbuild": "next-sitemap",
     "start": "next start",
     "check-code": "bun ts && bun lint",
     "ts": "tsc --noEmit --incremental",
@@ -15,6 +14,7 @@
   },
   "dependencies": {
     "@radix-ui/react-aspect-ratio": "^1.0.3",
+    "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-slot": "^1.0.2",
     "@vercel/analytics": "^1.2.0",
@@ -27,7 +27,6 @@
     "lucide-react": "^0.341.0",
     "next": "^14.1.0",
     "next-mdx-remote": "^4.4.1",
-    "next-sitemap": "^4.2.3",
     "postcss": "^8.4.35",
     "posthog-js": "^1.106.0",
     "react": "^18.2.0",
@@ -36,7 +35,8 @@
     "sugar-high": "^0.6.0",
     "tailwind-merge": "^2.2.1",
     "tailwindcss": "^3.4.1",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "vaul": "^0.9.0"
   },
   "devDependencies": {
     "@biomejs/biome": "v1.5.3-nightly.dca6a7a",

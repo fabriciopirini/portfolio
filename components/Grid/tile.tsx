@@ -34,17 +34,17 @@ export const GridTileImage = ({
         }
       )}
     >
-      {staticImage ? (
-        <div className="flex size-full items-center justify-center p-20">
-          <AspectRatio ratio={16 / 9}>{staticImage}</AspectRatio>
-        </div>
-      ) : props.src ? (
+      {props.src ? (
         <Image
           className={cn('relative h-full w-full object-contain', {
             'transition duration-300 ease-in-out group-hover:scale-105': isInteractive,
           })}
           {...props}
         />
+      ) : staticImage ? (
+        <div className="flex size-full items-center justify-center p-20">
+          <AspectRatio ratio={16 / 9}>{staticImage}</AspectRatio>
+        </div>
       ) : null}
       {label ? <Label title={label.title} amount={label.amount} position={label.position} /> : null}
     </div>

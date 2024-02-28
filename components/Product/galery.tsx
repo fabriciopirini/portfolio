@@ -31,11 +31,7 @@ export const Gallery = ({ images }: { images: { src: string; altText: string; st
   return (
     <>
       <div className="relative aspect-square size-full max-h-[550px] overflow-hidden">
-        {images[imageIndex]?.staticImage ? (
-          <div className="flex size-full items-center justify-between">
-            <AspectRatio ratio={16 / 9}>{images[imageIndex]?.staticImage}</AspectRatio>
-          </div>
-        ) : images[imageIndex] ? (
+        {images[imageIndex] ? (
           <Image
             className="size-full object-contain"
             fill
@@ -44,6 +40,10 @@ export const Gallery = ({ images }: { images: { src: string; altText: string; st
             src={images[imageIndex]?.src as string}
             priority={true}
           />
+        ) : images[imageIndex]?.staticImage ? (
+          <div className="flex size-full items-center justify-between">
+            <AspectRatio ratio={16 / 9}>{images[imageIndex]?.staticImage}</AspectRatio>
+          </div>
         ) : null}
 
         {images.length > 1 ? (

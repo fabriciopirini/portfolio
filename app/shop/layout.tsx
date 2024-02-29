@@ -57,20 +57,12 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en" className={inter.className} suppressHydrationWarning>
-      <CSPostHogProvider>
-        <body
-          className={cn('min-h-svh overflow-x-hidden antialiased', {
-            'debug-screens': process.env.VERCEL_ENV !== 'production',
-          })}
-        >
-          <ShopNavbar />
-          <main>{children}</main>
-          <Analytics />
-          <SpeedInsights />
-        </body>
-      </CSPostHogProvider>
-    </html>
+    <CSPostHogProvider>
+      <ShopNavbar />
+      <main>{children}</main>
+      <Analytics />
+      <SpeedInsights />
+    </CSPostHogProvider>
   )
 }
 

@@ -5,9 +5,15 @@ import { motion } from 'framer-motion'
 
 import { cn } from '@/lib/utils'
 
-export const BackgroundBeams = ({ className }: { className?: string }) => {
+const SHOW_RADIAL_GRADIENT = false
+const Y_SCALE = 2
+
+export const BackgroundBeams = ({ className, isMobile = false }: { className?: string; isMobile?: boolean }) => {
+  const beamPaths = isMobile ? BEAM_PATHS_MOBILE : BEAM_PATHS
+
   return (
     <div
+      key={isMobile ? 'mobile' : 'desktop'}
       className={cn(
         'absolute inset-0 flex h-full w-full items-center justify-center [mask-repeat:no-repeat] [mask-size:40px]',
         className
@@ -22,30 +28,32 @@ export const BackgroundBeams = ({ className }: { className?: string }) => {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M-380 -189C-380 -189 -312 216 152 343C616 470 684 875 684 875M-373 -197C-373 -197 -305 208 159 335C623 462 691 867 691 867M-366 -205C-366 -205 -298 200 166 327C630 454 698 859 698 859M-359 -213C-359 -213 -291 192 173 319C637 446 705 851 705 851M-352 -221C-352 -221 -284 184 180 311C644 438 712 843 712 843M-345 -229C-345 -229 -277 176 187 303C651 430 719 835 719 835M-338 -237C-338 -237 -270 168 194 295C658 422 726 827 726 827M-331 -245C-331 -245 -263 160 201 287C665 414 733 819 733 819M-324 -253C-324 -253 -256 152 208 279C672 406 740 811 740 811M-317 -261C-317 -261 -249 144 215 271C679 398 747 803 747 803M-310 -269C-310 -269 -242 136 222 263C686 390 754 795 754 795M-303 -277C-303 -277 -235 128 229 255C693 382 761 787 761 787M-296 -285C-296 -285 -228 120 236 247C700 374 768 779 768 779M-289 -293C-289 -293 -221 112 243 239C707 366 775 771 775 771M-282 -301C-282 -301 -214 104 250 231C714 358 782 763 782 763M-275 -309C-275 -309 -207 96 257 223C721 350 789 755 789 755M-268 -317C-268 -317 -200 88 264 215C728 342 796 747 796 747M-261 -325C-261 -325 -193 80 271 207C735 334 803 739 803 739M-254 -333C-254 -333 -186 72 278 199C742 326 810 731 810 731M-247 -341C-247 -341 -179 64 285 191C749 318 817 723 817 723M-240 -349C-240 -349 -172 56 292 183C756 310 824 715 824 715M-233 -357C-233 -357 -165 48 299 175C763 302 831 707 831 707M-226 -365C-226 -365 -158 40 306 167C770 294 838 699 838 699M-219 -373C-219 -373 -151 32 313 159C777 286 845 691 845 691M-212 -381C-212 -381 -144 24 320 151C784 278 852 683 852 683M-205 -389C-205 -389 -137 16 327 143C791 270 859 675 859 675M-198 -397C-198 -397 -130 8 334 135C798 262 866 667 866 667M-191 -405C-191 -405 -123 0 341 127C805 254 873 659 873 659M-184 -413C-184 -413 -116 -8 348 119C812 246 880 651 880 651M-177 -421C-177 -421 -109 -16 355 111C819 238 887 643 887 643M-170 -429C-170 -429 -102 -24 362 103C826 230 894 635 894 635M-163 -437C-163 -437 -95 -32 369 95C833 222 901 627 901 627M-156 -445C-156 -445 -88 -40 376 87C840 214 908 619 908 619M-149 -453C-149 -453 -81 -48 383 79C847 206 915 611 915 611M-142 -461C-142 -461 -74 -56 390 71C854 198 922 603 922 603M-135 -469C-135 -469 -67 -64 397 63C861 190 929 595 929 595M-128 -477C-128 -477 -60 -72 404 55C868 182 936 587 936 587M-121 -485C-121 -485 -53 -80 411 47C875 174 943 579 943 579M-114 -493C-114 -493 -46 -88 418 39C882 166 950 571 950 571M-107 -501C-107 -501 -39 -96 425 31C889 158 957 563 957 563M-100 -509C-100 -509 -32 -104 432 23C896 150 964 555 964 555M-93 -517C-93 -517 -25 -112 439 15C903 142 971 547 971 547M-86 -525C-86 -525 -18 -120 446 7C910 134 978 539 978 539M-79 -533C-79 -533 -11 -128 453 -1C917 126 985 531 985 531M-72 -541C-72 -541 -4 -136 460 -9C924 118 992 523 992 523M-65 -549C-65 -549 3 -144 467 -17C931 110 999 515 999 515M-58 -557C-58 -557 10 -152 474 -25C938 102 1006 507 1006 507M-51 -565C-51 -565 17 -160 481 -33C945 94 1013 499 1013 499M-44 -573C-44 -573 24 -168 488 -41C952 86 1020 491 1020 491M-37 -581C-37 -581 31 -176 495 -49C959 78 1027 483 1027 483M-30 -589C-30 -589 38 -184 502 -57C966 70 1034 475 1034 475M-23 -597C-23 -597 45 -192 509 -65C973 62 1041 467 1041 467M-16 -605C-16 -605 52 -200 516 -73C980 54 1048 459 1048 459M-9 -613C-9 -613 59 -208 523 -81C987 46 1055 451 1055 451M-2 -621C-2 -621 66 -216 530 -89C994 38 1062 443 1062 443M5 -629C5 -629 73 -224 537 -97C1001 30 1069 435 1069 435M12 -637C12 -637 80 -232 544 -105C1008 22 1076 427 1076 427M19 -645C19 -645 87 -240 551 -113C1015 14 1083 419 1083 419"
-          stroke="url(#paint0_radial_242_278)"
+          d={beamPaths.join(' ')}
+          stroke={`url(#paint-radial-${isMobile ? 'mobile' : 'desktop'})`}
           strokeOpacity="0.05"
           strokeWidth="var(--bg-animation-stroke-width)"
+          transform={`scale(1, ${Y_SCALE})`}
         />
 
-        {BEAM_PATHS.map((path, index) => (
+        {beamPaths.map((path, index) => (
           <motion.path
-            key={index}
+            key={`${index}-${isMobile ? 'mobile' : 'desktop'}`}
             d={path}
             stroke={`url(#linearGradient-${index})`}
             strokeOpacity="var(--bg-animation-stroke-opacity)"
             strokeWidth="var(--bg-animation-stroke-width)"
+            transform={`scale(1, ${Y_SCALE})`}
           />
         ))}
         <defs>
-          {BEAM_PATHS.map((path, index) => (
+          {beamPaths.map((path, index) => (
             <motion.linearGradient
               id={`linearGradient-${index}`}
               x1="100%"
               x2="100%"
               y1="100%"
               y2="100%"
-              key={`gradient-${index}`}
+              key={`gradient-${index}-${isMobile ? 'mobile' : 'desktop'}`}
               animate={{
                 x1: ['0%', '100%'],
                 x2: ['0%', '95%'],
@@ -59,11 +67,6 @@ export const BackgroundBeams = ({ className }: { className?: string }) => {
                 delay: Math.random() * 10,
               }}
             >
-              {/* <stop stopColor="#FFC557" stopOpacity="0" />
-              <stop offset="25%" stopColor="#FFC557" stopOpacity="1" />
-              <stop offset="50%" stopColor="#A685E2" stopOpacity="1" />
-              <stop offset="75%" stopColor="#A685E2" stopOpacity="0.5" />
-              <stop offset="100%" stopColor="#72757E" stopOpacity="0" /> */}
               <stop stopColor="hsl(var(--bg-animation-color-start))" stopOpacity="0" />
               <stop stopColor="hsl(var(--bg-animation-color-start))" />
               <stop offset="32.5%" stopColor="hsl(var(--bg-animation-color-mid))" />
@@ -72,16 +75,22 @@ export const BackgroundBeams = ({ className }: { className?: string }) => {
           ))}
 
           <radialGradient
-            id="paint0_radial_242_278"
+            id={`paint-radial-${isMobile ? 'mobile' : 'desktop'}`}
             cx="0"
             cy="0"
             r="1"
             gradientUnits="userSpaceOnUse"
             gradientTransform="translate(352 34) rotate(90) scale(555 1560.62)"
           >
-            <stop offset="0.0666667" stopColor="hsl(var(--color-text-primary))" stopOpacity="0.5" />
-            <stop offset="0.243243" stopColor="hsl(var(--color-text-primary))" stopOpacity="0.5" />
-            <stop offset="0.43594" stopColor="white" stopOpacity="0" />
+            {SHOW_RADIAL_GRADIENT ? (
+              <stop stopColor="white" stopOpacity="1" />
+            ) : (
+              <>
+                <stop offset="0.0666667" stopColor="hsl(var(--color-text-primary))" stopOpacity="0.2" />
+                <stop offset="0.243243" stopColor="hsl(var(--color-text-primary))" stopOpacity="0.1" />
+                <stop offset="0.43594" stopColor="white" stopOpacity="0" />
+              </>
+            )}
           </radialGradient>
         </defs>
       </svg>
@@ -140,4 +149,27 @@ const BEAM_PATHS = [
   'M-51 -565C-51 -565 17 -160 481 -33C945 94 1013 499 1013 499',
   'M-44 -573C-44 -573 24 -168 488 -41C952 86 1020 491 1020 491',
   'M-37 -581C-37 -581 31 -176 495 -49C959 78 1027 483 1027 483',
-]
+] as const
+
+const BEAM_PATHS_MOBILE = [
+  'M -380 -378 C -380 -378 -312 432 152 686 C 616 940 684 1750 684 1750 C 630 908 698 1718 698 1718',
+  'M -359 -426 C -359 -426 -291 384 173 638 C 637 892 705 1702 705 1702',
+  'M -338 -474 C -338 -474 -270 336 194 590 C 658 844 726 1654 726 1654',
+  'M -317 -522 C -317 -522 -249 288 215 542 C 679 796 747 1606 747 1606',
+  'M -296 -570 C -296 -570 -228 240 236 494 C 700 748 768 1558 768 1558',
+  'M -275 -618 C -275 -618 -207 192 257 446 C 721 700 789 1510 789 1510',
+  'M -254 -666 C -254 -666 -186 144 278 398 C 742 652 810 1462 810 1462',
+  'M -233 -714 C -233 -714 -165 96 299 350 C 763 604 831 1414 831 1414',
+  'M -212 -762 C -212 -762 -144 48 320 302 C 784 556 852 1366 852 1366',
+  'M -191 -810 C -191 -810 -123 0 341 254 C 805 508 873 1318 873 1318',
+  'M -170 -858 C -170 -858 -102 -48 362 206 C 826 460 894 1270 894 1270',
+  'M -149 -906 C -149 -906 -81 -96 383 158 C 847 412 915 1222 915 1222',
+  'M -128 -954 C -128 -954 -60 -144 404 110 C 868 364 936 1174 936 1174',
+  'M -107 -1002 C -107 -1002 -39 -192 425 62 C 889 316 957 1126 957 1126',
+  'M -86 -1050 C -86 -1050 -18 -240 446 14 C 910 268 978 1078 978 1078',
+  'M -65 -1098 C -65 -1098 3 -288 467 -34 C 931 220 999 1030 999 1030',
+  'M -44 -1146 C -44 -1146 24 -336 488 -82 C 952 172 1020 982 1020 982',
+  'M -23 -1194 C -23 -1194 45 -384 509 -130 C 973 124 1041 934 1041 934',
+  'M -2 -1242 C -2 -1242 66 -432 530 -178 C 994 76 1062 886 1062 886',
+  'M 19 -1290 C 19 -1290 87 -480 551 -226 C 1015 28 1083 838 1083 83',
+] as const

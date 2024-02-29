@@ -21,7 +21,7 @@ export const Hero = () => (
         priority
       />
     </div>
-    {/* Hide animation on mobile since it causes performance issues */}
+    <BackgroundBeams className="flex md:hidden" isMobile />
     <BackgroundBeams className="hidden md:flex" />
   </section>
 )

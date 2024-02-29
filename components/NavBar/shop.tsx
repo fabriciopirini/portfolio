@@ -8,7 +8,7 @@ import Logo from '@/public/assets/logo.svg'
 
 export const ShopNavbar = () => {
   return (
-    <nav className="relative flex h-[var(--nav-height-shop)] items-center justify-between p-4 lg:px-6">
+    <nav className="relative flex h-[var(--nav-height-shop)] items-center justify-between p-4 md:mx-10 lg:px-6">
       <Link href="/" aria-label="Back to main site" className="flex items-center gap-1 text-base" prefetch={false}>
         <ChevronLeftIcon size={14} />
         <span className="hidden md:block">Back to main site</span>

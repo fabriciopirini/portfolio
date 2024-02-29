@@ -34,7 +34,7 @@ const DrawerContent = React.forwardRef<
     <DrawerPrimitive.Content
       ref={ref}
       className={cn(
-        'fixed inset-y-0 right-0 z-50 flex h-full w-[400px] flex-col rounded-l-[10px] border bg-primary-hero',
+        'fixed inset-y-0 right-0 z-50 flex h-full w-[400px] flex-col rounded-l-[10px] border-l bg-primary-hero',
         className
       )}
       {...props}
@@ -46,7 +46,7 @@ const DrawerContent = React.forwardRef<
 DrawerContent.displayName = 'DrawerContent'
 
 const DrawerHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className="flex items-center justify-between">
+  <div className="flex items-start justify-between">
     <div className={cn('flex flex-col gap-1.5 p-4 text-center sm:text-left', className)} {...props} />
     <DrawerClose>
       <XIcon className="size-6 cursor-pointer" />

@@ -1,4 +1,5 @@
 import { Galery } from '@/components/GaleryImage'
+import { SideMe } from '@/components/SideMe'
 
 export const runtime = 'edge'
 
@@ -22,6 +23,7 @@ const ShopFrontPage = () => {
   return (
     <div className="flex justify-center p-10">
       <Galery photos={photos} />
+      <SideMe />
     </div>
   )
 }

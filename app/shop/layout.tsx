@@ -5,7 +5,6 @@ import { League_Spartan } from 'next/font/google'
 
 import { ShopNavbar } from '@/components/NavBar/shop'
 import { CSPostHogProvider } from '@/components/Providers'
-import { cn } from '@/lib/utils'
 import Thumbnail from '@/public/assets/thumbnail.png'
 
 import '@/app/globals.css'

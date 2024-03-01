@@ -46,7 +46,7 @@ export const GridTileImage = ({
           <AspectRatio ratio={16 / 9}>{staticImage}</AspectRatio>
         </div>
       ) : null}
-      {label ? <Label title={label.title} amount={label.amount} position={label.position} /> : null}
+      {label ? <Label title={label.title} amount={label.amount} /> : null}
     </div>
   )
 }

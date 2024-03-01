@@ -1,4 +1,4 @@
-import { ChevronLeftIcon, CoinsIcon } from 'lucide-react'
+import { CircleDollarSignIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -14,21 +14,17 @@ export const ShopNavbar = () => {
         <span>Back to main site</span>
       </Link>
       <div className="flex">
-        <Link
-          href="/shop"
-          aria-label="Go to the shop home page"
-          className="flex w-full items-center justify-center gap-2 md:w-auto"
-        >
-          {/* <LogoSquare className="border border-accent" /> */}
-          <h1 className="flex-none text-lg font-semibold uppercase sm:block md:text-2xl">
-            Fab&apos;s <span className="block sm:inline">shop</span>
-          </h1>
-        </Link>
+        {/* <LogoSquare className="border border-accent" /> */}
+        <h1 className="flex-none text-lg font-semibold uppercase sm:block md:text-2xl">
+          Fab&apos;s <span className="block sm:inline">shop</span>
+        </h1>
       </div>
       <div className="flex items-center justify-center gap-2 md:gap-5">
         <div className="flex items-center justify-end gap-2 px-5 py-3 text-xl text-white">
           139
-          <CoinsIcon size={20} className="text-accent" />
+          <CircleDollarSignIcon size={24} className="stroke-[#373943] text-accent" fill="currentColor" />
+          {/* <SwissFrancIcon size={24} className="text-accent" /> */}
+          {/* <span className="text-2xl font-medium italic text-accent">F</span> */}
         </div>
         <Basket />
       </div>

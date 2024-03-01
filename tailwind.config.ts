@@ -1,7 +1,7 @@
 import tailwindTypography from '@tailwindcss/typography'
 import tailwindContainerQueries from '@tailwindcss/container-queries'
 import type { Config } from 'tailwindcss'
-import tailwindAnimate from 'tailwindcss-animate'
+import tailwindAnimate from '@anuragroy/tailwindcss-animate'
 import tailwindDebugScreens from 'tailwindcss-debug-screens'
 import tailwindTouch from 'tailwindcss-touch'
 import plugin from 'tailwindcss/plugin'
@@ -87,12 +87,32 @@ export const config = {
           '20%': { opacity: '1' },
           '100% ': { opacity: '0.2' },
         },
+        sideMe: {
+          '0%': { transform: 'translateX(-150%) rotate(0deg)' },
+          '100%': { transform: 'translateX(-50%) rotate(40deg)' },
+        },
+        sideMeReturn: {
+          '0%': { transform: 'translateX(-50%) rotate(40deg)' },
+          '100%': { transform: 'translateX(-150%) rotate(0deg)' },
+        },
+        scaleConversationBubble: {
+          '0%': { transform: 'scaleX(0) translateX(-65px)', opacity: '0' },
+          '100%': { transform: 'scaleX(1) translateX(0px)', opacity: '1' },
+        },
+        scaleConversationBubbleReturn: {
+          '0%': { transform: 'scaleX(1) translateX(0px)', opacity: '1' },
+          '100%': { transform: 'scaleX(0) translateX(-65px)', opacity: '0' },
+        },
       },
       animation: {
         fadeIn: 'fadeIn .3s ease-in-out',
         carousel: 'marquee 60s linear infinite',
         'carousel-mobile': 'marquee 20s linear infinite',
         blink: 'blink 1.4s both infinite',
+        sideMe: 'sideMe 1.2s linear',
+        sideMeReturn: 'sideMeReturn 1.2s linear',
+        scaleConversationBubble: 'scaleConversationBubble .5s ease-in-out',
+        scaleConversationBubbleReturn: 'scaleConversationBubbleReturn .5s ease-in-out',
       },
     },
   },

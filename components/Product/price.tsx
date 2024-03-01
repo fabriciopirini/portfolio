@@ -1,25 +1,13 @@
 import { cn } from '@/lib/utils'
 
-export const Price = ({
-  amount,
-  className,
-  type = 'normal',
-}: {
-  amount: number
-  className?: string
-  type?: 'normal' | 'label'
-} & React.ComponentProps<'p'>) => (
+export const Price = ({ amount, className }: { amount: number; className?: string }) => (
   <p
-    className={cn('w-fit flex-none rounded-full bg-accent p-2 text-sm font-medium text-primary-background', className)}
-    suppressHydrationWarning
+    className={cn(
+      'flex h-full w-fit flex-none items-center rounded-r px-3 py-1 text-sm leading-none text-white max-md:border md:bg-black/70 md:text-base',
+      className
+    )}
   >
     {amount}
-    <span
-      className={cn('ml-1 inline', {
-        'hidden @[275px]/label:inline': type === 'label',
-      })}
-    >
-      FAB COINS
-    </span>
+    <span className="ml-1 inline">Fab coins</span>
   </p>
 )

@@ -10,8 +10,8 @@ export const ShopNavbar = () => {
   return (
     <nav className="relative flex h-[var(--nav-height-shop)] items-center justify-between p-4 md:mx-10 lg:px-6">
       <Link href="/" aria-label="Back to main site" className="flex items-center gap-1 text-base" prefetch={false}>
-        <ChevronLeftIcon size={14} />
-        <span className="hidden md:block">Back to main site</span>
+        {/* <ChevronLeftIcon size={14} /> */}
+        <span>Back to main site</span>
       </Link>
       <div className="flex">
         <Link
@@ -19,14 +19,16 @@ export const ShopNavbar = () => {
           aria-label="Go to the shop home page"
           className="flex w-full items-center justify-center gap-2 md:w-auto"
         >
-          <LogoSquare className="border border-accent" />
-          <h1 className="hidden flex-none text-lg font-semibold uppercase sm:block">Fab&apos;s shop</h1>
+          {/* <LogoSquare className="border border-accent" /> */}
+          <h1 className="flex-none text-lg font-semibold uppercase sm:block md:text-2xl">
+            Fab&apos;s <span className="block sm:inline">shop</span>
+          </h1>
         </Link>
       </div>
-      <div className="flex items-center justify-center gap-5">
-        <div className="flex items-center justify-end gap-2 rounded-full bg-accent px-5 py-3 text-xl text-primary-background">
+      <div className="flex items-center justify-center gap-2 md:gap-5">
+        <div className="flex items-center justify-end gap-2 px-5 py-3 text-xl text-white">
           139
-          <CoinsIcon size={20} />
+          <CoinsIcon size={20} className="text-accent" />
         </div>
         <Basket />
       </div>

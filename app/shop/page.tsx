@@ -1,5 +1,4 @@
-import { Carousel } from '@/components/Grid/carousel'
-import { ThreeItemGrid } from '@/components/Grid/three-items'
+import { Galery } from '@/components/GaleryImage'
 
 export const runtime = 'edge'
 
@@ -11,10 +10,18 @@ export const metadata = {
 }
 
 const ShopFrontPage = () => {
+  const flexDimension = () => {
+    const variation = 250
+
+    return Math.floor(Math.random() * variation * 2) - variation
+  }
+
+  // const photos = PRODUCTS.map((product) => product.featuredImage.staticImage)
+  const photos = Array.from({ length: 20 }, (_, i) => `https://picsum.photos/900/${700 + flexDimension()}?random=${i}`)
+
   return (
-    <div className="flex flex-col">
-      <ThreeItemGrid />
-      <Carousel />
+    <div className="flex justify-center p-10">
+      <Galery photos={photos} />
     </div>
   )
 }

@@ -1,6 +1,5 @@
 'use client'
 
-import { useCallback } from 'react'
 import { Masonry } from 'react-plock'
 
 import { PRODUCTS } from '@/app/services'
@@ -16,17 +15,7 @@ const imagesHeight = PRODUCTS.map((product) => {
   return { productId: product.id, height }
 })
 
-export const Galery = ({
-  items,
-  handleAddToCart,
-}: {
-  items: (typeof PRODUCTS)[number][]
-  handleAddToCart: (productId: string) => Promise<void>
-}) => {
-  console.log('Galery render')
-
-  console.log(imagesHeight)
-
+export const Galery = ({ items }: { items: (typeof PRODUCTS)[number][] }) => {
   return (
     <Masonry
       items={items}
@@ -53,7 +42,7 @@ export const Galery = ({
           <div className="absolute bottom-0 left-0 flex w-full items-end justify-between pb-4 pl-4 pr-2 pt-2">
             {/* <h3 className="block text-lg font-semibold text-white md:hidden">{item.name}</h3> */}
             <Label title={item.name} amount={item.price} />
-            <AddToCart productId={item.id} handleAddToCart={handleAddToCart} />
+            <AddToCart productId={item.id} />
           </div>
         </div>
       )}

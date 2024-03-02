@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 import { Button } from '@/components/ui/button'
 import { useToast } from '@/components/ui/use-toast'
@@ -13,6 +14,11 @@ export const SideMe = () => {
   const [animateReturn, setAnimateReturn] = useState(false)
   const [showBubble, setShowBubble] = useState(false)
   const [showBubbleReturn, setShowBubbleReturn] = useState(false)
+
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const pathname = usePathname()
+  const interactionEnded = searchParams.has('interactionEnded')
 
   const { toast } = useToast()
 
@@ -36,7 +42,7 @@ export const SideMe = () => {
         className={cn(
           'fixed bottom-40 left-0 z-[1000] -translate-x-full rotate-0 fill-mode-both min-[250px]:bottom-36 min-[300px]:bottom-40 min-[350px]:bottom-28 sm:bottom-20',
           {
-            'animate-sideMe': animate,
+            'animate-sideMe': animate && !interactionEnded,
             'animate-sideMeReturn': animateReturn,
           }
         )}
@@ -51,7 +57,7 @@ export const SideMe = () => {
       </div>
       <div
         className={cn('pointer-events-auto fixed bottom-5 left-28 z-[1001] w-0 origin-left opacity-0', {
-          'w-auto animate-scaleConversationBubble opacity-100': showBubble,
+          'w-auto animate-scaleConversationBubble opacity-100': showBubble && !interactionEnded,
           'animate-scaleConversationBubbleReturn opacity-0': showBubbleReturn,
         })}
       >
@@ -81,6 +87,17 @@ export const SideMe = () => {
 
                     const bubbleTimer = setTimeout(() => {
                       setAnimateReturn(true)
+
+                      const timer = setTimeout(() => {
+                        const queryParams = {
+                          ...(searchParams.get('cart') ? { cart: searchParams.get('cart') as string } : {}),
+                          interactionEnded: 'true',
+                        }
+
+                        router.push(`${pathname}?${new URLSearchParams(queryParams)}`, { scroll: false })
+                      }, 500)
+
+                      return () => clearTimeout(timer)
                     }, 300)
 
                     return () => clearTimeout(bubbleTimer)

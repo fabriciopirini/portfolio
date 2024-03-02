@@ -1,15 +1,19 @@
-import { Price } from '@/components/Product/price'
 import { cn } from '@/lib/utils'
 
 export const Label = ({ title, amount, className }: { title: string; amount: number; className?: string }) => {
   return (
-    <div className={cn('flex w-full', className)}>
-      <div className="flex w-full flex-col items-center font-semibold backdrop-blur-md sm:flex-row">
-        <h2 className="m-auto line-clamp-1 size-full grow truncate rounded-t bg-accent px-3 py-1 text-primary-background sm:w-auto sm:rounded-l">
-          {title}
-        </h2>
-        <Price amount={amount} />
-      </div>
+    <div className={cn('flex w-auto flex-col items-center font-semibold backdrop-blur-md sm:flex-row', className)}>
+      <h2 className="m-auto line-clamp-1 size-full grow truncate rounded-t bg-accent px-3 py-1 text-primary-background sm:w-auto sm:rounded-l sm:rounded-tr-none">
+        {title}
+      </h2>
+      <p
+        className={cn(
+          'flex h-full w-full items-center rounded-b bg-black/70 px-3 py-1 text-sm leading-normal text-white max-sm:justify-center sm:w-fit sm:rounded-r sm:rounded-bl-none sm:text-base'
+        )}
+      >
+        {amount}
+        <span className="ml-1 inline">Fab coins</span>
+      </p>
     </div>
   )
 }

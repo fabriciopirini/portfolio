@@ -67,7 +67,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           <main>{children}</main>
           <Analytics />
           <SpeedInsights />
-          <Toaster />
+          {/* <Toaster /> */}
         </body>
       </CSPostHogProvider>
     </html>

@@ -1,3 +1,5 @@
+import { cookies } from 'next/headers'
+
 import { PRODUCTS } from '@/app/services'
 import { Galery } from '@/components/GaleryImage'
 import { SideMe } from '@/components/SideMe'
@@ -11,12 +13,25 @@ export const metadata = {
   },
 }
 
-const ShopFrontPage = () => {
-  // const photos = Array.from({ length: 20 }, (_, i) => `https://picsum.photos/900/${700 + flexDimension()}?random=${i}`)
+const ShopFrontPage = async () => {
+  const handleAddToCart = async (productId: string) => {
+    'use server'
+    console.log('Adding to cart', productId)
+
+    const basket = cookies().get('cart')?.value
+
+    cookies().set(
+      'cart',
+      basket ? JSON.stringify([...new Set([...JSON.parse(basket), productId])]) : JSON.stringify([productId]),
+      {
+        path: '/shop',
+      }
+    )
+  }
 
   return (
     <div className="flex justify-center p-10">
-      <Galery items={[...PRODUCTS]} />
+      <Galery items={[...PRODUCTS]} handleAddToCart={handleAddToCart} />
       <SideMe />
     </div>
   )

@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { League_Spartan } from 'next/font/google'
 
 import { CSPostHogProvider } from '@/components/Providers'
+import { Toaster } from '@/components/ui/toaster'
 import { cn } from '@/lib/utils'
 import Thumbnail from '@/public/assets/thumbnail.png'
 
@@ -66,6 +67,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           <main>{children}</main>
           <Analytics />
           <SpeedInsights />
+          <Toaster />
         </body>
       </CSPostHogProvider>
     </html>

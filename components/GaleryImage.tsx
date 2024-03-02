@@ -10,14 +10,13 @@ export const Galery = ({ photos }) => {
       items={photos}
       config={{
         columns: [1, 2, 3],
-        gap: 24,
+        gap: [24, 24, 24],
         media: [1024, 1536, 2048],
       }}
       render={(item: string, idx) => (
-        <div className="group relative overflow-hidden rounded-lg">
+        <div key={idx} className="group relative overflow-hidden rounded-lg">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            key={idx}
             src={item}
             loading="lazy"
             alt=""

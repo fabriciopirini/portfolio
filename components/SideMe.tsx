@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
 import { Button } from '@/components/ui/button'
+import { useToast } from '@/components/ui/use-toast'
 import { cn } from '@/lib/utils'
 import ProfilePic from '@/public/assets/lego_me.png'
 
@@ -12,6 +13,8 @@ export const SideMe = () => {
   const [animateReturn, setAnimateReturn] = useState(false)
   const [showBubble, setShowBubble] = useState(false)
   const [showBubbleReturn, setShowBubbleReturn] = useState(false)
+
+  const { toast } = useToast()
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -28,12 +31,15 @@ export const SideMe = () => {
   }, [])
 
   return (
-    <>
+    <div className="max-[300px]:hidden">
       <div
-        className={cn('fixed bottom-36 left-0 z-[1000] -translate-x-full rotate-0 fill-mode-both', {
-          'animate-sideMe': animate,
-          'animate-sideMeReturn': animateReturn,
-        })}
+        className={cn(
+          'fixed bottom-40 left-0 z-[1000] -translate-x-full rotate-0 fill-mode-both min-[250px]:bottom-36 min-[300px]:bottom-40 min-[350px]:bottom-28 sm:bottom-20',
+          {
+            'animate-sideMe': animate,
+            'animate-sideMeReturn': animateReturn,
+          }
+        )}
       >
         <div className="motion-safe:animate-none motion-safe:fill-mode-backwards">
           <Image
@@ -44,13 +50,13 @@ export const SideMe = () => {
         </div>
       </div>
       <div
-        className={cn('pointer-events-auto fixed bottom-28 left-28 z-[1001] w-0 origin-left opacity-0', {
+        className={cn('pointer-events-auto fixed bottom-5 left-28 z-[1001] w-0 origin-left opacity-0', {
           'w-auto animate-scaleConversationBubble opacity-100': showBubble,
-          'w-0 animate-scaleConversationBubbleReturn opacity-0': showBubbleReturn,
+          'animate-scaleConversationBubbleReturn opacity-0': showBubbleReturn,
         })}
       >
         <div className="relative will-change-transform">
-          <div className="relative z-[2] min-h-20 w-[350px] rounded-3xl bg-white px-8 py-6 text-primary drop-shadow">
+          <div className="relative z-[2] mr-5 min-h-20 w-auto rounded-3xl bg-white p-5 text-primary drop-shadow max-sm:max-w-[250px] sm:w-[350px] sm:px-8 sm:py-6">
             <div className="pointer-events-none absolute left-[1px] top-[-10px] -translate-x-full">
               <svg width="65" height="78" viewBox="0 0 95 95" fill="none" preserveAspectRatio="none">
                 <path
@@ -59,15 +65,17 @@ export const SideMe = () => {
                 />
               </svg>
             </div>
-            <div className={cn('origin-left translate-x-0 scale-100 text-primary-background opacity-100')}>
-              <p className="mb-4 text-lg font-bold">
+            <div
+              className={cn(
+                'origin-left translate-x-0 scale-100 text-base text-primary-background opacity-100 sm:text-lg'
+              )}
+            >
+              <p className="mb-4 font-semibold">
                 Hey! it seems like you&apos;re enjoying the site. Would you like to chat? I&apos;m here to help!
               </p>
-              <div className="flex justify-between">
-                <Button className="text-lg font-bold">Sure!</Button>
-                <Button
-                  className="text-lg font-bold"
-                  variant="outline"
+              <div className="flex flex-col-reverse justify-between gap-5 px-2 sm:flex-row">
+                <button
+                  className="font-semibold opacity-80"
                   onClick={() => {
                     setShowBubbleReturn(true)
 
@@ -79,12 +87,23 @@ export const SideMe = () => {
                   }}
                 >
                   No thanks
+                </button>
+                <Button
+                  className="text-base font-semibold sm:text-lg"
+                  onClick={() =>
+                    toast({
+                      title: 'Work in progress 🚧',
+                      description: 'This feature is being worked on and will be available soon!',
+                    })
+                  }
+                >
+                  Sure!
                 </Button>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }

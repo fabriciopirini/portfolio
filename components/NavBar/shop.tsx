@@ -9,13 +9,18 @@ import Logo from '@/public/assets/logo.svg'
 export const ShopNavbar = () => {
   return (
     <nav className="relative flex h-[var(--nav-height-shop)] items-center justify-between p-4 md:mx-10 lg:px-6">
-      <Link href="/" aria-label="Back to main site" className="flex items-center gap-1 text-base" prefetch={false}>
+      <Link
+        href="/"
+        aria-label="Back to main site"
+        className="flex items-center gap-1 text-base font-semibold"
+        prefetch={false}
+      >
         {/* <ChevronLeftIcon size={14} /> */}
         <span>Back to main site</span>
       </Link>
       <div className="flex">
         {/* <LogoSquare className="border border-accent" /> */}
-        <h1 className="flex-none text-lg font-semibold uppercase sm:block md:text-2xl">
+        <h1 className="flex-none border-b-2 border-accent text-lg font-semibold uppercase sm:block md:text-2xl">
           Fab&apos;s <span className="block sm:inline">shop</span>
         </h1>
       </div>

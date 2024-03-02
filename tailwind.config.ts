@@ -100,8 +100,8 @@ export const config = {
           '100%': { transform: 'scaleX(1) translateX(0px)', opacity: '1' },
         },
         scaleConversationBubbleReturn: {
-          '0%': { transform: 'scaleX(1) translateX(0px)', opacity: '1' },
-          '100%': { transform: 'scaleX(0) translateX(-65px)', opacity: '0' },
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0' },
         },
       },
       animation: {
@@ -112,7 +112,7 @@ export const config = {
         sideMe: 'sideMe 1.2s linear',
         sideMeReturn: 'sideMeReturn 1.2s linear',
         scaleConversationBubble: 'scaleConversationBubble .5s ease-in-out',
-        scaleConversationBubbleReturn: 'scaleConversationBubbleReturn .5s ease-in-out',
+        scaleConversationBubbleReturn: 'scaleConversationBubbleReturn .3s ease-in-out',
       },
     },
   },

@@ -50,7 +50,7 @@ export const NameBanner = () => {
         <GlobeIcon size={20} className="inline-block" />
         <span>Based in Norway</span>
       </motion.h2>
-      <motion.div className="flex flex-col-reverse gap-6 pb-8 sm:flex-row">
+      {/* <motion.div className="flex flex-col-reverse gap-6 pb-8 sm:flex-row">
         <CTAButton id="resume_download" type="secondary" as="link" href="/api/resume" text="Resume" download />
         <Popover
           onOpenChange={(value) => {
@@ -76,7 +76,6 @@ export const NameBanner = () => {
               }}
               className="flex flex-row items-center justify-around gap-3"
             >
-              {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
               <motion.a
                 href="mailto:fabriciopirini@gmail.com"
                 className="flex flex-col gap-2"
@@ -89,7 +88,6 @@ export const NameBanner = () => {
                 <span className="mx-auto text-lg text-primary-background">Email</span>
                 <span className="sr-only">Send email to Fabricio</span>
               </motion.a>
-              {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
               <motion.a
                 href="https://www.linkedin.com/in/fabriciopirini/"
                 target="_blank"
@@ -107,7 +105,7 @@ export const NameBanner = () => {
             </motion.div>
           </PopoverContent>
         </Popover>
-      </motion.div>
+      </motion.div> */}
     </motion.div>
   )
 }

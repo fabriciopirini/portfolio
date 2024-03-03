@@ -17,6 +17,8 @@ const DrawerPortal = DrawerPrimitive.Portal
 
 const DrawerClose = DrawerPrimitive.Close
 
+const DrawerNested = DrawerPrimitive.NestedRoot
+
 const DrawerOverlay = React.forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Overlay>
@@ -47,7 +49,7 @@ const DrawerHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivEleme
   <div className="flex items-start justify-between">
     <div className={cn('flex flex-col gap-1.5 p-4 text-center sm:text-left', className)} {...props} />
     <DrawerClose className="hidden md:block">
-      <XIcon className="size-6 cursor-pointer" />
+      <XIcon className="size-5 cursor-pointer" />
     </DrawerClose>
   </div>
 )
@@ -89,4 +91,5 @@ export {
   DrawerFooter,
   DrawerTitle,
   DrawerDescription,
+  DrawerNested,
 }

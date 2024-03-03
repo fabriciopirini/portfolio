@@ -109,6 +109,12 @@ export const config = {
           '0%': { opacity: '1' },
           '100%': { opacity: '0' },
         },
+        appearDownAndFade: {
+          '0%': { transform: 'translateY(-10px)', opacity: '0' },
+          '30%': { transform: 'translateY(0px)', opacity: '1' },
+          '80%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
       },
       animation: {
         fadeIn: 'fadeIn .3s ease-in-out',
@@ -119,6 +125,7 @@ export const config = {
         sideMeReturn: 'sideMeReturn 1.2s linear',
         scaleConversationBubble: 'scaleConversationBubble .5s ease-in-out',
         scaleConversationBubbleReturn: 'scaleConversationBubbleReturn .3s ease-in-out',
+        appearDownAndFade: 'appearDownAndFade 3.5s ease-in-out',
       },
     },
   },

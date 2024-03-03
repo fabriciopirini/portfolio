@@ -13,7 +13,7 @@ export const ShopNavbar = () => {
   const searchParams = useSearchParams()
 
   return (
-    <nav className="relative flex h-[var(--nav-height-shop)] items-center justify-between p-4 md:mx-10 lg:px-6">
+    <nav className="container relative flex h-[var(--nav-height-shop)] w-full items-center justify-between p-4 lg:px-6">
       <Link
         href="/"
         aria-label="Back to main site"
@@ -30,7 +30,7 @@ export const ShopNavbar = () => {
         </h1>
       </div>
       <div className="flex items-center justify-center gap-2 md:gap-5">
-        <div className="flex items-center justify-end gap-2 px-5 py-3 text-xl text-white">
+        <div className="flex items-center justify-end gap-2 p-2 text-xl text-white md:px-5 md:py-3">
           139
           <CircleDollarSignIcon size={24} className="stroke-[#373943] text-accent" fill="currentColor" />
           {/* <SwissFrancIcon size={24} className="text-accent" /> */}

@@ -13,7 +13,7 @@ export const metadata = {
 
 const ShopFrontPage = async () => {
   return (
-    <div className="flex justify-center p-10">
+    <div className="container flex justify-center p-10">
       <Galery items={[...PRODUCTS]} />
       <SideMe />
     </div>

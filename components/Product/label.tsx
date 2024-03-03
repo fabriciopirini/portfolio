@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils'
 export const Label = ({ title, amount, className }: { title: string; amount: number; className?: string }) => {
   return (
     <div className={cn('flex w-auto flex-col items-center font-semibold backdrop-blur-md sm:flex-row', className)}>
-      <h2 className="m-auto line-clamp-1 size-full grow truncate rounded-t bg-accent px-3 py-1 text-primary-background sm:w-auto sm:rounded-l sm:rounded-tr-none">
+      <h2 className="m-auto line-clamp-1 size-full rounded-t bg-accent px-3 py-1 text-center text-primary-background max-[375px]:line-clamp-2 max-[375px]:max-w-40 sm:w-auto sm:rounded-l sm:rounded-tr-none">
         {title}
       </h2>
       <p

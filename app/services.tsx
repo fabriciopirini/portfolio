@@ -56,7 +56,7 @@ export const PRODUCTS = [
   },
   {
     id: 'product-5',
-    name: 'Smooth checkout process',
+    name: 'Smooth checkout',
     price: 500,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -78,7 +78,7 @@ export const PRODUCTS = [
   },
   {
     id: 'product-7',
-    name: 'Incredible user experience',
+    name: 'Great user experience',
     price: 600,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -89,7 +89,7 @@ export const PRODUCTS = [
   },
   {
     id: 'product-8',
-    name: 'Your customer coming back',
+    name: 'Customer loyalty',
     price: 600,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',

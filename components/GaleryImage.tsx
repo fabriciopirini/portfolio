@@ -25,7 +25,7 @@ export const Galery = ({ items }: { items: (typeof PRODUCTS)[number][] }) => {
         media: [1024, 1536, 2048],
       }}
       render={(item: (typeof PRODUCTS)[number]) => (
-        <div key={item.id} className="group relative overflow-hidden rounded-md">
+        <div key={item.id} className="group relative overflow-hidden rounded-lg">
           <div
             className="hidden w-full bg-neutral-400 sm:block sm:p-20"
             style={{ height: imagesHeight.find((image) => image.productId === item.id)?.height }}

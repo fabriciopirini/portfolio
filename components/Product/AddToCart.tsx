@@ -4,24 +4,19 @@ import { CheckIcon, ShoppingCartIcon } from 'lucide-react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 
-const cartParamNoDuplicates = (cart: string | null, productId: string) => {
-  if (!cart) return productId
+import { cn, getCartItems } from '@/lib/utils'
 
-  const cartArray = cart.split(',')
-  const newCartArray = [...new Set([...cartArray, productId])]
+const CART_BUTTON_BASE_STYLE = 'flex size-12 items-center justify-center rounded-md bg-primary drop-shadow-md'
 
-  return newCartArray.join(',')
-}
-
-const isProductInCart = (cart: string, productId: string) => cart.split(',').includes(productId)
+const isProductInCart = (cart: string[], productId: string) => cart.includes(productId)
 
 export const AddToCart = ({ productId }: { productId: string }) => {
   const searchParams = useSearchParams()
-  const cart = searchParams.get('cart')
+  const cart = getCartItems(searchParams)
 
-  if (cart && isProductInCart(cart, productId)) {
+  if (isProductInCart(cart, productId)) {
     return (
-      <div className="relative flex size-12 items-center justify-center rounded-md bg-green-500 text-primary">
+      <div className={cn(CART_BUTTON_BASE_STYLE, 'relative bg-green-500 text-primary')}>
         <ShoppingCartIcon className="size-6" />
         <div className="absolute bottom-2 right-2 z-10 size-3 rounded-full bg-green-500">
           <CheckIcon className="size-3" />
@@ -32,7 +27,7 @@ export const AddToCart = ({ productId }: { productId: string }) => {
   }
 
   const queryParams = new URLSearchParams({
-    cart: cartParamNoDuplicates(cart, productId),
+    cart: [...cart, productId].join(','),
     ...(searchParams.get('interactionEnded')
       ? { interactionEnded: searchParams.get('interactionEnded') as string }
       : {}),
@@ -41,7 +36,7 @@ export const AddToCart = ({ productId }: { productId: string }) => {
   return (
     <Link
       href={`/shop?${new URLSearchParams(queryParams)}`}
-      className="flex size-12 items-center justify-center rounded-md bg-primary"
+      className={cn(CART_BUTTON_BASE_STYLE, 'duration-300 ease-in-out hover:scale-105')}
       scroll={false}
     >
       <ShoppingCartIcon className="size-6 text-primary" />

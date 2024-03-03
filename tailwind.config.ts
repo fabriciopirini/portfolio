@@ -39,12 +39,15 @@ export const config = {
         accent: {
           DEFAULT: 'hsl(var(--color-text-accent))',
         },
+        muted: {
+          foreground: 'hsl(var(--color-text-muted-foreground))',
+        },
       },
       borderColor: {
         accent: {
           DEFAULT: 'hsl(var(--color-text-accent))',
         },
-        'shop-card': 'hsl(var(--shop-card-border-color) / <alpha-value>)',
+        'shop-card': 'hsl(var(--color-shop-card-border) / <alpha-value>)',
       },
       backgroundColor: {
         primary: {
@@ -60,6 +63,9 @@ export const config = {
         },
         'skill-card': {
           DEFAULT: 'hsl(var(--color-bg-skill-card))',
+        },
+        background: {
+          DEFAULT: 'hsl(var(--background))',
         },
       },
       colors: {

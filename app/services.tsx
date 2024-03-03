@@ -6,11 +6,8 @@ import { Responsive } from '@/components/ServicesImages/Responsive'
 import { SearchEngines } from '@/components/ServicesImages/SearchEngines'
 import { SEOImage } from '@/components/ServicesImages/SEO'
 import { SuccessPurchase } from '@/components/ServicesImages/SuccessPurchase'
-import { cn } from '@/lib/utils'
 
-const IMAGE_STYLES = cn(
-  'relative h-full w-full object-contain object-center transition duration-300 ease-in-out group-hover:scale-105'
-)
+const IMAGE_STYLES = 'relative h-full w-full object-contain object-center'
 
 export const PRODUCTS = [
   {

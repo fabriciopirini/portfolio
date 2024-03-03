@@ -1,12 +1,17 @@
+'use client'
+
 import { CircleDollarSignIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 
 import { Basket } from '@/components/Basket'
 import { cn } from '@/lib/utils'
 import Logo from '@/public/assets/logo.svg'
 
 export const ShopNavbar = () => {
+  const searchParams = useSearchParams()
+
   return (
     <nav className="relative flex h-[var(--nav-height-shop)] items-center justify-between p-4 md:mx-10 lg:px-6">
       <Link
@@ -31,7 +36,7 @@ export const ShopNavbar = () => {
           {/* <SwissFrancIcon size={24} className="text-accent" /> */}
           {/* <span className="text-2xl font-medium italic text-accent">F</span> */}
         </div>
-        <Basket />
+        <Basket searchParams={searchParams} />
       </div>
     </nav>
   )

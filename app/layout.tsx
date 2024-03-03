@@ -1,16 +1,15 @@
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
-import { League_Spartan } from 'next/font/google'
 
 import { CSPostHogProvider } from '@/components/Providers'
-import { Toaster } from '@/components/ui/toaster'
 import { cn } from '@/lib/utils'
 import Thumbnail from '@/public/assets/thumbnail.png'
 
 import '@/app/globals.css'
 
-const inter = League_Spartan({ subsets: ['latin'] })
+// const LeagueSpartan = League_Spartan({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_VERCEL_URL ?? 'https://fabriciopirini.com'),
@@ -57,12 +56,13 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en" className={inter.className} suppressHydrationWarning>
+    <html lang="en" className={cn(GeistSans.className, 'size-full')} suppressHydrationWarning>
       <CSPostHogProvider>
         <body
-          className={cn('min-h-svh overflow-x-hidden antialiased', {
+          className={cn('min-h-svh w-full antialiased', {
             'debug-screens': process.env.VERCEL_ENV !== 'production',
           })}
+          style={{ scrollbarGutter: 'stable' }}
         >
           <main>{children}</main>
           <Analytics />

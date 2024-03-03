@@ -6,12 +6,17 @@
   :root {
     --color-text-primary: 0 0% 98%;
     --color-text-accent: 39 100% 67%;
+    --color-text-muted-foreground: 240 5% 64.9%;
 
     --color-bg-primary: 230 10% 24%;
     --color-bg-primary-hero: 216 5% 21%;
     --color-bg-secondary: 220 2% 25%;
     --color-bg-secondary-hover: var(--color-text-accent);
     --color-bg-skill-card: 220 6% 28%;
+
+    --color-shop-card-border: var(--color-text-primary);
+
+    --background: 240 10% 3.9%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 47.4% 11.2%;
@@ -28,7 +33,6 @@
 
     --nav-height-shop: 6rem;
     --carousel-height: 19rem;
-    --shop-card-border-color: var(--color-text-primary);
 
     @media (max-width: 768px) {
       --bg-animation-stroke-width: 1.5;

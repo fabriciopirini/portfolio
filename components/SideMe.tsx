@@ -6,7 +6,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 import { Button } from '@/components/ui/button'
 import { useToast } from '@/components/ui/use-toast'
-import { cn } from '@/lib/utils'
+import { cn, getCartItems } from '@/lib/utils'
 import ProfilePic from '@/public/assets/lego_me.png'
 
 export const SideMe = () => {
@@ -56,8 +56,8 @@ export const SideMe = () => {
         </div>
       </div>
       <div
-        className={cn('pointer-events-auto fixed bottom-5 left-28 z-[1001] w-0 origin-left opacity-0', {
-          'w-auto animate-scaleConversationBubble opacity-100': showBubble && !interactionEnded,
+        className={cn('pointer-events-none fixed bottom-5 left-28 z-[1001] w-0 origin-left opacity-0', {
+          'pointer-events-auto w-auto animate-scaleConversationBubble opacity-100': showBubble && !interactionEnded,
           'animate-scaleConversationBubbleReturn opacity-0': showBubbleReturn,
         })}
       >
@@ -89,8 +89,10 @@ export const SideMe = () => {
                       setAnimateReturn(true)
 
                       const timer = setTimeout(() => {
+                        const cart = getCartItems(searchParams)
+
                         const queryParams = {
-                          ...(searchParams.get('cart') ? { cart: searchParams.get('cart') as string } : {}),
+                          ...(cart.length ? { cart: cart.join(',') } : {}),
                           interactionEnded: 'true',
                         }
 

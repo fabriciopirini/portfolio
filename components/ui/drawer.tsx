@@ -33,12 +33,10 @@ const DrawerContent = React.forwardRef<
     <DrawerOverlay />
     <DrawerPrimitive.Content
       ref={ref}
-      className={cn(
-        'fixed inset-y-0 right-0 z-50 flex h-full w-[400px] flex-col rounded-l-[10px] border-l bg-primary-hero',
-        className
-      )}
+      className={cn('fixed z-50 flex h-full w-full flex-col bg-primary-hero', className)}
       {...props}
     >
+      <div className="mx-auto mt-4 block h-2 w-[100px] rounded-full bg-white md:hidden" />
       {children}
     </DrawerPrimitive.Content>
   </DrawerPortal>
@@ -48,7 +46,7 @@ DrawerContent.displayName = 'DrawerContent'
 const DrawerHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
   <div className="flex items-start justify-between">
     <div className={cn('flex flex-col gap-1.5 p-4 text-center sm:text-left', className)} {...props} />
-    <DrawerClose>
+    <DrawerClose className="hidden md:block">
       <XIcon className="size-6 cursor-pointer" />
     </DrawerClose>
   </div>
@@ -76,7 +74,7 @@ const DrawerDescription = React.forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Description>
 >(({ className, ...props }, ref) => (
-  <DrawerPrimitive.Description ref={ref} className={cn('text-sm', className)} {...props} />
+  <DrawerPrimitive.Description ref={ref} className={cn('text-sm text-muted-foreground', className)} {...props} />
 ))
 DrawerDescription.displayName = DrawerPrimitive.Description.displayName
 

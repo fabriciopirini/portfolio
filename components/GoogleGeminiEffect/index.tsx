@@ -9,7 +9,7 @@ const transition = {
   ease: 'linear',
 }
 
-export const GoogleGeminiEffect = ({ pathLengths, className }: { pathLengths: MotionValue[]; className?: string }) => {
+export const GoogleGeminiEffect = ({ pathLengths }: { pathLengths: MotionValue[] }) => {
   return (
     <svg
       width="1440"

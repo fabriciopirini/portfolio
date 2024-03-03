@@ -21,7 +21,7 @@ import {
   DrawerTrigger,
 } from '@/components/ui/drawer'
 
-const recipient = 'me@fabriciopirini.com'
+const recipient = '"Fabricio Pirini" <me@fabriciopirini.com>'
 const subject = "Let's have a chat"
 const body =
   "Hey, Fabricio! I'm very interested in your services. Can we have a chat? By the way, loved the website! 🚀"
@@ -78,11 +78,11 @@ const CheckoutButtonMobile = () => {
         <DrawerTrigger asChild>
           <Button className="w-full max-w-[300px] text-base font-medium md:mx-auto">Checkout</Button>
         </DrawerTrigger>
-        <DrawerContent className="inset-x-0 bottom-0 h-auto w-full rounded-t-3xl">
+        <DrawerContent className="inset-x-0 bottom-0 h-auto w-full rounded-t-3xl pb-5">
           <div className="mx-auto flex h-auto w-full max-w-sm flex-col gap-8 p-8 md:h-full md:w-auto md:max-w-md">
             <DrawerHeader className="flex w-full flex-col items-center gap-3 p-0">
               <DrawerTitle>Interested?</DrawerTitle>
-              <DrawerDescription>
+              <DrawerDescription className="flex flex-col gap-1">
                 <span>You seemed interested on the values I can bring to your project.</span>
                 <span>Let&apos;s have a chat!</span>
               </DrawerDescription>
@@ -98,12 +98,15 @@ const CheckoutButtonMobile = () => {
 const CheckoutInfoContent = () => (
   <div className="flex w-full flex-col items-center justify-between gap-3">
     <Button className="text-base transition-all duration-300 hover:scale-[1.02]">
-      <a href={mailTo} type="submit">
+      <a href={mailTo} type="submit" className="hidden md:block">
         Send email from your favorite client
       </a>
+      <a href={mailTo} type="submit" className="block md:hidden">
+        Send email
+      </a>
     </Button>
-    <span>or</span>
-    <div className="flex gap-3">
+    <span className="hidden md:block">or</span>
+    <div className="hidden gap-3 md:flex">
       <Button className="text-base transition-all duration-300 hover:scale-[1.02]">
         <a href={gmailLink} target="_blank" rel="noreferrer" type="submit" className="flex items-center gap-3">
           <GmailLogo className="size-5" /> Gmail

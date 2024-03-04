@@ -5,9 +5,8 @@ export const SocialsSidebar = () => {
   const posthog = usePostHog()
 
   return (
-    <div className="fixed bottom-0 right-0 z-50 flex h-full flex-col justify-end gap-6 px-2 py-6 md:justify-center md:px-4">
+    <aside className="fixed bottom-0 right-0 z-50 flex h-full flex-col justify-end gap-6 px-2 py-6 md:justify-center md:px-4">
       <div className="mx-auto h-16 w-[2px] border-l-4 border-accent" />
-      {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
       <a
         target="_blank"
         rel="noreferrer"
@@ -20,7 +19,6 @@ export const SocialsSidebar = () => {
         <LinkedinIcon size={40} />
         <span className="sr-only">Visit Fabricio&apos;s LinkedIn profile</span>
       </a>
-      {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
       <a
         target="_blank"
         rel="noreferrer"
@@ -34,6 +32,6 @@ export const SocialsSidebar = () => {
         <span className="sr-only">Visit Fabricio&apos;s Github profile</span>
       </a>
       <div className="mx-auto hidden h-16 w-[2px] border-l-4 border-accent md:block" />
-    </div>
+    </aside>
   )
 }

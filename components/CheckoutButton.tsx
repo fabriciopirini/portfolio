@@ -21,7 +21,7 @@ import {
   DrawerTrigger,
 } from '@/components/ui/drawer'
 
-const recipient = '"Fabricio Pirini" <me@fabriciopirini.com>'
+const recipient = 'Fabricio Pirini<me@fabriciopirini.com>'
 const subject = "Let's have a chat"
 const body =
   "Hey, Fabricio! I'm very interested in your services. Can we have a chat? By the way, loved the website! 🚀"
@@ -49,22 +49,15 @@ const CheckoutButtonDesktop = () => {
         <DialogTrigger asChild>
           <Button className="w-full max-w-[300px] text-base font-medium md:mx-auto">Checkout</Button>
         </DialogTrigger>
-        <DialogContent className="flex flex-col gap-8 bg-primary-hero text-primary">
+        <DialogContent className="flex flex-col gap-8 bg-primary-hero pb-10 pt-8 text-primary">
           <DialogHeader>
-            <DialogTitle className="text-xl">Interested?</DialogTitle>
-            <DialogDescription className="flex flex-col">
+            <DialogTitle className="text-center text-xl">Interested?</DialogTitle>
+            <DialogDescription className="flex flex-col text-center">
               <span>You seemed interested on the values I can bring to your project.</span>
               <span>Let&apos;s have a chat!</span>
             </DialogDescription>
           </DialogHeader>
           <CheckoutInfoContent />
-          <DrawerFooter className="pt-2">
-            <DrawerClose asChild>
-              <Button className="mx-auto w-auto max-w-[200px] text-sm" variant="outline">
-                Cancel
-              </Button>
-            </DrawerClose>
-          </DrawerFooter>
         </DialogContent>
       </Dialog>
     </div>
@@ -99,13 +92,12 @@ const CheckoutInfoContent = () => (
   <div className="flex w-full flex-col items-center justify-between gap-3">
     <Button className="text-base transition-all duration-300 hover:scale-[1.02]">
       <a href={mailTo} type="submit" className="hidden md:block">
-        Send email from your favorite client
+        Send email from your favorite app
       </a>
       <a href={mailTo} type="submit" className="block md:hidden">
         Send email
       </a>
     </Button>
-    <span className="hidden md:block">or</span>
     <div className="hidden gap-3 md:flex">
       <Button className="text-base transition-all duration-300 hover:scale-[1.02]">
         <a href={gmailLink} target="_blank" rel="noreferrer" type="submit" className="flex items-center gap-3">
@@ -118,5 +110,37 @@ const CheckoutInfoContent = () => (
         </a>
       </Button>
     </div>
+    {/* <span>or</span>
+    <div className="flex flex-col text-center">
+      <span>Click on the email to copy it</span>
+      <button
+        className="underline"
+        onClick={() => {
+          try {
+            navigator?.clipboard?.writeText(recipient)
+          } catch (err) {
+            fallbackCopyTextToClipboard(recipient)
+          }
+        }}
+      >
+        me@fabriciopirini.com
+      </button>
+    </div> */}
   </div>
 )
+
+// const fallbackCopyTextToClipboard = (text) => {
+//   const textArea: HTMLTextAreaElement = document.createElement('textarea')
+//   textArea.value = text
+//   textArea.style.position = 'fixed'
+//   textArea.style.opacity = '0'
+//   textArea.style.left = '-999999px'
+//   document.body.appendChild(textArea)
+//   textArea.focus()
+//   textArea.select()
+
+//   return new Promise<void>((res, rej) => {
+//     document.execCommand('copy') ? res() : rej()
+//     textArea.remove()
+//   })
+// }

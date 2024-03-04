@@ -21,7 +21,8 @@ import {
   DrawerTrigger,
 } from '@/components/ui/drawer'
 
-const recipient = 'Fabricio Pirini<me@fabriciopirini.com>'
+const recipient = 'fabricio@fabriciopirini.com'
+// const recipient = 'Fabricio Pirini<me@fabriciopirini.com>'
 const subject = "Let's have a chat"
 const body =
   "Hey, Fabricio! I'm very interested in your services. Can we have a chat? By the way, loved the website! 🚀"

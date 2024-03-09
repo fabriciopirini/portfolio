@@ -36,17 +36,11 @@ export const config = {
           DEFAULT: 'hsl(var(--color-text-primary))',
           background: 'hsl(var(--color-bg-primary))',
         },
-        accent: {
-          DEFAULT: 'hsl(var(--color-text-accent))',
-        },
         muted: {
           foreground: 'hsl(var(--color-text-muted-foreground))',
         },
       },
       borderColor: {
-        accent: {
-          DEFAULT: 'hsl(var(--color-text-accent))',
-        },
         'shop-card': 'hsl(var(--color-shop-card-border) / <alpha-value>)',
       },
       backgroundColor: {
@@ -58,9 +52,6 @@ export const config = {
           DEFAULT: 'hsl(var(--color-bg-secondary))',
           hover: 'hsl(var(--color-bg-secondary-hover))',
         },
-        accent: {
-          DEFAULT: 'hsl(var(--color-text-accent))',
-        },
         'skill-card': {
           DEFAULT: 'hsl(var(--color-bg-skill-card))',
         },
@@ -71,6 +62,9 @@ export const config = {
       colors: {
         linkedIn: {
           DEFAULT: 'rgb(10, 102, 194)',
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--color-text-accent))',
         },
       },
       minHeight: {

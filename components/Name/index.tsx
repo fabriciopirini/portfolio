@@ -30,27 +30,30 @@ export const NameBanner = () => {
           },
         },
       }}
+      className="flex w-auto max-w-xl flex-col gap-4 md:gap-10"
     >
       <motion.h1
-        className="flex flex-col gap-3 pb-5 sm:flex-row sm:items-center"
+        className="flex flex-col pb-5 text-3xl font-bold sm:text-4xl lg:text-6xl"
         variants={FADE_DOWN_ANIMATION_VARIANTS}
       >
-        <span>I&apos;m</span>{' '}
-        <span className="inline-block text-5xl font-medium text-accent md:text-6xl">Fabricio Pirini</span>
+        <span className="min-w-[150px]">Nice to meet you! 👋</span>
+        <span className="underline decoration-accent underline-offset-8">I&apos;m Fabricio.</span>
       </motion.h1>
-      <motion.h2 className="flex flex-row items-baseline gap-3" variants={FADE_DOWN_ANIMATION_VARIANTS}>
-        <Laptop2Icon size={20} className="inline-block" />
-        <span>Senior Frontend Engineer</span>
-      </motion.h2>
-      <motion.h2 className="flex flex-row items-baseline gap-3" variants={FADE_DOWN_ANIMATION_VARIANTS}>
-        <Clock7Icon size={20} className="inline-block" />
-        <span>{`${diffYears ?? 6}+ years of experience`}</span>
-      </motion.h2>
-      <motion.h2 className="mb-4 flex flex-row items-baseline gap-3" variants={FADE_DOWN_ANIMATION_VARIANTS}>
-        <GlobeIcon size={20} className="inline-block" />
-        <span>Based in Norway</span>
-      </motion.h2>
-      <motion.div className="flex flex-col-reverse gap-6 pb-8 sm:flex-row">
+      <div className="text-2xl sm:text-3xl">
+        <motion.h2 className="flex flex-row items-baseline gap-3" variants={FADE_DOWN_ANIMATION_VARIANTS}>
+          <Laptop2Icon size={20} className="inline-block" />
+          <span>Senior Frontend Engineer</span>
+        </motion.h2>
+        <motion.h2 className="flex flex-row items-baseline gap-3" variants={FADE_DOWN_ANIMATION_VARIANTS}>
+          <Clock7Icon size={20} className="inline-block" />
+          <span>{`${diffYears ?? 6}+ years of experience`}</span>
+        </motion.h2>
+        <motion.h2 className="mb-4 flex flex-row items-baseline gap-3" variants={FADE_DOWN_ANIMATION_VARIANTS}>
+          <GlobeIcon size={20} className="inline-block" />
+          <span>Based in Norway</span>
+        </motion.h2>
+      </div>
+      <motion.div className="flex flex-col gap-6 pb-8 sm:flex-row">
         <CTAButton id="resume_download" type="secondary" as="link" href="/api/resume" text="Resume" download />
         <Popover
           onOpenChange={(value) => {

@@ -10,7 +10,7 @@ import { usePostHog } from 'posthog-js/react'
 import { cn } from '@/lib/utils'
 
 export const CTAButtonStyles = cva(
-  'rounded-xl bg-inherit text-3xl py-3 sm:py-4 text-center flex items-center px-5 sm:px-8 justify-center text-primary cursor-pointer select-none',
+  'rounded-xl bg-inherit text-2xl sm:text-3xl py-3 sm:py-4 text-center flex items-center px-5 sm:px-8 justify-center text-primary cursor-pointer select-none',
   {
     variants: {
       intent: {

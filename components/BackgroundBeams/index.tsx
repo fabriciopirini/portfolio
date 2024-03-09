@@ -86,9 +86,17 @@ export const BackgroundBeams = ({ className, isMobile = false }: { className?: s
               <stop stopColor="white" stopOpacity="1" />
             ) : (
               <>
-                <stop offset="0.0666667" stopColor="hsl(var(--color-text-primary))" stopOpacity="0.2" />
-                <stop offset="0.243243" stopColor="hsl(var(--color-text-primary))" stopOpacity="0.1" />
-                <stop offset="0.43594" stopColor="white" stopOpacity="0" />
+                <stop
+                  offset="0.0666667"
+                  stopColor="hsl(var(--color-text-primary))"
+                  stopOpacity={isMobile ? '0.8' : '0.5'}
+                />
+                <stop
+                  offset="0.243243"
+                  stopColor="hsl(var(--color-text-primary))"
+                  stopOpacity={isMobile ? '0.6' : '0.3'}
+                />
+                <stop offset="0.43594" stopColor="white" stopOpacity={isMobile ? '0.4' : '0.1'} />
               </>
             )}
           </radialGradient>

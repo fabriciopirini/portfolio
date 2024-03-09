@@ -14,6 +14,11 @@ import Logo from '@/public/assets/logo.svg'
 export const ShopNavbar = () => {
   const [animate, setAnimate] = useState(false)
   const [coins, setCoins] = useState(0)
+
+  const isClientSide = typeof window !== 'undefined'
+
+  const [isLoading, setIsLoading] = useState(isClientSide)
+
   const searchParams = useSearchParams()
 
   useEffect(() => {
@@ -21,11 +26,31 @@ export const ShopNavbar = () => {
 
     const timer = setTimeout(() => {
       setAnimate(true)
-      setCoins((prev) => prev + 100)
+      setCoins((prev) => {
+        const newCoins = prev + 100
+        try {
+          localStorage.setItem('coins', String(newCoins))
+        } catch (error) {}
+        return newCoins
+      })
     }, 5000)
 
     return () => clearTimeout(timer)
   }, [animate])
+
+  useEffect(() => {
+    if (!isClientSide) return
+
+    const item = localStorage.getItem('coins')
+
+    if (item) {
+      try {
+        setCoins(parseInt(item))
+      } finally {
+        setIsLoading(false)
+      }
+    }
+  }, [])
 
   return (
     <nav className="container relative flex h-[var(--nav-height-shop)] w-full items-center justify-between p-4 lg:px-6">
@@ -49,28 +74,30 @@ export const ShopNavbar = () => {
       </div>
       <div className="flex items-center justify-center gap-2 md:gap-5">
         <div className="flex items-center justify-end gap-2 p-2 text-xl text-white md:px-5 md:py-3">
-          {coins < 9999 ? (
+          {coins < 99999 ? (
             <div className="relative">
               <CountUp
                 start={Math.max(coins - 100, 0)}
                 end={coins}
                 duration={2}
                 onEnd={() => {
-                  console.log('Ended count up')
                   setAnimate(false)
                 }}
-                className="inline-block w-[4ch] text-right"
+                className={cn('inline-block w-[6ch] text-right', {
+                  'animate-pulse rounded-md bg-neutral-500 text-neutral-500': isLoading,
+                })}
               />
               <span
                 className={cn('absolute right-0 top-6 text-center text-sm text-accent opacity-0', {
                   'animate-appearDownAndFade': animate,
+                  hidden: isLoading,
                 })}
               >
                 +100
               </span>
             </div>
           ) : (
-            <div className="w-[4ch]">
+            <div className="w-[6ch]">
               <InfinityIcon size={28} strokeWidth={1.5} className="ml-auto size-7" />
             </div>
           )}

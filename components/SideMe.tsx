@@ -6,7 +6,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 import { Button } from '@/components/ui/button'
 import { useToast } from '@/components/ui/use-toast'
-import { cn, getCartItems, updatedQueryParams as updatedQueryParams } from '@/lib/utils'
+import { cn, updatedQueryParams } from '@/lib/utils'
 import ProfilePic from '@/public/assets/lego_me.png'
 
 export const SideMe = () => {

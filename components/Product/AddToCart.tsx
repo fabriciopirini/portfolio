@@ -4,7 +4,7 @@ import { CheckIcon, ShoppingCartIcon } from 'lucide-react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 
-import { cn, getCartItems } from '@/lib/utils'
+import { cn, getCartItems, updatedQueryParams } from '@/lib/utils'
 
 const CART_BUTTON_BASE_STYLE = 'flex size-12 items-center justify-center rounded-md bg-primary drop-shadow-md'
 
@@ -26,16 +26,14 @@ export const AddToCart = ({ productId }: { productId: string }) => {
     )
   }
 
-  const queryParams = new URLSearchParams({
+  const queryParams = updatedQueryParams(searchParams, {
     cart: [...cart, productId].join(','),
-    ...(searchParams.get('interactionEnded')
-      ? { interactionEnded: searchParams.get('interactionEnded') as string }
-      : {}),
+    ...(searchParams.get('showSideBubble') ? { showSideBubble: searchParams.get('showSideBubble') as string } : {}),
   })
 
   return (
     <Link
-      href={`/shop?${new URLSearchParams(queryParams)}`}
+      href={`/shop${queryParams}`}
       className={cn(CART_BUTTON_BASE_STYLE, 'duration-300 ease-in-out hover:scale-105')}
       scroll={false}
     >

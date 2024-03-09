@@ -16,7 +16,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer'
-import { cn, getCartItems, removeCartItemFromQuery } from '@/lib/utils'
+import { cn, getCartItems, updatedQueryParams } from '@/lib/utils'
 
 export const Basket = ({ searchParams }: { searchParams: ReadonlyURLSearchParams }) => {
   const screen = useWindowSize()
@@ -39,7 +39,7 @@ export const Basket = ({ searchParams }: { searchParams: ReadonlyURLSearchParams
         })}
         data-vaul-no-drag={!isMobile}
       >
-        <div className="mx-auto flex h-auto w-full max-w-sm flex-col gap-4 p-8 md:h-full md:w-auto md:max-w-md">
+        <div className="mx-auto flex h-auto w-96 flex-col gap-4 p-8 md:h-full md:w-auto md:max-w-md">
           <DrawerHeader className="flex w-full flex-col items-center gap-3 p-0">
             <DrawerTitle>Your Basket</DrawerTitle>
             <DrawerDescription>Checkout with your items</DrawerDescription>
@@ -59,7 +59,7 @@ export const Basket = ({ searchParams }: { searchParams: ReadonlyURLSearchParams
             )}
           </div>
           <DrawerFooter>
-            <CheckoutButton />
+            <CheckoutButton disabled={cart.length === 0} />
           </DrawerFooter>
         </div>
       </DrawerContent>
@@ -80,7 +80,10 @@ const ProductCartItem = ({ productId, position }: { productId: string; position:
         <h3 className="text-lg font-medium">{item.name}</h3>
         <p className="text-sm">F$ {item.price}</p>
       </div>
-      <Link href={`/shop?${removeCartItemFromQuery(searchParams, productId)}`} className="text-xs font-medium">
+      <Link
+        href={`/shop${updatedQueryParams(searchParams, { cart: searchParams.get('cart')?.replace(productId, '') ?? '' })}`}
+        className="text-xs font-medium"
+      >
         Remove
       </Link>
     </li>

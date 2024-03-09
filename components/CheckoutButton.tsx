@@ -31,23 +31,25 @@ const mailTo = `mailto:${recipient}?subject=${subject}&body=${body}`
 const gmailLink = `https://mail.google.com/mail/?view=cm&to=${recipient}&su=${subject}&body=${body}`
 const outlookLink = `https://outlook.office.com/mail/deeplink/compose?to=${recipient}&subject=${subject}&body=${body}`
 
-export const CheckoutButton = () => {
+export const CheckoutButton = ({ disabled = false }: { disabled?: boolean }) => {
   return (
     <>
-      <CheckoutButtonDesktop />
-      <CheckoutButtonMobile />
+      <CheckoutButtonDesktop disabled={disabled} />
+      <CheckoutButtonMobile disabled={disabled} />
     </>
   )
 }
 
-const CheckoutButtonDesktop = () => {
+const CheckoutButtonDesktop = ({ disabled }: { disabled: boolean }) => {
   const [open, setOpen] = useState(false)
 
   return (
     <div className="hidden md:block">
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button className="w-full max-w-[300px] text-base font-medium md:mx-auto">Checkout</Button>
+          <Button disabled={disabled} className="w-full max-w-[300px] text-base font-medium md:mx-auto">
+            Checkout
+          </Button>
         </DialogTrigger>
         <DialogContent className="flex flex-col gap-8 bg-primary-hero pb-10 pt-8 text-primary">
           <DialogHeader>
@@ -64,12 +66,14 @@ const CheckoutButtonDesktop = () => {
   )
 }
 
-const CheckoutButtonMobile = () => {
+const CheckoutButtonMobile = ({ disabled }: { disabled: boolean }) => {
   return (
     <div className="block w-full md:hidden">
       <DrawerNested direction="bottom" shouldScaleBackground={false}>
         <DrawerTrigger asChild>
-          <Button className="w-full max-w-[300px] text-base font-medium md:mx-auto">Checkout</Button>
+          <Button disabled={disabled} className="w-full max-w-[300px] text-base font-medium md:mx-auto">
+            Checkout
+          </Button>
         </DrawerTrigger>
         <DrawerContent className="inset-x-0 bottom-0 h-auto w-full rounded-t-3xl pb-5">
           <div className="mx-auto flex h-auto w-full max-w-sm flex-col gap-8 p-8 md:h-full md:w-auto md:max-w-md">

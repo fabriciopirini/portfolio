@@ -6,7 +6,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 import { Button } from '@/components/ui/button'
 import { useToast } from '@/components/ui/use-toast'
-import { cn, getCartItems } from '@/lib/utils'
+import { cn, getCartItems, updatedQueryParams as updatedQueryParams } from '@/lib/utils'
 import ProfilePic from '@/public/assets/lego_me.png'
 
 export const SideMe = () => {
@@ -18,7 +18,7 @@ export const SideMe = () => {
   const router = useRouter()
   const searchParams = useSearchParams()
   const pathname = usePathname()
-  const interactionEnded = searchParams.has('interactionEnded')
+  const showSideBubble = searchParams.has('showSideBubble')
 
   const { toast } = useToast()
 
@@ -42,7 +42,7 @@ export const SideMe = () => {
         className={cn(
           'fixed bottom-40 left-0 z-[1000] -translate-x-full rotate-0 fill-mode-both min-[250px]:bottom-36 min-[300px]:bottom-40 min-[350px]:bottom-28 sm:bottom-20',
           {
-            'animate-sideMe': animate && !interactionEnded,
+            'animate-sideMe': animate && !showSideBubble,
             'animate-sideMeReturn': animateReturn,
           }
         )}
@@ -57,7 +57,7 @@ export const SideMe = () => {
       </div>
       <div
         className={cn('pointer-events-none fixed bottom-5 left-28 z-[1001] w-0 origin-left opacity-0', {
-          'pointer-events-auto w-auto animate-scaleConversationBubble opacity-100': showBubble && !interactionEnded,
+          'pointer-events-auto w-auto animate-scaleConversationBubble opacity-100': showBubble && !showSideBubble,
           'animate-scaleConversationBubbleReturn opacity-0': showBubbleReturn,
         })}
       >
@@ -89,14 +89,9 @@ export const SideMe = () => {
                       setAnimateReturn(true)
 
                       const timer = setTimeout(() => {
-                        const cart = getCartItems(searchParams)
+                        const queryParams = updatedQueryParams(searchParams, { showSideBubble: true })
 
-                        const queryParams = {
-                          ...(cart.length ? { cart: cart.join(',') } : {}),
-                          interactionEnded: 'true',
-                        }
-
-                        router.push(`${pathname}?${new URLSearchParams(queryParams)}`, { scroll: false })
+                        router.push(`${pathname}${queryParams}`, { scroll: false })
                       }, 500)
 
                       return () => clearTimeout(timer)

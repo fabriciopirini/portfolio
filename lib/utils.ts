@@ -8,23 +8,44 @@ export const cn = (...inputs: ClassValue[]) => {
   return twMerge(clsx(inputs))
 }
 
-export const createUrl = (pathname: string, params: URLSearchParams | ReadonlyURLSearchParams) => {
-  const paramsString = params.toString()
-  const queryString = `${paramsString.length ? '?' : ''}${paramsString}`
-
-  return `${pathname}${queryString}`
-}
-
-export const getCartItems = (searchParams: ReadonlyURLSearchParams) => {
+export const getCartItems = (searchParams: URLSearchParams | ReadonlyURLSearchParams) => {
   const cart = [...new Set(searchParams.get('cart')?.split(','))] ?? []
 
   return cart.filter((item) => PRODUCTS.find((product) => product.id === item))
 }
 
-export const removeCartItemFromQuery = (searchParams: ReadonlyURLSearchParams, productId: string) => {
-  const cart = getCartItems(searchParams)
+export const updatedQueryParams = (
+  searchParams: URLSearchParams | ReadonlyURLSearchParams,
+  updates: Record<string, string | boolean>
+) => {
+  // Define a list of supported query parameters
+  const supportedParams = ['cart', 'showSideBubble']
 
-  const newCart = cart.filter((item) => item !== productId)
+  // Initialize newParams with existing searchParams
+  const newParams = { ...Object.fromEntries(searchParams) }
 
-  return new URLSearchParams({ ...Object.fromEntries(searchParams), cart: newCart.join(',') })
+  // Filter and apply updates for supported parameters
+  Object.entries(updates)
+    .filter(([key]) => supportedParams.includes(key))
+    .forEach(([key, value]) => {
+      if (key === 'cart' && typeof value === 'string') {
+        // Split the cart string into an array, filter through getCartItems to remove non-existent products
+        const validCartItems = getCartItems(new URLSearchParams({ cart: value }))
+        newParams[key] = validCartItems.join(',')
+      } else if (typeof value === 'boolean') {
+        newParams[key] = value.toString()
+      } else {
+        newParams[key] = value
+      }
+    })
+
+  // Ensure the cart is always filtered to contain only valid items
+  if (newParams.cart) {
+    const validCartItems = getCartItems(new URLSearchParams({ cart: newParams.cart }))
+    newParams.cart = validCartItems.join(',')
+  }
+
+  const queryString = new URLSearchParams(newParams).toString()
+
+  return queryString ? `?${queryString}` : ''
 }

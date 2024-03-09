@@ -11,21 +11,20 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import {
-  DrawerClose,
   DrawerContent,
   DrawerDescription,
-  DrawerFooter,
   DrawerHeader,
   DrawerNested,
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer'
 
-const recipient = 'fabricio@fabriciopirini.com'
+const recipient = encodeURIComponent('fabricio@fabriciopirini.com')
 // const recipient = 'Fabricio Pirini<me@fabriciopirini.com>'
-const subject = "Let's have a chat"
-const body =
+const subject = encodeURIComponent("Let's have a chat")
+const body = encodeURIComponent(
   "Hey, Fabricio! I'm very interested in your services. Can we have a chat? By the way, loved the website! 🚀"
+)
 
 const mailTo = `mailto:${recipient}?subject=${subject}&body=${body}`
 

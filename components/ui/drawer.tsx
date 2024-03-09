@@ -36,6 +36,12 @@ const DrawerContent = React.forwardRef<
     <DrawerPrimitive.Content
       ref={ref}
       className={cn('fixed z-50 flex h-full w-full flex-col bg-primary-hero', className)}
+      onPointerDownOutside={(e) => {
+        // don't dismiss dialog when clicking inside the side me bubble
+        if (e.target instanceof Element && e.target.closest('#side-me')) {
+          e.preventDefault()
+        }
+      }}
       {...props}
     >
       <div className="mx-auto mt-4 block h-2 w-[100px] rounded-full bg-white md:hidden" />

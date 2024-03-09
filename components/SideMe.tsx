@@ -37,7 +37,7 @@ export const SideMe = () => {
   }, [])
 
   return (
-    <div className="max-[300px]:hidden">
+    <div id="side-me" className="max-[300px]:hidden">
       <div
         className={cn(
           'fixed bottom-40 left-0 z-[1000] -translate-x-full rotate-0 fill-mode-both min-[250px]:bottom-36 min-[300px]:bottom-40 min-[350px]:bottom-28 sm:bottom-20',

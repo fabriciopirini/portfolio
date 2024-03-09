@@ -33,10 +33,10 @@ export const NameBanner = () => {
       className="flex w-auto max-w-xl flex-col gap-4 md:gap-10"
     >
       <motion.h1
-        className="flex flex-col pb-5 text-3xl font-bold sm:text-4xl lg:text-6xl"
+        className="flex flex-col pb-5 text-3xl font-bold sm:text-4xl md:text-6xl"
         variants={FADE_DOWN_ANIMATION_VARIANTS}
       >
-        <span className="min-w-[150px]">Nice to meet you! 👋</span>
+        <span className="whitespace-nowrap">Nice to meet you! 👋</span>
         <span className="underline decoration-accent underline-offset-8">I&apos;m Fabricio.</span>
       </motion.h1>
       <div className="text-2xl sm:text-3xl">

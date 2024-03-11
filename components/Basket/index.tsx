@@ -1,6 +1,6 @@
 'use client'
 
-import { ShoppingCartIcon } from 'lucide-react'
+import { ShoppingCartIcon, Trash2Icon } from 'lucide-react'
 import Link from 'next/link'
 import { type ReadonlyURLSearchParams, useSearchParams } from 'next/navigation'
 import { useWindowSize } from 'usehooks-ts'
@@ -44,7 +44,7 @@ export const Basket = ({ searchParams }: { searchParams: ReadonlyURLSearchParams
             <DrawerTitle>Your Basket</DrawerTitle>
             <DrawerDescription>Checkout with your items</DrawerDescription>
           </DrawerHeader>
-          <div className="flex min-h-32 flex-col max-sm:shrink sm:grow">
+          <div className="flex min-h-32 flex-col max-sm:shrink sm:grow md:min-w-80">
             {cart.length > 0 ? (
               <ul className="flex flex-col gap-4 divide-y">
                 {cart.map((item, i) => (
@@ -74,7 +74,7 @@ const ProductCartItem = ({ productId, position }: { productId: string; position:
   if (!item) return null
 
   return (
-    <li className="flex items-center gap-4 py-4">
+    <li className="flex items-center gap-6 py-4">
       <span>{position + 1}</span>
       <div className="grow">
         <h3 className="text-lg font-medium">{item.name}</h3>
@@ -84,7 +84,7 @@ const ProductCartItem = ({ productId, position }: { productId: string; position:
         href={`/shop${updatedQueryParams(searchParams, { cart: searchParams.get('cart')?.replace(productId, '') ?? '' })}`}
         className="text-xs font-medium"
       >
-        Remove
+        <Trash2Icon className="size-5" />
       </Link>
     </li>
   )

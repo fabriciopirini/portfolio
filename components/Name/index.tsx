@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Clock7Icon, GlobeIcon, Laptop2Icon, Linkedin, Mail } from 'lucide-react'
+import Image from 'next/image'
 import { usePostHog } from 'posthog-js/react'
 
 import { CTAButton } from '@/components/CTAButton'
@@ -10,12 +11,6 @@ import { FADE_DOWN_ANIMATION_VARIANTS, FADE_RIGHT_ANIMATION_VARIANTS } from '@/l
 
 export const NameBanner = () => {
   const posthog = usePostHog()
-
-  const date1 = new Date('2017-09-01') // 1 year before I started working as a developer at Sportradar (that includes my internship)
-  const date2 = new Date()
-
-  const diffTime = Math.abs(date2.valueOf() - date1.valueOf())
-  const diffYears = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365))
 
   return (
     <motion.div
@@ -30,31 +25,30 @@ export const NameBanner = () => {
           },
         },
       }}
-      className="flex w-auto max-w-xl flex-col gap-4 md:gap-10"
+      className="flex w-auto flex-col gap-4 md:gap-9"
     >
       <motion.h1
-        className="flex flex-col pb-5 text-3xl font-bold sm:text-4xl md:text-6xl"
+        className="flex flex-col gap-1 pb-5 text-4xl font-medium leading-none md:text-7xl xl:text-8xl"
         variants={FADE_DOWN_ANIMATION_VARIANTS}
       >
-        <span className="whitespace-nowrap">Nice to meet you! 👋</span>
-        <span className="underline decoration-accent underline-offset-8">I&apos;m Fabricio.</span>
+        <div className="flex flex-row-reverse items-end justify-end md:flex-col md:items-start">
+          <Image
+            src="/assets/waving-hand.png"
+            alt="Fabricio Pirini"
+            width={138}
+            height={133}
+            className="size-14 md:size-24 xl:size-[133px]"
+          />
+          <span className="font-leagueSpartan lg:whitespace-nowrap">Nice to meet you!</span>
+        </div>
+        <span className="font-leagueSpartan lg:whitespace-nowrap">I&apos;m Fabricio.</span>
       </motion.h1>
-      <div className="text-2xl sm:text-3xl">
-        <motion.h2 className="flex flex-row items-baseline gap-3" variants={FADE_DOWN_ANIMATION_VARIANTS}>
-          <Laptop2Icon size={20} className="inline-block" />
-          <span>Senior Frontend Engineer</span>
-        </motion.h2>
-        <motion.h2 className="flex flex-row items-baseline gap-3" variants={FADE_DOWN_ANIMATION_VARIANTS}>
-          <Clock7Icon size={20} className="inline-block" />
-          <span>{`${diffYears ?? 6}+ years of experience`}</span>
-        </motion.h2>
-        <motion.h2 className="mb-4 flex flex-row items-baseline gap-3" variants={FADE_DOWN_ANIMATION_VARIANTS}>
-          <GlobeIcon size={20} className="inline-block" />
-          <span>Based in Norway</span>
-        </motion.h2>
-      </div>
-      <motion.div className="flex flex-col gap-6 pb-8 sm:flex-row">
-        <CTAButton id="resume_download" type="secondary" as="link" href="/api/resume" text="Resume" download />
+      <motion.p className="text-base sm:text-xl lg:text-2xl xl:text-[28px]" variants={FADE_DOWN_ANIMATION_VARIANTS}>
+        A dedicated Computer Engineer with a focus on Web Development at Norsk Gjenvinning. My goal is to integrate
+        innovation with efficiency, making a meaningful contribution to the technology sector.
+      </motion.p>
+      <motion.div className="flex w-fit gap-2 rounded-full bg-white/10 px-6 py-4 md:gap-6">
+        <CTAButton id="resume_download" type="secondary" as="link" href="/api/resume" text="Resume" />
         <Popover
           onOpenChange={(value) => {
             const event = value ? 'contact_me_open' : 'contact_me_close'

@@ -15,7 +15,7 @@ export const BackgroundBeams = ({ className, isMobile = false }: { className?: s
     <div
       key={isMobile ? 'mobile' : 'desktop'}
       className={cn(
-        'absolute inset-0 flex h-full w-full items-center justify-center [mask-repeat:no-repeat] [mask-size:40px]',
+        'absolute inset-0 z-0 flex h-auto w-full items-center justify-center overflow-hidden [mask-repeat:no-repeat] [mask-size:40px]',
         className
       )}
     >

@@ -1,25 +1,18 @@
-import Image from 'next/image'
-
 import { BackgroundBeams } from '@/components/BackgroundBeams'
+import { HeroLegoImage } from '@/components/HeroLegoImage'
 import { NameBanner } from '@/components/Name'
-// import ProfilePic from '@/public/assets/portrait-grayscale-2.avif'
-import ProfilePic from '@/public/assets/lego_me.png'
+import { NavBar } from '@/components/NavBar'
 
 export const Hero = () => (
-  <section className="flex min-h-screen w-full grow flex-col items-start justify-center bg-primary-hero px-8 pt-16 text-6xl shadow-xl md:flex-row md:px-36 md:pt-0">
-    <div className="z-30 mx-auto flex h-full w-auto grow flex-col justify-center gap-8 text-3xl md:mt-32 md:w-full md:pt-10 lg:ml-0 lg:w-auto lg:text-4xl xl:my-auto">
-      <NameBanner />
-    </div>
-    <div className="flex size-full md:w-auto">
-      <Image
-        className="relative z-20 mx-auto mt-8 h-auto max-h-[500px] min-h-[300px] w-5/6 grow brightness-[0.85] sm:w-4/6 md:absolute md:bottom-0 md:right-0 md:h-2/3 md:w-auto lg:mr-36 lg:mt-0 lg:grow-0 2xl:max-h-[700px]"
-        src={ProfilePic}
-        alt="Profile Picture"
-        width={500}
-        height={800}
-        style={{ objectFit: 'contain' }}
-        priority
-      />
+  <section className="relative max-w-[2000px] min-[2000px]:mx-auto">
+    <NavBar />
+    <div className="z-10 flex flex-col px-7 md:px-16 lg:flex-row lg:px-32">
+      <div className="z-30 mx-auto size-full justify-center gap-8 text-3xl lg:mb-44 lg:w-1/2">
+        <NameBanner />
+      </div>
+      <div className="relative z-10 m-auto mb-0 size-full max-w-xl xl:max-w-3xl">
+        <HeroLegoImage />
+      </div>
     </div>
     <BackgroundBeams className="flex md:hidden" isMobile />
     <BackgroundBeams className="hidden md:flex" />

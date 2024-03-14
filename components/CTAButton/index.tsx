@@ -4,18 +4,18 @@ import type { Ref } from 'react'
 import React, { useState } from 'react'
 import { cva } from 'class-variance-authority'
 import { motion } from 'framer-motion'
-import { DownloadIcon, ExternalLinkIcon } from 'lucide-react'
+import { CloudDownloadIcon, DownloadIcon, ExternalLinkIcon, MailIcon } from 'lucide-react'
 import { usePostHog } from 'posthog-js/react'
 
 import { cn } from '@/lib/utils'
 
 export const CTAButtonStyles = cva(
-  'rounded-xl bg-inherit text-2xl sm:text-3xl py-3 sm:py-4 text-center flex items-center px-5 sm:px-8 justify-center text-primary cursor-pointer select-none',
+  'rounded-full bg-inherit gap-2 whitespace-nowrap text-sm md:text-2xl xl:text-[28px] py-3 sm:py-4 text-center flex items-center px-5 sm:px-7 justify-center text-primary cursor-pointer select-none',
   {
     variants: {
       intent: {
         primary: 'bg-accent text-primary-background',
-        secondary: 'border-4 border-accent text-accent bg-primary-hero',
+        secondary: 'border-2 border-white/30 text-primary',
       },
       external: {
         true: 'items-baseline',
@@ -48,13 +48,12 @@ type CTAButtonProps = {
   text: string
   type?: 'primary' | 'secondary'
   external?: boolean
-  download?: boolean
   href?: string
   as?: 'button' | 'link'
 }
 
 export const CTAButton = React.forwardRef(
-  ({ type = 'primary', external = false, as, download, ...props }: CTAButtonProps, ref) => {
+  ({ type = 'primary', external = false, as, ...props }: CTAButtonProps, ref) => {
     const [isAnimationRunning, setIsAnimationRunning] = useState(false)
 
     const posthog = usePostHog()
@@ -63,7 +62,6 @@ export const CTAButton = React.forwardRef(
 
     if (as === 'link') {
       return (
-        // biome-ignore lint/a11y/useValidAnchor: It is a valid anchor with a valid href
         <motion.a
           ref={ref as Ref<HTMLAnchorElement>}
           {...(external && { target: '_blank', rel: 'noopener noreferrer' })}
@@ -78,9 +76,8 @@ export const CTAButton = React.forwardRef(
           {...animation}
           {...props}
         >
+          <CloudDownloadIcon className="inline-block size-5 md:size-7" />
           {text}
-          {external && <ExternalLinkIcon size={24} className="ml-2 inline-block size-6 min-h-6 min-w-6" />}
-          {download && <DownloadIcon size={24} className="ml-2 inline-block size-6 min-h-6 min-w-6" />}
         </motion.a>
       )
     }
@@ -98,8 +95,8 @@ export const CTAButton = React.forwardRef(
         {...animation}
         {...props}
       >
+        {/* <MailIcon size={28} className="inline-block size-7 min-h-7 min-w-7 fill-black stroke-accent" /> */}
         {text}
-        {external && <ExternalLinkIcon size={20} className="ml-2 inline-block" />}
       </motion.button>
     )
   }

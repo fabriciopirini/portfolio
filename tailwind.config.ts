@@ -31,10 +31,17 @@ export const config = {
       },
     },
     extend: {
+      fontFamily: {
+        inter: ['var(--font-inter)'],
+        leagueSpartan: ['var(--font-league-spartan)'],
+      },
       textColor: {
         primary: {
           DEFAULT: 'hsl(var(--color-text-primary))',
           background: 'hsl(var(--color-bg-primary))',
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--color-text-secondary))',
         },
         muted: {
           foreground: 'hsl(var(--color-text-muted-foreground))',

@@ -31,15 +31,11 @@ const jsonLd: WithContext<Person> = {
 const Home = () => (
   <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-    <div className="mb-3 flex min-h-screen flex-col items-center md:mb-10">
-      {/* <NavBar /> */}
-      <SocialsSidebar />
+    <div className="mb-3 flex flex-col items-center md:mb-10 md:px-10 2xl:px-20">
       <Hero />
-      <div className="md:px-10">
-        <AboutMe />
-        <Skills />
-        <WorkExperience />
-      </div>
+      <AboutMe />
+      <Skills />
+      <WorkExperience />
     </div>
   </>
 )

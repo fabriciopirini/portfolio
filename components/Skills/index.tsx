@@ -1,4 +1,5 @@
 import Atropos from 'atropos/react'
+import { CircleCheckBigIcon, PartyPopperIcon, TrendingUpIcon } from 'lucide-react'
 
 import {
   AzureLogo,
@@ -14,6 +15,14 @@ import {
   TypeScriptLogo,
   VercelLogo,
 } from '@/components/SvgLogos'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselDots,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel'
 import { cn } from '@/lib/utils'
 
 import 'atropos/css'
@@ -21,8 +30,32 @@ import 'atropos/css'
 export const Skills = () => (
   <>
     <section className="container w-full pt-4 md:pt-10">
-      <h2 className="text-center text-5xl font-bold">Technology</h2>
-      <div className="flex flex-row flex-wrap items-center justify-center gap-5 py-6 text-2xl md:flex-[1_1_21%]">
+      <h2 className="font-leagueSpartan mb-5 text-center text-5xl font-bold xl:mb-14 xl:text-7xl">Technology</h2>
+      <Carousel className="mx-auto w-full lg:hidden">
+        <CarouselContent className="text-left">
+          {splitArrayIntoChunks(skills, 4).map((skillChunk, index) => (
+            <CarouselItem key={index} className="mx-auto flex flex-row flex-wrap items-center justify-center gap-3">
+              {skillChunk.map((skill) => (
+                <div key={skill.name} className="aspect-square h-auto w-5/12">
+                  <div
+                    className="flex size-full flex-col items-center justify-between gap-2 overflow-hidden rounded-2xl bg-skill-card p-8 drop-shadow-2xl"
+                    data-atropos-offset="0"
+                  >
+                    <div className="flex h-full flex-col items-center justify-center" data-atropos-offset="15">
+                      {skill.icon}
+                      <h3 className="text-lg font-semibold">{skill.name}</h3>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="text-white max-sm:hidden xl:hidden" />
+        <CarouselNext className="text-white max-sm:hidden xl:hidden" />
+        <CarouselDots className="xl:hidden" isDarkMode />
+      </Carousel>
+      <div className="hidden py-6 text-2xl md:flex-[1_1_21%] lg:flex lg:flex-row lg:flex-wrap lg:items-center lg:justify-center lg:gap-5">
         {skills.map((skill) => (
           <Atropos
             key={skill.name}
@@ -49,7 +82,17 @@ export const Skills = () => (
   </>
 )
 
-const LogoStyles = 'h-16 w-16 min-h-16 min-w-16 md:h-24 md:w-24 md:min-h-24 md:min-w-24'
+const splitArrayIntoChunks = (arr: readonly any[], chunkSize: number) => {
+  const chunkedArray: any[] = []
+
+  for (let i = 0; i < arr.length; i += chunkSize) {
+    chunkedArray.push(arr.slice(i, i + chunkSize))
+  }
+
+  return chunkedArray
+}
+
+const LogoStyles = 'h-16 w-16 min-h-16 min-w-16 md:h-24 md:w-24 md:min-h-24 md:min-w-24 rounded-xl'
 
 const skills = [
   {

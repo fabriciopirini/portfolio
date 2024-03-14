@@ -4,12 +4,12 @@
 
 @layer base {
   :root {
-    --color-text-primary: 0 0% 98%;
+    --color-text-primary: 0 0% 100%;
+    --color-text-secondary: var(--color-bg-primary);
     --color-text-accent: 39 100% 67%;
     --color-text-muted-foreground: 240 5% 64.9%;
 
-    --color-bg-primary: 230 10% 24%;
-    --color-bg-primary-hero: 216 5% 21%;
+    --color-bg-primary: 0 0% 17%;
     --color-bg-secondary: 220 2% 25%;
     --color-bg-secondary-hover: var(--color-text-accent);
     --color-bg-skill-card: 220 6% 28%;
@@ -38,34 +38,13 @@
       --bg-animation-stroke-width: 1.5;
       --bg-animation-stroke-opacity: 0.8;
     }
-
-    /* @media (prefers-color-scheme: light) {
-      --color-text-primary: #50555c;
-      --color-text-accent: #cc8a00;
-
-      --color-bg-primary: #f7f7f7;
-      --color-bg-primary-hero: #343639;
-      --color-bg-secondary: #eaeaea;
-      --color-bg-secondary-hover: var(--color-text-accent);
-      --color-bg-skill-card: #dcdcdc;
-
-      --popover: 0 0% 100%;
-      --popover-foreground: 222.2 47.4% 40%;
-
-      --color-text-accent-hsl: 39deg, 100%, 60%;
-      --shadow-color: 39deg, 100%, 60%;
-
-      --bg-animation-color-start: var(--color-text-accent);
-      --bg-animation-color-mid: #a685e2;
-      --bg-animation-color-end: #9a9ca0;
-    } */
   }
 }
 
 @layer base {
   html,
   body {
-    @apply bg-primary text-primary;
+    @apply font-inter bg-primary text-primary;
     font-feature-settings:
       'rlig' 1,
       'calt' 1;

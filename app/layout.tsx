@@ -1,16 +1,17 @@
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
-import { League_Spartan, Space_Grotesk } from 'next/font/google'
+import { Inter, League_Spartan } from 'next/font/google'
 
+import { NavBar } from '@/components/NavBar'
 import { CSPostHogProvider } from '@/components/Providers'
 import { cn } from '@/lib/utils'
 import Thumbnail from '@/public/assets/thumbnail.png'
 
 import '@/app/globals.css'
 
-const LeagueSpartan = League_Spartan({ subsets: ['latin'] })
-const SpaceGrotesk = Space_Grotesk({ subsets: ['latin'] })
+const leagueSpartan = League_Spartan({ subsets: ['latin'], variable: '--font-league-spartan' })
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_VERCEL_URL ?? 'https://fabriciopirini.com'),
@@ -57,10 +58,10 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en" className={cn(LeagueSpartan.className, 'size-full')} suppressHydrationWarning>
+    <html lang="en" className={cn(leagueSpartan.variable, inter.variable, 'size-full')} suppressHydrationWarning>
       <CSPostHogProvider>
         <body
-          className={cn('min-h-svh w-full antialiased', {
+          className={cn('mx-auto min-h-svh w-full antialiased', {
             'debug-screens': process.env.VERCEL_ENV !== 'production',
           })}
           style={{ scrollbarGutter: 'stable' }}

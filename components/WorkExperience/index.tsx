@@ -1,4 +1,7 @@
-'use client'
+import { BadgeCheckIcon } from 'lucide-react'
+
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 
 import NGLogo from '/public/assets/logos/ng-logo-squared.avif'
 import OdaLogo from '/public/assets/logos/oda-logo.avif'
@@ -7,50 +10,122 @@ import SportradarLogo from '/public/assets/logos/sportradar-logo.avif'
 
 export const WorkExperience = () => {
   return (
-    <section className="container w-full py-16 md:py-32">
-      <h2 className="text-5xl font-bold">Experience</h2>
-      <hr className="mt-4 block h-1 w-full bg-accent md:inline-block md:w-1/12" />
-      <div className="flex w-full flex-col gap-14 py-6 text-2xl md:pr-10 xl:pr-0">
-        <p>
-          My journey in the tech landscape has been a blend of innovation, leadership, and continuous improvement,
-          marked by significant milestones that showcase my growth and contributions to the companies I&apos;ve been
-          part of.
-        </p>
-        <p>
-          Starting at <span className="text-[1.1em] font-semibold text-accent">Sportradar</span> in Oslo, Norway, as a
-          Software Engineer, my focus was on enhancing our web crawler/scrapers, where I managed to boost data
-          collection efficiency by 40% while reducing server load by 25%. This role was my first dive into the practical
-          application of microservices architecture, achieving a 30% improvement in scalability and a 20% reduction in
-          latency. It was here that I began to see the tangible benefits of Agile methodologies, leading to a 15%
-          increase in team productivity and a 20% faster project delivery.
-        </p>
-        <p>
-          In August 2020, I joined <span className="text-[1.1em] font-semibold text-accent">Oda</span>, also in Oslo,
-          taking on the challenge of transitioning a major e-commerce platform to a React frontend. This move not only
-          enhanced the user interface&apos;s responsiveness but also contributed to a 15% increase in online customer
-          transactions. My role expanded to include participating in an on-call rotation for a Django monolith, crucial
-          for managing transactions worth over $100,000 monthly. Mentoring became a passion during this period, where I
-          guided 8 junior developers, significantly reducing onboarding time by 25% and boosting team productivity by
-          20%. I led initiatives to increase configuration flexibility, accommodating a 30% increase in product
-          offerings without affecting system performance.
-        </p>
-        <p>
-          My journey continued at <span className="text-[1.1em] font-semibold text-accent">Norsk Gjenvinning</span>,
-          where I initially took on the role of Lead Frontend Engineer. Here, I was instrumental in developing frontend
-          architectures for e-commerce platforms using React and Next.js, notably reducing page load times by 30% and
-          enhancing user engagement by 25%. Working closely with UX/UI designers, we increased customer satisfaction
-          scores by 20% by implementing user-friendly interfaces. Evolving into the role of Lead Software Engineer &
-          Tech Lead, I managed a team of 3 software engineers, focusing on scalable e-commerce solutions. We achieved a
-          40% enhancement in UI responsiveness and a 50% reduction in load times. By implementing best practices in code
-          quality and development processes, we saw a 30% reduction in bug rates and a 50% improvement in deployment
-          frequency. Championing the integration of new technologies led to a 20% improvement in project delivery speed
-          and system reliability.
-        </p>
-        <p>
-          Each role has been a chapter in my story, filled with learning, overcoming challenges, and making a tangible
-          impact. My journey reflects a commitment to excellence, innovation, and a dedication to contributing
-          positively to the tech community.
-        </p>
+    <section className="container flex w-full flex-col gap-32 py-16 md:py-32">
+      <div className="flex w-full flex-col gap-8 lg:flex-row lg:gap-10">
+        <div className="shrink-0 basis-2/5">
+          <p className="font-leagueSpartan text-6xl font-medium md:mb-14">Experience in innovation and leadership</p>
+          <p className="text-[28px] md:mb-10">
+            My journey in the tech landscape has been a blend of innovation, leadership, and continuous improvement,
+            marked by significant milestones that showcase my growth and contributions to the companies I&apos;ve been
+            part of.
+          </p>
+          <button className={cn(buttonVariants())}>LinkedIn</button>
+        </div>
+        <div>
+          <div className="relative ml-8 basis-3/5">
+            <BadgeCheckIcon fill="#ffc457" className="absolute top-0 -ml-6 -mt-1 size-14 text-primary-background" />
+            <div className="mt-1 border-l-[7px] border-dotted border-accent/50 pb-10 pl-12">
+              <div className="size-full space-y-5 rounded-xl border border-white bg-[#1E1E1E] p-7">
+                <p className="font-leagueSpartan text-3xl font-medium">Starting at Sportradar</p>
+                <div className="space-y-5 text-2xl text-primary/70">
+                  <p>
+                    At Sportradar, my entry into the tech world involved refining web crawlers and scrapers specifically
+                    tailored for e-commerce applications, enhancing data collection and introducing microservices to
+                    boost the scalability and efficiency crucial for dynamic online marketplaces.
+                  </p>
+                  <p>
+                    My work here laid a strong foundation in Agile methodologies, optimizing team workflows and project
+                    delivery to meet the fast-paced demands of e-commerce platforms.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="relative ml-8 basis-3/5">
+            <BadgeCheckIcon fill="#ffc457" className="absolute top-0 -ml-6 -mt-1 size-14 text-primary-background" />
+            <div className="mt-1 pb-10 pl-12">
+              <div className="size-full space-y-5 rounded-xl border border-white bg-[#1E1E1E] p-7">
+                <p className="font-leagueSpartan text-3xl font-medium">I joined Oda</p>
+                <div className="space-y-5 text-2xl text-primary/70">
+                  <p>
+                    Moving to Oda marked a significant chapter where I led the transition of a major e-commerce platform
+                    to a modern React frontend, directly contributing to improved user interactions and increased online
+                    sales.
+                  </p>
+                  <p>
+                    My responsibilities expanded to include crucial on-call support for a Django-based e-commerce
+                    backbone, ensuring seamless transaction processing.
+                  </p>
+                  <p>
+                    Mentoring junior developers, I emphasized the nuances of e-commerce development, fostering a team
+                    capable of rapidly evolving and scaling our offerings.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="flex w-full flex-col gap-8 lg:flex-row lg:gap-10">
+        <div className="shrink-0 basis-2/5">
+          <p className="font-leagueSpartan text-6xl font-medium md:mb-14">The role of Lead Frontend Engineer</p>
+          <p className="text-[28px] md:mb-10">
+            Each role has been a chapter in my story, filled with learning, overcoming challenges, and making a tangible
+            impact. My journey reflects a commitment to excellence, innovation, and a dedication to contributing
+            positively to the tech community.
+          </p>
+          <button className={cn(buttonVariants())}>Contact Me</button>
+        </div>
+        <div>
+          <div className="relative ml-8 basis-3/5">
+            <BadgeCheckIcon fill="#ffc457" className="absolute top-0 -ml-6 -mt-1 size-14 text-primary-background" />
+            <div className="mt-1 border-l-[7px] border-dotted border-accent/50 pb-10 pl-12">
+              <div className="size-full space-y-5 rounded-xl border border-white bg-[#1E1E1E] p-7">
+                <p className="font-leagueSpartan text-3xl font-medium">Norsk Gjenvinning</p>
+                <div className="space-y-5 text-2xl text-primary/70">
+                  <p>
+                    At Norsk Gjenvinning, my e-commerce journey reached new heights. Initially joining as a Lead
+                    Frontend Engineer, I led the development of frontend architectures for our e-commerce platforms.
+                  </p>
+                  <p>
+                    This role demanded a keen focus on optimizing web performance and user engagement, significantly
+                    improving the online shopping experience for our customers.
+                  </p>
+                  <p>
+                    My collaboration with UX/UI designers was key to implementing user-friendly interfaces that drove
+                    customer satisfaction.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="relative ml-8 basis-3/5">
+            <BadgeCheckIcon fill="#ffc457" className="absolute top-0 -ml-6 -mt-1 size-14 text-primary-background" />
+            <div className="mt-1 pb-10 pl-12">
+              <div className="size-full space-y-5 rounded-xl border border-white bg-[#1E1E1E] p-7">
+                <p className="font-leagueSpartan text-3xl font-medium">Evolving into the role</p>
+                <div className="space-y-5 text-2xl text-primary/70">
+                  <p>
+                    My role evolved into that of Lead Software Engineer & Tech Lead, marking a pivotal expansion in my
+                    responsibilities and impact.
+                  </p>
+                  <p>
+                    In this capacity, I managed a team dedicated to developing scalable e-commerce solutions, further
+                    refining our platforms to enhance UI responsiveness and reduce load times dramatically.
+                  </p>
+                  <p>
+                    My leadership was instrumental in adopting best practices for code quality and development
+                    processes, markedly reducing bugs and increasing deployment efficiency.
+                  </p>
+                  <p>
+                    Advocating for new technologies, I ensured our e-commerce platforms remained cutting-edge, directly
+                    contributing to improved project delivery speeds and system reliability.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )

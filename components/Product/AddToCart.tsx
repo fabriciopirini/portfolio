@@ -1,9 +1,10 @@
 'use client'
 
-import { CheckIcon, ShoppingCartIcon } from 'lucide-react'
+import { CheckIcon } from 'lucide-react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 
+import { CartIconFilled } from '@/components/SvgLogos'
 import { cn, getCartItems, updatedQueryParams } from '@/lib/utils'
 
 const CART_BUTTON_BASE_STYLE = 'flex size-12 items-center justify-center rounded-md bg-primary drop-shadow-md'
@@ -16,9 +17,9 @@ export const AddToCart = ({ productId }: { productId: string }) => {
 
   if (isProductInCart(cart, productId)) {
     return (
-      <div className={cn(CART_BUTTON_BASE_STYLE, 'relative bg-green-500 text-primary')}>
-        <ShoppingCartIcon className="size-6" />
-        <div className="absolute bottom-2 right-2 z-10 size-3 rounded-full bg-green-500">
+      <div className={cn(CART_BUTTON_BASE_STYLE, 'relative rounded-full border bg-green-500 p-3 text-primary')}>
+        <CartIconFilled />
+        <div className="absolute bottom-2 right-2 z-10 flex size-[15px] items-center justify-center rounded-full bg-green-600">
           <CheckIcon className="size-3" />
         </div>
         <span className="sr-only">In cart</span>
@@ -34,10 +35,13 @@ export const AddToCart = ({ productId }: { productId: string }) => {
   return (
     <Link
       href={`/shop${queryParams}`}
-      className={cn(CART_BUTTON_BASE_STYLE, 'duration-300 ease-in-out hover:scale-105')}
+      className={cn(
+        CART_BUTTON_BASE_STYLE,
+        'rounded-full border bg-accent p-3 duration-300 ease-in-out hover:scale-105'
+      )}
       scroll={false}
     >
-      <ShoppingCartIcon className="size-6 text-primary" />
+      <CartIconFilled fill="#373943" />
       <span className="sr-only">Add to cart</span>
     </Link>
   )

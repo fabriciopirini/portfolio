@@ -7,7 +7,7 @@ import { SearchEngines } from '@/components/ServicesImages/SearchEngines'
 import { SEOImage } from '@/components/ServicesImages/SEO'
 import { SuccessPurchase } from '@/components/ServicesImages/SuccessPurchase'
 
-const IMAGE_STYLES = 'relative h-full w-full object-contain object-center'
+const IMAGE_STYLES = 'size-auto max-w-full max-h-full object-contain object-center'
 
 export const PRODUCTS = [
   {

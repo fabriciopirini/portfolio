@@ -1,5 +1,4 @@
 import Atropos from 'atropos/react'
-import { CircleCheckBigIcon, PartyPopperIcon, TrendingUpIcon } from 'lucide-react'
 
 import {
   AzureLogo,
@@ -30,7 +29,7 @@ import 'atropos/css'
 export const Skills = () => (
   <>
     <section className="container w-full pt-4 md:pt-10">
-      <h2 className="font-leagueSpartan mb-5 text-center text-5xl font-bold xl:mb-14 xl:text-7xl">Technology</h2>
+      <h2 className="mb-5 text-center font-leagueSpartan text-5xl font-bold xl:mb-14 xl:text-7xl">Technology</h2>
       <Carousel className="mx-auto w-full lg:hidden">
         <CarouselContent className="text-left">
           {splitArrayIntoChunks(skills, 4).map((skillChunk, index) => (

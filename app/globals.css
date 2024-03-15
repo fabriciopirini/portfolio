@@ -44,7 +44,7 @@
 @layer base {
   html,
   body {
-    @apply font-inter bg-primary text-primary;
+    @apply bg-primary font-inter text-primary;
     font-feature-settings:
       'rlig' 1,
       'calt' 1;

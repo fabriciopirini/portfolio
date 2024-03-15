@@ -17,7 +17,7 @@ export const AboutMe = () => (
     <CornerMinus className="left-4 top-4" />
     <CornerMinus className="bottom-4 left-4" />
     <CornerMinus className="bottom-4 right-4" />
-    <h2 className="font-leagueSpartan text-secondary text-5xl font-medium md:text-7xl">About me</h2>
+    <h2 className="font-leagueSpartan text-5xl font-medium text-secondary md:text-7xl">About me</h2>
     <Carousel className="mx-auto w-full max-w-xs md:max-w-2xl xl:max-w-none">
       <CarouselContent className="text-left">
         <CarouselItem className="lg:basis-2/3 xl:basis-1/3">
@@ -60,7 +60,7 @@ export const AboutMe = () => (
     </Carousel>
     <div className="flex min-h-10 justify-center gap-2">
       <QuoteIcon fill="#ffc457" className="size-7 -scale-x-100 text-accent" />
-      <p className="text-secondary flex items-end text-3xl font-medium">
+      <p className="flex items-end text-3xl font-medium text-secondary">
         My journey reflects a commitment to excellence and innovation
       </p>
       <QuoteIcon fill="#ffc457" className="size-7 text-accent" />

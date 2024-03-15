@@ -89,12 +89,12 @@ export const BackgroundBeams = ({ className, isMobile = false }: { className?: s
                 <stop
                   offset="0.0666667"
                   stopColor="hsl(var(--color-text-primary))"
-                  stopOpacity={isMobile ? '0.8' : '0.5'}
+                  stopOpacity={isMobile ? '0.8' : '0.3'}
                 />
                 <stop
                   offset="0.243243"
                   stopColor="hsl(var(--color-text-primary))"
-                  stopOpacity={isMobile ? '0.6' : '0.3'}
+                  stopOpacity={isMobile ? '0.6' : '0.2'}
                 />
                 <stop offset="0.43594" stopColor="white" stopOpacity={isMobile ? '0.4' : '0.1'} />
               </>

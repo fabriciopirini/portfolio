@@ -4,7 +4,7 @@ import type { Ref } from 'react'
 import React, { useState } from 'react'
 import { cva } from 'class-variance-authority'
 import { motion } from 'framer-motion'
-import { CloudDownloadIcon, DownloadIcon, ExternalLinkIcon, MailIcon } from 'lucide-react'
+import { CloudDownloadIcon } from 'lucide-react'
 import { usePostHog } from 'posthog-js/react'
 
 import { cn } from '@/lib/utils'

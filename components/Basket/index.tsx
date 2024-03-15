@@ -1,12 +1,13 @@
 'use client'
 
-import { ShoppingCartIcon, Trash2Icon } from 'lucide-react'
+import { Trash2Icon } from 'lucide-react'
 import Link from 'next/link'
 import { type ReadonlyURLSearchParams, useSearchParams } from 'next/navigation'
 import { useWindowSize } from 'usehooks-ts'
 
 import { PRODUCTS } from '@/app/services'
 import { CheckoutButton } from '@/components/CheckoutButton'
+import { CartIconFilled } from '@/components/SvgLogos'
 import {
   Drawer,
   DrawerContent,
@@ -27,10 +28,12 @@ export const Basket = ({ searchParams }: { searchParams: ReadonlyURLSearchParams
 
   return (
     <Drawer direction={isMobile ? 'bottom' : 'right'} shouldScaleBackground={false}>
-      <DrawerTrigger className="relative flex size-14 items-center justify-center rounded-md border-2 border-white/50 text-primary">
-        <ShoppingCartIcon className="size-6" />
-        <span className="absolute bottom-1 right-1 z-10 text-sm leading-none">{cart.length}</span>
-        <span className="sr-only">Open cart</span>
+      <DrawerTrigger className="relative flex items-center justify-center rounded-full border border-white/50 p-4 text-primary">
+        <CartIconFilled />
+        <div className="absolute right-0 top-0 z-10 aspect-square size-6 rounded-full bg-accent p-1 text-sm leading-none text-secondary">
+          <span>{cart.length}</span>
+          <span className="sr-only">Open cart</span>
+        </div>
       </DrawerTrigger>
       <DrawerContent
         className={cn({

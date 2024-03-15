@@ -3,7 +3,6 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
 import { Inter, League_Spartan } from 'next/font/google'
 
-import { NavBar } from '@/components/NavBar'
 import { CSPostHogProvider } from '@/components/Providers'
 import { cn } from '@/lib/utils'
 import Thumbnail from '@/public/assets/thumbnail.png'

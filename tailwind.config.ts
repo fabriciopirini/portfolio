@@ -47,6 +47,9 @@ export const config = {
           foreground: 'hsl(var(--color-text-muted-foreground))',
         },
       },
+      ringOffsetColor: {
+        primary: 'hsl(var(--color-bg-primary))',
+      },
       borderColor: {
         'shop-card': 'hsl(var(--color-shop-card-border) / <alpha-value>)',
       },

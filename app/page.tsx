@@ -5,8 +5,9 @@ import type { Person, WithContext } from 'schema-dts'
 import { AboutMe } from '@/components/AboutMe'
 import { Hero } from '@/components/Hero'
 import { Skills } from '@/components/Skills'
-import { SocialsSidebar } from '@/components/SocialsSidebar'
 import { WorkExperience } from '@/components/WorkExperience'
+
+export const runtime = 'edge'
 
 const jsonLd: WithContext<Person> = {
   '@context': 'https://schema.org',

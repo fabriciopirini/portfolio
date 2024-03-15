@@ -1,51 +1,39 @@
 'use client'
 
-import { Masonry } from 'react-plock'
+import Image from 'next/image'
 
-import { PRODUCTS } from '@/app/services'
+import type { PRODUCTS } from '@/app/services'
 import { AddToCart } from '@/components/Product/AddToCart'
-import { Label } from '@/components/Product/label'
-
-const imagesHeight = PRODUCTS.map((product) => {
-  const variation = 150
-  const base = 700
-
-  const height = base + Math.floor(Math.random() * variation * 2) - variation
-
-  return { productId: product.id, height }
-})
+import FabCoingIcon from '@/public/assets/fab-coin-icon.png'
 
 export const Galery = ({ items }: { items: (typeof PRODUCTS)[number][] }) => {
   return (
-    <Masonry
-      items={items}
-      config={{
-        columns: [1, 2, 3],
-        gap: [24, 24, 24],
-        media: [1024, 1536, 2048],
-      }}
-      render={(item: (typeof PRODUCTS)[number]) => (
-        <div key={item.id} className="group relative overflow-hidden rounded-lg">
-          <div
-            className="hidden w-full bg-neutral-400 sm:block sm:p-20"
-            style={{ height: imagesHeight.find((image) => image.productId === item.id)?.height }}
-          >
-            {item.featuredImage.staticImage}
-          </div>
-          <div className="block h-[400px] w-full bg-neutral-400 p-5 sm:hidden">{item.featuredImage.staticImage}</div>
-          <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-b from-transparent via-black/5 via-10% to-black/50 transition-opacity duration-300 ease-linear group-hover:opacity-100 hover-hover:opacity-0 hover-none:opacity-100 sm:h-1/3">
-            <div className="absolute bottom-0 left-0 flex flex-col gap-4 p-5 pb-24 md:pb-16">
-              {/* <h3 className="hidden text-xl font-semibold text-white md:block">{item.name}</h3> */}
-              <p className="flex items-center justify-center text-lg font-semibold text-primary">{item.description}</p>
+    <div className="mx-auto flex max-w-[1800px] flex-wrap justify-center gap-4 xl:gap-16">
+      {items.map((item) => (
+        <div key={item.id} className="group size-[500px] overflow-hidden rounded-lg text-secondary">
+          <div className="flex aspect-square size-full flex-col justify-between bg-neutral-50 sm:p-10">
+            <div>
+              <h2 className="font-leagueSpartan text-4xl">{item.name}</h2>
+              <div className="relative">
+                <div className="p-5 transition duration-300 ease-linear group-hover:hidden group-hover:opacity-0">
+                  {item.featuredImage.staticImage}
+                </div>
+                <div className="hidden py-5 opacity-0 transition-opacity duration-300 ease-linear group-hover:block group-hover:opacity-100">
+                  <p className="text-lg">{item.description}</p>
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="flex items-center gap-2 text-xl">
+                <Image src={FabCoingIcon} alt="FabCoin" width={36} height={36} className="size-9" />
+                <span>{item.price}</span>
+                <span className="whitespace-nowrap">Fab coins</span>
+              </span>
+              <AddToCart productId={item.id} />
             </div>
           </div>
-          <div className="absolute bottom-0 left-0 flex w-full items-end justify-between pb-4 pl-4 pr-2 pt-2">
-            {/* <h3 className="block text-lg font-semibold text-white md:hidden">{item.name}</h3> */}
-            <Label title={item.name} amount={item.price} />
-            <AddToCart productId={item.id} />
-          </div>
         </div>
-      )}
-    />
+      ))}
+    </div>
   )
 }

@@ -35,7 +35,7 @@ const DrawerContent = React.forwardRef<
     <DrawerOverlay />
     <DrawerPrimitive.Content
       ref={ref}
-      className={cn('fixed z-50 flex h-full w-full flex-col bg-primary', className)}
+      className={cn('fixed z-50 flex h-full w-full flex-col bg-white ', className)}
       onPointerDownOutside={(e) => {
         // don't dismiss dialog when clicking inside the side me bubble
         if (e.target instanceof Element && e.target.closest('#side-me')) {
@@ -44,7 +44,7 @@ const DrawerContent = React.forwardRef<
       }}
       {...props}
     >
-      <div className="mx-auto mt-4 block h-2 w-[100px] rounded-full bg-white md:hidden" />
+      <div className="mx-auto mt-4 block h-2 w-[100px] rounded-full bg-black/20 md:hidden" />
       {children}
     </DrawerPrimitive.Content>
   </DrawerPortal>
@@ -82,7 +82,7 @@ const DrawerDescription = React.forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Description>
 >(({ className, ...props }, ref) => (
-  <DrawerPrimitive.Description ref={ref} className={cn('text-sm text-muted-foreground', className)} {...props} />
+  <DrawerPrimitive.Description ref={ref} className={cn('text-sm text-secondary/70', className)} {...props} />
 ))
 DrawerDescription.displayName = DrawerPrimitive.Description.displayName
 

@@ -3,6 +3,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
 import { Inter, League_Spartan } from 'next/font/google'
 
+import { Footer } from '@/components/Footer'
 import { CSPostHogProvider } from '@/components/Providers'
 import { cn } from '@/lib/utils'
 import { AppStoreProvider } from '@/providers/app-store-provider'
@@ -72,6 +73,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         >
           <AppStoreProvider>
             <main>{children}</main>
+            <Footer />
           </AppStoreProvider>
           <Analytics />
           <SpeedInsights />

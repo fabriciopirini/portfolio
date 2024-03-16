@@ -75,7 +75,7 @@ const CheckoutButtonMobile = ({ disabled }: { disabled: boolean }) => {
             Checkout
           </Button>
         </DrawerTrigger>
-        <DrawerContent className="rounded-t-3xl inset-x-0 bottom-0 h-auto w-full pb-5">
+        <DrawerContent className="inset-x-0 bottom-0 h-auto w-full rounded-t-mobile pb-5 text-secondary">
           <div className="mx-auto flex h-auto w-full max-w-sm flex-col gap-8 p-8 md:h-full md:w-auto md:max-w-md">
             <DrawerHeader className="flex w-full flex-col items-center gap-3 p-0">
               <DrawerTitle>Interested?</DrawerTitle>
@@ -98,7 +98,7 @@ const CheckoutInfoContent = () => (
       <a href={mailTo} type="submit" className="hidden md:block">
         Send email from your favorite app
       </a>
-      <a href={mailTo} type="submit" className="block md:hidden">
+      <a href={mailTo} type="submit" className="block p-1 md:hidden">
         Send email
       </a>
     </Button>

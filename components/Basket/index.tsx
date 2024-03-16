@@ -26,16 +26,16 @@ export const Basket = () => {
 
   return (
     <Drawer direction={isMobile ? 'bottom' : 'right'} shouldScaleBackground={false}>
-      <DrawerTrigger className="relative flex items-center justify-center rounded-full border border-white/50 p-3 text-primary lg:p-4">
+      <DrawerTrigger className="relative flex items-center justify-center rounded-mobile border border-white/50 p-3 text-primary lg:rounded-full lg:p-4">
         <CartIconFilled className="size-6" />
-        <div className="absolute right-0 top-0 z-10 aspect-square size-5 rounded-full bg-accent p-1 text-sm leading-none text-secondary lg:size-6">
+        <div className="absolute right-0 top-0 z-10 aspect-square size-5 rounded-mobile bg-accent p-1 text-sm leading-none text-secondary lg:size-6 lg:rounded-full">
           <span>{cart.length}</span>
           <span className="sr-only">Open cart</span>
         </div>
       </DrawerTrigger>
       <DrawerContent
-        className={cn({
-          'rounded-t-3xl inset-x-0 bottom-0 h-auto w-full': isMobile,
+        className={cn('text-secondary', {
+          'inset-x-0 bottom-0 h-auto w-full rounded-t-mobile': isMobile,
           'inset-y-0 right-0 ml-5 max-w-[500px] md:h-full md:w-auto': !isMobile,
         })}
         data-vaul-no-drag={!isMobile}

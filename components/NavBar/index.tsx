@@ -98,7 +98,7 @@ const MoreNav = () => {
         className="hidden h-full rounded-full border border-white/50 p-4 lg:block"
         onClick={() => posthog?.capture('contact_me_linkedin_sidebar')}
       >
-        <LinkedInIconFilled />
+        <LinkedInIconFilled className="size-7" />
         <span className="sr-only">Visit Fabricio&apos;s LinkedIn profile</span>
       </a>
       <a
@@ -107,10 +107,10 @@ const MoreNav = () => {
         data-atrr="github-sidebar"
         href="https://github.com/fabriciopirini"
         aria-label="Checkout my Github profile"
-        className="hidden h-full rounded-full border border-white/50 p-4 xl:block"
+        className="hidden h-full rounded-full border border-white/50 p-4 lg:block"
         onClick={() => posthog?.capture('contact_me_github_sidebar')}
       >
-        <GithubIconFilled />
+        <GithubIconFilled className="size-7" />
         <span className="sr-only">Visit Fabricio&apos;s Github profile</span>
       </a>
       <Basket />

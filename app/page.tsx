@@ -4,7 +4,7 @@ import type { Person, WithContext } from 'schema-dts'
 
 import { AboutMe } from '@/components/AboutMe'
 import { Hero } from '@/components/Hero'
-import { Skills } from '@/components/Skills'
+import { Technology } from '@/components/Technology'
 import { WorkExperience } from '@/components/WorkExperience'
 
 export const runtime = 'edge'
@@ -32,10 +32,10 @@ const jsonLd: WithContext<Person> = {
 const Home = () => (
   <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-    <div className="mb-3 flex flex-col items-center md:mb-10 md:px-10 2xl:px-20">
+    <div className="mb-3 flex flex-col items-center px-3 md:mb-10 md:px-10 2xl:px-20">
       <Hero />
       <AboutMe />
-      <Skills />
+      <Technology />
       <WorkExperience />
     </div>
   </>

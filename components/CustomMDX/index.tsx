@@ -43,7 +43,7 @@ const CustomLink = (props) => {
 }
 
 const RoundedImage = (props) => {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />
+  return <Image alt={props.alt} className="rounded" {...props} />
 }
 
 const Callout = (props) => {
@@ -57,7 +57,7 @@ const Callout = (props) => {
 
 const ProsCard = ({ title, pros }) => {
   return (
-    <div className="my-4 w-full rounded-xl border border-emerald-900 bg-neutral-900 p-6">
+    <div className="my-4 w-full rounded border border-emerald-900 bg-neutral-900 p-6">
       <span>{`You might use ${title} if...`}</span>
       <div className="mt-4">
         {pros.map((pro) => (
@@ -80,7 +80,7 @@ const ProsCard = ({ title, pros }) => {
 
 const ConsCard = ({ title, cons }) => {
   return (
-    <div className="my-6 w-full rounded-xl border border-red-900 bg-neutral-900 p-6">
+    <div className="my-6 w-full rounded border border-red-900 bg-neutral-900 p-6">
       <span>{`You might not use ${title} if...`}</span>
       <div className="mt-4">
         {cons.map((con) => (

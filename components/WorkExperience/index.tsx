@@ -1,8 +1,5 @@
 import { BadgeCheckIcon } from 'lucide-react'
 
-import { buttonVariants } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
-
 import NGLogo from '/public/assets/logos/ng-logo-squared.avif'
 import OdaLogo from '/public/assets/logos/oda-logo.avif'
 import SidiLogo from '/public/assets/logos/sidi-logo.avif'
@@ -10,24 +7,28 @@ import SportradarLogo from '/public/assets/logos/sportradar-logo.avif'
 
 export const WorkExperience = () => {
   return (
-    <section id="experience" className="container flex w-full flex-col gap-32 py-16 md:py-32">
+    <section
+      id="experience"
+      className="flex w-full flex-col gap-16 py-16 pl-6 pr-4 lg:container md:px-0 md:py-32 lg:gap-32"
+    >
       <div className="flex w-full flex-col gap-8 lg:flex-row lg:gap-10">
         <div className="shrink-0 basis-2/5">
-          <p className="font-leagueSpartan text-6xl font-medium md:mb-14">Experience in innovation and leadership</p>
-          <p className="text-[28px] md:mb-10">
+          <p className="mb-7 font-leagueSpartan text-3xl font-medium lg:mb-14 lg:text-6xl">
+            Experience in innovation and leadership
+          </p>
+          <p className="lg:mb-10 lg:text-3xl">
             My journey in the tech landscape has been a blend of innovation, leadership, and continuous improvement,
             marked by significant milestones that showcase my growth and contributions to the companies I&apos;ve been
             part of.
           </p>
-          <button className={cn(buttonVariants())}>LinkedIn</button>
         </div>
         <div>
-          <div className="relative ml-8 basis-3/5">
+          <div className="relative ml-2 basis-3/5 md:ml-8">
             <BadgeCheckIcon fill="#ffc457" className="absolute top-0 -ml-6 -mt-1 size-14 text-primary-background" />
             <div className="mt-1 border-l-[7px] border-dotted border-accent/50 pb-10 pl-12">
-              <div className="size-full space-y-5 rounded-xl border border-white bg-[#1E1E1E] p-7">
-                <p className="font-leagueSpartan text-3xl font-medium">Starting at Sportradar</p>
-                <div className="space-y-5 text-2xl text-primary/70">
+              <div className="size-full space-y-5 rounded border border-white bg-[#1E1E1E] p-7">
+                <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">Starting at Sportradar</p>
+                <div className="space-y-5 text-primary/70 lg:text-2xl">
                   <p>
                     At Sportradar, my entry into the tech world involved refining web crawlers and scrapers specifically
                     tailored for e-commerce applications, enhancing data collection and introducing microservices to
@@ -41,12 +42,12 @@ export const WorkExperience = () => {
               </div>
             </div>
           </div>
-          <div className="relative ml-8 basis-3/5">
+          <div className="relative ml-2 basis-3/5 md:ml-8">
             <BadgeCheckIcon fill="#ffc457" className="absolute top-0 -ml-6 -mt-1 size-14 text-primary-background" />
             <div className="mt-1 pb-10 pl-12">
-              <div className="size-full space-y-5 rounded-xl border border-white bg-[#1E1E1E] p-7">
-                <p className="font-leagueSpartan text-3xl font-medium">I joined Oda</p>
-                <div className="space-y-5 text-2xl text-primary/70">
+              <div className="size-full space-y-5 rounded border border-white bg-[#1E1E1E] p-7">
+                <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">I joined Oda</p>
+                <div className="space-y-5 text-primary/70 lg:text-2xl">
                   <p>
                     Moving to Oda marked a significant chapter where I led the transition of a major e-commerce platform
                     to a modern React frontend, directly contributing to improved user interactions and increased online
@@ -68,21 +69,22 @@ export const WorkExperience = () => {
       </div>
       <div className="flex w-full flex-col gap-8 lg:flex-row lg:gap-10">
         <div className="shrink-0 basis-2/5">
-          <p className="font-leagueSpartan text-6xl font-medium md:mb-14">The role of Lead Frontend Engineer</p>
-          <p className="text-[28px] md:mb-10">
+          <p className="mb-7 font-leagueSpartan text-3xl font-medium lg:mb-14 lg:text-6xl">
+            The role of Lead Frontend Engineer
+          </p>
+          <p className="lg:mb-10 lg:text-3xl">
             Each role has been a chapter in my story, filled with learning, overcoming challenges, and making a tangible
             impact. My journey reflects a commitment to excellence, innovation, and a dedication to contributing
             positively to the tech community.
           </p>
-          <button className={cn(buttonVariants())}>Contact Me</button>
         </div>
         <div>
-          <div className="relative ml-8 basis-3/5">
+          <div className="relative ml-2 basis-3/5 md:ml-8">
             <BadgeCheckIcon fill="#ffc457" className="absolute top-0 -ml-6 -mt-1 size-14 text-primary-background" />
             <div className="mt-1 border-l-[7px] border-dotted border-accent/50 pb-10 pl-12">
-              <div className="size-full space-y-5 rounded-xl border border-white bg-[#1E1E1E] p-7">
-                <p className="font-leagueSpartan text-3xl font-medium">Norsk Gjenvinning</p>
-                <div className="space-y-5 text-2xl text-primary/70">
+              <div className="size-full space-y-5 rounded border border-white bg-[#1E1E1E] p-7">
+                <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">Norsk Gjenvinning</p>
+                <div className="space-y-5 text-primary/70 lg:text-2xl">
                   <p>
                     At Norsk Gjenvinning, my e-commerce journey reached new heights. Initially joining as a Lead
                     Frontend Engineer, I led the development of frontend architectures for our e-commerce platforms.
@@ -99,12 +101,12 @@ export const WorkExperience = () => {
               </div>
             </div>
           </div>
-          <div className="relative ml-8 basis-3/5">
+          <div className="relative ml-2 basis-3/5 md:ml-8">
             <BadgeCheckIcon fill="#ffc457" className="absolute top-0 -ml-6 -mt-1 size-14 text-primary-background" />
             <div className="mt-1 pb-10 pl-12">
-              <div className="size-full space-y-5 rounded-xl border border-white bg-[#1E1E1E] p-7">
-                <p className="font-leagueSpartan text-3xl font-medium">Evolving into the role</p>
-                <div className="space-y-5 text-2xl text-primary/70">
+              <div className="size-full space-y-5 rounded border border-white bg-[#1E1E1E] p-7">
+                <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">Evolving into the role</p>
+                <div className="space-y-5 text-primary/70 lg:text-2xl">
                   <p>
                     My role evolved into that of Lead Software Engineer & Tech Lead, marking a pivotal expansion in my
                     responsibilities and impact.

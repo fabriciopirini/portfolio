@@ -5,6 +5,7 @@ import tailwindAnimate from '@anuragroy/tailwindcss-animate'
 import tailwindDebugScreens from 'tailwindcss-debug-screens'
 import tailwindTouch from 'tailwindcss-touch'
 import plugin from 'tailwindcss/plugin'
+import defaultTheme from 'tailwindcss/defaultTheme'
 
 import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette'
 
@@ -30,6 +31,11 @@ export const config = {
         '2xl': '1400px',
       },
     },
+    borderRadius: {
+      DEFAULT: defaultTheme.borderRadius.xl,
+      full: defaultTheme.borderRadius.full,
+      mobile: defaultTheme.borderRadius['3xl'],
+    },
     extend: {
       fontFamily: {
         inter: ['var(--font-inter)'],
@@ -44,6 +50,7 @@ export const config = {
           DEFAULT: 'hsl(var(--color-text-secondary))',
         },
         muted: {
+          DEFAULT: 'hsl(var(--color-text-muted-foreground))',
           foreground: 'hsl(var(--color-text-muted-foreground))',
         },
       },
@@ -67,6 +74,9 @@ export const config = {
         },
         background: {
           DEFAULT: 'hsl(var(--background))',
+        },
+        popover: {
+          DEFAULT: 'white',
         },
       },
       colors: {

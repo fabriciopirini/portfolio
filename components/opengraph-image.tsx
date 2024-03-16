@@ -18,7 +18,7 @@ export const OpengraphImage = async (props?: Props): Promise<ImageResponse> => {
   return new ImageResponse(
     (
       <div className="flex size-full flex-col items-center justify-center bg-black">
-        <div className="flex size-[160px] flex-none items-center justify-center rounded-3xl border border-neutral-700">
+        <div className="flex size-[160px] flex-none items-center justify-center rounded border border-neutral-700">
           <Image className="h-[45px] w-auto 2xl:h-16" src={Logo} alt="Logo" width={64} height={64} />
         </div>
         <p className="mt-12 text-6xl font-bold text-white">{title}</p>

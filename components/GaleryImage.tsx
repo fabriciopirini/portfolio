@@ -10,7 +10,7 @@ export const Galery = ({ items }: { items: (typeof PRODUCTS)[number][] }) => {
   return (
     <div className="mx-auto flex max-w-[1800px] flex-wrap justify-center gap-4 xl:gap-16">
       {items.map((item) => (
-        <div key={item.id} className="group size-[500px] overflow-hidden rounded-lg text-secondary">
+        <div key={item.id} className="group size-[500px] overflow-hidden rounded text-secondary">
           <div className="flex aspect-square size-full flex-col justify-between bg-neutral-50 sm:p-10">
             <div>
               <h2 className="font-leagueSpartan text-4xl">{item.name}</h2>

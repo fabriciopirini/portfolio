@@ -75,7 +75,7 @@ const CheckoutButtonMobile = ({ disabled }: { disabled: boolean }) => {
             Checkout
           </Button>
         </DrawerTrigger>
-        <DrawerContent className="inset-x-0 bottom-0 h-auto w-full rounded-t-3xl pb-5">
+        <DrawerContent className="rounded-t-3xl inset-x-0 bottom-0 h-auto w-full pb-5">
           <div className="mx-auto flex h-auto w-full max-w-sm flex-col gap-8 p-8 md:h-full md:w-auto md:max-w-md">
             <DrawerHeader className="flex w-full flex-col items-center gap-3 p-0">
               <DrawerTitle>Interested?</DrawerTitle>

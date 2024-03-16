@@ -1,24 +1,25 @@
 'use client'
 
 import { CheckIcon } from 'lucide-react'
-import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
 
 import { CartIconFilled } from '@/components/SvgLogos'
-import { cn, getCartItems, updatedQueryParams } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+import { useAppStore } from '@/providers/app-store-provider'
 
-const CART_BUTTON_BASE_STYLE = 'flex size-12 items-center justify-center rounded-md bg-primary drop-shadow-md'
-
-const isProductInCart = (cart: string[], productId: string) => cart.includes(productId)
+const CART_BUTTON_BASE_STYLE = 'rounded-full md:p-3'
 
 export const AddToCart = ({ productId }: { productId: string }) => {
-  const searchParams = useSearchParams()
-  const cart = getCartItems(searchParams)
+  const { cartItems, addProduct } = useAppStore((state) => state)
 
-  if (isProductInCart(cart, productId)) {
+  const isProductInCart = cartItems.includes(productId)
+
+  if (isProductInCart) {
     return (
-      <div className={cn(CART_BUTTON_BASE_STYLE, 'relative rounded-full border bg-green-500 p-3 text-primary')}>
-        <CartIconFilled />
+      <div
+        className={cn(CART_BUTTON_BASE_STYLE, 'relative flex items-center justify-center bg-green-500 text-primary')}
+      >
+        <CartIconFilled className="size-7" />
         <div className="absolute bottom-2 right-2 z-10 flex size-[15px] items-center justify-center rounded-full bg-green-600">
           <CheckIcon className="size-3" />
         </div>
@@ -27,22 +28,16 @@ export const AddToCart = ({ productId }: { productId: string }) => {
     )
   }
 
-  const queryParams = updatedQueryParams(searchParams, {
-    cart: [...cart, productId].join(','),
-    ...(searchParams.get('showSideBubble') ? { showSideBubble: searchParams.get('showSideBubble') as string } : {}),
-  })
-
   return (
-    <Link
-      href={`/shop${queryParams}`}
+    <Button
+      onClick={() => addProduct(productId)}
       className={cn(
         CART_BUTTON_BASE_STYLE,
-        'rounded-full border bg-accent p-3 duration-300 ease-in-out hover:scale-105'
+        'bg-accent drop-shadow-md transition-transform duration-200 ease-in-out hover:scale-105'
       )}
-      scroll={false}
     >
-      <CartIconFilled fill="#373943" />
+      <CartIconFilled fill="#373943" className="size-7" />
       <span className="sr-only">Add to cart</span>
-    </Link>
+    </Button>
   )
 }

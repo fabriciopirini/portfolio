@@ -28,7 +28,7 @@ import 'atropos/css'
 
 export const Skills = () => (
   <>
-    <section className="container w-full pt-4 md:pt-10">
+    <section id="technology" className="container w-full pt-4 md:pt-10">
       <h2 className="mb-5 text-center font-leagueSpartan text-5xl font-bold xl:mb-14 xl:text-7xl">Technology</h2>
       <Carousel className="mx-auto w-full lg:hidden">
         <CarouselContent className="text-left">

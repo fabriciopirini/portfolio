@@ -51,7 +51,7 @@ const CheckoutButtonDesktop = ({ disabled }: { disabled: boolean }) => {
             Checkout
           </Button>
         </DialogTrigger>
-        <DialogContent className="flex flex-col gap-8 bg-primary-hero pb-10 pt-8 text-primary">
+        <DialogContent className="flex flex-col gap-8 bg-primary pb-10 pt-8 text-primary">
           <DialogHeader>
             <DialogTitle className="text-center text-xl">Interested?</DialogTitle>
             <DialogDescription className="flex flex-col text-center">

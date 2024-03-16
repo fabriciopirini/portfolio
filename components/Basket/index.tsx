@@ -1,8 +1,6 @@
 'use client'
 
 import { Trash2Icon } from 'lucide-react'
-import Link from 'next/link'
-import { type ReadonlyURLSearchParams, useSearchParams } from 'next/navigation'
 import { useWindowSize } from 'usehooks-ts'
 
 import { PRODUCTS } from '@/app/services'
@@ -17,14 +15,14 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer'
-import { cn, getCartItems, updatedQueryParams } from '@/lib/utils'
+import { cn } from '@/lib/utils'
+import { useAppStore } from '@/providers/app-store-provider'
 
-export const Basket = ({ searchParams }: { searchParams: ReadonlyURLSearchParams }) => {
+export const Basket = () => {
+  const cart = useAppStore((state) => state.cartItems)
   const screen = useWindowSize()
 
   const isMobile = screen?.width < 768
-
-  const cart = getCartItems(searchParams)
 
   return (
     <Drawer direction={isMobile ? 'bottom' : 'right'} shouldScaleBackground={false}>
@@ -71,7 +69,7 @@ export const Basket = ({ searchParams }: { searchParams: ReadonlyURLSearchParams
 }
 
 const ProductCartItem = ({ productId, position }: { productId: string; position: number }) => {
-  const searchParams = useSearchParams()
+  const removeProduct = useAppStore((state) => state.removeProduct)
   const item = PRODUCTS.find((product) => product.id === productId)
 
   if (!item) return null
@@ -83,12 +81,10 @@ const ProductCartItem = ({ productId, position }: { productId: string; position:
         <h3 className="text-lg font-medium">{item.name}</h3>
         <p className="text-sm">F$ {item.price}</p>
       </div>
-      <Link
-        href={`/shop${updatedQueryParams(searchParams, { cart: searchParams.get('cart')?.replace(productId, '') ?? '' })}`}
-        className="text-xs font-medium"
-      >
+      <button onClick={() => removeProduct(productId)} className="text-xs font-medium">
         <Trash2Icon className="size-5" />
-      </Link>
+        <span className="sr-only">Remove from cart</span>
+      </button>
     </li>
   )
 }

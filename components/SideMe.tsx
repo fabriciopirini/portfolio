@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 import { Button } from '@/components/ui/button'
 import { useToast } from '@/components/ui/use-toast'
-import { cn, updatedQueryParams } from '@/lib/utils'
+import { cn } from '@/lib/utils'
+import { useAppStore } from '@/providers/app-store-provider'
 import ProfilePic from '@/public/assets/lego_me.png'
 
 export const SideMe = () => {
@@ -15,10 +15,7 @@ export const SideMe = () => {
   const [showBubble, setShowBubble] = useState(false)
   const [showBubbleReturn, setShowBubbleReturn] = useState(false)
 
-  const router = useRouter()
-  const searchParams = useSearchParams()
-  const pathname = usePathname()
-  const showSideBubble = searchParams.get('showSideBubble') !== 'false'
+  const { isSideBubbleVisible, hideSideBubble } = useAppStore((state) => state)
 
   const { toast } = useToast()
 
@@ -42,7 +39,7 @@ export const SideMe = () => {
         className={cn(
           'fixed bottom-40 left-0 z-[1000] -translate-x-full rotate-0 fill-mode-both min-[250px]:bottom-36 min-[300px]:bottom-40 min-[350px]:bottom-28 sm:bottom-20',
           {
-            'animate-sideMe': animate && showSideBubble,
+            'animate-sideMe': animate && isSideBubbleVisible,
             'animate-sideMeReturn': animateReturn,
           }
         )}
@@ -57,7 +54,7 @@ export const SideMe = () => {
       </div>
       <div
         className={cn('pointer-events-none fixed bottom-5 left-28 z-[1001] w-0 origin-left opacity-0', {
-          'pointer-events-auto w-auto animate-scaleConversationBubble opacity-100': showBubble && showSideBubble,
+          'pointer-events-auto w-auto animate-scaleConversationBubble opacity-100': showBubble && isSideBubbleVisible,
           'animate-scaleConversationBubbleReturn opacity-0': showBubbleReturn,
         })}
       >
@@ -89,9 +86,7 @@ export const SideMe = () => {
                       setAnimateReturn(true)
 
                       const timer = setTimeout(() => {
-                        const queryParams = updatedQueryParams(searchParams, { showSideBubble: false })
-
-                        router.push(`${pathname}${queryParams}`, { scroll: false })
+                        hideSideBubble()
                       }, 500)
 
                       return () => clearTimeout(timer)

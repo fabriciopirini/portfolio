@@ -5,6 +5,7 @@ import { Inter, League_Spartan } from 'next/font/google'
 
 import { CSPostHogProvider } from '@/components/Providers'
 import { cn } from '@/lib/utils'
+import { AppStoreProvider } from '@/providers/app-store-provider'
 import Thumbnail from '@/public/assets/thumbnail.png'
 
 import '@/app/globals.css'
@@ -57,7 +58,11 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en" className={cn(leagueSpartan.variable, inter.variable, 'size-full')} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={cn(leagueSpartan.variable, inter.variable, 'size-full scroll-smooth motion-reduce:scroll-auto')}
+      suppressHydrationWarning
+    >
       <CSPostHogProvider>
         <body
           className={cn('mx-auto min-h-svh w-full antialiased', {
@@ -65,7 +70,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           })}
           style={{ scrollbarGutter: 'stable' }}
         >
-          <main>{children}</main>
+          <AppStoreProvider>
+            <main>{children}</main>
+          </AppStoreProvider>
           <Analytics />
           <SpeedInsights />
           {/* <Toaster /> */}

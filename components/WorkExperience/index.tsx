@@ -10,7 +10,7 @@ import SportradarLogo from '/public/assets/logos/sportradar-logo.avif'
 
 export const WorkExperience = () => {
   return (
-    <section className="container flex w-full flex-col gap-32 py-16 md:py-32">
+    <section id="experience" className="container flex w-full flex-col gap-32 py-16 md:py-32">
       <div className="flex w-full flex-col gap-8 lg:flex-row lg:gap-10">
         <div className="shrink-0 basis-2/5">
           <p className="font-leagueSpartan text-6xl font-medium md:mb-14">Experience in innovation and leadership</p>

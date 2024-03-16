@@ -5,14 +5,15 @@ import CountUp from 'react-countup'
 import { InfinityIcon, MenuIcon, MousePointerClickIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
 import { usePostHog } from 'posthog-js/react'
 
 import { Basket } from '@/components/Basket'
 import { GithubIconFilled, LinkedInIconFilled } from '@/components/SvgLogos'
-import { cn } from '@/lib/utils'
+import { calculateCoinsToAdd, cn } from '@/lib/utils'
+import { useAppStore } from '@/providers/app-store-provider'
 import FabCoingIcon from '@/public/assets/fab-coin-icon.png'
 import Logo from '@/public/assets/logo.svg'
+import { MAX_COINS } from '@/stores/app-store'
 
 export const NavBar = () => (
   <nav className="z-10 flex w-full items-center justify-between px-4 py-10 text-[22px] font-light md:px-20 md:py-16">
@@ -23,13 +24,13 @@ export const NavBar = () => (
     <div className="z-10 hidden w-full items-center sm:flex sm:flex-row">
       <ul className="flex w-full select-none flex-row items-center justify-center gap-8 lg:gap-16">
         <li>
-          <a href="#">About</a>
+          <Link href="/#about">About</Link>
         </li>
         <li>
-          <a href="#">Technology</a>
+          <Link href="/#technology">Technology</Link>
         </li>
         <li>
-          <a href="#">Experience</a>
+          <Link href="/#experience">Experience</Link>
         </li>
         <li className="relative">
           <Link href="/shop">Shop</Link>
@@ -49,46 +50,23 @@ export const NavBar = () => (
 
 const MoreNav = () => {
   const [animate, setAnimate] = useState(false)
-  const [coins, setCoins] = useState(0)
 
-  const isClientSide = typeof window !== 'undefined'
-
-  const [isLoading, setIsLoading] = useState(isClientSide)
-
-  const searchParams = useSearchParams()
+  const { coins, addCoins, _hasHydrated: hasStoreHydrated } = useAppStore((state) => state)
 
   const posthog = usePostHog()
 
+  const coinsToBeAdded = calculateCoinsToAdd(coins)
+
   useEffect(() => {
-    if (animate) return
+    if (animate || coins >= MAX_COINS) return
 
     const timer = setTimeout(() => {
       setAnimate(true)
-      setCoins((prev) => {
-        const newCoins = prev + 100
-        try {
-          localStorage.setItem('coins', String(newCoins))
-        } catch (error) {}
-        return newCoins
-      })
+      addCoins(coinsToBeAdded)
     }, 5000)
 
     return () => clearTimeout(timer)
   }, [animate])
-
-  useEffect(() => {
-    if (!isClientSide) return
-
-    const item = localStorage.getItem('coins')
-
-    if (item) {
-      try {
-        setCoins(parseInt(item))
-      } finally {
-        setIsLoading(false)
-      }
-    }
-  }, [])
 
   return (
     <div className="flex items-center justify-center gap-2 md:gap-5">
@@ -96,31 +74,31 @@ const MoreNav = () => {
         <div className="size-10">
           <Image src={FabCoingIcon} alt="FabCoin" width={46} height={46} className="size-full" />
         </div>
-        {coins < 99999 ? (
+        {coins < MAX_COINS ? (
           <div className="relative">
             <CountUp
-              start={Math.max(coins - 100, 0)}
+              start={Math.max(coins - coinsToBeAdded, 0)}
               end={coins}
               duration={2}
               onEnd={() => {
                 setAnimate(false)
               }}
-              className={cn('inline-block w-[6ch] text-right', {
-                'animate-pulse rounded-md bg-neutral-500 text-neutral-500': isLoading,
+              className={cn('inline-block w-[5ch] text-right', {
+                'animate-pulse rounded-md bg-neutral-500 text-neutral-500': !hasStoreHydrated,
               })}
             />
             <span
               className={cn('absolute right-0 top-6 text-center text-sm text-accent opacity-0 xl:text-base', {
                 'animate-appearDownAndFade': animate,
-                hidden: isLoading,
+                hidden: !hasStoreHydrated,
               })}
             >
-              +100
+              +{coinsToBeAdded}
             </span>
           </div>
         ) : (
-          <div className="w-[6ch]">
-            <InfinityIcon size={28} strokeWidth={1.5} className="ml-auto size-7" />
+          <div className="w-[4ch]">
+            <InfinityIcon strokeWidth={1} className="ml-auto size-9" />
           </div>
         )}
         <span className="whitespace-nowrap">Fab coins</span>
@@ -149,7 +127,7 @@ const MoreNav = () => {
         <GithubIconFilled />
         <span className="sr-only">Visit Fabricio&apos;s Github profile</span>
       </a>
-      <Basket searchParams={searchParams} />
+      <Basket />
     </div>
   )
 }

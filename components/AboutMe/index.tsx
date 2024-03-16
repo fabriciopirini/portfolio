@@ -12,7 +12,10 @@ import {
 import { cn } from '@/lib/utils'
 
 export const AboutMe = () => (
-  <section className="container relative flex w-full flex-col gap-16 rounded-xl bg-white py-16 text-center md:px-28 md:py-20 lg:mb-36">
+  <section
+    id="about"
+    className="container relative flex w-full flex-col gap-16 rounded-xl bg-white py-16 text-center md:px-28 md:py-20 lg:mb-36"
+  >
     <CornerMinus className="right-4 top-4" />
     <CornerMinus className="left-4 top-4" />
     <CornerMinus className="bottom-4 left-4" />

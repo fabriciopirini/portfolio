@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { usePostHog } from 'posthog-js/react'
 
+import { mailTo } from '@/components/CheckoutButton'
 import { GithubIconFilled, LinkedInIconFilled, MailIconFilled } from '@/components/SvgLogos'
 import Logo from '@/public/assets/logo.svg'
 
@@ -24,7 +25,7 @@ export const Footer = () => {
               target="_blank"
               rel="noreferrer"
               data-atrr="github-footer"
-              href="mailto:fabriciopirini@gmail.com"
+              href={mailTo}
               aria-label="Checkout my Github profile"
               className="size-10 rounded-full border border-white/50 p-2 lg:size-16 lg:p-4"
               onClick={() => posthog?.capture('contact_me_email_footer')}

@@ -29,7 +29,7 @@ const body = encodeURIComponent(
   "Hey, Fabricio! I'm very interested in your services. Can we have a chat? By the way, loved the website! 🚀"
 )
 
-const mailTo = `mailto:${recipient}?subject=${subject}&body=${body}`
+export const mailTo = `mailto:${recipient}?subject=${subject}&body=${body}`
 
 const gmailLink = `https://mail.google.com/mail/?view=cm&to=${recipient}&su=${subject}&body=${body}`
 const outlookLink = `https://outlook.office.com/mail/deeplink/compose?to=${recipient}&subject=${subject}&body=${body}`
@@ -93,6 +93,16 @@ const CheckoutButtonMobile = ({ disabled }: { disabled: boolean }) => {
         <DrawerContent className="inset-x-0 bottom-0 h-auto w-full rounded-t-mobile pb-5 text-secondary">
           <div className="mx-auto flex h-auto w-full max-w-sm flex-col gap-8 p-8 md:h-full md:w-auto md:max-w-md">
             <DrawerHeader className="flex w-full flex-col items-center gap-3 p-0">
+              <div className="mb-5 size-24 overflow-hidden rounded-full bg-accent ring-4 ring-accent/30 ring-offset-4 ring-offset-white">
+                <Image
+                  className="mt-7 size-full scale-[1.60]"
+                  src={ProfilePic}
+                  alt="Profile Picture"
+                  width={200}
+                  height={125}
+                  priority
+                />
+              </div>
               <DrawerTitle>Interested?</DrawerTitle>
               <DrawerDescription className="flex flex-col gap-1 text-pretty">
                 <span>You seemed interested on the values I can bring to your project. Let&apos;s have a chat!</span>
@@ -108,7 +118,7 @@ const CheckoutButtonMobile = ({ disabled }: { disabled: boolean }) => {
 
 const CheckoutInfoContent = () => (
   <div className="flex w-full flex-col items-center justify-between gap-3">
-    <span className="lg:mb-5 lg:text-2xl">Send me an Email from:</span>
+    <span className="hidden lg:mb-5 lg:block lg:text-2xl">Send me an Email from:</span>
     <Button className="flex items-center gap-3 text-base transition-all duration-300 hover:scale-[1.02] lg:h-20 lg:px-14 lg:py-5 lg:text-2xl">
       <InboxIcon className="lg:h-9 lg:w-auto" strokeWidth={1.5} />
       <a href={mailTo} type="submit" className="hidden text-base font-normal md:block lg:text-2xl">

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { usePostHog } from 'posthog-js/react'
 
+import { mailTo } from '@/components/CheckoutButton'
 import { CTAButton } from '@/components/CTAButton'
 import { LinkedInIconFilled, MailIconFilled } from '@/components/SvgLogos'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
@@ -81,7 +82,7 @@ const CTAButtons = () => {
             className="flex flex-row items-center justify-around gap-3"
           >
             <motion.a
-              href="mailto:fabriciopirini@gmail.com"
+              href={mailTo}
               className="flex flex-col gap-2"
               variants={FADE_RIGHT_ANIMATION_VARIANTS}
               onClick={() => posthog?.capture('contact_me_email')}

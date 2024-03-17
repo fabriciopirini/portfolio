@@ -24,9 +24,9 @@ import Logo from '@/public/assets/logo.svg'
 import { MAX_COINS } from '@/stores/app-store'
 
 export const NavBar = () => (
-  <nav className="z-10 flex w-full items-center justify-between px-4 py-10 text-[22px] font-light md:py-16 [&_*]:z-10">
+  <nav className="z-10 flex w-full items-center justify-between px-2 py-10 text-[22px] font-light md:py-16 [&_*]:z-10">
     <Link href="/" className="flex items-center gap-4">
-      <Image className="h-[45px] w-auto 2xl:h-16" src={Logo} alt="Logo" width={64} height={64} />
+      <Image className="h-8 w-auto md:h-[45px] 2xl:h-16" src={Logo} alt="Logo" width={64} height={64} />
       {/* <span className="text-[32px] font-medium max-md:hidden">Fabricio</span> */}
     </Link>
     <div className="z-10 hidden items-center sm:flex sm:flex-row">
@@ -57,7 +57,7 @@ const MoreNav = () => {
   }, [animate])
 
   return (
-    <div className="flex items-center justify-center gap-2 md:gap-4">
+    <div className="flex items-center justify-center gap-[6px] lg:gap-4">
       <div className="relative overflow-hidden rounded-full border border-white/50">
         <div
           className={cn(
@@ -99,7 +99,10 @@ const MoreNav = () => {
               <InfinityIcon strokeWidth={1} className="ml-auto lg:size-9" />
             </div>
           )}
-          <span className="whitespace-nowrap">Fab coins</span>
+          <span className="whitespace-nowrap">
+            <span className="max-sm:hidden">Fab </span>
+            coins
+          </span>
         </div>
       </div>
       <a
@@ -171,6 +174,8 @@ const SiteLinks = () => (
 const HamburguerMenu = () => {
   const [isOpen, setIsOpen] = useState(false)
 
+  const posthog = usePostHog()
+
   const pathname = usePathname()
 
   const isHome = pathname === '/'
@@ -183,7 +188,7 @@ const HamburguerMenu = () => {
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
-        <button className="size-11 cursor-pointer rounded-full border border-white/50 p-2 text-primary focus-visible:h-full lg:size-16 lg:p-4 xl:hidden">
+        <button className="ml-5 size-11 cursor-pointer rounded-full border border-white/50 p-2 text-primary focus-visible:h-full lg:size-16 lg:p-4 xl:hidden">
           <MenuIcon className="size-full" />
           <span className="sr-only">Open the menu</span>
         </button>
@@ -208,6 +213,34 @@ const HamburguerMenu = () => {
             </DropdownMenuItem>
           </>
         )}
+        <div className="lg:hidden">
+          <DropdownMenuSeparator className="mx-7" />
+          <DropdownMenuItem onSelect={handleSelect} className="px-5 py-2">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              data-atrr="linkedin-hamburguer"
+              href="https://www.linkedin.com/in/fabriciopirini/"
+              aria-label="Checkout my LinkedIn profile"
+              onClick={() => posthog?.capture('contact_me_linkedin_hamburguer')}
+            >
+              LinkedIn
+            </a>
+          </DropdownMenuItem>
+          <DropdownMenuSeparator className="mx-7" />
+          <DropdownMenuItem onSelect={handleSelect} className="px-5 py-2">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              data-atrr="github-hamburguer"
+              href="https://github.com/fabriciopirini"
+              aria-label="Checkout my Github profile"
+              onClick={() => posthog?.capture('contact_me_github_hamburguer')}
+            >
+              Github
+            </a>
+          </DropdownMenuItem>
+        </div>
       </DropdownMenuContent>
     </DropdownMenu>
   )

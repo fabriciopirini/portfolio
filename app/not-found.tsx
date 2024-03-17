@@ -4,7 +4,6 @@ import { NavBar } from '@/components/NavBar'
 import { Button } from '@/components/ui/button'
 
 const NotFoundPage = () => {
-  throw new Error('Not Found')
   return (
     <div className="mb-3 flex size-full grow flex-col items-center px-4 md:mb-10 md:px-10 2xl:px-20">
       <NavBar />

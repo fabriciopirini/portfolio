@@ -1,11 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Linkedin, Mail } from 'lucide-react'
 import Image from 'next/image'
 import { usePostHog } from 'posthog-js/react'
 
 import { CTAButton } from '@/components/CTAButton'
+import { LinkedInIconFilled, MailIconFilled } from '@/components/SvgLogos'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { FADE_DOWN_ANIMATION_VARIANTS, FADE_RIGHT_ANIMATION_VARIANTS } from '@/lib/constants'
 
@@ -54,7 +54,7 @@ const CTAButtons = () => {
   const posthog = usePostHog()
 
   return (
-    <motion.div className="flex w-fit gap-2 rounded-full py-4 md:gap-6 lg:bg-white/10 lg:px-6">
+    <motion.div className="flex w-fit gap-2 rounded-full py-4 md:gap-6 xl:bg-white/10 xl:px-6">
       <CTAButton id="resume_download" type="secondary" as="link" href="/api/resume" text="Resume" />
       <Popover
         onOpenChange={(value) => {
@@ -86,8 +86,8 @@ const CTAButtons = () => {
               variants={FADE_RIGHT_ANIMATION_VARIANTS}
               onClick={() => posthog?.capture('contact_me_email')}
             >
-              <div className="rounded-full bg-primary p-4">
-                <Mail size={32} className="mx-auto inline-block" />
+              <div className="size-10 rounded-full bg-primary p-2 lg:size-16 lg:p-4">
+                <MailIconFilled className="size-full" />
               </div>
               <span className="mx-auto text-lg text-primary-background">Email</span>
               <span className="sr-only">Send email to Fabricio</span>
@@ -100,8 +100,8 @@ const CTAButtons = () => {
               variants={FADE_RIGHT_ANIMATION_VARIANTS}
               onClick={() => posthog?.capture('contact_me_linkedin')}
             >
-              <div className="rounded-full bg-primary p-4">
-                <Linkedin size={32} className="mx-auto inline-block" />
+              <div className="size-10 rounded-full bg-primary p-2 lg:size-16 lg:p-4">
+                <LinkedInIconFilled className="size-full" />
               </div>
               <span className="mx-auto text-lg text-primary-background">LinkedIn</span>
               <span className="sr-only">Visit Fabricio&apos;s LinkedIn profile</span>

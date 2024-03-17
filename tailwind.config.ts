@@ -40,6 +40,7 @@ export const config = {
       fontFamily: {
         inter: ['var(--font-inter)'],
         leagueSpartan: ['var(--font-league-spartan)'],
+        poppins: ['var(--font-poppins)'],
       },
       textColor: {
         primary: {

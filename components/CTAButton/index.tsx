@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 import { CloudDownloadIcon } from 'lucide-react'
 import { usePostHog } from 'posthog-js/react'
 
+import { MailIconFilled } from '@/components/SvgLogos'
 import { cn } from '@/lib/utils'
 
 export const CTAButtonStyles = cva(
@@ -95,6 +96,7 @@ export const CTAButton = React.forwardRef(
         {...animation}
         {...props}
       >
+        <MailIconFilled className="size-full fill-black " />
         {/* <MailIcon size={28} className="inline-block size-7 min-h-7 min-w-7 fill-black stroke-accent" /> */}
         {text}
       </motion.button>

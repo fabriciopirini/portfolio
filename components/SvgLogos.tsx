@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 
+import { cn } from '@/lib/utils'
+
 export const GraphQLLogo = ({ className, ...props }: { className?: string } & React.SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" className={className} {...props}>
     <g fill="#E434AA">
@@ -445,12 +447,12 @@ export const MailIconFilled = ({ className, ...props }: { className?: string } &
     viewBox="0 0 28 20"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={className}
+    className={cn('fill-white', className)}
     {...props}
   >
     <path
       d="M26.0505 19.999H2.01061C1.78183 19.9942 1.55566 19.9492 1.34237 19.8661L9.93219 11.5684L13.407 14.8185C13.578 14.978 13.8034 15.0659 14.0369 15.0641C14.2705 15.0622 14.4945 14.9709 14.6629 14.8087L18.1456 11.4414L27.0086 19.7331C26.7157 19.9033 26.3841 19.9952 26.0456 20L26.0505 19.999ZM0.0854951 18.5079C0.0344256 18.3401 0.0056791 18.1662 0 17.9908V2.32531L8.57016 10.3206L0.0864773 18.505L0.0854951 18.5079ZM27.9864 18.1612L19.4526 10.1728L27.9972 1.9215C28.0009 1.93804 28.0009 1.95519 27.9972 1.97173C27.9916 1.98689 27.9882 2.00284 27.9874 2.01901L27.9864 18.1612ZM14.0183 12.8813L0.744889 0.471758C1.09855 0.172601 1.54491 0.0058472 2.00766 0H26.0505C26.4064 0.00533841 26.7542 0.107462 27.0568 0.295465L14.0183 12.8813Z"
-      fill="white"
+      // fill="white"
     />
   </svg>
 )

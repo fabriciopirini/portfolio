@@ -10,26 +10,26 @@ export const Footer = () => {
   const posthog = usePostHog()
 
   return (
-    <footer className="m-4 flex flex-col items-center justify-between gap-16 rounded bg-white/10 p-7 text-center lg:m-8 lg:mb-0 lg:gap-16 lg:px-24 lg:pb-4 lg:pt-32">
+    <footer className="m-4 mb-0 flex flex-col items-center justify-between gap-16 rounded bg-white/10 p-7 text-center lg:m-8 lg:mb-0 lg:gap-16 lg:px-24 lg:pb-8 lg:pt-32">
       <div className="flex flex-col gap-6 lg:flex-row lg:gap-0 lg:divide-x lg:divide-white/20">
-        <p className="font-leagueSpartan text-3xl font-medium lg:basis-1/2 lg:pr-20 lg:text-[80px] lg:leading-none">
+        <p className="max-w-[15ch] text-pretty font-leagueSpartan text-3xl font-medium lg:basis-1/2 lg:pr-20 lg:text-[80px] lg:leading-none">
           Bringing Your Ideas to Life
         </p>
         <div className="flex flex-col items-center justify-center gap-6 lg:basis-1/2 lg:gap-5 lg:pl-20">
-          <p className="lg:text-2xl">
+          <p className="max-w-[35ch] text-pretty lg:text-2xl">
             A dedicated Computer Engineer with a focus on Web Development at Norsk Gjenvinning.
           </p>
-          <div className="flex size-10 justify-center gap-3 lg:gap-4">
+          <div className="flex justify-center gap-3 lg:gap-4">
             <a
               target="_blank"
               rel="noreferrer"
               data-atrr="github-footer"
               href="mailto:fabriciopirini@gmail.com"
               aria-label="Checkout my Github profile"
-              className="flex items-center justify-center rounded-full border border-white/50 p-2 lg:p-4"
+              className="size-10 rounded-full border border-white/50 p-2 lg:size-16 lg:p-4"
               onClick={() => posthog?.capture('contact_me_email_footer')}
             >
-              <MailIconFilled className="m-auto size-5 lg:size-7" />
+              <MailIconFilled className="size-full" />
               <span className="sr-only">Send email to Fabricio</span>
             </a>
             <a
@@ -38,10 +38,10 @@ export const Footer = () => {
               data-atrr="linkedin-footer"
               href="https://www.linkedin.com/in/fabriciopirini/"
               aria-label="Checkout my LinkedIn profile"
-              className="flex h-full items-center justify-center rounded-full border border-white/50 p-2 lg:p-4"
+              className="size-10 rounded-full border border-white/50 p-2 lg:size-16 lg:p-4"
               onClick={() => posthog?.capture('contact_me_linkedin_footer')}
             >
-              <LinkedInIconFilled className="size-5 lg:size-7" />
+              <LinkedInIconFilled className="size-full" />
               <span className="sr-only">Visit Fabricio&apos;s LinkedIn profile</span>
             </a>
             <a
@@ -50,10 +50,10 @@ export const Footer = () => {
               data-atrr="github-footer"
               href="https://github.com/fabriciopirini"
               aria-label="Checkout my Github profile"
-              className="flex h-full items-center justify-center rounded-full border border-white/50 p-2 lg:p-4"
+              className="size-10 rounded-full border border-white/50 p-2 lg:size-16 lg:p-4"
               onClick={() => posthog?.capture('contact_me_github_footer')}
             >
-              <GithubIconFilled className="size-5 lg:size-7" />
+              <GithubIconFilled className="size-full" />
               <span className="sr-only">Visit Fabricio&apos;s Github profile</span>
             </a>
           </div>

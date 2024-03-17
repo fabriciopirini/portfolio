@@ -14,14 +14,7 @@ import {
   TypeScriptLogo,
   VercelLogo,
 } from '@/components/SvgLogos'
-import {
-  Carousel,
-  CarouselContent,
-  CarouselDots,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel'
+import { Carousel, CarouselContent, CarouselDots, CarouselItem } from '@/components/ui/carousel'
 import { cn } from '@/lib/utils'
 
 import 'atropos/css'
@@ -52,8 +45,6 @@ export const Technology = () => (
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="text-white max-sm:hidden xl:hidden" />
-        <CarouselNext className="text-white max-sm:hidden xl:hidden" />
         <CarouselDots className="xl:hidden" isDarkMode />
       </Carousel>
       <div className="hidden py-6 text-2xl md:flex-[1_1_21%] lg:flex lg:flex-row lg:flex-wrap lg:items-center lg:justify-center lg:gap-5">

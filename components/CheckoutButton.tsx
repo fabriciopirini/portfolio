@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { InboxIcon } from 'lucide-react'
+import Image from 'next/image'
 
 import { GmailLogo, OutlookLogo } from '@/components/SvgLogos'
 import { Button } from '@/components/ui/button'
@@ -18,6 +20,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer'
+import ProfilePic from '@/public/assets/lego_me.png'
 
 const recipient = encodeURIComponent('fabricio@fabriciopirini.com')
 // const recipient = 'Fabricio Pirini<me@fabriciopirini.com>'
@@ -51,14 +54,26 @@ const CheckoutButtonDesktop = ({ disabled }: { disabled: boolean }) => {
             Checkout
           </Button>
         </DialogTrigger>
-        <DialogContent className="flex flex-col gap-8 bg-primary pb-10 pt-8 text-primary">
-          <DialogHeader>
-            <DialogTitle className="text-center text-xl">Interested?</DialogTitle>
-            <DialogDescription className="flex flex-col text-center">
-              <span>You seemed interested on the values I can bring to your project.</span>
-              <span>Let&apos;s have a chat!</span>
+        <DialogContent className="flex flex-col gap-12 bg-white p-10 pt-14 text-secondary">
+          <DialogHeader className="flex flex-col items-center">
+            <div className="mb-1 size-24 overflow-hidden rounded-full bg-accent ring-4 ring-accent/30 ring-offset-4 ring-offset-white">
+              <Image
+                className="mt-7 size-full scale-[1.60]"
+                src={ProfilePic}
+                alt="Profile Picture"
+                width={200}
+                height={125}
+                priority
+              />
+            </div>
+            <DialogTitle className="pb-8 text-center font-leagueSpartan text-5xl font-normal text-secondary">
+              Interested?
+            </DialogTitle>
+            <DialogDescription className="flex flex-col text-pretty text-center text-2xl text-black">
+              <span>You seemed interested on the values I can bring to your project. Let&apos;s have a chat!</span>
             </DialogDescription>
           </DialogHeader>
+          <hr className="mx-auto h-[1px] w-3/4 border-black/30" />
           <CheckoutInfoContent />
         </DialogContent>
       </Dialog>
@@ -79,9 +94,8 @@ const CheckoutButtonMobile = ({ disabled }: { disabled: boolean }) => {
           <div className="mx-auto flex h-auto w-full max-w-sm flex-col gap-8 p-8 md:h-full md:w-auto md:max-w-md">
             <DrawerHeader className="flex w-full flex-col items-center gap-3 p-0">
               <DrawerTitle>Interested?</DrawerTitle>
-              <DrawerDescription className="flex flex-col gap-1">
-                <span>You seemed interested on the values I can bring to your project.</span>
-                <span>Let&apos;s have a chat!</span>
+              <DrawerDescription className="flex flex-col gap-1 text-pretty">
+                <span>You seemed interested on the values I can bring to your project. Let&apos;s have a chat!</span>
               </DrawerDescription>
             </DrawerHeader>
             <CheckoutInfoContent />
@@ -94,23 +108,38 @@ const CheckoutButtonMobile = ({ disabled }: { disabled: boolean }) => {
 
 const CheckoutInfoContent = () => (
   <div className="flex w-full flex-col items-center justify-between gap-3">
-    <Button className="text-base transition-all duration-300 hover:scale-[1.02]">
-      <a href={mailTo} type="submit" className="hidden md:block">
-        Send email from your favorite app
+    <span className="lg:mb-5 lg:text-2xl">Send me an Email from:</span>
+    <Button className="flex items-center gap-3 text-base transition-all duration-300 hover:scale-[1.02] lg:h-20 lg:px-14 lg:py-5 lg:text-2xl">
+      <InboxIcon className="lg:h-9 lg:w-auto" strokeWidth={1.5} />
+      <a href={mailTo} type="submit" className="hidden text-base font-normal md:block lg:text-2xl">
+        Your favorite app
       </a>
       <a href={mailTo} type="submit" className="block p-1 md:hidden">
         Send email
       </a>
     </Button>
-    <div className="hidden gap-3 md:flex">
-      <Button className="text-base transition-all duration-300 hover:scale-[1.02]">
-        <a href={gmailLink} target="_blank" rel="noreferrer" type="submit" className="flex items-center gap-3">
-          <GmailLogo className="size-5" /> Gmail
+    <span className="hidden text-xl lg:block">or</span>
+    <div className="hidden w-full justify-center gap-3 md:flex lg:text-2xl">
+      <Button className="transition-all duration-300 hover:scale-[1.02] lg:h-20 lg:w-60 lg:py-5">
+        <a
+          href={gmailLink}
+          target="_blank"
+          rel="noreferrer"
+          type="submit"
+          className="flex items-center gap-3 text-base font-normal lg:text-2xl"
+        >
+          <GmailLogo className="lg:h-9 lg:w-auto" /> Gmail
         </a>
       </Button>
-      <Button className="text-base transition-all duration-300 hover:scale-[1.02]">
-        <a href={outlookLink} target="_blank" rel="noreferrer" type="submit" className="flex items-center gap-3">
-          <OutlookLogo className="size-5" /> Outlook
+      <Button className="transition-all duration-300 hover:scale-[1.02] lg:h-20 lg:w-60 lg:py-4">
+        <a
+          href={outlookLink}
+          target="_blank"
+          rel="noreferrer"
+          type="submit"
+          className="flex items-center gap-3 text-base font-normal lg:text-2xl"
+        >
+          <OutlookLogo className="lg:h-12 lg:w-auto" /> Outlook
         </a>
       </Button>
     </div>

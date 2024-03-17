@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { ImageBubble } from '@/components/ImageBubble'
 import ProfilePic from '@/public/assets/lego_me.png'
 import LegoMeWithBubbleText from '@/public/assets/lego-me-with-bubble-text.png'
+import LegoMeWithBubbleTextMobile from '@/public/assets/lego-me-with-bubble-text-mobile.png'
 
 export const HeroLegoImage = () => {
   const date1 = new Date('2017-09-01') // 1 year before I started working as a developer at Sportradar (that includes my internship)
@@ -13,14 +14,24 @@ export const HeroLegoImage = () => {
   const diffYears = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365))
 
   return (
-    <Image
-      className="h-auto w-full object-contain lg:h-[800px]"
-      src={LegoMeWithBubbleText}
-      alt="Fabricio as a Lego figure with bubbles of text around him that say Senior Frontend Engineer, 6+ years of experience, and Norway based"
-      width={800}
-      height={800}
-      priority
-    />
+    <>
+      <Image
+        className="size-full object-contain max-lg:hidden"
+        src={LegoMeWithBubbleText}
+        alt="Fabricio as a Lego figure with bubbles of text around him that say Senior Frontend Engineer, 6+ years of experience, and Norway based"
+        width={800}
+        height={800}
+        priority
+      />
+      <Image
+        className="size-full object-contain lg:hidden"
+        src={LegoMeWithBubbleTextMobile}
+        alt="Fabricio as a Lego figure with bubbles of text around him that say Senior Frontend Engineer, 6+ years of experience, and Norway based"
+        width={352}
+        height={375}
+        priority
+      />
+    </>
   )
 
   return (

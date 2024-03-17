@@ -5,7 +5,7 @@
 @layer base {
   :root {
     --color-text-primary: 0 0% 100%;
-    --color-text-secondary: var(--color-bg-primary);
+    --color-text-secondary: 230 10% 24%;
     --color-text-accent: 39 100% 67%;
     --color-text-muted-foreground: 240 5% 64.9%;
 

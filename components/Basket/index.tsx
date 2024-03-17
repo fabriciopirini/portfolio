@@ -26,8 +26,8 @@ export const Basket = () => {
 
   return (
     <Drawer direction={isMobile ? 'bottom' : 'right'} shouldScaleBackground={false}>
-      <DrawerTrigger className="relative flex items-center justify-center rounded-mobile border border-white/50 p-3 text-primary lg:rounded-full lg:p-4">
-        <CartIconFilled className="size-6" />
+      <DrawerTrigger className="relative flex size-[42px] items-center justify-center rounded-mobile border border-white/50 p-2 text-primary  lg:size-16 lg:rounded-full lg:p-4">
+        <CartIconFilled className="size-full" />
         <div className="absolute right-0 top-0 z-10 aspect-square size-5 rounded-mobile bg-accent p-1 text-sm leading-none text-secondary lg:size-6 lg:rounded-full">
           <span>{cart.length}</span>
           <span className="sr-only">Open cart</span>
@@ -40,7 +40,7 @@ export const Basket = () => {
         })}
         data-vaul-no-drag={!isMobile}
       >
-        <div className="mx-auto flex h-auto w-96 flex-col gap-4 p-8 md:h-full md:w-auto md:max-w-md">
+        <div className="mx-auto flex h-auto w-96 flex-col gap-4 p-8 md:h-full md:w-auto md:max-w-md lg:relative">
           <DrawerHeader className="flex w-full flex-col items-center gap-3 p-0">
             <DrawerTitle>Your Basket</DrawerTitle>
             <DrawerDescription>Checkout with your items</DrawerDescription>

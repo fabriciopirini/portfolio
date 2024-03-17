@@ -54,8 +54,9 @@ DrawerContent.displayName = 'DrawerContent'
 const DrawerHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
   <div className="flex items-start justify-between">
     <div className={cn('flex flex-col gap-1.5 p-4 text-center sm:text-left', className)} {...props} />
-    <DrawerClose className="hidden md:block">
-      <XIcon className="size-5 cursor-pointer" />
+    <DrawerClose className="absolute right-4 top-4 mr-4 flex items-center justify-center rounded-full border lg:size-11">
+      <XIcon className="hidden size-5 text-black md:block" strokeWidth={3.5} />
+      <span className="sr-only">Close</span>
     </DrawerClose>
   </div>
 )

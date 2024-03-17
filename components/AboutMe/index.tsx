@@ -1,14 +1,6 @@
 import { CircleCheckBigIcon, MinusIcon, PartyPopperIcon, QuoteIcon, TrendingUpIcon } from 'lucide-react'
 
-import { buttonVariants } from '@/components/ui/button'
-import {
-  Carousel,
-  CarouselContent,
-  CarouselDots,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel'
+import { Carousel, CarouselContent, CarouselDots, CarouselItem } from '@/components/ui/carousel'
 import { cn } from '@/lib/utils'
 
 export const AboutMe = () => (
@@ -57,22 +49,14 @@ export const AboutMe = () => (
           </div>
         </CarouselItem>
       </CarouselContent>
-      <CarouselPrevious className="max-sm:hidden xl:hidden" />
-      <CarouselNext className="max-sm:hidden xl:hidden" />
       <CarouselDots className="xl:hidden" isDarkMode={false} />
     </Carousel>
-    <div className="flex min-h-10 justify-center gap-2 px-8">
+    <div className="flex min-h-10 justify-center gap-2 px-8 pb-14 pt-5  lg:py-5">
       <QuoteIcon fill="#ffc457" className="size-5 min-h-5 min-w-5 -scale-x-100 text-accent lg:size-7" />
-      <p className="flex items-end text-xl font-medium text-secondary lg:text-3xl">
+      <p className="my-auto flex max-w-[30ch] items-end text-xl font-medium text-secondary lg:text-3xl">
         My journey reflects a commitment to excellence and innovation
       </p>
       <QuoteIcon fill="#ffc457" className="mt-auto size-5 min-h-5 min-w-5 text-accent lg:size-7" />
-    </div>
-    <div className="flex items-center justify-center gap-2">
-      <button className={cn(buttonVariants({ variant: 'outline' }), 'border-[#373943] text-[15px] lg:text-[28px]')}>
-        Github
-      </button>
-      <button className={cn(buttonVariants(), 'border-[#373943] text-[15px] lg:text-[28px]')}>LinkedIn</button>
     </div>
   </section>
 )

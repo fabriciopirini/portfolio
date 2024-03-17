@@ -67,7 +67,7 @@ const MoreNav = () => {
             }
           )}
         />
-        <div className="flex h-[42px] items-center justify-end gap-2 px-2 py-[6px] text-sm text-white md:px-3 md:py-2 lg:h-16 lg:text-xl">
+        <div className="flex h-11 items-center justify-end gap-2 px-2 py-[6px] text-base text-white md:px-3 md:py-2 lg:h-16 lg:text-xl">
           <Image src={FabCoingIcon} alt="FabCoin" className="size-full lg:size-11" />
           {coins < MAX_COINS ? (
             <div className="relative">
@@ -84,7 +84,7 @@ const MoreNav = () => {
               />
               <span
                 className={cn(
-                  'absolute right-0 top-4 text-center text-xs opacity-0 mix-blend-lighten lg:top-6 xl:text-base',
+                  'absolute right-0 top-5 text-center text-xs opacity-0 mix-blend-lighten lg:top-6 xl:text-base',
                   {
                     'animate-appearDownAndFade': animate,
                     hidden: !hasStoreHydrated,
@@ -183,12 +183,12 @@ const HamburguerMenu = () => {
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
-        <button className="size-[42px] cursor-pointer rounded-full border border-white/50 p-2 text-primary focus-visible:h-full lg:size-16 lg:p-4 xl:hidden">
+        <button className="size-11 cursor-pointer rounded-full border border-white/50 p-2 text-primary focus-visible:h-full lg:size-16 lg:p-4 xl:hidden">
           <MenuIcon className="size-full" />
           <span className="sr-only">Open the menu</span>
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent onCloseAutoFocus={(e) => e.preventDefault()} side="bottom" className="mt-3">
+      <DropdownMenuContent onCloseAutoFocus={(e) => e.preventDefault()} side="bottom" sideOffset={12} align="end">
         <DropdownMenuItem onSelect={handleSelect} className="px-5 py-2">
           {isHome ? <a href="#about">About</a> : <Link href="/#about">About</Link>}
         </DropdownMenuItem>

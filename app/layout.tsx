@@ -73,12 +73,12 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     >
       <CSPostHogProvider>
         <body
-          className={cn('mx-auto min-h-svh w-full pb-4 antialiased lg:pb-8', {
+          className={cn('mx-auto flex min-h-dvh w-full flex-col justify-between pb-4 antialiased lg:pb-8', {
             'debug-screens': process.env.VERCEL_ENV !== 'production',
           })}
         >
           <AppStoreProvider>
-            <main>{children}</main>
+            <main className="flex grow flex-col">{children}</main>
             <Footer />
           </AppStoreProvider>
           <Analytics />

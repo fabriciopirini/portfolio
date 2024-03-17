@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: Thumbnail.src,
-        width: 400,
-        height: 800,
-        alt: 'Profile Picture',
+        width: 1545,
+        height: 921,
+        alt: 'Thumbnail of Fabricio Pirini website',
       },
     ],
   },

@@ -96,7 +96,7 @@ export const CTAButton = React.forwardRef(
         {...animation}
         {...props}
       >
-        <MailIconFilled className="size-full fill-black " />
+        <MailIconFilled className="size-7 fill-black " />
         {/* <MailIcon size={28} className="inline-block size-7 min-h-7 min-w-7 fill-black stroke-accent" /> */}
         {text}
       </motion.button>

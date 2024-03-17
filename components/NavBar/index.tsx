@@ -83,10 +83,13 @@ const MoreNav = () => {
                 })}
               />
               <span
-                className={cn('absolute right-0 top-6 text-center text-xs opacity-0 mix-blend-lighten xl:text-base', {
-                  'animate-appearDownAndFade': animate,
-                  hidden: !hasStoreHydrated,
-                })}
+                className={cn(
+                  'absolute right-0 top-4 text-center text-xs opacity-0 mix-blend-lighten lg:top-6 xl:text-base',
+                  {
+                    'animate-appearDownAndFade': animate,
+                    hidden: !hasStoreHydrated,
+                  }
+                )}
               >
                 +{coinsToBeAdded}
               </span>

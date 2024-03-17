@@ -1,6 +1,5 @@
 'use client'
 
-import { CircleCheckBigIcon, PartyPopperIcon, TrendingUpIcon } from 'lucide-react'
 import Image from 'next/image'
 
 import { PRODUCTS } from '@/app/services'

@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { usePostHog } from 'posthog-js/react'
 
-import { mailTo } from '@/components/CheckoutButton'
+import { mailTo } from '@/components/InteractionButton'
 import { GithubIconFilled, LinkedInIconFilled, MailIconFilled } from '@/components/SvgLogos'
 import Logo from '@/public/assets/logo.svg'
 

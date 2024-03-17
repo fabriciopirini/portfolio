@@ -3,11 +3,12 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
-import { Button } from '@/components/ui/button'
-import { useToast } from '@/components/ui/use-toast'
+import { InteractionButtonDesktop, InteractionButtonMobile } from '@/components/InteractionButton'
 import { cn } from '@/lib/utils'
 import { useAppStore } from '@/providers/app-store-provider'
 import ProfilePic from '@/public/assets/lego_me.png'
+
+const ANIMATION_START_DELAY = 40_000
 
 export const SideMe = () => {
   const [animate, setAnimate] = useState(false)
@@ -17,7 +18,21 @@ export const SideMe = () => {
 
   const { isSideBubbleVisible, hideSideBubble } = useAppStore((state) => state)
 
-  const { toast } = useToast()
+  const handleHideSideBubble = () => {
+    setShowBubbleReturn(true)
+
+    const bubbleTimer = setTimeout(() => {
+      setAnimateReturn(true)
+
+      const timer = setTimeout(() => {
+        hideSideBubble()
+      }, 500)
+
+      return () => clearTimeout(timer)
+    }, 300)
+
+    return () => clearTimeout(bubbleTimer)
+  }
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -28,7 +43,7 @@ export const SideMe = () => {
       }, 1000)
 
       return () => clearTimeout(bubbleTimer)
-    }, 3000)
+    }, ANIMATION_START_DELAY)
 
     return () => clearTimeout(timer)
   }, [])
@@ -77,37 +92,11 @@ export const SideMe = () => {
                 Hey! it seems like you&apos;re enjoying the site. Would you like to chat? I&apos;m here to help!
               </p>
               <div className="flex flex-col-reverse justify-between gap-5 px-2 sm:flex-row">
-                <button
-                  className="font-semibold opacity-80"
-                  onClick={() => {
-                    setShowBubbleReturn(true)
-
-                    const bubbleTimer = setTimeout(() => {
-                      setAnimateReturn(true)
-
-                      const timer = setTimeout(() => {
-                        hideSideBubble()
-                      }, 500)
-
-                      return () => clearTimeout(timer)
-                    }, 300)
-
-                    return () => clearTimeout(bubbleTimer)
-                  }}
-                >
+                <button className="font-semibold opacity-80" onClick={handleHideSideBubble}>
                   No thanks
                 </button>
-                <Button
-                  className="text-base font-semibold sm:text-lg"
-                  onClick={() =>
-                    toast({
-                      title: 'Work in progress 🚧',
-                      description: 'This feature is being worked on and will be available soon!',
-                    })
-                  }
-                >
-                  Sure!
-                </Button>
+                <InteractionButtonDesktop label="Sure!" onClick={handleHideSideBubble} />
+                <InteractionButtonMobile label="Sure!" onClick={handleHideSideBubble} />
               </div>
             </div>
           </div>

@@ -47,7 +47,7 @@ export const Basket = () => {
           </DrawerHeader>
           <div className="flex min-h-32 flex-col max-sm:shrink sm:grow md:min-w-80">
             {cart.length > 0 ? (
-              <ul className="flex flex-col gap-4 divide-y">
+              <ul className="flex h-full flex-col gap-4 divide-y overflow-y-auto pr-3 max-md:max-h-[50dvh]">
                 {cart.map((item, i) => (
                   <ProductCartItem key={i} position={i} productId={item} />
                 ))}

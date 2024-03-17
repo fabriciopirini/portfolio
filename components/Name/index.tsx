@@ -66,7 +66,10 @@ const CTAButtons = () => {
         <PopoverTrigger asChild>
           <CTAButton type="primary" as="button" text="Contact me" />
         </PopoverTrigger>
-        <PopoverContent className="mt-4 rounded border-2 border-accent bg-white drop-shadow-md" align="center">
+        <PopoverContent
+          className="mt-4 w-56 rounded border-2 border-accent bg-white drop-shadow-md lg:w-72"
+          align="center"
+        >
           <motion.div
             initial="hidden"
             animate="show"
@@ -87,7 +90,7 @@ const CTAButtons = () => {
               variants={FADE_RIGHT_ANIMATION_VARIANTS}
               onClick={() => posthog?.capture('contact_me_email')}
             >
-              <div className="size-10 rounded-full bg-primary p-2 lg:size-16 lg:p-4">
+              <div className="size-12 rounded-full bg-primary p-3 lg:size-16 lg:p-4">
                 <MailIconFilled className="size-full" />
               </div>
               <span className="mx-auto text-lg text-primary-background">Email</span>
@@ -101,7 +104,7 @@ const CTAButtons = () => {
               variants={FADE_RIGHT_ANIMATION_VARIANTS}
               onClick={() => posthog?.capture('contact_me_linkedin')}
             >
-              <div className="size-10 rounded-full bg-primary p-2 lg:size-16 lg:p-4">
+              <div className="size-12 rounded-full bg-primary p-3 lg:size-16 lg:p-4">
                 <LinkedInIconFilled className="size-full" />
               </div>
               <span className="mx-auto text-lg text-primary-background">LinkedIn</span>

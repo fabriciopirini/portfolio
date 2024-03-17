@@ -68,7 +68,7 @@ const MoreNav = () => {
           )}
         />
         <div className="flex h-11 items-center justify-end gap-2 px-2 py-[6px] text-base text-white md:px-3 md:py-2 lg:h-16 lg:text-xl">
-          <Image src={FabCoingIcon} alt="FabCoin" className="size-full lg:size-11" />
+          <Image src={FabCoingIcon} alt="FabCoin" className="size-8 lg:size-11" />
           {coins < MAX_COINS ? (
             <div className="relative">
               <CountUp

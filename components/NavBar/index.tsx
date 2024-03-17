@@ -58,36 +58,46 @@ const MoreNav = () => {
 
   return (
     <div className="flex items-center justify-center gap-2 md:gap-4">
-      <div className="flex h-[42px] items-center justify-end gap-2 rounded-full border border-white/50 px-2 py-[6px] text-sm text-white md:px-3 md:py-2 lg:h-16 lg:text-xl">
-        <Image src={FabCoingIcon} alt="FabCoin" className="size-full lg:size-11" />
-        {coins < MAX_COINS ? (
-          <div className="relative">
-            <CountUp
-              start={Math.max(coins - coinsToBeAdded, 0)}
-              end={coins}
-              duration={2}
-              onEnd={() => {
-                setAnimate(false)
-              }}
-              className={cn('inline-block w-[4ch] text-right lg:w-[5ch]', {
-                'animate-pulse rounded bg-neutral-500 text-neutral-500': !hasStoreHydrated,
-              })}
-            />
-            <span
-              className={cn('absolute right-0 top-6 text-center text-xs text-accent opacity-0 xl:text-base', {
-                'animate-appearDownAndFade': animate,
-                hidden: !hasStoreHydrated,
-              })}
-            >
-              +{coinsToBeAdded}
-            </span>
-          </div>
-        ) : (
-          <div className="w-[3ch] lg:w-[4ch]">
-            <InfinityIcon strokeWidth={1} className="ml-auto lg:size-9" />
-          </div>
-        )}
-        <span className="whitespace-nowrap">Fab coins</span>
+      <div className="relative overflow-hidden rounded-full border border-white/50">
+        <div
+          className={cn(
+            'absolute size-full -translate-x-full rounded-full bg-accent bg-gradient-to-r from-[#BF9137] to-accent transition-colors',
+            {
+              'animate-coinIncrease': animate,
+            }
+          )}
+        />
+        <div className="flex h-[42px] items-center justify-end gap-2 px-2 py-[6px] text-sm text-white md:px-3 md:py-2 lg:h-16 lg:text-xl">
+          <Image src={FabCoingIcon} alt="FabCoin" className="size-full lg:size-11" />
+          {coins < MAX_COINS ? (
+            <div className="relative">
+              <CountUp
+                start={Math.max(coins - coinsToBeAdded, 0)}
+                end={coins}
+                duration={2}
+                onEnd={() => {
+                  setAnimate(false)
+                }}
+                className={cn('inline-block w-[4ch] text-right lg:w-[5ch]', {
+                  'animate-pulse rounded bg-neutral-500 text-neutral-500': !hasStoreHydrated,
+                })}
+              />
+              <span
+                className={cn('absolute right-0 top-6 text-center text-xs opacity-0 mix-blend-lighten xl:text-base', {
+                  'animate-appearDownAndFade': animate,
+                  hidden: !hasStoreHydrated,
+                })}
+              >
+                +{coinsToBeAdded}
+              </span>
+            </div>
+          ) : (
+            <div className="w-[3ch] lg:w-[4ch]">
+              <InfinityIcon strokeWidth={1} className="ml-auto lg:size-9" />
+            </div>
+          )}
+          <span className="whitespace-nowrap">Fab coins</span>
+        </div>
       </div>
       <a
         target="_blank"

@@ -99,15 +99,6 @@ export const config = {
           from: { opacity: '0' },
           to: { opacity: '1' },
         },
-        marquee: {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-100%)' },
-        },
-        blink: {
-          '0%': { opacity: '0.2' },
-          '20%': { opacity: '1' },
-          '100% ': { opacity: '0.2' },
-        },
         sideMe: {
           '0%': { transform: 'translateX(-150%) rotate(0deg)' },
           '100%': { transform: 'translateX(-50%) rotate(40deg)' },
@@ -130,17 +121,21 @@ export const config = {
           '80%': { opacity: '1' },
           '100%': { opacity: '0' },
         },
+        coinIncrease: {
+          '0%': { transform: 'translateX(-100%)' }, // Start from the left
+          // '30%': { transform: 'translateX(0%)' }, // Quickly move to fully visible
+          // '70%': { transform: 'translateX(0%)' }, // Stay in place
+          '100%': { transform: 'translateX(100%)' }, // Exit to the right
+        },
       },
       animation: {
         fadeIn: 'fadeIn .3s ease-in-out',
-        carousel: 'marquee 60s linear infinite',
-        'carousel-mobile': 'marquee 20s linear infinite',
-        blink: 'blink 1.4s both infinite',
         sideMe: 'sideMe 1.2s linear',
         sideMeReturn: 'sideMeReturn 1.2s linear',
         scaleConversationBubble: 'scaleConversationBubble .5s ease-in-out',
         scaleConversationBubbleReturn: 'scaleConversationBubbleReturn .3s ease-in-out',
         appearDownAndFade: 'appearDownAndFade 3.5s ease-in-out',
+        coinIncrease: 'coinIncrease 2s linear',
       },
     },
   },

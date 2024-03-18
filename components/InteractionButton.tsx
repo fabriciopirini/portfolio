@@ -78,7 +78,7 @@ export const InteractionButtonDesktop = ({
               <span>You seemed interested on the values I can bring to your project. Let&apos;s have a chat!</span>
             </DialogDescription>
           </DialogHeader>
-          <hr className="mx-auto h-[1px] w-3/4 border-black/30" />
+          <hr className="mx-auto h-px w-3/4 border-black/30" />
           <InteractionInfoContent />
         </DialogContent>
       </Dialog>

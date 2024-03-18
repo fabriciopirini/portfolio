@@ -239,7 +239,7 @@ const dotsVariants = cva('rounded-full transition-all duration-300', {
     },
     gap: {
       default: 'mx-0.5',
-      sm: 'mx-[1px]',
+      sm: 'mx-px',
       lg: 'mx-1',
     },
   },

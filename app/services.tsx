@@ -6,9 +6,8 @@ import { Responsive } from '@/components/ServicesImages/Responsive'
 import { SearchEngines } from '@/components/ServicesImages/SearchEngines'
 import { SEOImage } from '@/components/ServicesImages/SEO'
 import { SuccessPurchase } from '@/components/ServicesImages/SuccessPurchase'
-import { cn } from '@/lib/utils'
 
-const IMAGE_STYLES = cn('w-auto max-w-full object-contain object-center h-36 lg:h-[250px]')
+const IMAGE_STYLES = 'w-auto max-w-full object-contain object-center h-36 lg:h-[250px]'
 
 export const PRODUCTS = [
   {

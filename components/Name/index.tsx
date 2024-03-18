@@ -55,7 +55,7 @@ const CTAButtons = () => {
   const posthog = usePostHog()
 
   return (
-    <motion.div className="flex w-fit gap-2 rounded-full py-4 md:gap-6 xl:bg-white/10 xl:px-6">
+    <motion.div className="flex w-fit gap-2 rounded-full py-4 md:gap-6">
       <CTAButton id="resume_download" type="secondary" as="link" href="/api/resume" text="Resume" />
       <Popover
         onOpenChange={(value) => {

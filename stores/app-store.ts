@@ -1,5 +1,6 @@
 import { createStore } from 'zustand/vanilla'
 import { persist, createJSONStorage } from 'zustand/middleware'
+import { PRODUCTS } from '@/app/services'
 
 export const MAX_COINS = 9999
 
@@ -42,8 +43,29 @@ export const createAppStore = (initState: AppState = defaultInitState) => {
             _hasHydrated: state,
           })
         },
-        addProduct: (product) => set((state) => ({ cartItems: [...new Set([...state.cartItems, product])] })),
-        removeProduct: (product) => set((state) => ({ cartItems: state.cartItems.filter((p) => p !== product) })),
+        addProduct: (product) =>
+          set((state) => {
+            const productPrice = PRODUCTS.find((p) => p.id === product)?.price ?? 0
+
+            if (state.cartItems.includes(product) || state.coins < productPrice) {
+              return state
+            }
+
+            return {
+              cartItems: [...new Set([...state.cartItems, product])],
+              coins: Math.max(0, state.coins - productPrice), // Ensure coins do not go negative
+            }
+          }),
+        removeProduct: (product) =>
+          set((state) => {
+            const productPrice = PRODUCTS.find((p) => p.id === product)?.price ?? 0
+
+            if (!state.cartItems.includes(product)) {
+              return state
+            }
+
+            return { cartItems: state.cartItems.filter((p) => p !== product), coins: state.coins + productPrice }
+          }),
         hideSideBubble: () => set({ shouldShowSideBubble: false }),
         setCoins: (amount) => set({ coins: amount }),
         addCoins: (amount) => set((state) => ({ coins: state.coins + amount })),

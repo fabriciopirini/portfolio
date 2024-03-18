@@ -58,16 +58,16 @@ const MoreNav = () => {
 
   return (
     <div className="flex items-center justify-center gap-[6px] lg:gap-4">
-      <div className="relative overflow-hidden rounded-full border border-white/50">
+      <div className="relative overflow-hidden rounded-full bg-white/20">
         <div
           className={cn(
-            'absolute size-full -translate-x-full rounded-full bg-accent bg-gradient-to-r from-[#BF9137] to-accent transition-colors',
+            'absolute size-full -translate-x-[200%] rounded-full bg-accent bg-gradient-to-r from-[#BF9137] to-accent transition-colors',
             {
               'animate-coinIncrease': animate,
             }
           )}
         />
-        <div className="flex h-11 items-center justify-end gap-2 px-2 py-[6px] text-base text-white md:px-3 md:py-2 lg:h-16 lg:text-xl">
+        <div className="flex h-11 select-none items-center justify-end gap-2 px-2 py-[6px] text-base text-white md:px-3 md:py-2 lg:h-16 lg:text-xl">
           <Image src={FabCoingIcon} alt="FabCoin" className="mr-2 size-8 lg:size-11" />
           {coins < MAX_COINS ? (
             <div className="relative">
@@ -139,16 +139,24 @@ const MoreNav = () => {
 const SiteLinks = () => (
   <ul className="flex w-full select-none flex-row items-center justify-center gap-8 max-xl:hidden lg:gap-16">
     <li>
-      <Link href="/#about">About</Link>
+      <Link href="/#about" className="decoration-accent underline-offset-8 hover:underline">
+        About
+      </Link>
     </li>
     <li>
-      <Link href="/#technology">Technology</Link>
+      <Link href="/#technology" className="decoration-accent underline-offset-8 hover:underline">
+        Technology
+      </Link>
     </li>
     <li>
-      <Link href="/#experience">Experience</Link>
+      <Link href="/#experience" className="decoration-accent underline-offset-8 hover:underline">
+        Experience
+      </Link>
     </li>
     <li className="relative">
-      <Link href="/shop">Shop</Link>
+      <Link href="/shop" className="decoration-accent underline-offset-8 hover:underline">
+        Shop
+      </Link>
       <div className="absolute -bottom-10 left-1/2 flex items-end gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" width="43" height="35" viewBox="0 0 43 35" fill="none">
           <path

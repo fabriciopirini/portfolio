@@ -16,7 +16,13 @@ export const SideMe = () => {
   const [showBubble, setShowBubble] = useState(false)
   const [showBubbleReturn, setShowBubbleReturn] = useState(false)
 
-  const { isSideBubbleVisible, hideSideBubble } = useAppStore((state) => state)
+  const {
+    shouldShowSideBubble,
+    hideSideBubble,
+    firstVisitTimestamp,
+    setFirstVisitTimestamp,
+    _hasHydrated: hasStoreHydrated,
+  } = useAppStore((state) => state)
 
   const handleHideSideBubble = () => {
     setShowBubbleReturn(true)
@@ -35,18 +41,35 @@ export const SideMe = () => {
   }
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setAnimate(true)
+    if (!hasStoreHydrated || !shouldShowSideBubble) return
 
-      const bubbleTimer = setTimeout(() => {
-        setShowBubble(true)
-      }, 1000)
+    const checkAndAnimate = () => {
+      if (!firstVisitTimestamp) {
+        setFirstVisitTimestamp(Date.now())
+        return
+      }
 
-      return () => clearTimeout(bubbleTimer)
-    }, ANIMATION_START_DELAY)
+      const timeElapsed = Date.now() - firstVisitTimestamp
 
-    return () => clearTimeout(timer)
-  }, [])
+      if (timeElapsed >= ANIMATION_START_DELAY) {
+        setAnimate(true)
+
+        const bubbleTimer = setTimeout(() => {
+          setShowBubble(true)
+        }, 1000)
+
+        return () => clearTimeout(bubbleTimer)
+      }
+    }
+
+    // Initial check
+    checkAndAnimate()
+
+    // Set interval to check every 5 seconds
+    const interval = setInterval(checkAndAnimate, 5000)
+
+    return () => clearInterval(interval)
+  }, [firstVisitTimestamp, hasStoreHydrated, shouldShowSideBubble])
 
   return (
     <div id="side-me" className="max-[300px]:hidden">
@@ -54,7 +77,7 @@ export const SideMe = () => {
         className={cn(
           'fixed bottom-40 left-0 z-[1000] -translate-x-full rotate-0 fill-mode-both min-[250px]:bottom-36 min-[300px]:bottom-40 min-[350px]:bottom-28 sm:bottom-20',
           {
-            'animate-sideMe': animate && isSideBubbleVisible,
+            'animate-sideMe': animate && shouldShowSideBubble,
             'animate-sideMeReturn': animateReturn,
           }
         )}
@@ -69,7 +92,7 @@ export const SideMe = () => {
       </div>
       <div
         className={cn('pointer-events-none fixed bottom-5 left-28 z-[1001] w-0 origin-left opacity-0', {
-          'pointer-events-auto w-auto animate-scaleConversationBubble opacity-100': showBubble && isSideBubbleVisible,
+          'pointer-events-auto w-auto animate-scaleConversationBubble opacity-100': showBubble && shouldShowSideBubble,
           'animate-scaleConversationBubbleReturn opacity-0': showBubbleReturn,
         })}
       >

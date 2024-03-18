@@ -24,7 +24,7 @@ import Logo from '@/public/assets/logo.svg'
 import { MAX_COINS } from '@/stores/app-store'
 
 export const NavBar = () => (
-  <nav className="z-10 flex w-full items-center justify-between px-2 py-10 text-[22px] font-light md:py-16 [&_*]:z-10">
+  <nav className="z-10 flex w-full items-center justify-between px-2 py-8 text-[22px] font-light sm:px-10 lg:py-12 2xl:px-20 [&_*]:z-10">
     <Link href="/" className="flex items-center gap-4">
       <Image className="h-8 w-auto md:h-[45px] 2xl:h-16" src={Logo} alt="Logo" width={64} height={64} />
       {/* <span className="text-[32px] font-medium max-md:hidden">Fabricio</span> */}

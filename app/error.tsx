@@ -3,7 +3,6 @@
 import { useEffect } from 'react'
 import Link from 'next/link'
 
-import { NavBar } from '@/components/NavBar'
 import { Button } from '@/components/ui/button'
 
 const Error = ({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) => {
@@ -14,7 +13,6 @@ const Error = ({ error, reset }: { error: Error & { digest?: string }; reset: ()
 
   return (
     <div className="mb-3 flex size-full grow flex-col items-center px-4 md:mb-10 md:px-10 2xl:px-20">
-      <NavBar />
       <div className="m-auto flex h-full grow flex-col items-center justify-center gap-10 text-center">
         <h2 className="font-leagueSpartan text-xl font-medium lg:text-4xl">Glitch in the Matrix</h2>
         <p className="max-w-lg text-pretty text-lg font-normal lg:text-xl">

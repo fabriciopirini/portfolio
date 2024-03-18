@@ -5,9 +5,10 @@ export const MAX_COINS = 9999
 
 export type AppState = {
   _hasHydrated: boolean
-  isSideBubbleVisible: boolean
+  shouldShowSideBubble: boolean
   cartItems: string[]
   coins: number
+  firstVisitTimestamp: number | undefined
 }
 
 export type AppActions = {
@@ -18,15 +19,17 @@ export type AppActions = {
   setCoins: (amount: number) => void
   addCoins: (amount: number) => void
   removeCoins: (amount: number) => void
+  setFirstVisitTimestamp: (timestamp: number) => void
 }
 
 export type AppStore = AppState & AppActions
 
 export const defaultInitState: AppState = {
   _hasHydrated: false,
-  isSideBubbleVisible: true,
+  shouldShowSideBubble: true,
   cartItems: [],
   coins: 0,
+  firstVisitTimestamp: undefined,
 }
 
 export const createAppStore = (initState: AppState = defaultInitState) => {
@@ -41,10 +44,11 @@ export const createAppStore = (initState: AppState = defaultInitState) => {
         },
         addProduct: (product) => set((state) => ({ cartItems: [...new Set([...state.cartItems, product])] })),
         removeProduct: (product) => set((state) => ({ cartItems: state.cartItems.filter((p) => p !== product) })),
-        hideSideBubble: () => set({ isSideBubbleVisible: false }),
+        hideSideBubble: () => set({ shouldShowSideBubble: false }),
         setCoins: (amount) => set({ coins: amount }),
         addCoins: (amount) => set((state) => ({ coins: state.coins + amount })),
         removeCoins: (amount) => set((state) => ({ coins: state.coins - amount })),
+        setFirstVisitTimestamp: (timestamp) => set({ firstVisitTimestamp: timestamp }),
       }),
       {
         name: 'app-store',

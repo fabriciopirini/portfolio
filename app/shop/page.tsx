@@ -1,8 +1,6 @@
 import Image from 'next/image'
 
 import { Galery } from '@/components/GaleryImage'
-import { NavBar } from '@/components/NavBar'
-import { SideMe } from '@/components/SideMe'
 import ProfilePic from '@/public/assets/lego_me.png'
 
 export const runtime = 'edge'
@@ -17,10 +15,8 @@ export const metadata = {
 const ShopFrontPage = async () => {
   return (
     <div className="mb-3 flex flex-col items-center px-4 md:mb-10 md:px-10 2xl:px-20">
-      <NavBar />
       <ShopHero />
       <Galery />
-      <SideMe />
     </div>
   )
 }

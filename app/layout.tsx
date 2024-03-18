@@ -4,7 +4,9 @@ import type { Metadata } from 'next'
 import { Inter, League_Spartan, Poppins } from 'next/font/google'
 
 import { Footer } from '@/components/Footer'
+import { NavBar } from '@/components/NavBar'
 import { CSPostHogProvider } from '@/components/Providers'
+import { SideMe } from '@/components/SideMe'
 import { cn } from '@/lib/utils'
 import { AppStoreProvider } from '@/providers/app-store-provider'
 import Thumbnail from '@/public/assets/thumbnail.png'
@@ -73,13 +75,15 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     >
       <CSPostHogProvider>
         <body
-          className={cn('mx-auto flex min-h-dvh w-full flex-col justify-between pb-4 antialiased lg:pb-8', {
+          className={cn('relative mx-auto flex min-h-dvh w-full flex-col justify-between pb-4 antialiased lg:pb-8', {
             'debug-screens': process.env.VERCEL_ENV !== 'production',
           })}
         >
           <AppStoreProvider>
+            <NavBar />
             <main className="flex grow flex-col">{children}</main>
             <Footer />
+            <SideMe />
           </AppStoreProvider>
           <Analytics />
           <SpeedInsights />

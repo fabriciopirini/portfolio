@@ -24,7 +24,7 @@ import Logo from '@/public/assets/logo.svg'
 import { MAX_COINS } from '@/stores/app-store'
 
 export const NavBar = () => (
-  <nav className="z-10 flex w-full items-center justify-between px-2 py-8 text-[22px] font-light sm:px-10 lg:py-12 2xl:px-20 [&_*]:z-10">
+  <nav className="z-10 flex w-full items-center justify-between p-8 text-[22px] font-light max-[375px]:px-4 sm:px-10 lg:py-12 2xl:px-20 [&_*]:z-10">
     <Link href="/" className="flex items-center gap-4">
       <Image className="h-8 w-auto md:h-[45px] 2xl:h-16" src={Logo} alt="Logo" width={64} height={64} />
       {/* <span className="text-[32px] font-medium max-md:hidden">Fabricio</span> */}
@@ -68,7 +68,7 @@ const MoreNav = () => {
           )}
         />
         <div className="flex h-11 items-center justify-end gap-2 px-2 py-[6px] text-base text-white md:px-3 md:py-2 lg:h-16 lg:text-xl">
-          <Image src={FabCoingIcon} alt="FabCoin" className="size-8 lg:size-11" />
+          <Image src={FabCoingIcon} alt="FabCoin" className="mr-2 size-8 lg:size-11" />
           {coins < MAX_COINS ? (
             <div className="relative">
               <CountUp
@@ -78,9 +78,10 @@ const MoreNav = () => {
                 onEnd={() => {
                   setAnimate(false)
                 }}
-                className={cn('inline-block w-[4ch] text-right lg:w-[5ch]', {
+                className={cn('inline-block text-right', {
                   'animate-pulse rounded bg-neutral-500 text-neutral-500': !hasStoreHydrated,
                 })}
+                style={{ fontFeatureSettings: "'tnum'" }}
               />
               <span
                 className={cn(
@@ -188,7 +189,7 @@ const HamburguerMenu = () => {
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
-        <button className="ml-5 size-11 cursor-pointer rounded-full border border-white/50 p-2 text-primary focus-visible:h-full lg:size-16 lg:p-4 xl:hidden">
+        <button className="ml-5 size-11 cursor-pointer rounded-full border border-white/50 p-2 text-primary focus-visible:h-full max-[375px]:ml-0 lg:size-16 lg:p-4 xl:hidden">
           <MenuIcon className="size-full" />
           <span className="sr-only">Open the menu</span>
         </button>

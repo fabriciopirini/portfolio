@@ -109,11 +109,11 @@ const MoreNav = () => {
       <a
         target="_blank"
         rel="noreferrer"
-        data-atrr="linkedin-sidebar"
+        data-atrr="linkedin-navbar"
         href="https://www.linkedin.com/in/fabriciopirini/"
         aria-label="Checkout my LinkedIn profile"
         className="hidden size-16 rounded-full border border-white/50 p-4 lg:block"
-        onClick={() => posthog?.capture('contact_me_linkedin_sidebar')}
+        onClick={() => posthog?.capture('contact_me_linkedin_navbar')}
       >
         <LinkedInIconFilled className="size-full" />
         <span className="sr-only">Visit Fabricio&apos;s LinkedIn profile</span>
@@ -121,11 +121,11 @@ const MoreNav = () => {
       <a
         target="_blank"
         rel="noreferrer"
-        data-atrr="github-sidebar"
+        data-atrr="github-navbar"
         href="https://github.com/fabriciopirini"
         aria-label="Checkout my Github profile"
         className="hidden size-16 rounded-full border border-white/50 p-4 lg:block"
-        onClick={() => posthog?.capture('contact_me_github_sidebar')}
+        onClick={() => posthog?.capture('contact_me_github_navbar')}
       >
         <GithubIconFilled className="size-full" />
         <span className="sr-only">Visit Fabricio&apos;s Github profile</span>

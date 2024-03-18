@@ -1,13 +1,17 @@
 'use client'
 
 import { Trash2Icon } from 'lucide-react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useWindowSize } from 'usehooks-ts'
 
 import { PRODUCTS } from '@/app/services'
 import { CheckoutButton } from '@/components/CheckoutButton'
 import { CartIconFilled } from '@/components/SvgLogos'
+import { Button } from '@/components/ui/button'
 import {
   Drawer,
+  DrawerClose,
   DrawerContent,
   DrawerDescription,
   DrawerFooter,
@@ -20,6 +24,8 @@ import { useAppStore } from '@/providers/app-store-provider'
 
 export const Basket = () => {
   const cart = useAppStore((state) => state.cartItems)
+
+  const pathname = usePathname()
   const screen = useWindowSize()
 
   const isMobile = screen?.width < 768
@@ -60,7 +66,15 @@ export const Basket = () => {
             )}
           </div>
           <DrawerFooter>
-            <CheckoutButton disabled={cart.length === 0} />
+            {cart.length === 0 && pathname === '/' ? (
+              <Link href="/shop">
+                <DrawerClose className="size-full">
+                  <Button className={cn('w-full max-w-[300px] text-base font-medium md:mx-auto')}>Go to shop</Button>
+                </DrawerClose>
+              </Link>
+            ) : (
+              <CheckoutButton disabled={cart.length === 0} />
+            )}
           </DrawerFooter>
         </div>
       </DrawerContent>

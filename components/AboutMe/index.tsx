@@ -1,4 +1,4 @@
-import { CircleCheckBigIcon, MinusIcon, PartyPopperIcon, QuoteIcon, RouteIcon, TrendingUpIcon } from 'lucide-react'
+import { CircleCheckBigIcon, MinusIcon, QuoteIcon, RouteIcon, TrendingUpIcon } from 'lucide-react'
 import { useWindowSize } from 'usehooks-ts'
 
 import { Carousel, CarouselContent, CarouselDots, CarouselItem } from '@/components/ui/carousel'

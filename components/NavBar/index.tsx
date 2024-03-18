@@ -189,10 +189,7 @@ const HamburguerMenu = () => {
 
   const isHome = pathname === '/'
 
-  const handleSelect = (e) => {
-    e.preventDefault()
-    setIsOpen(false)
-  }
+  const handleSelect = () => setIsOpen(false)
 
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
@@ -203,28 +200,28 @@ const HamburguerMenu = () => {
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent onCloseAutoFocus={(e) => e.preventDefault()} side="bottom" sideOffset={12} align="end">
-        <DropdownMenuItem onSelect={handleSelect} className="px-5 py-2">
+        <DropdownMenuItem onClick={handleSelect} className="px-5 py-2">
           {isHome ? <a href="#about">About</a> : <Link href="/#about">About</Link>}
         </DropdownMenuItem>
-        <DropdownMenuSeparator className="mx-7" />
-        <DropdownMenuItem onSelect={handleSelect} className="px-5 py-2">
+        <DropdownMenuSeparator className="mx-5" />
+        <DropdownMenuItem onClick={handleSelect} className="px-5 py-2">
           {isHome ? <a href="#technology">Technology</a> : <Link href="/#technology">Technology</Link>}
         </DropdownMenuItem>
-        <DropdownMenuSeparator className="mx-7" />
-        <DropdownMenuItem onSelect={handleSelect} className="px-5 py-2">
+        <DropdownMenuSeparator className="mx-5" />
+        <DropdownMenuItem onClick={handleSelect} className="px-5 py-2">
           {isHome ? <a href="#experience">Experience</a> : <Link href="/#experience">Experience</Link>}
         </DropdownMenuItem>
         {isHome && (
           <>
-            <DropdownMenuSeparator className="mx-7" />
-            <DropdownMenuItem onSelect={handleSelect} className="px-5 py-2">
+            <DropdownMenuSeparator className="mx-5" />
+            <DropdownMenuItem onClick={handleSelect} className="px-5 py-2">
               <Link href="/shop">Shop</Link>
             </DropdownMenuItem>
           </>
         )}
         <div className="lg:hidden">
-          <DropdownMenuSeparator className="mx-7" />
-          <DropdownMenuItem onSelect={handleSelect} className="px-5 py-2">
+          <DropdownMenuSeparator className="mx-5" />
+          <DropdownMenuItem onClick={handleSelect} className="px-5 py-2">
             <a
               target="_blank"
               rel="noreferrer"
@@ -236,8 +233,8 @@ const HamburguerMenu = () => {
               LinkedIn
             </a>
           </DropdownMenuItem>
-          <DropdownMenuSeparator className="mx-7" />
-          <DropdownMenuItem onSelect={handleSelect} className="px-5 py-2">
+          <DropdownMenuSeparator className="mx-5" />
+          <DropdownMenuItem onClick={handleSelect} className="px-5 py-2">
             <a
               target="_blank"
               rel="noreferrer"

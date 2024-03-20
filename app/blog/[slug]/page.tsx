@@ -37,7 +37,6 @@ const Blog = ({ params }) => {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',

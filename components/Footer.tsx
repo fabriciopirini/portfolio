@@ -30,7 +30,7 @@ export const Footer = () => {
               className="size-10 rounded-full border border-white/50 p-2 lg:size-16 lg:p-4"
               onClick={() => posthog?.capture('contact_me_email_footer')}
             >
-              <MailIconFilled className="size-full" />
+              <MailIconFilled className="pointer-events-none size-full" />
               <span className="sr-only">Send email to Fabricio</span>
             </a>
             <a
@@ -42,7 +42,7 @@ export const Footer = () => {
               className="size-10 rounded-full border border-white/50 p-2 lg:size-16 lg:p-4"
               onClick={() => posthog?.capture('contact_me_linkedin_footer')}
             >
-              <LinkedInIconFilled className="size-full" />
+              <LinkedInIconFilled className="pointer-events-none size-full" />
               <span className="sr-only">Visit Fabricio&apos;s LinkedIn profile</span>
             </a>
             <a
@@ -54,7 +54,7 @@ export const Footer = () => {
               className="size-10 rounded-full border border-white/50 p-2 lg:size-16 lg:p-4"
               onClick={() => posthog?.capture('contact_me_github_footer')}
             >
-              <GithubIconFilled className="size-full" />
+              <GithubIconFilled className="pointer-events-none size-full" />
               <span className="sr-only">Visit Fabricio&apos;s Github profile</span>
             </a>
           </div>

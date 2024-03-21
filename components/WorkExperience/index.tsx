@@ -24,7 +24,10 @@ export const WorkExperience = () => {
         </div>
         <div>
           <div className="relative ml-2 basis-3/5 md:ml-8">
-            <BadgeCheckIcon fill="#ffc457" className="absolute top-0 -ml-6 -mt-1 size-14 text-primary-background" />
+            <BadgeCheckIcon
+              fill="#ffc457"
+              className="pointer-events-none absolute top-0 -ml-6 -mt-1 size-14 text-primary-background"
+            />
             <div className="mt-1 border-l-[7px] border-dotted border-accent/50 pb-10 pl-12">
               <div className="size-full space-y-5 rounded border border-white bg-[#1E1E1E] p-7">
                 <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">Starting at Sportradar</p>
@@ -43,7 +46,10 @@ export const WorkExperience = () => {
             </div>
           </div>
           <div className="relative ml-2 basis-3/5 md:ml-8">
-            <BadgeCheckIcon fill="#ffc457" className="absolute top-0 -ml-6 -mt-1 size-14 text-primary-background" />
+            <BadgeCheckIcon
+              fill="#ffc457"
+              className="pointer-events-none absolute top-0 -ml-6 -mt-1 size-14 text-primary-background"
+            />
             <div className="mt-1 pb-10 pl-12">
               <div className="size-full space-y-5 rounded border border-white bg-[#1E1E1E] p-7">
                 <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">I joined Oda</p>
@@ -80,7 +86,10 @@ export const WorkExperience = () => {
         </div>
         <div>
           <div className="relative ml-2 basis-3/5 md:ml-8">
-            <BadgeCheckIcon fill="#ffc457" className="absolute top-0 -ml-6 -mt-1 size-14 text-primary-background" />
+            <BadgeCheckIcon
+              fill="#ffc457"
+              className="pointer-events-none absolute top-0 -ml-6 -mt-1 size-14 text-primary-background"
+            />
             <div className="mt-1 border-l-[7px] border-dotted border-accent/50 pb-10 pl-12">
               <div className="size-full space-y-5 rounded border border-white bg-[#1E1E1E] p-7">
                 <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">Norsk Gjenvinning</p>
@@ -102,7 +111,10 @@ export const WorkExperience = () => {
             </div>
           </div>
           <div className="relative ml-2 basis-3/5 md:ml-8">
-            <BadgeCheckIcon fill="#ffc457" className="absolute top-0 -ml-6 -mt-1 size-14 text-primary-background" />
+            <BadgeCheckIcon
+              fill="#ffc457"
+              className="pointer-events-none absolute top-0 -ml-6 -mt-1 size-14 text-primary-background"
+            />
             <div className="mt-1 pb-10 pl-12">
               <div className="size-full space-y-5 rounded border border-white bg-[#1E1E1E] p-7">
                 <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">Evolving into the role</p>

@@ -91,7 +91,7 @@ const CTAButtons = () => {
               onClick={() => posthog?.capture('contact_me_email')}
             >
               <div className="size-12 rounded-full bg-primary p-3 lg:size-16 lg:p-4">
-                <MailIconFilled className="size-full" />
+                <MailIconFilled className="pointer-events-none size-full" />
               </div>
               <span className="mx-auto text-lg text-primary-background">Email</span>
               <span className="sr-only">Send email to Fabricio</span>
@@ -105,7 +105,7 @@ const CTAButtons = () => {
               onClick={() => posthog?.capture('contact_me_linkedin')}
             >
               <div className="size-12 rounded-full bg-primary p-3 lg:size-16 lg:p-4">
-                <LinkedInIconFilled className="size-full" />
+                <LinkedInIconFilled className="pointer-events-none size-full" />
               </div>
               <span className="mx-auto text-lg text-primary-background">LinkedIn</span>
               <span className="sr-only">Visit Fabricio&apos;s LinkedIn profile</span>

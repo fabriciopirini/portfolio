@@ -27,9 +27,9 @@ export const AddToCart = ({ productId }: { productId: string }) => {
         onClick={() => removeProduct(productId)}
         className={cn(CART_BUTTON_BASE_STYLE, 'relative flex items-center justify-center bg-green-500 text-primary')}
       >
-        <CartIconFilled className="size-5 lg:size-7" />
+        <CartIconFilled className="pointer-events-none size-5 lg:size-7" />
         <div className="absolute bottom-2 right-2 z-10 flex size-[15px] items-center justify-center rounded-full bg-green-600">
-          <CheckIcon className="size-3" />
+          <CheckIcon className="pointer-events-none size-3" />
         </div>
         <span className="sr-only">In cart</span>
       </button>
@@ -49,7 +49,7 @@ export const AddToCart = ({ productId }: { productId: string }) => {
               'bg-accent disabled:bg-neutral-300 disabled:text-neutral-500 disabled:hover:scale-100'
             )}
           >
-            <CartIconFilled fill="#373943" className="size-5 lg:size-7" />
+            <CartIconFilled fill="#373943" className="pointer-events-none size-5 lg:size-7" />
             <span className="sr-only">Add to cart</span>
           </button>
         </TooltipTrigger>

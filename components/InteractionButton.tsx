@@ -138,7 +138,7 @@ const InteractionInfoContent = () => (
   <div className="flex w-full flex-col items-center justify-between gap-3">
     <span className="hidden lg:mb-5 lg:block lg:text-2xl">Send me an Email from:</span>
     <Button className="flex items-center gap-3 text-base transition-all duration-300 hover:scale-[1.02] lg:h-20 lg:px-14 lg:py-5 lg:text-2xl">
-      <InboxIcon className="lg:h-9 lg:w-auto" strokeWidth={1.5} />
+      <InboxIcon className="pointer-events-none lg:h-9 lg:w-auto" strokeWidth={1.5} />
       <a href={mailTo} type="submit" className="hidden text-base font-normal md:block lg:text-2xl">
         Your favorite app
       </a>

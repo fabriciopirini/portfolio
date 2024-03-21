@@ -20,7 +20,13 @@ export const Galery = () => {
             </div>
             <div className="flex items-center justify-between">
               <span className="flex items-center gap-2 lg:text-xl">
-                <Image src={FabCoinIcon} alt="FabCoin" width={36} height={36} className="size-7 lg:size-9" />
+                <Image
+                  src={FabCoinIcon}
+                  alt="FabCoin"
+                  width={36}
+                  height={36}
+                  className="pointer-events-none size-7 lg:size-9"
+                />
                 <span>{item.price}</span>
                 <span className="whitespace-nowrap">Fab coins</span>
               </span>

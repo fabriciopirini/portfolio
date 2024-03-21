@@ -77,7 +77,7 @@ export const CTAButton = React.forwardRef(
           {...animation}
           {...props}
         >
-          <CloudDownloadIcon className="inline-block size-5 md:size-7" />
+          <CloudDownloadIcon className="pointer-events-none inline-block size-5 md:size-7" />
           {text}
         </motion.a>
       )
@@ -96,7 +96,7 @@ export const CTAButton = React.forwardRef(
         {...animation}
         {...props}
       >
-        <MailIconFilled className="size-7 fill-black " />
+        <MailIconFilled className="pointer-events-none size-7 fill-black " />
         {/* <MailIcon size={28} className="inline-block size-7 min-h-7 min-w-7 fill-black stroke-accent" /> */}
         {text}
       </motion.button>

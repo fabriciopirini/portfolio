@@ -68,7 +68,7 @@ const MoreNav = () => {
           )}
         />
         <div className="flex h-11 select-none items-center justify-end gap-2 px-2 py-[6px] text-base text-white md:px-3 md:py-2 lg:h-16 lg:text-xl">
-          <Image src={FabCoingIcon} alt="FabCoin" className="mr-2 size-8 lg:size-11" />
+          <Image src={FabCoingIcon} alt="FabCoin" className="pointer-events-none mr-2 size-8 lg:size-11" />
           {coins < MAX_COINS ? (
             <div className="relative">
               <CountUp
@@ -97,7 +97,7 @@ const MoreNav = () => {
             </div>
           ) : (
             <div className="w-[3ch] lg:w-[4ch]">
-              <InfinityIcon strokeWidth={1} className="ml-auto lg:size-9" />
+              <InfinityIcon strokeWidth={1} className="pointer-events-none ml-auto lg:size-9" />
             </div>
           )}
           <span className="whitespace-nowrap">
@@ -115,7 +115,7 @@ const MoreNav = () => {
         className="hidden size-16 rounded-full border border-white/50 p-4 lg:block"
         onClick={() => posthog?.capture('contact_me_linkedin_navbar')}
       >
-        <LinkedInIconFilled className="size-full" />
+        <LinkedInIconFilled className="pointer-events-none size-full" />
         <span className="sr-only">Visit Fabricio&apos;s LinkedIn profile</span>
       </a>
       <a
@@ -127,7 +127,7 @@ const MoreNav = () => {
         className="hidden size-16 rounded-full border border-white/50 p-4 lg:block"
         onClick={() => posthog?.capture('contact_me_github_navbar')}
       >
-        <GithubIconFilled className="size-full" />
+        <GithubIconFilled className="pointer-events-none size-full" />
         <span className="sr-only">Visit Fabricio&apos;s Github profile</span>
       </a>
       <Basket />
@@ -195,7 +195,7 @@ const HamburguerMenu = () => {
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
         <button className="ml-5 size-11 cursor-pointer rounded-full border border-white/50 p-2 text-primary focus-visible:h-full max-[375px]:ml-0 lg:size-16 lg:p-4 xl:hidden">
-          <MenuIcon className="size-full" />
+          <MenuIcon className="pointer-events-none size-full" />
           <span className="sr-only">Open the menu</span>
         </button>
       </DropdownMenuTrigger>

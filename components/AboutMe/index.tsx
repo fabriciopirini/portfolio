@@ -1,8 +1,10 @@
-import { CircleCheckBigIcon, MinusIcon, QuoteIcon, RouteIcon, TrendingUpIcon } from 'lucide-react'
+import { CircleCheckBigIcon, QuoteIcon, RouteIcon, TrendingUpIcon } from 'lucide-react'
+import Image from 'next/image'
 import { useWindowSize } from 'usehooks-ts'
 
 import { Carousel, CarouselContent, CarouselDots, CarouselItem } from '@/components/ui/carousel'
 import { cn } from '@/lib/utils'
+import LegoPiece from '@/public/assets/lego-piece.png'
 
 export const AboutMe = () => {
   const screen = useWindowSize()
@@ -14,10 +16,10 @@ export const AboutMe = () => {
       id="about"
       className="relative flex w-full flex-col gap-5 rounded bg-white py-7 text-center lg:container md:px-28 md:py-20 lg:mb-36 lg:gap-16"
     >
-      <CornerMinus className="pointer-events-none right-2 top-2 lg:right-4 lg:top-4" />
-      <CornerMinus className="pointer-events-none left-2 top-2 lg:left-4 lg:top-4" />
-      <CornerMinus className="pointer-events-none bottom-2 left-2 lg:bottom-4 lg:left-4" />
-      <CornerMinus className="pointer-events-none bottom-2 right-2 lg:bottom-4 lg:right-4" />
+      <CornerMinus pos="top-right" />
+      <CornerMinus pos="top-left" />
+      <CornerMinus pos="bottom-left" />
+      <CornerMinus pos="bottom-right" />
       <h2 className="font-leagueSpartan text-3xl font-medium text-secondary md:text-7xl">About me</h2>
       <Carousel
         className="mx-auto w-full max-w-xs md:max-w-2xl xl:max-w-none"
@@ -76,15 +78,40 @@ export const AboutMe = () => {
   )
 }
 
-const CornerMinus = ({ className }: { className: string }) => (
-  <div className={cn('absolute', className)}>
-    <MinusIcon
-      strokeWidth={4}
-      className={cn('pointer-events-none absolute size-9 rotate-45 text-accent lg:size-12', className)}
+const CornerMinus = ({
+  pos,
+  className,
+}: {
+  pos: 'top-right' | 'top-left' | 'bottom-left' | 'bottom-right'
+  className?: string
+}) => (
+  <div
+    className={cn(
+      'pointer-events-none absolute',
+      {
+        'right-2 top-2 lg:right-4 lg:top-4': pos === 'top-right',
+        'left-2 top-2 lg:left-4 lg:top-4': pos === 'top-left',
+        'bottom-2 left-2 lg:bottom-4 lg:left-4': pos === 'bottom-left',
+        'bottom-2 right-2 lg:bottom-4 lg:right-4': pos === 'bottom-right',
+      },
+      className
+    )}
+  >
+    <Image
+      src={LegoPiece}
+      alt="Lego piece"
+      width={48}
+      height={48}
+      className={cn('pointer-events-none size-9 text-accent drop-shadow lg:size-12', {
+        'rotate-12': pos === 'top-left' || pos === 'bottom-right',
+        '-rotate-12': pos === 'top-right' || pos === 'bottom-left',
+      })}
     />
-    <MinusIcon
-      strokeWidth={4}
-      className={cn('pointer-events-none absolute size-9 -rotate-45 text-accent lg:size-12', className)}
-    />
+    {/* <PuzzlePiece
+      className={cn('pointer-events-none absolute size-9 text-accent drop-shadow-2xl lg:size-12', {
+        'rotate-12': pos === 'top-left' || pos === 'bottom-right',
+        '-rotate-12': pos === 'top-right' || pos === 'bottom-left',
+      })}
+    /> */}
   </div>
 )

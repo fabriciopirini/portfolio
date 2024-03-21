@@ -2,6 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  /* Navlink hover effect copied from Maggie Appleton website: https://maggieappleton.com */
+  .navLink {
+    @apply relative inline-block h-full;
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.8, 1) 0s;
+  }
+
+  .navLink::before {
+    content: '';
+    @apply pointer-events-none absolute left-0 top-[95%] h-px w-full bg-accent;
+    transition:
+      clip-path 0.3s ease,
+      transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+    transform-origin: 50% 100%;
+    clip-path: polygon(0% 0%, 0% 100%, 0px 100%, 0px 0px, 100% 0px, 100% 100%, 0px 100%, 0px 100%, 100% 100%, 100% 0%);
+  }
+
+  .navLink:hover::before {
+    transform: translate3d(0, 2px, 0) scale3d(1, 2, 1);
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 50% 0px, 50% 0px, 50% 100%, 50% 100%, 0px 100%, 100% 100%, 100% 0%);
+  }
+
+  .navLink span {
+    @apply inline-block text-primary;
+    transition: transform 0.5s cubic-bezier(0.2, 1, 0.8, 1) 0s;
+  }
+  .navLink:hover span {
+    transform: translateY(-2px);
+  }
+}
+
 @layer base {
   :root {
     --color-text-primary: 0 0% 100%;

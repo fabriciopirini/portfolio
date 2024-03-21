@@ -139,23 +139,23 @@ const MoreNav = () => {
 const SiteLinks = () => (
   <ul className="flex w-full select-none flex-row items-center justify-center gap-8 max-xl:hidden lg:gap-16">
     <li>
-      <Link href="/#about" className="decoration-accent underline-offset-8 hover:underline">
-        About
+      <Link href="/#about" className="navLink">
+        <span>About</span>
       </Link>
     </li>
     <li>
-      <Link href="/#technology" className="decoration-accent underline-offset-8 hover:underline">
-        Technology
+      <Link href="/#technology" className="navLink">
+        <span>Technology</span>
       </Link>
     </li>
     <li>
-      <Link href="/#experience" className="decoration-accent underline-offset-8 hover:underline">
-        Experience
+      <Link href="/#experience" className="navLink">
+        <span>Experience</span>
       </Link>
     </li>
     <li className="relative">
-      <Link href="/shop" className="decoration-accent underline-offset-8 hover:underline">
-        Shop
+      <Link href="/shop" className="navLink">
+        <span>Shop</span>
       </Link>
       <div className="absolute -bottom-10 left-1/2 flex items-end gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" width="43" height="35" viewBox="0 0 43 35" fill="none">

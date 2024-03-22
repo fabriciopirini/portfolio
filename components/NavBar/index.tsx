@@ -36,108 +36,17 @@ export const NavBar = () => (
   </nav>
 )
 
-const MoreNav = () => {
-  const [animate, setAnimate] = useState(false)
-
-  const { coins, addCoins, _hasHydrated: hasStoreHydrated } = useAppStore((state) => state)
-
-  const posthog = usePostHog()
-
-  const coinsToBeAdded = calculateCoinsToAdd(coins)
-
-  useEffect(() => {
-    if (animate || coins >= MAX_COINS) return
-
-    const timer = setTimeout(() => {
-      setAnimate(true)
-      addCoins(coinsToBeAdded)
-    }, 5000)
-
-    return () => clearTimeout(timer)
-  }, [animate])
-
-  return (
-    <div className="flex items-center justify-center gap-[6px] lg:gap-4">
-      <div className="relative overflow-hidden rounded-full bg-white/20">
-        <div
-          className={cn(
-            'absolute size-full -translate-x-[200%] rounded-full bg-accent bg-gradient-to-r from-[#BF9137] to-accent transition-colors',
-            {
-              'animate-coinIncrease': animate,
-            }
-          )}
-        />
-        <div className="flex h-11 select-none items-center justify-end gap-2 px-2 py-[6px] text-base text-white md:px-3 md:py-2 lg:h-16 lg:text-xl">
-          <Image src={FabCoingIcon} alt="FabCoin" className="pointer-events-none mr-2 size-8 lg:size-11" />
-          {coins < MAX_COINS ? (
-            <div className="relative">
-              <CountUp
-                start={Math.max(coins - coinsToBeAdded, 0)}
-                end={coins}
-                duration={2}
-                onEnd={() => {
-                  setAnimate(false)
-                }}
-                className={cn('inline-block text-right', {
-                  'animate-pulse rounded bg-neutral-500 text-neutral-500': !hasStoreHydrated,
-                })}
-                style={{ fontFeatureSettings: "'tnum'" }}
-              />
-              <span
-                className={cn(
-                  'absolute right-0 top-5 text-center text-xs opacity-0 mix-blend-lighten lg:top-6 xl:text-base',
-                  {
-                    'animate-appearDownAndFade': animate,
-                    hidden: !hasStoreHydrated,
-                  }
-                )}
-              >
-                +{coinsToBeAdded}
-              </span>
-            </div>
-          ) : (
-            <div className="w-[3ch] lg:w-[4ch]">
-              <InfinityIcon strokeWidth={1} className="pointer-events-none ml-auto lg:size-9" />
-            </div>
-          )}
-          <span className="whitespace-nowrap">
-            <span className="max-sm:hidden">Fab </span>
-            coins
-          </span>
-        </div>
-      </div>
-      <a
-        target="_blank"
-        rel="noreferrer"
-        data-atrr="linkedin-navbar"
-        href="https://www.linkedin.com/in/fabriciopirini/"
-        aria-label="Checkout my LinkedIn profile"
-        className="hidden size-16 rounded-full border border-white/50 p-4 lg:block"
-        onClick={() => posthog?.capture('contact_me_linkedin_navbar')}
-      >
-        <LinkedInIconFilled className="pointer-events-none size-full" />
-        <span className="sr-only">Visit Fabricio&apos;s LinkedIn profile</span>
-      </a>
-      <a
-        target="_blank"
-        rel="noreferrer"
-        data-atrr="github-navbar"
-        href="https://github.com/fabriciopirini"
-        aria-label="Checkout my Github profile"
-        className="hidden size-16 rounded-full border border-white/50 p-4 lg:block"
-        onClick={() => posthog?.capture('contact_me_github_navbar')}
-      >
-        <GithubIconFilled className="pointer-events-none size-full" />
-        <span className="sr-only">Visit Fabricio&apos;s Github profile</span>
-      </a>
-      <Basket />
-      <HamburguerMenu />
-    </div>
-  )
-}
+const MoreNav = () => (
+  <div className="flex items-center justify-center gap-[6px] lg:gap-4">
+    <CoinCounter />
+    <MediaLinks />
+    <Basket />
+    <HamburguerMenu />
+  </div>
+)
 
 const SiteLinks = () => (
-  <ul className="flex w-full select-none flex-row items-center justify-center gap-8 max-xl:hidden lg:gap-16">
+  <ul className="flex w-full select-none flex-row items-center justify-center gap-8 max-lg:hidden lg:gap-16">
     <li>
       <Link href="/#about" className="navLink">
         <span>About</span>
@@ -189,65 +98,176 @@ const HamburguerMenu = () => {
 
   const isHome = pathname === '/'
 
-  const handleSelect = () => setIsOpen(false)
-
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
-        <button className="ml-5 size-11 cursor-pointer rounded-full border border-white/50 p-2 text-primary focus-visible:h-full max-[375px]:ml-0 lg:size-16 lg:p-4 xl:hidden">
+        <button className="ml-5 size-11 cursor-pointer rounded-full border border-white/50 p-2 text-primary focus-visible:h-full max-[375px]:ml-0 md:size-14 md:p-3 lg:hidden lg:size-16 lg:p-4">
           <MenuIcon className="pointer-events-none size-full" />
           <span className="sr-only">Open the menu</span>
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent onCloseAutoFocus={(e) => e.preventDefault()} side="bottom" sideOffset={12} align="end">
-        <DropdownMenuItem onClick={handleSelect} className="px-5 py-2">
-          {isHome ? <a href="#about">About</a> : <Link href="/#about">About</Link>}
-        </DropdownMenuItem>
+      <DropdownMenuContent
+        onCloseAutoFocus={(e) => e.preventDefault()}
+        side="bottom"
+        sideOffset={12}
+        align="end"
+        className="animate-scaleIn origin-[var(--radix-dropdown-menu-content-transform-origin)] lg:hidden"
+      >
+        <Link href={isHome ? '#about' : '/#about'}>
+          <DropdownMenuItem className="px-5 py-2">About</DropdownMenuItem>
+        </Link>
         <DropdownMenuSeparator className="mx-5" />
-        <DropdownMenuItem onClick={handleSelect} className="px-5 py-2">
-          {isHome ? <a href="#technology">Technology</a> : <Link href="/#technology">Technology</Link>}
-        </DropdownMenuItem>
+        <Link href={isHome ? '#technology' : '/#technology'}>
+          <DropdownMenuItem className="px-5 py-2">Technology</DropdownMenuItem>
+        </Link>
         <DropdownMenuSeparator className="mx-5" />
-        <DropdownMenuItem onClick={handleSelect} className="px-5 py-2">
-          {isHome ? <a href="#experience">Experience</a> : <Link href="/#experience">Experience</Link>}
-        </DropdownMenuItem>
+        <Link href={isHome ? '#experience' : '/#experience'}>
+          <DropdownMenuItem className="px-5 py-2">Experience</DropdownMenuItem>
+        </Link>
         {isHome && (
           <>
             <DropdownMenuSeparator className="mx-5" />
-            <DropdownMenuItem onClick={handleSelect} className="px-5 py-2">
-              <Link href="/shop">Shop</Link>
-            </DropdownMenuItem>
+            <Link href="/shop">
+              <DropdownMenuItem className="px-5 py-2">Shop</DropdownMenuItem>
+            </Link>
           </>
         )}
         <div className="lg:hidden">
           <DropdownMenuSeparator className="mx-5" />
-          <DropdownMenuItem onClick={handleSelect} className="px-5 py-2">
-            <a
-              target="_blank"
-              rel="noreferrer"
-              data-atrr="linkedin-hamburguer"
-              href="https://www.linkedin.com/in/fabriciopirini/"
-              aria-label="Checkout my LinkedIn profile"
-              onClick={() => posthog?.capture('contact_me_linkedin_hamburguer')}
-            >
-              LinkedIn
-            </a>
-          </DropdownMenuItem>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            data-atrr="linkedin-hamburguer"
+            href="https://www.linkedin.com/in/fabriciopirini/"
+            aria-label="Checkout my LinkedIn profile"
+            onClick={() => posthog?.capture('contact_me_linkedin_hamburguer')}
+          >
+            <DropdownMenuItem className="px-5 py-2">LinkedIn</DropdownMenuItem>
+          </a>
           <DropdownMenuSeparator className="mx-5" />
-          <DropdownMenuItem onClick={handleSelect} className="px-5 py-2">
-            <a
-              target="_blank"
-              rel="noreferrer"
-              data-atrr="github-hamburguer"
-              href="https://github.com/fabriciopirini"
-              aria-label="Checkout my Github profile"
-              onClick={() => posthog?.capture('contact_me_github_hamburguer')}
-            >
-              Github
-            </a>
-          </DropdownMenuItem>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            data-atrr="github-hamburguer"
+            href="https://github.com/fabriciopirini"
+            aria-label="Checkout my Github profile"
+            onClick={() => posthog?.capture('contact_me_github_hamburguer')}
+          >
+            <DropdownMenuItem className="px-5 py-2">Github</DropdownMenuItem>
+          </a>
         </div>
       </DropdownMenuContent>
     </DropdownMenu>
+  )
+}
+
+const CoinCounter = ({ className }: { className?: string }) => {
+  const [animate, setAnimate] = useState(false)
+  const pathname = usePathname()
+
+  const { coins, addCoins, _hasHydrated: hasStoreHydrated } = useAppStore((state) => state)
+  const coinsToBeAdded = calculateCoinsToAdd(coins)
+
+  useEffect(() => {
+    if (animate || coins >= MAX_COINS) return
+
+    const timer = setTimeout(() => {
+      setAnimate(true)
+      addCoins(coinsToBeAdded)
+    }, 5000)
+
+    return () => clearTimeout(timer)
+  }, [animate])
+
+  return (
+    <div
+      className={cn(
+        'relative hidden overflow-hidden rounded-full bg-white/20',
+        {
+          block: pathname === '/shop',
+        },
+        className
+      )}
+    >
+      <div
+        className={cn(
+          'absolute size-full -translate-x-[200%] rounded-full bg-accent bg-gradient-to-r from-[#BF9137] to-accent transition-colors',
+          {
+            'animate-coinIncrease': animate,
+          }
+        )}
+      />
+      <div className="flex h-11 select-none items-center justify-end gap-2 px-2 py-[6px] text-base text-white md:px-3 md:py-2 lg:h-16 lg:text-xl">
+        <Image src={FabCoingIcon} alt="FabCoin" className="pointer-events-none mr-2 size-8 lg:size-11" />
+        {coins < MAX_COINS ? (
+          <div className="relative">
+            <CountUp
+              start={Math.max(coins - coinsToBeAdded, 0)}
+              end={coins}
+              duration={2}
+              onEnd={() => {
+                setAnimate(false)
+              }}
+              className={cn('inline-block text-right', {
+                'animate-pulse rounded bg-neutral-500 text-neutral-500': !hasStoreHydrated,
+              })}
+              style={{ fontFeatureSettings: "'tnum'" }}
+            />
+            <span
+              className={cn(
+                'absolute right-0 top-5 text-center text-xs opacity-0 mix-blend-lighten lg:top-6 xl:text-base',
+                {
+                  'animate-appearDownAndFade': animate,
+                  hidden: !hasStoreHydrated,
+                }
+              )}
+            >
+              +{coinsToBeAdded}
+            </span>
+          </div>
+        ) : (
+          <div className="w-[3ch] lg:w-[4ch]">
+            <InfinityIcon strokeWidth={1} className="pointer-events-none ml-auto lg:size-9" />
+          </div>
+        )}
+        <span className="whitespace-nowrap">
+          <span className="max-sm:hidden">Fab </span>
+          coins
+        </span>
+      </div>
+    </div>
+  )
+}
+
+const MediaLinks = () => {
+  const posthog = usePostHog()
+
+  return (
+    <>
+      <a
+        target="_blank"
+        rel="noreferrer"
+        data-atrr="linkedin-navbar"
+        href="https://www.linkedin.com/in/fabriciopirini/"
+        aria-label="Checkout my LinkedIn profile"
+        className="hidden size-16 rounded-full border border-white/50 p-4 lg:block"
+        onClick={() => posthog?.capture('contact_me_linkedin_navbar')}
+      >
+        <LinkedInIconFilled className="pointer-events-none size-full" />
+        <span className="sr-only">Visit Fabricio&apos;s LinkedIn profile</span>
+      </a>
+      <a
+        target="_blank"
+        rel="noreferrer"
+        data-atrr="github-navbar"
+        href="https://github.com/fabriciopirini"
+        aria-label="Checkout my Github profile"
+        className="hidden size-16 rounded-full border border-white/50 p-4 lg:block"
+        onClick={() => posthog?.capture('contact_me_github_navbar')}
+      >
+        <GithubIconFilled className="pointer-events-none size-full" />
+        <span className="sr-only">Visit Fabricio&apos;s Github profile</span>
+      </a>
+    </>
   )
 }

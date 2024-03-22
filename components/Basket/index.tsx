@@ -32,7 +32,14 @@ export const Basket = () => {
 
   return (
     <Drawer direction={isMobile ? 'bottom' : 'right'} shouldScaleBackground={false}>
-      <DrawerTrigger className="relative flex size-11 items-center justify-center rounded-mobile border border-white/50 p-2 text-primary  lg:size-16 lg:rounded-full lg:p-4">
+      <DrawerTrigger
+        className={cn(
+          'relative hidden size-11 items-center justify-center rounded-mobile border border-white/50 p-2 text-primary  lg:size-16 lg:rounded-full lg:p-4',
+          {
+            flex: pathname === '/shop',
+          }
+        )}
+      >
         <CartIconFilled className="pointer-events-none size-full" />
         <div className="absolute right-0 top-0 z-10 aspect-square size-5 rounded-mobile bg-accent p-1 text-sm leading-none text-secondary lg:size-6 lg:rounded-full">
           <span>{cart.length}</span>

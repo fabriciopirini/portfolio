@@ -35,12 +35,13 @@
 
 @layer base {
   :root {
-    --color-text-primary: 0 0% 100%;
+    --color-text-primary: 0 0% 96%;
+    /* --color-text-primary: 0 0% 100%; */
     --color-text-secondary: 230 10% 24%;
     --color-text-accent: 39 100% 67%;
     --color-text-muted-foreground: 240 5% 64.9%;
 
-    --color-bg-primary: 0 0% 17%;
+    --color-bg-primary: 0 0% 15%;
     --color-bg-secondary: 220 2% 25%;
     --color-bg-secondary-hover: var(--color-text-accent);
     --color-bg-skill-card: 220 6% 28%;
@@ -79,5 +80,10 @@
     font-feature-settings:
       'rlig' 1,
       'calt' 1;
+  }
+
+  html {
+    --scroll-behavior: smooth !important;
+    scroll-behavior: smooth !important;
   }
 }

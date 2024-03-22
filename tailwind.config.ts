@@ -127,6 +127,16 @@ export const config = {
           // '70%': { transform: 'translateX(0%)' }, // Stay in place
           '100%': { transform: 'translateX(100%)' }, // Exit to the right
         },
+        scaleIn: {
+          from: {
+            opacity: '0',
+            transform: 'scale(0)',
+          },
+          to: {
+            opacity: '1',
+            transform: 'scale(1)',
+          },
+        },
       },
       animation: {
         fadeIn: 'fadeIn .3s ease-in-out',
@@ -136,6 +146,7 @@ export const config = {
         scaleConversationBubbleReturn: 'scaleConversationBubbleReturn .3s ease-in-out',
         appearDownAndFade: 'appearDownAndFade 3.5s ease-in-out',
         coinIncrease: 'coinIncrease 2s linear',
+        scaleIn: 'scaleIn 0.5s ease-out',
       },
     },
   },

@@ -1,5 +1,4 @@
-'use client'
-
+import type { Metadata } from 'next'
 import type { Person, WithContext } from 'schema-dts'
 
 import { AboutMe } from '@/components/AboutMe'
@@ -27,6 +26,11 @@ const jsonLd: WithContext<Person> = {
     '@type': 'Organization',
     name: 'Norsk Gjenvinning',
   },
+}
+
+export const metadata: Metadata = {
+  description: 'Fabricio Tramontano Pirini is a Lead Software Engineer with 7+ years of experience based in Norway.',
+  alternates: { canonical: 'https://fabriciopirini.com/' },
 }
 
 const Home = () => (

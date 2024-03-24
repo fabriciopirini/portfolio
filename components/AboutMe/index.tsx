@@ -1,3 +1,5 @@
+'use client'
+
 import { CircleCheckBigIcon, QuoteIcon, RouteIcon, TrendingUpIcon } from 'lucide-react'
 import Image from 'next/image'
 import { useWindowSize } from 'usehooks-ts'

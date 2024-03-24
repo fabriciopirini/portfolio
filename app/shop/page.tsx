@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 
 import { Galery } from '@/components/GaleryImage'
@@ -5,8 +6,9 @@ import ProfilePic from '@/public/assets/lego_me.png'
 
 export const runtime = 'edge'
 
-export const metadata = {
+export const metadata: Metadata = {
   description: "Welcome to Fabricio's Shop! We have a wide variety of high-quality services for you to choose from.",
+  alternates: { canonical: 'https://fabriciopirini.com/shop' },
   openGraph: {
     type: 'website',
   },

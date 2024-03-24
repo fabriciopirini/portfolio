@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect } from 'react'
 import { CheckCircle2Icon, Clock7Icon, MapPinIcon } from 'lucide-react'
 import Image from 'next/image'

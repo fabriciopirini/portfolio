@@ -25,16 +25,14 @@ export const HeroLegoImage = () => {
 
       document.querySelectorAll('[data-id="image-bubble-highlighted-text"]').forEach((el) => {
         const newSize = Math.max(minFontSize, Math.min(heroLegoImage?.width / 20, maxFontSize))
-        console.log('highlighted text size', newSize)
-
         const htmlEl = el as HTMLElement
+
         htmlEl.style.fontSize = `${newSize}px`
       })
       document.querySelectorAll('[data-id="image-bubble-text"]').forEach((el) => {
         const newSize = Math.max(minFontSize, Math.min(heroLegoImage?.width / 25, maxFontSize))
-        console.log('text size', newSize)
-
         const htmlEl = el as HTMLElement
+
         htmlEl.style.fontSize = `${newSize}px`
       })
     }

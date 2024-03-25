@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils'
 import { useAppStore } from '@/providers/app-store-provider'
 import ProfilePic from '@/public/assets/lego_me.png'
 
-const ANIMATION_START_DELAY = 40_000
+const ANIMATION_START_DELAY = 90_000
 
 export const SideMe = () => {
   const [animate, setAnimate] = useState(false)

@@ -46,17 +46,18 @@ export async function GET() {
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-        <title>Soletra Game Data</title>
+        <title>Dados do Jogo Soletra</title>
         <style>
           body { font-family: 'Inter', sans-serif; }
           table { width: 100%; border-collapse: collapse; }
           th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+          td:first-child { text-align: center; }
           th { background-color: #f2f2f2; }
         </style>
       </head>
       <body>
-        <h1>Soletra Game Data</h1>
-        <p>${new Date().toLocaleDateString(undefined, {
+        <h1>Respostas do Jogo Soletra</h1>
+        <p>${new Date().toLocaleDateString('pt-br', {
           weekday: 'long',
           year: 'numeric',
           month: 'long',
@@ -65,8 +66,8 @@ export async function GET() {
         <table>
           <thead>
             <tr>
-              <th>Word Length</th>
-              <th>Words</th>
+              <th>Quantidade de letras</th>
+              <th>Palavras</th>
             </tr>
           </thead>
           <tbody>

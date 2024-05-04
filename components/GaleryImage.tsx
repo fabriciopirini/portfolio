@@ -1,5 +1,7 @@
 'use client'
 
+import { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 
 import { PRODUCTS } from '@/app/services'
@@ -39,16 +41,43 @@ export const Galery = () => {
   )
 }
 
-const CardContentDesktop = ({ item }: { item: (typeof PRODUCTS)[number] }) => (
-  <div className="max-lg:hidden lg:h-72">
-    <div className="size-full p-5 transition duration-300 ease-linear group-hover:hidden group-hover:opacity-0">
-      {item.featuredImage.staticImage}
+const CardContentDesktop = ({ item }: { item: (typeof PRODUCTS)[number] }) => {
+  const [isHovered, setHovered] = useState(false)
+
+  return (
+    <div className="max-lg:hidden lg:h-72">
+      <AnimatePresence mode="wait" initial={false}>
+        {isHovered ? (
+          <motion.div
+            key="description"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ ease: 'easeOut', duration: 0.15 }}
+            onHoverStart={() => setHovered(true)}
+            onHoverEnd={() => setHovered(false)}
+            className="size-full py-2 lg:py-5"
+          >
+            <p className="text-lg">{item.description}</p>
+          </motion.div>
+        ) : (
+          <motion.div
+            key="image"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ ease: 'easeOut', duration: 0.15 }}
+            onHoverStart={() => setHovered(true)}
+            onHoverEnd={() => setHovered(false)}
+            className="size-full p-5"
+          >
+            {item.featuredImage.staticImage}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
-    <div className="hidden size-full py-2 opacity-0 transition-opacity duration-300 ease-linear group-hover:block group-hover:opacity-100 lg:py-5">
-      <p className="text-lg">{item.description}</p>
-    </div>
-  </div>
-)
+  )
+}
 
 const CardContentMobile = ({ item }: { item: (typeof PRODUCTS)[number] }) => (
   <Carousel className="flex w-full flex-col gap-3 lg:hidden">

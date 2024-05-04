@@ -8,8 +8,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/comp
 import { cn } from '@/lib/utils'
 import { useAppStore } from '@/providers/app-store-provider'
 
-const CART_BUTTON_BASE_STYLE =
-  'rounded-full p-3 drop-shadow-md transition-transform duration-200 ease-in-out hover:scale-105'
+const CART_BUTTON_BASE_STYLE = 'rounded-full p-3 drop-shadow-md transition-transform duration-200 hover:scale-105'
 
 export const AddToCart = ({ productId }: { productId: string }) => {
   const { cartItems, addProduct, removeProduct, coins } = useAppStore((state) => state)

@@ -32,8 +32,11 @@ export async function GET() {
 
     const processedData = data.word_list.reduce((acc, a) => {
       const length = a.word.length
+
       if (!acc[length]) acc[length] = []
+
       acc[length].push(a.word)
+
       return acc
     }, {}) as Record<number, Array<string>>
 
@@ -63,6 +66,9 @@ export async function GET() {
           month: 'long',
           day: 'numeric',
         })}</p>
+        <p>Quantidade de palavras: ${data.word_count}</p>
+        <p>Quantidade de palavras que são pangramas: ${data.pangram_count}</p>
+        <p>Pangramas: ${data.pangram_list.join(', ')}</p>
         <table>
           <thead>
             <tr>
@@ -76,7 +82,7 @@ export async function GET() {
                 ([length, words]) => `
               <tr>
                 <td>${length}</td>
-                <td>${words.join(', ')}</td>
+                <td>${words.sort((a, b) => a.localeCompare(b, 'pt-BR')).join(', ')}</td>
               </tr>
             `
               )

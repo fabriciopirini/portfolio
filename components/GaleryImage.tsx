@@ -28,6 +28,7 @@ export const Galery = () => {
                   width={36}
                   height={36}
                   className="pointer-events-none size-7 lg:size-9"
+                  aria-hidden
                 />
                 <span>{item.price}</span>
                 <span className="whitespace-nowrap">Fab coins</span>

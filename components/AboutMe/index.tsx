@@ -66,7 +66,7 @@ export const AboutMe = () => {
         </CarouselContent>
         <CarouselDots className="xl:hidden" isDarkMode={false} />
       </Carousel>
-      <div className="flex min-h-10 justify-center gap-2 px-8 pb-14 pt-5  lg:py-5">
+      <div className="flex min-h-10 justify-center gap-2 px-8 pb-14 pt-5 lg:py-5">
         <QuoteIcon
           fill="#ffc457"
           className="pointer-events-none size-5 min-h-5 min-w-5 -scale-x-100 text-accent lg:size-7"
@@ -108,6 +108,7 @@ const CornerMinus = ({
         'rotate-12': pos === 'top-left' || pos === 'bottom-right',
         '-rotate-12': pos === 'top-right' || pos === 'bottom-left',
       })}
+      aria-hidden
     />
     {/* <PuzzlePiece
       className={cn('pointer-events-none absolute size-9 text-accent drop-shadow-2xl lg:size-12', {

@@ -26,7 +26,7 @@ import { MAX_COINS } from '@/stores/app-store'
 export const NavBar = () => (
   <nav className="z-10 flex w-full items-center justify-between p-8 text-[22px] font-light max-[375px]:px-4 sm:px-10 lg:py-12 2xl:px-20 [&_*]:z-10">
     <Link href="/" className="flex items-center gap-4">
-      <Image className="h-8 w-auto md:h-[45px] 2xl:h-16" src={Logo} alt="Logo" width={64} height={64} />
+      <Image className="h-8 w-auto md:h-[45px] 2xl:h-16" src={Logo} alt="Logo" width={64} height={64} aria-hidden />
       {/* <span className="text-[32px] font-medium max-md:hidden">Fabricio</span> */}
     </Link>
     <div className="z-10 hidden items-center sm:flex sm:flex-row">
@@ -198,7 +198,7 @@ const CoinCounter = ({ className }: { className?: string }) => {
         )}
       />
       <div className="flex h-11 select-none items-center justify-end gap-2 px-2 py-[6px] text-base text-white md:px-3 md:py-2 lg:h-16 lg:text-xl">
-        <Image src={FabCoingIcon} alt="FabCoin" className="pointer-events-none mr-2 size-8 lg:size-11" />
+        <Image src={FabCoingIcon} alt="FabCoin" className="pointer-events-none mr-2 size-8 lg:size-11" aria-hidden />
         {coins < MAX_COINS ? (
           <div className="relative">
             <CountUp

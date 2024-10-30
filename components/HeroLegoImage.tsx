@@ -71,6 +71,7 @@ export const HeroLegoImage = () => {
           <CheckCircle2Icon
             fill="#373943"
             className="!z-20 size-9 rounded-full bg-accent stroke-accent p-1 md:size-[calc(30px+2*8px)] md:p-2 xl:size-[calc(40px+2*16px)] xl:p-3"
+            aria-hidden
           />
         }
         highlightedText="Senior"
@@ -82,6 +83,7 @@ export const HeroLegoImage = () => {
           <Clock7Icon
             fill="#373943"
             className="!z-20 size-9 rounded-full bg-accent stroke-accent p-1 md:size-[calc(30px+2*8px)] md:p-2 xl:size-[calc(40px+2*16px)] xl:p-3"
+            aria-hidden
           />
         }
         highlightedText={`${diffYears}+ years`}
@@ -93,6 +95,7 @@ export const HeroLegoImage = () => {
           <MapPinIcon
             fill="#373943"
             className="!z-20 size-9 rounded-full bg-accent stroke-accent p-1 md:size-[calc(30px+2*8px)] md:p-2 xl:size-[calc(40px+2*16px)] xl:p-3"
+            aria-hidden
           />
         }
         highlightedText="Norway"
@@ -108,6 +111,7 @@ export const HeroLegoImage = () => {
           width={500}
           height={800}
           priority
+          aria-hidden
         />
       </div>
     </>

@@ -35,9 +35,9 @@ export const AboutMe = () => {
               <RouteIcon strokeWidth={1.5} className="pointer-events-none size-16 text-accent" />
               <h3 className="font-leagueSpartan text-3xl font-medium text-primary max-xl:select-none">Journey</h3>
               <p className="text-primary max-xl:select-none">
-                I&apos;m a dedicated Computer Engineer with a focus on Web Development at Norsk Gjenvinning. My
-                expertise lies in React, Next.js, and Typescript, enhanced by my academic background from UNIFEI and an
-                international experience at the University of Toronto.
+                I&apos;m a dedicated Computer Engineer with a focus on Web Development, working remotely as a contractor
+                from Brazil. My expertise lies in React, Next.js, and Typescript, enhanced by my academic background
+                from UNIFEI and an international experience at the University of Toronto.
               </p>
             </div>
           </CarouselItem>

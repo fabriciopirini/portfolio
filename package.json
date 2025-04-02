@@ -70,7 +70,7 @@
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "schema-dts": "^1.1.5",
-    "tailwindcss-debug-screens": "^3.0.1",
+    "tailwindcss-debug-screens": "^2.2.1",
     "tailwindcss-touch": "^1.0.1",
     "typescript": "^5.8.2",
     "vercel": "^41.4.1"

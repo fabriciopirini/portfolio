@@ -18,7 +18,7 @@ export const Footer = () => {
         </p>
         <div className="flex flex-col items-center justify-center gap-6 lg:basis-1/2 lg:gap-5 lg:pl-20">
           <p className="max-w-[35ch] text-pretty lg:text-2xl">
-            A dedicated Computer Engineer with a focus on Web Development at Norsk Gjenvinning.
+            A dedicated Computer Engineer with a focus on Web Development, working remotely as a contractor from Brazil.
           </p>
           <div className="flex justify-center gap-3 lg:gap-4">
             <a
@@ -62,7 +62,6 @@ export const Footer = () => {
       </div>
       <div className="flex flex-col items-center gap-2 lg:gap-3">
         <Image className="h-5 w-auto lg:h-7" src={Logo} alt="Logo" width={28} height={28} />
-        <p className="lg:text-xl">Fabricio © Copyright {new Date().getFullYear()}</p>
       </div>
     </footer>
   )

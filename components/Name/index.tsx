@@ -44,8 +44,8 @@ export const NameBanner = () => {
         <span className="font-leagueSpartan lg:whitespace-nowrap">I&apos;m Fabricio.</span>
       </motion.h1>
       <motion.p className="text-base sm:text-xl lg:text-2xl xl:text-[28px]" variants={FADE_DOWN_ANIMATION_VARIANTS}>
-        A dedicated Computer Engineer with a focus on Web Development at Norsk Gjenvinning. My goal is to integrate
-        innovation with efficiency, making a meaningful contribution to the technology sector.
+        A dedicated Computer Engineer with a focus on Web Development, working remotely as a contractor from Brazil. My
+        goal is to integrate innovation with efficiency, making a meaningful contribution to the technology sector.
       </motion.p>
       <CTAButtons />
     </motion.div>

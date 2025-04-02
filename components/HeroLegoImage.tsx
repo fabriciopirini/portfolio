@@ -48,7 +48,7 @@ export const HeroLegoImage = () => {
   //     <Image
   //       className="size-full object-contain max-lg:hidden"
   //       src={LegoMeWithBubbleText}
-  //       alt="Fabricio as a Lego figure with bubbles of text around him that say Senior Frontend Engineer, 6+ years of experience, and Norway based"
+  //       alt="Fabricio as a Lego figure with bubbles of text around him that say Senior Frontend Engineer, 6+ years of experience, and Brazil based"
   //       width={800}
   //       height={800}
   //       priority
@@ -56,7 +56,7 @@ export const HeroLegoImage = () => {
   //     <Image
   //       className="size-full object-contain lg:hidden"
   //       src={LegoMeWithBubbleTextMobile}
-  //       alt="Fabricio as a Lego figure with bubbles of text around him that say Senior Frontend Engineer, 6+ years of experience, and Norway based"
+  //       alt="Fabricio as a Lego figure with bubbles of text around him that say Senior Frontend Engineer, 6+ years of experience, and Brazil based"
   //       width={352}
   //       height={375}
   //       priority
@@ -98,7 +98,7 @@ export const HeroLegoImage = () => {
             aria-hidden
           />
         }
-        highlightedText="Norway"
+        highlightedText="Brazil"
         text="Based"
         className="bottom-5 right-5"
       />

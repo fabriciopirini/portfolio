@@ -13,13 +13,10 @@ export const WorkExperience = () => {
     >
       <div className="flex w-full flex-col gap-8 lg:flex-row lg:gap-10">
         <div className="shrink-0 basis-2/5">
-          <p className="mb-7 font-leagueSpartan text-3xl font-medium lg:mb-14 lg:text-6xl">
-            Experience in innovation and leadership
-          </p>
+          <p className="mb-7 font-leagueSpartan text-3xl font-medium lg:mb-14 lg:text-6xl">Where it all started</p>
           <p className="lg:mb-10 lg:text-3xl">
-            My journey in the tech landscape has been a blend of innovation, leadership, and continuous improvement,
-            marked by significant milestones that showcase my growth and contributions to the companies I&apos;ve been
-            part of.
+            I&apos;ve had the chance to work with some great companies, starting from my early days writing web scrapers
+            all the way to leading development teams. Here&apos;s how that journey unfolded.
           </p>
         </div>
         <div>
@@ -33,13 +30,13 @@ export const WorkExperience = () => {
                 <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">Starting at Sportradar</p>
                 <div className="space-y-5 text-primary/70 lg:text-2xl">
                   <p>
-                    At Sportradar, my entry into the tech world involved refining web crawlers and scrapers specifically
-                    tailored for e-commerce applications, enhancing data collection and introducing microservices to
-                    boost the scalability and efficiency crucial for dynamic online marketplaces.
+                    My tech journey kicked off at Sportradar, where I got my hands dirty with web crawlers and data
+                    collection. We were building tools to gather data from various e-commerce sites, and I learned a ton
+                    about making systems that could handle large amounts of data efficiently.
                   </p>
                   <p>
-                    My work here laid a strong foundation in Agile methodologies, optimizing team workflows and project
-                    delivery to meet the fast-paced demands of e-commerce platforms.
+                    This was also where I got my first real taste of Agile development - learning how to work in sprints
+                    and deliver features that actually made a difference.
                   </p>
                 </div>
               </div>
@@ -55,17 +52,17 @@ export const WorkExperience = () => {
                 <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">I joined Oda</p>
                 <div className="space-y-5 text-primary/70 lg:text-2xl">
                   <p>
-                    Moving to Oda marked a significant chapter where I led the transition of a major e-commerce platform
-                    to a modern React frontend, directly contributing to improved user interactions and increased online
-                    sales.
+                    At Oda, I got to work on something really cool - helping transform their e-commerce platform with a
+                    modern React frontend. It was exciting to see how our changes directly improved the shopping
+                    experience for customers.
                   </p>
                   <p>
-                    My responsibilities expanded to include crucial on-call support for a Django-based e-commerce
-                    backbone, ensuring seamless transaction processing.
+                    I also joined the on-call rotation for our Django backend - nothing teaches you more about a system
+                    than being responsible for keeping it running smoothly!
                   </p>
                   <p>
-                    Mentoring junior developers, I emphasized the nuances of e-commerce development, fostering a team
-                    capable of rapidly evolving and scaling our offerings.
+                    One of my favorite parts was mentoring newer developers on the team. Helping others grow while
+                    building something meaningful together - that&apos;s what it&apos;s all about.
                   </p>
                 </div>
               </div>
@@ -75,13 +72,10 @@ export const WorkExperience = () => {
       </div>
       <div className="flex w-full flex-col gap-8 lg:flex-row lg:gap-10">
         <div className="shrink-0 basis-2/5">
-          <p className="mb-7 font-leagueSpartan text-3xl font-medium lg:mb-14 lg:text-6xl">
-            The role of Lead Frontend Engineer
-          </p>
+          <p className="mb-7 font-leagueSpartan text-3xl font-medium lg:mb-14 lg:text-6xl">Growing into leadership</p>
           <p className="lg:mb-10 lg:text-3xl">
-            Each role has been a chapter in my story, filled with learning, overcoming challenges, and making a tangible
-            impact. My journey reflects a commitment to excellence, innovation, and a dedication to contributing
-            positively to the tech community.
+            Sometimes opportunities come up that push you to grow in new ways. That&apos;s what happened when I took on
+            more leadership responsibilities and learned what it means to guide a team.
           </p>
         </div>
         <div>
@@ -95,16 +89,13 @@ export const WorkExperience = () => {
                 <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">Norsk Gjenvinning</p>
                 <div className="space-y-5 text-primary/70 lg:text-2xl">
                   <p>
-                    At Norsk Gjenvinning, my e-commerce journey reached new heights. Initially joining as a Lead
-                    Frontend Engineer, I led the development of frontend architectures for our e-commerce platforms.
+                    I joined Norsk Gjenvinning as a Lead Frontend Engineer, where I got to shape how we built our
+                    frontend systems. Working closely with designers, we focused on making things faster and easier to
+                    use for our customers.
                   </p>
                   <p>
-                    This role demanded a keen focus on optimizing web performance and user engagement, significantly
-                    improving the online shopping experience for our customers.
-                  </p>
-                  <p>
-                    My collaboration with UX/UI designers was key to implementing user-friendly interfaces that drove
-                    customer satisfaction.
+                    The best part was seeing how small improvements in performance and usability could make a big
+                    difference in how people used our platform.
                   </p>
                 </div>
               </div>
@@ -120,22 +111,48 @@ export const WorkExperience = () => {
                 <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">Evolving into the role</p>
                 <div className="space-y-5 text-primary/70 lg:text-2xl">
                   <p>
-                    My role evolved into that of Lead Software Engineer & Tech Lead, marking a pivotal expansion in my
-                    responsibilities and impact.
+                    Later, I stepped up as Lead Software Engineer & Tech Lead. It was a chance to not just write code,
+                    but to help shape how our whole team worked together.
                   </p>
                   <p>
-                    In this capacity, I managed a team dedicated to developing scalable e-commerce solutions, further
-                    refining our platforms to enhance UI responsiveness and reduce load times dramatically.
+                    We made our apps faster, more reliable, and easier to work with. But more importantly, we built a
+                    team that really knew how to work together and deliver great results.
                   </p>
                   <p>
-                    My leadership was instrumental in adopting best practices for code quality and development
-                    processes, markedly reducing bugs and increasing deployment efficiency.
-                  </p>
-                  <p>
-                    Advocating for new technologies, I ensured our e-commerce platforms remained cutting-edge, directly
-                    contributing to improved project delivery speeds and system reliability.
+                    I pushed for trying out new tech when it made sense, always with the goal of making our platform
+                    better and our development process smoother.
                   </p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="flex w-full flex-col gap-8 lg:flex-row lg:gap-10">
+        <div className="shrink-0 basis-2/5">
+          <p className="mb-7 font-leagueSpartan text-3xl font-medium lg:mb-14 lg:text-6xl">What I&apos;m up to now</p>
+          <p className="lg:mb-10 lg:text-3xl">
+            These days, I&apos;m working with a big US tech company, helping build the tools and systems that other
+            developers use to build great products.
+          </p>
+        </div>
+        <div className="relative ml-2 basis-3/5 md:ml-8">
+          <BadgeCheckIcon
+            fill="#ffc457"
+            className="pointer-events-none absolute top-0 -ml-6 -mt-1 size-14 text-primary-background"
+          />
+          <div className="mt-1 border-l-[7px] border-dotted border-accent/50 pb-10 pl-12">
+            <div className="size-full space-y-5 rounded border border-white bg-[#1E1E1E] p-7">
+              <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">Current Platform Team Role</p>
+              <div className="space-y-5 text-primary/70 lg:text-2xl">
+                <p>
+                  I&apos;m working as a contractor on the Platform team, where we build and maintain the tools that help
+                  other developers do their best work.
+                </p>
+                <p>
+                  It&apos;s all about making the development experience better - from improving build times to creating
+                  tools that make complex tasks simpler. When other developers can work more efficiently, everyone wins.
+                </p>
               </div>
             </div>
           </div>
@@ -147,6 +164,22 @@ export const WorkExperience = () => {
 
 const experiences = [
   {
+    company: 'US Tech Company (Contract)',
+    location: 'Remote',
+    roles: [
+      {
+        title: 'Platform Engineer',
+        startDate: new Date('2024-10-01'),
+        endDate: null,
+        bullets: [
+          'Working as part of the Platform team, contributing to critical infrastructure and developer tools.',
+          'Focusing on improving developer experience and platform reliability.',
+          'Collaborating with cross-functional teams to enhance the company&apos;s technical foundation.',
+        ],
+      },
+    ],
+  },
+  {
     company: 'Norsk Gjenvinning',
     location: 'Oslo, Norway',
     logo: NGLogo,
@@ -155,7 +188,7 @@ const experiences = [
       {
         title: 'Lead Software Engineer & Tech Lead',
         startDate: new Date('2023-09-01'),
-        endDate: null,
+        endDate: new Date('2024-09-31'),
         bullets: [
           'Managed a team of 3 software engineers in developing scalable e-commerce solutions, resulting in a 40% enhancement in UI responsiveness and a 50% reduction in load times.',
           'Implemented best practices in code quality and development processes, reducing bug rates by 30% and improving deployment frequency by 50%.',

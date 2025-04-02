@@ -20,16 +20,12 @@ const jsonLd: WithContext<Person> = {
   sameAs: ['https://www.linkedin.com/in/fabriciopirini/'],
   address: {
     '@type': 'PostalAddress',
-    addressCountry: 'Norway',
-  },
-  worksFor: {
-    '@type': 'Organization',
-    name: 'Norsk Gjenvinning',
+    addressCountry: 'Brazil',
   },
 }
 
 export const metadata: Metadata = {
-  description: 'Fabricio Tramontano Pirini is a Lead Software Engineer with 7+ years of experience based in Norway.',
+  description: 'Fabricio Tramontano Pirini is a Lead Software Engineer with 8+ years of experience based in Brazil.',
   alternates: { canonical: 'https://fabriciopirini.com/' },
 }
 

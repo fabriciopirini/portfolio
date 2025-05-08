@@ -36,7 +36,7 @@ export const NameBanner = () => {
             alt="Fabricio Pirini"
             width={138}
             height={133}
-            className="size-14 md:size-24 xl:size-[133px]"
+            className="size-14 md:size-24 xl:size-28"
             aria-hidden
           />
           <span className="font-leagueSpartan lg:whitespace-nowrap">Nice to meet you!</span>

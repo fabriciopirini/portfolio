@@ -15,8 +15,8 @@ export const WorkExperience = () => {
         <div className="shrink-0 basis-2/5">
           <p className="mb-7 font-leagueSpartan text-3xl font-medium lg:mb-14 lg:text-6xl">Where it all started</p>
           <p className="lg:mb-10 lg:text-3xl">
-            I&apos;ve had the chance to work with some great companies, starting from my early days writing web scrapers
-            all the way to leading development teams. Here&apos;s how that journey unfolded.
+            From web scrapers to leading teams. Each role taught me something about building better systems and helping
+            people ship faster.
           </p>
         </div>
         <div>
@@ -27,16 +27,15 @@ export const WorkExperience = () => {
             />
             <div className="mt-1 border-l-[7px] border-dotted border-accent/50 pb-10 pl-12">
               <div className="size-full space-y-5 rounded border border-white bg-[#1E1E1E] p-7">
-                <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">Starting at Sportradar</p>
+                <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">Scaling data collection</p>
                 <div className="space-y-5 text-primary/70 lg:text-2xl">
                   <p>
-                    My tech journey kicked off at Sportradar, where I got my hands dirty with web crawlers and data
-                    collection. We were building tools to gather data from various e-commerce sites, and I learned a ton
-                    about making systems that could handle large amounts of data efficiently.
+                    Rebuilt web crawlers and scrapers from the ground up. Made them 10x faster and lean. Data collection
+                    became efficient instead of resource-hungry.
                   </p>
                   <p>
-                    This was also where I got my first real taste of Agile development - learning how to work in sprints
-                    and deliver features that actually made a difference.
+                    Got my first real taste of Agile and shipping features that mattered. Learned how teams actually
+                    work together at scale.
                   </p>
                 </div>
               </div>
@@ -49,20 +48,15 @@ export const WorkExperience = () => {
             />
             <div className="mt-1 pb-10 pl-12">
               <div className="size-full space-y-5 rounded border border-white bg-[#1E1E1E] p-7">
-                <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">I joined Oda</p>
+                <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">Scaling the platform</p>
                 <div className="space-y-5 text-primary/70 lg:text-2xl">
                   <p>
-                    At Oda, I got to work on something really cool - helping transform their e-commerce platform with a
-                    modern React frontend. It was exciting to see how our changes directly improved the shopping
-                    experience for customers.
+                    Modernized legacy platform to React while supporting explosive growth. Built infrastructure that let
+                    the company expand without breaking a sweat.
                   </p>
                   <p>
-                    I also joined the on-call rotation for our Django backend - nothing teaches you more about a system
-                    than being responsible for keeping it running smoothly!
-                  </p>
-                  <p>
-                    One of my favorite parts was mentoring newer developers on the team. Helping others grow while
-                    building something meaningful together - that&apos;s what it&apos;s all about.
+                    Mentored newer developers while on-call for the Django backend. There's no better way to learn a
+                    system than being responsible for keeping it running.
                   </p>
                 </div>
               </div>
@@ -74,8 +68,8 @@ export const WorkExperience = () => {
         <div className="shrink-0 basis-2/5">
           <p className="mb-7 font-leagueSpartan text-3xl font-medium lg:mb-14 lg:text-6xl">Growing into leadership</p>
           <p className="lg:mb-10 lg:text-3xl">
-            Sometimes opportunities come up that push you to grow in new ways. That&apos;s what happened when I took on
-            more leadership responsibilities and learned what it means to guide a team.
+            When I took on leadership, I realized it wasn't about me anymore. It was about making my team and company
+            better.
           </p>
         </div>
         <div>
@@ -86,16 +80,14 @@ export const WorkExperience = () => {
             />
             <div className="mt-1 border-l-[7px] border-dotted border-accent/50 pb-10 pl-12">
               <div className="size-full space-y-5 rounded border border-white bg-[#1E1E1E] p-7">
-                <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">Norsk Gjenvinning</p>
+                <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">
+                  Frontend performance & design systems
+                </p>
                 <div className="space-y-5 text-primary/70 lg:text-2xl">
                   <p>
-                    I joined Norsk Gjenvinning as a Lead Frontend Engineer, where I got to shape how we built our
-                    frontend systems. Working closely with designers, we focused on making things faster and easier to
-                    use for our customers.
-                  </p>
-                  <p>
-                    The best part was seeing how small improvements in performance and usability could make a big
-                    difference in how people used our platform.
+                    Led frontend architecture for their e-commerce platform. Made things{' '}
+                    <span className="font-semibold text-accent">40% faster</span> and worked closely with designers to
+                    improve how users experienced the product.
                   </p>
                 </div>
               </div>
@@ -108,19 +100,11 @@ export const WorkExperience = () => {
             />
             <div className="mt-1 pb-10 pl-12">
               <div className="size-full space-y-5 rounded border border-white bg-[#1E1E1E] p-7">
-                <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">Evolving into the role</p>
+                <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">Setting technical direction</p>
                 <div className="space-y-5 text-primary/70 lg:text-2xl">
                   <p>
-                    Later, I stepped up as Lead Software Engineer & Tech Lead. It was a chance to not just write code,
-                    but to help shape how our whole team worked together.
-                  </p>
-                  <p>
-                    We made our apps faster, more reliable, and easier to work with. But more importantly, we built a
-                    team that really knew how to work together and deliver great results.
-                  </p>
-                  <p>
-                    I pushed for trying out new tech when it made sense, always with the goal of making our platform
-                    better and our development process smoother.
+                    Established architectural baseline across all tech teams. Set technology standards for cloud
+                    infrastructure, stack decisions, and infrastructure patterns that scaled the entire department.
                   </p>
                 </div>
               </div>
@@ -130,10 +114,10 @@ export const WorkExperience = () => {
       </div>
       <div className="flex w-full flex-col gap-8 lg:flex-row lg:gap-10">
         <div className="shrink-0 basis-2/5">
-          <p className="mb-7 font-leagueSpartan text-3xl font-medium lg:mb-14 lg:text-6xl">What I&apos;m up to now</p>
+          <p className="mb-7 font-leagueSpartan text-3xl font-medium lg:mb-14 lg:text-6xl">Current work</p>
           <p className="lg:mb-10 lg:text-3xl">
-            These days, I&apos;m working with a big US tech company, helping build the tools and systems that other
-            developers use to build great products.
+            Building <span className="font-semibold text-accent">platform tools</span> that make developers faster.
+            Infrastructure, tooling, design systems.
           </p>
         </div>
         <div className="relative ml-2 basis-3/5 md:ml-8">
@@ -143,15 +127,23 @@ export const WorkExperience = () => {
           />
           <div className="mt-1 border-l-[7px] border-dotted border-accent/50 pb-10 pl-12">
             <div className="size-full space-y-5 rounded border border-white bg-[#1E1E1E] p-7">
-              <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">Current Platform Team Role</p>
+              <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">Automation systems that save money</p>
               <div className="space-y-5 text-primary/70 lg:text-2xl">
                 <p>
-                  I&apos;m working as a contractor on the Platform team, where we build and maintain the tools that help
-                  other developers do their best work.
+                  Built a <span className="font-semibold text-accent">visual testing system</span> that cut test
+                  execution from 12 minutes to under 1 minute and tripled coverage, saved the team thousands of hours.
                 </p>
                 <p>
-                  It&apos;s all about making the development experience better - from improving build times to creating
-                  tools that make complex tasks simpler. When other developers can work more efficiently, everyone wins.
+                  Automated <span className="font-semibold text-accent">design tokens</span> across 11 core components.
+                  Designers now push themes to production without engineering overhead.
+                </p>
+                <p>
+                  Led <span className="font-semibold text-accent">live chat unification</span> across web and mobile
+                  apps. A big initiative that centralized support tooling for the entire platform.
+                </p>
+                <p>
+                  Enhanced <span className="font-semibold text-accent">Sanity content setup</span>, improving how
+                  content teams manage and deploy articles across all products.
                 </p>
               </div>
             </div>
@@ -164,17 +156,18 @@ export const WorkExperience = () => {
 
 const experiences = [
   {
-    company: 'US Tech Company (Contract)',
+    company: 'Remote Platform Role',
     location: 'Remote',
     roles: [
       {
         title: 'Platform Engineer',
-        startDate: new Date('2024-10-01'),
+        startDate: new Date('2024-11-01'),
         endDate: null,
         bullets: [
-          'Working as part of the Platform team, contributing to critical infrastructure and developer tools.',
-          'Focusing on improving developer experience and platform reliability.',
-          'Collaborating with cross-functional teams to enhance the company&apos;s technical foundation.',
+          'Architected visual regression testing system reducing test execution from 12 minutes to <1 minute while tripling coverage.',
+          'Automated design token generation from Figma, enabling 11 core components to ship new themes without manual overhead.',
+          'Implemented keyboard navigation and ARIA support across multiple components, improving accessibility and Lighthouse scores.',
+          'Optimized CI/CD infrastructure and tooling, sharping developer feedback loops and build reliability.',
         ],
       },
     ],

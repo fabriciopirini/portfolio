@@ -10,11 +10,11 @@ const jsonLd: WithContext<Person> = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Fabricio Tramontano Pirini',
-  jobTitle: 'Lead Software Engineer',
+  jobTitle: 'Software Engineer',
   gender: 'male',
   url: 'https://fabriciopirini.com/',
   image: 'https://github.com/fabriciopirini.png',
-  email: 'me@fabriciopirini.com',
+  email: 'fabricio@fabriciopirini.com',
   sameAs: ['https://www.linkedin.com/in/fabriciopirini/'],
   address: {
     '@type': 'PostalAddress',
@@ -23,7 +23,8 @@ const jsonLd: WithContext<Person> = {
 }
 
 export const metadata: Metadata = {
-  description: 'Fabricio Tramontano Pirini is a Lead Software Engineer with 8+ years of experience based in Brazil.',
+  description:
+    'Fabricio Tramontano Pirini builds fast systems and platform infrastructure. React, Next.js, automation. Based in Brazil, working with startups and scale-ups.',
   alternates: { canonical: 'https://fabriciopirini.com/' },
 }
 

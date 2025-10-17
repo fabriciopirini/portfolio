@@ -11,12 +11,9 @@
     "lint:eslint": "eslint --rule 'unused-imports/no-unused-imports: error' --quiet --report-unused-disable-directives .",
     "lint:prettier": "prettier .",
     "lint": "bun lint:eslint --fix && bun lint:prettier --write",
-    "test": "vitest",
-    "test:ui": "vitest --ui",
+    "test": "bun test:unit && bun test:e2e",
     "test:unit": "vitest run",
-    "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui",
-    "test:e2e:headed": "playwright test --headed"
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@radix-ui/react-aspect-ratio": "^1.1.7",

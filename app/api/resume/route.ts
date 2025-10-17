@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server'
 
-export const runtime = 'edge'
-
 export async function GET(request: Request) {
   const resumeUrl = 'https://raw.githubusercontent.com/fabriciopirini/utils/master/Resume/Fabricio_Pirini_CV.pdf'
 

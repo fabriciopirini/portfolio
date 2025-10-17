@@ -30,7 +30,7 @@ export const AddToCart = ({ productId }: { productId: string }) => {
         <div className="absolute bottom-2 right-2 z-10 flex size-[15px] items-center justify-center rounded-full bg-green-600">
           <CheckIcon className="pointer-events-none size-3" />
         </div>
-        <span className="sr-only">In cart</span>
+        <span className="sr-only">Remove from cart</span>
       </button>
     )
   }

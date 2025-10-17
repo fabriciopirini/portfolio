@@ -1,13 +1,13 @@
 'use client'
 
 import React from 'react'
-import type { MotionValue } from 'framer-motion'
+import type { MotionValue, Transition } from 'framer-motion'
 import { motion } from 'framer-motion'
 
 const transition = {
   duration: 0,
   ease: 'linear',
-}
+} satisfies Transition
 
 export const GoogleGeminiEffect = ({ pathLengths }: { pathLengths: MotionValue[] }) => {
   return (

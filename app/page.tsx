@@ -6,8 +6,6 @@ import { Hero } from '@/components/Hero'
 import { Technology } from '@/components/Technology'
 import { WorkExperience } from '@/components/WorkExperience'
 
-export const runtime = 'edge'
-
 const jsonLd: WithContext<Person> = {
   '@context': 'https://schema.org',
   '@type': 'Person',

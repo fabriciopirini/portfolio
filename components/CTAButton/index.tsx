@@ -3,7 +3,7 @@
 import type { Ref } from 'react'
 import React, { useState } from 'react'
 import { cva } from 'class-variance-authority'
-import { motion } from 'framer-motion'
+import { HTMLMotionProps, motion } from 'framer-motion'
 import { CloudDownloadIcon } from 'lucide-react'
 import { usePostHog } from 'posthog-js/react'
 
@@ -42,7 +42,7 @@ const animation = {
     hidden: { opacity: 0 },
     show: { opacity: 1, y: 0, transition: { type: 'spring' } },
   },
-}
+} satisfies HTMLMotionProps<'a'>
 
 type CTAButtonProps = {
   id?: string
@@ -96,7 +96,7 @@ export const CTAButton = React.forwardRef(
         {...animation}
         {...props}
       >
-        <MailIconFilled className="pointer-events-none size-7 fill-black " />
+        <MailIconFilled className="pointer-events-none size-7 fill-black" />
         {/* <MailIcon size={28} className="inline-block size-7 min-h-7 min-w-7 fill-black stroke-accent" /> */}
         {text}
       </motion.button>

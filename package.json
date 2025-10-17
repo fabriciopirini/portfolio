@@ -97,8 +97,5 @@
     "esbuild",
     "sharp",
     "unrs-resolver"
-  ],
-  "resolutions": {
-    "sharp": "0.33.5"
-  }
+  ]
 }

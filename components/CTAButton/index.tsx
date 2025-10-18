@@ -3,7 +3,7 @@
 import type { Ref } from 'react'
 import React, { useState } from 'react'
 import { cva } from 'class-variance-authority'
-import { HTMLMotionProps, motion } from 'framer-motion'
+import { type HTMLMotionProps, motion } from 'framer-motion'
 import { CloudDownloadIcon } from 'lucide-react'
 import { usePostHog } from 'posthog-js/react'
 

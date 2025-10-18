@@ -43,7 +43,7 @@ export const Galery = () => {
 }
 
 const CardContentDesktop = ({ item }: { item: (typeof PRODUCTS)[number] }) => {
-  const [isHovered, setHovered] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
 
   return (
     <div className="max-lg:hidden lg:h-72">
@@ -55,8 +55,8 @@ const CardContentDesktop = ({ item }: { item: (typeof PRODUCTS)[number] }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ ease: 'easeOut', duration: 0.15 }}
-            onHoverStart={() => setHovered(true)}
-            onHoverEnd={() => setHovered(false)}
+            onHoverStart={() => setIsHovered(true)}
+            onHoverEnd={() => setIsHovered(false)}
             className="size-full py-2 lg:py-5"
           >
             <p className="text-lg">{item.description}</p>
@@ -68,8 +68,8 @@ const CardContentDesktop = ({ item }: { item: (typeof PRODUCTS)[number] }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ ease: 'easeOut', duration: 0.15 }}
-            onHoverStart={() => setHovered(true)}
-            onHoverEnd={() => setHovered(false)}
+            onHoverStart={() => setIsHovered(true)}
+            onHoverEnd={() => setIsHovered(false)}
             className="size-full p-5"
           >
             {item.featuredImage.staticImage}

@@ -55,7 +55,7 @@ export const WorkExperience = () => {
                     the company expand without breaking a sweat.
                   </p>
                   <p>
-                    Mentored newer developers while on-call for the Django backend. There's no better way to learn a
+                    Mentored newer developers while on-call for the Django backend. There&apos;s no better way to learn a
                     system than being responsible for keeping it running.
                   </p>
                 </div>
@@ -68,7 +68,7 @@ export const WorkExperience = () => {
         <div className="shrink-0 basis-2/5">
           <p className="mb-7 font-leagueSpartan text-3xl font-medium lg:mb-14 lg:text-6xl">Growing into leadership</p>
           <p className="lg:mb-10 lg:text-3xl">
-            When I took on leadership, I realized it wasn't about me anymore. It was about making my team and company
+            When I took on leadership, I realized it wasn&apos;t about me anymore. It was about making my team and company
             better.
           </p>
         </div>
@@ -153,100 +153,3 @@ export const WorkExperience = () => {
     </section>
   )
 }
-
-const experiences = [
-  {
-    company: 'Remote Platform Role',
-    location: 'Remote',
-    roles: [
-      {
-        title: 'Platform Engineer',
-        startDate: new Date('2024-11-01'),
-        endDate: null,
-        bullets: [
-          'Architected visual regression testing system reducing test execution from 12 minutes to <1 minute while tripling coverage.',
-          'Automated design token generation from Figma, enabling 11 core components to ship new themes without manual overhead.',
-          'Implemented keyboard navigation and ARIA support across multiple components, improving accessibility and Lighthouse scores.',
-          'Optimized CI/CD infrastructure and tooling, sharping developer feedback loops and build reliability.',
-        ],
-      },
-    ],
-  },
-  {
-    company: 'Norsk Gjenvinning',
-    location: 'Oslo, Norway',
-    logo: NGLogo,
-    url: 'https://www.ngn.no/',
-    roles: [
-      {
-        title: 'Lead Software Engineer & Tech Lead',
-        startDate: new Date('2023-09-01'),
-        endDate: new Date('2024-09-31'),
-        bullets: [
-          'Managed a team of 3 software engineers in developing scalable e-commerce solutions, resulting in a 40% enhancement in UI responsiveness and a 50% reduction in load times.',
-          'Implemented best practices in code quality and development processes, reducing bug rates by 30% and improving deployment frequency by 50%.',
-          'Championed the integration of new technologies, leading to a 20% improvement in project delivery speed and system reliability.',
-        ],
-      },
-      {
-        title: 'Lead Frontend Engineer',
-        startDate: new Date('2022-09-01'),
-        endDate: new Date('2023-08-30'),
-        bullets: [
-          'Led the development of frontend architectures for e-commerce platforms using React and Next.js, reducing page load times by 30% and improving user engagement by 25%.',
-          'Collaborated with UX/UI designers on projects that increased customer satisfaction scores by 20%, through the implementation of user-friendly interfaces.',
-        ],
-      },
-    ],
-  },
-  {
-    company: 'Oda',
-    location: 'Oslo, Norway',
-    logo: OdaLogo,
-    url: 'https://www.oda.com/',
-    roles: [
-      {
-        title: 'Software Engineer',
-        startDate: new Date('2020-08-01'),
-        endDate: new Date('2022-08-01'),
-        bullets: [
-          'Transitioned major e-commerce platform to React frontend, enhancing user interface responsiveness and contributing to a 15% increase in online customer transactions.',
-          'Participated in an on-call rotation, managing critical issues for a Django monolith that supported monthly transactions worth over $100,000.',
-          'Mentored 8 junior developers over 13 months, improving team proficiency in modern web technologies and best practices, which resulted in a 25% reduction in onboarding time and a 20% increase in team productivity.',
-          'Led initiatives for configuration flexibility in the Django platform, accommodating a 30% increase in product offerings without compromising system performance.',
-        ],
-      },
-    ],
-  },
-  {
-    company: 'Sportradar',
-    location: 'Oslo, Norway',
-    logo: SportradarLogo,
-    url: 'https://www.sportradar.com/',
-    roles: [
-      {
-        title: 'Software Engineer',
-        startDate: new Date('2018-09-01'),
-        endDate: new Date('2020-07-01'),
-        bullets: [
-          'Enhanced web crawler/scrapers, improving data collection efficiency by 40% and reducing server load by 25%.',
-          'Migrated to microservices architecture, resulting in a 30% improvement in scalability and 20% reduction in latency.',
-          'Advocated for Agile methodologies, increasing team productivity by 15% and improving project delivery timelines by 20%.',
-        ],
-      },
-    ],
-  },
-  {
-    company: 'Samsung R&D Institute - SIDI',
-    location: 'Campinas, Brazil',
-    logo: SidiLogo,
-    url: 'https://www.sidi.org.br/',
-    roles: [
-      {
-        title: 'Software Engineering Intern',
-        startDate: new Date('2017-01-01'),
-        endDate: new Date('2018-01-01'),
-      },
-    ],
-  },
-] as const

@@ -26,7 +26,15 @@ import { MAX_COINS } from '@/stores/app-store'
 export const NavBar = () => (
   <nav className="z-10 flex w-full items-center justify-between p-8 text-[22px] font-light max-[375px]:px-4 sm:px-10 lg:py-12 2xl:px-20 [&_*]:z-10">
     <Link href="/" className="flex items-center gap-4">
-      <Image className="h-8 w-auto md:h-[45px] 2xl:h-16" src={Logo} alt="Logo" width={64} height={64} aria-hidden />
+      <Image
+        className="h-8 w-auto md:h-[45px] 2xl:h-16"
+        src={Logo}
+        alt="Logo"
+        width={80}
+        height={80}
+        priority
+        aria-hidden
+      />
       {/* <span className="text-[32px] font-medium max-md:hidden">Fabricio</span> */}
     </Link>
     <div className="z-10 hidden items-center sm:flex sm:flex-row">
@@ -101,7 +109,12 @@ const HamburguerMenu = () => {
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
-        <button className="ml-5 size-11 cursor-pointer rounded-full border border-white/50 p-2 text-primary focus-visible:h-full max-[375px]:ml-0 md:size-14 md:p-3 lg:hidden lg:size-16 lg:p-4">
+        <button
+          className="ml-5 size-11 cursor-pointer rounded-full border border-white/50 p-2 text-primary focus-visible:h-full max-[375px]:ml-0 md:size-14 md:p-3 lg:hidden lg:size-16 lg:p-4"
+          aria-label="Open navigation menu"
+          aria-expanded={isOpen}
+          aria-haspopup="menu"
+        >
           <MenuIcon className="pointer-events-none size-full" />
           <span className="sr-only">Open the menu</span>
         </button>
@@ -188,6 +201,9 @@ const CoinCounter = ({ className }: { className?: string }) => {
         },
         className
       )}
+      role="status"
+      aria-label="Fab coins counter"
+      aria-live="polite"
     >
       <div
         className={cn(

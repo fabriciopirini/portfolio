@@ -6,14 +6,13 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  // reporter: [['html'], ['list']],
-  reporter: [['list']],
-  timeout: 30_000,
+  // reporter: [['html', { open: 'never' }], ['list']],
+  reporter: process.env.CI ? 'github' : [['list']],
+  timeout: 60_000,
   use: {
-    baseURL: 'https://localhost:3001',
+    baseURL: 'http://localhost:3001',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
-    ignoreHTTPSErrors: true,
   },
   projects: [
     {
@@ -35,9 +34,8 @@ export default defineConfig({
   ],
   webServer: {
     command: 'bun dev',
-    url: 'https://localhost:3001',
+    url: 'http://localhost:3001',
     reuseExistingServer: !process.env.CI,
     timeout: 30_000,
-    ignoreHTTPSErrors: true,
   },
 })

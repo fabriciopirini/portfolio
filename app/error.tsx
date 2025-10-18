@@ -15,7 +15,7 @@ const Error = ({ error, reset }: { error: Error & { digest?: string }; reset: ()
     <div className="mb-3 flex size-full grow flex-col items-center px-4 md:mb-10 md:px-10 2xl:px-20">
       <div className="m-auto flex h-full grow flex-col items-center justify-center gap-10 text-center">
         <h2 className="font-leagueSpartan text-xl font-medium lg:text-4xl">Glitch in the Matrix</h2>
-        <p className="max-w-lg text-pretty text-lg font-normal lg:text-xl">
+        <p className="max-w-lg text-lg font-normal lg:text-xl">
           Our website&apos;s conveyor belt seems to have hit a snag. While we reboot the system, why not try refreshing,
           or head back to the safety of the homepage?
         </p>

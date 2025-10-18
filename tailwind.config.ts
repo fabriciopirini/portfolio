@@ -1,4 +1,3 @@
-import tailwindTypography from '@tailwindcss/typography'
 import tailwindContainerQueries from '@tailwindcss/container-queries'
 import type { Config } from 'tailwindcss'
 import tailwindAnimate from '@anuragroy/tailwindcss-animate'
@@ -21,7 +20,7 @@ const addVariablesForColors = ({ addBase, theme }: any) => {
 
 export const config = {
   darkMode: ['class'],
-  content: ['./components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}', './content/**/*.mdx'],
+  content: ['./components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}'],
   future: { hoverOnlyWhenSupported: true },
   theme: {
     container: {
@@ -174,7 +173,6 @@ export const config = {
     tailwindContainerQueries,
     tailwindDebugScreens,
     tailwindAnimate,
-    tailwindTypography,
     addVariablesForColors,
     tailwindTouch(),
     plugin(({ matchUtilities, theme }) => {

@@ -27,14 +27,6 @@ export const BackgroundBeams = ({ className, isMobile = false }: { className?: s
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d={beamPaths.join(' ')}
-          stroke={`url(#paint-radial-${isMobile ? 'mobile' : 'desktop'})`}
-          strokeOpacity="0.05"
-          strokeWidth="var(--bg-animation-stroke-width)"
-          transform={`scale(1, ${Y_SCALE})`}
-        />
-
         {beamPaths.map((path, index) => (
           <motion.path
             key={`${index}-${isMobile ? 'mobile' : 'desktop'}`}
@@ -54,6 +46,12 @@ export const BackgroundBeams = ({ className, isMobile = false }: { className?: s
               y1="100%"
               y2="100%"
               key={`gradient-${index}-${isMobile ? 'mobile' : 'desktop'}`}
+              initial={{
+                x1: '0%',
+                x2: '0%',
+                y1: '0%',
+                y2: '0%',
+              }}
               animate={{
                 x1: ['0%', '100%'],
                 x2: ['0%', '95%'],

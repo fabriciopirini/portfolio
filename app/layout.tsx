@@ -73,11 +73,17 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       style={{ scrollbarGutter: 'stable' }}
       suppressHydrationWarning
     >
+      {/* <head>
+        <script src="https://unpkg.com/react-scan/dist/auto.global.js" defer />
+      </head> */}
       <CSPostHogProvider>
         <body
-          className={cn('relative mx-auto flex min-h-dvh w-full flex-col justify-between pb-4 antialiased lg:pb-8', {
-            'debug-screens': process.env.VERCEL_ENV !== 'production',
-          })}
+          className={cn(
+            'relative mx-auto flex min-h-dvh w-full flex-col justify-between text-pretty pb-4 antialiased lg:pb-8',
+            {
+              'debug-screens': process.env.VERCEL_ENV !== 'production',
+            }
+          )}
         >
           <AppStoreProvider>
             <NavBar />

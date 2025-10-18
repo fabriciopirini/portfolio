@@ -74,7 +74,7 @@ export const InteractionButtonDesktop = ({
             <DialogTitle className="pb-8 text-center font-leagueSpartan text-5xl font-normal text-secondary">
               Interested?
             </DialogTitle>
-            <DialogDescription className="flex flex-col text-pretty text-center text-2xl text-black">
+            <DialogDescription className="flex flex-col text-center text-2xl text-black">
               <span>You seemed interested on the values I can bring to your project. Let&apos;s have a chat!</span>
             </DialogDescription>
           </DialogHeader>
@@ -122,7 +122,7 @@ export const InteractionButtonMobile = ({
                 />
               </div>
               <DrawerTitle>Interested?</DrawerTitle>
-              <DrawerDescription className="flex flex-col gap-1 text-pretty">
+              <DrawerDescription className="flex flex-col gap-1">
                 <span>You seemed interested on the values I can bring to your project. Let&apos;s have a chat!</span>
               </DrawerDescription>
             </DrawerHeader>

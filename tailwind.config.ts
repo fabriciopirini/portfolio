@@ -40,6 +40,8 @@ export const config = {
         inter: ['var(--font-inter)'],
         leagueSpartan: ['var(--font-league-spartan)'],
         poppins: ['var(--font-poppins)'],
+        roboto: ['var(--font-roboto)'],
+        'source-sans-3': ['var(--font-source-sans-3)'],
       },
       textColor: {
         primary: {

@@ -1,0 +1,28 @@
+@media print {
+  .printFooter {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 2cm;
+    right: 2cm;
+    justify-content: space-between;
+    font-size: 9pt;
+    color: #6b7280;
+  }
+}
+
+.resumeContainer {
+  font-family: var(--font-source-sans-3), 'Source Sans 3', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.resumeContainer :global(h1),
+.resumeContainer :global(h2),
+.resumeContainer :global(h3) {
+  font-family: var(--font-roboto), 'Roboto', sans-serif;
+}
+
+.smallCaps {
+  font-variant-caps: small-caps;
+}

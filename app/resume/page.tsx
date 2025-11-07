@@ -1,5 +1,5 @@
-import Script from 'next/script'
 import { Github, Globe, Linkedin, Mail } from 'lucide-react'
+import Script from 'next/script'
 
 import styles from './resume.module.css'
 
@@ -28,12 +28,12 @@ export default function ResumePage() {
             href="mailto:fabricio@fabriciopirini.com"
             className="flex items-center gap-1 text-gray-700 hover:text-blue-600"
           >
-            <Mail className="h-3 w-3" />
+            <Mail className="size-3" />
             fabricio@fabriciopirini.com
           </a>
           <span>|</span>
           <a href="https://fabriciopirini.com" className="flex items-center gap-1 text-gray-700 hover:text-blue-600">
-            <Globe className="h-3 w-3" />
+            <Globe className="size-3" />
             fabriciopirini.com
           </a>
           <span>|</span>
@@ -41,7 +41,7 @@ export default function ResumePage() {
             href="https://linkedin.com/in/fabriciopirini"
             className="flex items-center gap-1 text-gray-700 hover:text-blue-600"
           >
-            <Linkedin className="h-3 w-3" />
+            <Linkedin className="size-3" />
             fabriciopirini
           </a>
           <span>|</span>
@@ -49,7 +49,7 @@ export default function ResumePage() {
             href="https://github.com/fabriciopirini"
             className="flex items-center gap-1 text-gray-700 hover:text-blue-600"
           >
-            <Github className="h-3 w-3" />
+            <Github className="size-3" />
             fabriciopirini
           </a>
         </div>
@@ -168,8 +168,8 @@ export default function ResumePage() {
             </div>
             <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-gray-700">
               <li>
-                Built experimentation culture around "fast-fail, learn effectively" to drive retention and product
-                improvements
+                Built experimentation culture around &quot;fast-fail, learn effectively&quot; to drive retention and
+                product improvements
               </li>
               <li>
                 Removed hard-coded configurations to unlock codebase flexibility, enabled expansion into new markets

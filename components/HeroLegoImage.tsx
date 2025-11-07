@@ -1,7 +1,7 @@
 'use client'
 
-import Image from 'next/image'
 import { CheckCircle2Icon, MapPinIcon, RocketIcon } from 'lucide-react'
+import Image from 'next/image'
 
 import { ImageBubble } from '@/components/ImageBubble'
 import ProfilePic from '@/public/assets/lego_me.png'

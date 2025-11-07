@@ -6,3 +6,5 @@ next.config.js
 
 *.js
 *.ts
+
+.eslintrc

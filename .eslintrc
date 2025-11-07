@@ -86,7 +86,13 @@
       },
     },
     {
-      "files": ["app/**/page.tsx", "app/**/layout.tsx", "app/**/opengraph-image.tsx"],
+      "files": [
+        "app/**/page.tsx",
+        "app/**/layout.tsx",
+        "app/**/opengraph-image.tsx",
+        "app/**/error.tsx",
+        "app/**/not-found.tsx",
+      ],
       "rules": { "import/no-default-export": "off" },
     },
   ],

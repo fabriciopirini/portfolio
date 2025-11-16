@@ -23,7 +23,7 @@ export const Footer = () => {
           <div className="flex justify-center gap-3 lg:gap-4">
             <a
               target="_blank"
-              rel="noreferrer"
+              rel="noopener"
               data-atrr="github-footer"
               href={mailTo}
               aria-label="Checkout my Github profile"
@@ -35,7 +35,7 @@ export const Footer = () => {
             </a>
             <a
               target="_blank"
-              rel="noreferrer"
+              rel="noopener"
               data-atrr="linkedin-footer"
               href="https://www.linkedin.com/in/fabriciopirini/"
               aria-label="Checkout my LinkedIn profile"
@@ -47,7 +47,7 @@ export const Footer = () => {
             </a>
             <a
               target="_blank"
-              rel="noreferrer"
+              rel="noopener"
               data-atrr="github-footer"
               href="https://github.com/fabriciopirini"
               aria-label="Checkout my Github profile"

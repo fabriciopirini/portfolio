@@ -100,7 +100,8 @@ const CTAButtons = () => {
             <motion.a
               href="https://www.linkedin.com/in/fabriciopirini/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener"
+              aria-label="Checkout my LinkedIn profile"
               className="flex flex-col items-center justify-center gap-2"
               variants={FADE_RIGHT_ANIMATION_VARIANTS}
               onClick={() => posthog?.capture('contact_me_linkedin')}

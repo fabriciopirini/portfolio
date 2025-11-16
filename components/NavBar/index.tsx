@@ -149,7 +149,7 @@ const HamburguerMenu = () => {
           <DropdownMenuSeparator className="mx-5" />
           <a
             target="_blank"
-            rel="noreferrer"
+            rel="noopener"
             data-atrr="linkedin-hamburguer"
             href="https://www.linkedin.com/in/fabriciopirini/"
             aria-label="Checkout my LinkedIn profile"
@@ -160,10 +160,10 @@ const HamburguerMenu = () => {
           <DropdownMenuSeparator className="mx-5" />
           <a
             target="_blank"
-            rel="noreferrer"
+            rel="noopener"
+            aria-label="Checkout my Github profile"
             data-atrr="github-hamburguer"
             href="https://github.com/fabriciopirini"
-            aria-label="Checkout my Github profile"
             onClick={() => posthog?.capture('contact_me_github_hamburguer')}
           >
             <DropdownMenuItem className="px-5 py-2">Github</DropdownMenuItem>
@@ -262,7 +262,7 @@ const MediaLinks = () => {
     <>
       <a
         target="_blank"
-        rel="noreferrer"
+        rel="noopener"
         data-atrr="linkedin-navbar"
         href="https://www.linkedin.com/in/fabriciopirini/"
         aria-label="Checkout my LinkedIn profile"
@@ -274,7 +274,7 @@ const MediaLinks = () => {
       </a>
       <a
         target="_blank"
-        rel="noreferrer"
+        rel="noopener"
         data-atrr="github-navbar"
         href="https://github.com/fabriciopirini"
         aria-label="Checkout my Github profile"

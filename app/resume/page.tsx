@@ -36,13 +36,22 @@ export default function ResumePage() {
             fabricio@fabriciopirini.com
           </a>
           <span>|</span>
-          <a href="https://fabriciopirini.com" className="flex items-center gap-1 text-gray-700 hover:text-blue-600">
+          <a
+            href="https://fabriciopirini.com"
+            target="_blank"
+            rel="noopener"
+            aria-label="Checkout my website"
+            className="flex items-center gap-1 text-gray-700 hover:text-blue-600"
+          >
             <Globe className="size-3" />
             fabriciopirini.com
           </a>
           <span>|</span>
           <a
             href="https://linkedin.com/in/fabriciopirini"
+            target="_blank"
+            rel="noopener"
+            aria-label="Checkout my LinkedIn profile"
             className="flex items-center gap-1 text-gray-700 hover:text-blue-600"
           >
             <Linkedin className="size-3" />
@@ -51,6 +60,9 @@ export default function ResumePage() {
           <span>|</span>
           <a
             href="https://github.com/fabriciopirini"
+            target="_blank"
+            rel="noopener"
+            aria-label="Checkout my Github profile"
             className="flex items-center gap-1 text-gray-700 hover:text-blue-600"
           >
             <Github className="size-3" />

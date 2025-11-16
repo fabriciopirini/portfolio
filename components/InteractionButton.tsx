@@ -152,7 +152,7 @@ const InteractionInfoContent = () => (
         <a
           href={gmailLink}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener"
           type="submit"
           className="flex items-center gap-3 text-base font-normal lg:text-2xl"
         >
@@ -163,7 +163,7 @@ const InteractionInfoContent = () => (
         <a
           href={outlookLink}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener"
           type="submit"
           className="flex items-center gap-3 text-base font-normal lg:text-2xl"
         >

@@ -1,5 +1,6 @@
 import { createStore } from 'zustand/vanilla'
 import { persist, createJSONStorage } from 'zustand/middleware'
+import { uniq } from 'lodash-es'
 import { PRODUCTS } from '@/app/services'
 
 export const MAX_COINS = 9999
@@ -52,7 +53,7 @@ export const createAppStore = (initState: AppState = defaultInitState) => {
             }
 
             return {
-              cartItems: [...new Set([...state.cartItems, product])],
+              cartItems: uniq([...state.cartItems, product]),
               coins: Math.max(0, state.coins - productPrice), // Ensure coins do not go negative
             }
           }),

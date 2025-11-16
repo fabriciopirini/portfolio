@@ -4,6 +4,7 @@ import * as React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-react'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { times } from 'lodash-es'
 
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -272,7 +273,7 @@ const CarouselDots = React.forwardRef<HTMLDivElement, CarouselDotsProps>(
 
     return (
       <div ref={ref} role="tablist" className={cn('my-2 flex justify-center', className)} {...props}>
-        {Array.from({ length }).map((_, index) => (
+        {times(length, (index) => (
           <button
             key={index}
             role="tab"

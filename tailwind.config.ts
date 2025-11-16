@@ -5,13 +5,14 @@ import tailwindDebugScreens from 'tailwindcss-debug-screens'
 import tailwindTouch from 'tailwindcss-touch'
 import plugin from 'tailwindcss/plugin'
 import defaultTheme from 'tailwindcss/defaultTheme'
+import { mapKeys } from 'lodash-es'
 
 import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette'
 
 const addVariablesForColors = ({ addBase, theme }: any) => {
   const allColors = flattenColorPalette(theme('colors'))
   // Adds '--' to all color names and sets them as CSS variables
-  const newVars = Object.fromEntries(Object.entries(allColors).map(([key, val]) => [`--${key}`, val]))
+  const newVars = mapKeys(allColors, (val, key) => `--${key}`)
 
   addBase({
     ':root': newVars,

@@ -1,6 +1,7 @@
 'use client'
 
 import Atropos from 'atropos/react'
+import { chunk } from 'lodash-es'
 
 import {
   AzureLogo,
@@ -29,7 +30,7 @@ export const Technology = () => (
       </h2>
       <Carousel className="mx-auto w-full lg:hidden">
         <CarouselContent className="text-left">
-          {splitArrayIntoChunks(skills, 4).map((skillChunk, index) => (
+          {chunk(skills, 4).map((skillChunk, index) => (
             <CarouselItem key={index} className="mx-auto flex flex-row flex-wrap items-center justify-center gap-3">
               {skillChunk.map((skill) => (
                 <div key={skill.name} className="aspect-square h-auto w-5/12">
@@ -75,16 +76,6 @@ export const Technology = () => (
     </section>
   </>
 )
-
-const splitArrayIntoChunks = (arr: readonly any[], chunkSize: number) => {
-  const chunkedArray: any[] = []
-
-  for (let i = 0; i < arr.length; i += chunkSize) {
-    chunkedArray.push(arr.slice(i, i + chunkSize))
-  }
-
-  return chunkedArray
-}
 
 const LogoStyles = 'h-16 w-16 min-h-16 min-w-16 md:h-24 md:w-24 md:min-h-24 md:min-w-24 rounded'
 

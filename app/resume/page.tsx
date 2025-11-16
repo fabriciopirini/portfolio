@@ -9,7 +9,7 @@ export default function ResumePage() {
     <div
       className={cn(
         styles.resumeContainer,
-        'm-4 flex max-w-full flex-col gap-6 text-pretty border-2 border-white bg-gray-100 p-4 font-source-sans-3 text-base text-gray-700 md:mx-auto md:max-w-[210mm] md:p-16 print:bg-white print:text-black print:shadow-none'
+        'm-4 flex max-w-full flex-col gap-6 text-pretty border-2 border-white bg-gray-100 px-4 py-10 font-source-sans-3 text-base text-gray-700 md:mx-auto md:max-w-[210mm] md:p-16 print:bg-white print:text-black print:shadow-none'
       )}
       style={{
         boxShadow: '-8px 8px 5px rgba(0, 0, 0, 0.4)',
@@ -17,7 +17,7 @@ export default function ResumePage() {
     >
       {/* Header */}
       <div className="flex flex-col items-center justify-center">
-        <h1 className="text-center font-roboto text-[40px] font-bold leading-none text-gray-900">
+        <h1 className="text-center font-roboto text-3xl font-bold leading-none text-gray-900 md:text-[40px]">
           Fabricio Tramontano Pirini
         </h1>
         <p

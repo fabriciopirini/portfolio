@@ -34,7 +34,7 @@ export default function ResumeLayout({ children }: { children: React.ReactNode }
           --color-accent: #0395de;
         }
         body {
-          background-color: #f3f4f6 !important;
+          background-color: #cbd1d7 !important;
         }
         nav, footer {
           display: none !important;

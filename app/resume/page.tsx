@@ -2,18 +2,22 @@ import { Github, Globe, Linkedin, Mail } from 'lucide-react'
 import Script from 'next/script'
 
 import styles from './resume.module.css'
+import { cn } from '@/lib/utils'
 
 export default function ResumePage() {
   return (
     <div
-      className={`${styles.resumeContainer} font-source-sans-3 mx-auto my-4 flex w-[210mm] max-w-[210mm] flex-col gap-6 text-pretty bg-gray-100 p-16 text-base text-gray-700 print:bg-white print:text-black print:shadow-none`}
+      className={cn(
+        styles.resumeContainer,
+        'm-4 flex max-w-full flex-col gap-6 text-pretty border-2 border-white bg-gray-100 p-4 font-source-sans-3 text-base text-gray-700 md:mx-auto md:max-w-[210mm] md:p-16 print:bg-white print:text-black print:shadow-none'
+      )}
       style={{
-        boxShadow: '0 0 20px rgba(0, 0, 0, 0.15)',
+        boxShadow: '-8px 8px 5px rgba(0, 0, 0, 0.4)',
       }}
     >
       {/* Header */}
       <div className="flex flex-col items-center justify-center">
-        <h1 className="font-roboto text-center text-[40px] font-bold leading-none text-gray-900">
+        <h1 className="text-center font-roboto text-[40px] font-bold leading-none text-gray-900">
           Fabricio Tramontano Pirini
         </h1>
         <p
@@ -67,7 +71,7 @@ export default function ResumePage() {
 
       {/* Technical Skills */}
       <div>
-        <h2 className="font-roboto mb-2 text-xl font-extrabold text-gray-900">
+        <h2 className="mb-2 font-roboto text-xl font-extrabold text-gray-900">
           <span style={{ color: 'var(--color-accent)' }}>Tec</span>hnical Skills
         </h2>
         <div className="space-y-1 text-sm text-gray-700">
@@ -84,7 +88,7 @@ export default function ResumePage() {
 
       {/* Professional Experience */}
       <section className="[&_li::marker]:text-[0.7em]">
-        <h2 className="font-roboto mb-3 text-xl font-extrabold text-gray-900">
+        <h2 className="mb-3 font-roboto text-xl font-extrabold text-gray-900">
           <span style={{ color: 'var(--color-accent)' }}>Prof</span>essional Experience
         </h2>
         <div className="space-y-4">
@@ -203,7 +207,7 @@ export default function ResumePage() {
 
       {/* Education */}
       <div>
-        <h2 className="font-roboto mb-3 text-xl font-black text-gray-900">
+        <h2 className="mb-3 font-roboto text-xl font-black text-gray-900">
           <span style={{ color: 'var(--color-accent)' }}>Edu</span>cation
         </h2>
         <div className="space-y-3 text-sm text-gray-700">

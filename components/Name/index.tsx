@@ -32,7 +32,7 @@ export const NameBanner = () => {
       >
         <div className="flex flex-row-reverse items-end justify-end md:flex-col md:items-start">
           <Image
-            src="/assets/waving-hand.png"
+            src="/assets/yellow-waving-hand.svg"
             alt="Fabricio Pirini"
             width={138}
             height={133}

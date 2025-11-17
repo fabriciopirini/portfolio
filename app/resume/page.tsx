@@ -1,10 +1,15 @@
+import { cacheLife } from 'next/cache'
 import { Github, Globe, Linkedin, Mail } from 'lucide-react'
 import Script from 'next/script'
 
 import styles from './resume.module.css'
-import { cn } from '@/lib/utils'
+import { getCachedYearsOfExperience, cn } from '@/lib/utils'
 
-export default function ResumePage() {
+export default async function ResumePage() {
+  'use cache'
+  cacheLife('days')
+
+  const yearsOfExperience = await getCachedYearsOfExperience()
   return (
     <div
       className={cn(
@@ -74,7 +79,7 @@ export default function ResumePage() {
       {/* Summary */}
       <div className="text-sm leading-relaxed text-gray-700">
         <p>
-          Senior Software Engineer with 9+ years of experience specializing in React, TypeScript, and modern web
+          Senior Software Engineer with {yearsOfExperience}+ years of experience specializing in React, TypeScript, and modern web
           technologies. Proven track record in developing scalable web applications, optimizing user interfaces, and
           leading engineering teams in startup environments. Passionate about creating intuitive and delightful user
           experiences, with a keen eye for UI/UX and expertise in responsive design and data visualization.

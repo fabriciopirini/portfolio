@@ -1,3 +1,4 @@
+import { cacheLife } from 'next/cache'
 import type { Metadata } from 'next'
 import type { Person, WithContext } from 'schema-dts'
 
@@ -28,7 +29,11 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://fabriciopirini.com/' },
 }
 
-const Home = () => (
+export default async function Home() {
+  'use cache'
+  cacheLife('days')
+
+  return (
   <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     <div className="mb-3 flex flex-col items-center px-3 md:mb-10 md:px-10 2xl:px-20">
@@ -39,5 +44,3 @@ const Home = () => (
     </div>
   </>
 )
-
-export default Home

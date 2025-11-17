@@ -7,7 +7,7 @@ import { Footer } from '@/components/Footer'
 import { NavBar } from '@/components/NavBar'
 import { CSPostHogProvider } from '@/components/Providers'
 import { SideMe } from '@/components/SideMe'
-import { cn } from '@/lib/utils'
+import { getCachedYearsOfExperience, cn } from '@/lib/utils'
 import { AppStoreProvider } from '@/providers/app-store-provider'
 import Thumbnail from '@/public/assets/thumbnail.png'
 
@@ -17,47 +17,49 @@ const leagueSpartan = League_Spartan({ subsets: ['latin'], variable: '--font-lea
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const poppins = Poppins({ subsets: ['latin'], weight: ['400'], variable: '--font-poppins' })
 
-export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_VERCEL_URL ?? 'https://fabriciopirini.com'),
-  title: 'Fabricio Pirini - Senior Web Fullstack Engineer',
-  description:
-    'Meet Fabricio Pirini, a seasoned Senior Web Fullstack Engineer with over 6 years of experience specializing in the Frontend with React, Next.js, and Typescript.',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: process.env.NEXT_PUBLIC_VERCEL_URL,
+export async function generateMetadata(): Promise<Metadata> {
+  const yearsOfExperience = await getCachedYearsOfExperience()
+
+  return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_VERCEL_URL ?? 'https://fabriciopirini.com'),
     title: 'Fabricio Pirini - Senior Web Fullstack Engineer',
-    description:
-      'Meet Fabricio Pirini, a seasoned Senior Web Fullstack Engineer with over 6 years of experience specializing in the Frontend with React, Next.js, and Typescript.',
-    siteName: 'Fabricio Pirini',
-    images: [
+    description: `Meet Fabricio Pirini, a seasoned Senior Web Fullstack Engineer with over ${yearsOfExperience} years of experience specializing in the Frontend with React, Next.js, and Typescript.`,
+    openGraph: {
+      type: 'website',
+      locale: 'en_US',
+      url: process.env.NEXT_PUBLIC_VERCEL_URL,
+      title: 'Fabricio Pirini - Senior Web Fullstack Engineer',
+      description: `Meet Fabricio Pirini, a seasoned Senior Web Fullstack Engineer with over ${yearsOfExperience} years of experience specializing in the Frontend with React, Next.js, and Typescript.`,
+      siteName: 'Fabricio Pirini',
+      images: [
+        {
+          url: Thumbnail.src,
+          width: 1200,
+          height: 630,
+          alt: 'Thumbnail of Fabricio Pirini website',
+        },
+      ],
+    },
+    icons: [
       {
-        url: Thumbnail.src,
-        width: 1200,
-        height: 630,
-        alt: 'Thumbnail of Fabricio Pirini website',
+        href: '/favicon.ico',
+        sizes: '32x32',
+        type: 'image/png',
+        url: '/favicon.ico',
       },
     ],
-  },
-  icons: [
-    {
-      href: '/favicon.ico',
-      sizes: '32x32',
-      type: 'image/png',
-      url: '/favicon.ico',
-    },
-  ],
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+    robots: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
-  },
+  }
 }
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {

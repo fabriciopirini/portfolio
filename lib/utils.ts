@@ -2,6 +2,7 @@ import { PRODUCTS } from '@/app/services'
 import { MAX_COINS } from '@/stores/app-store'
 import type { ClassValue } from 'clsx'
 import { clsx } from 'clsx'
+import { cacheLife } from 'next/cache'
 import type { ReadonlyURLSearchParams } from 'next/navigation'
 import { twMerge } from 'tailwind-merge'
 
@@ -37,4 +38,19 @@ export const calculateCoinsToAdd = (currentBalance: number): number => {
   }
 
   return actualIncrement
+}
+
+export const calculateYearsOfExperience = (startDate: string | Date = '2017-09-01'): number => {
+  const date1 = typeof startDate === 'string' ? new Date(startDate) : startDate
+  const date2 = new Date()
+
+  const diffTime = Math.abs(date2.valueOf() - date1.valueOf())
+  return Math.ceil(diffTime / (1000 * 60 * 60 * 24 * 365))
+}
+
+export async function getCachedYearsOfExperience() {
+  'use cache'
+  cacheLife('days')
+
+  return calculateYearsOfExperience()
 }

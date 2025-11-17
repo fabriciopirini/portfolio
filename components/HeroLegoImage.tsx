@@ -4,14 +4,11 @@ import { CheckCircle2Icon, MapPinIcon, RocketIcon } from 'lucide-react'
 import Image from 'next/image'
 
 import { ImageBubble } from '@/components/ImageBubble'
+import { calculateYearsOfExperience } from '@/lib/utils'
 import ProfilePic from '@/public/assets/lego_me.png'
 
 export const HeroLegoImage = () => {
-  const date1 = new Date('2017-09-01')
-  const date2 = new Date()
-
-  const diffTime = Math.abs(date2.valueOf() - date1.valueOf())
-  const diffYears = Math.ceil(diffTime / (1000 * 60 * 60 * 24 * 365))
+  const diffYears = calculateYearsOfExperience()
 
   return (
     <div>

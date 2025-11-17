@@ -97,7 +97,7 @@ export const SideMe = () => {
         })}
       >
         <div className="relative will-change-transform">
-          <div className="relative z-[2] mr-5 min-h-20 w-auto rounded bg-white p-5 text-primary drop-shadow max-sm:max-w-[250px] sm:w-[350px] sm:px-8 sm:py-6">
+          <div className="relative z-[2] mr-5 min-h-20 w-auto rounded-xl bg-white p-5 text-primary drop-shadow max-sm:max-w-[250px] sm:w-[350px] sm:px-8 sm:py-6">
             <div className="pointer-events-none absolute left-px top-[-10px] -translate-x-full">
               <svg width="65" height="78" viewBox="0 0 95 95" fill="none" preserveAspectRatio="none">
                 <path

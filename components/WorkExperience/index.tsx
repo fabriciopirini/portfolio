@@ -26,7 +26,7 @@ export const WorkExperience = () => {
               className="pointer-events-none absolute top-0 -ml-6 -mt-1 size-14 text-primary-background"
             />
             <div className="mt-1 border-l-[7px] border-dotted border-accent/50 pb-10 pl-12">
-              <div className="size-full space-y-5 rounded border border-white bg-[#1E1E1E] p-7">
+              <div className="size-full space-y-5 rounded-xl border border-white bg-[#1E1E1E] p-7">
                 <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">Scaling data collection</p>
                 <div className="space-y-5 text-primary/70 lg:text-2xl">
                   <p>
@@ -47,7 +47,7 @@ export const WorkExperience = () => {
               className="pointer-events-none absolute top-0 -ml-6 -mt-1 size-14 text-primary-background"
             />
             <div className="mt-1 pb-10 pl-12">
-              <div className="size-full space-y-5 rounded border border-white bg-[#1E1E1E] p-7">
+              <div className="size-full space-y-5 rounded-xl border border-white bg-[#1E1E1E] p-7">
                 <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">Scaling the platform</p>
                 <div className="space-y-5 text-primary/70 lg:text-2xl">
                   <p>
@@ -79,7 +79,7 @@ export const WorkExperience = () => {
               className="pointer-events-none absolute top-0 -ml-6 -mt-1 size-14 text-primary-background"
             />
             <div className="mt-1 border-l-[7px] border-dotted border-accent/50 pb-10 pl-12">
-              <div className="size-full space-y-5 rounded border border-white bg-[#1E1E1E] p-7">
+              <div className="size-full space-y-5 rounded-xl border border-white bg-[#1E1E1E] p-7">
                 <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">
                   Frontend performance & design systems
                 </p>
@@ -99,7 +99,7 @@ export const WorkExperience = () => {
               className="pointer-events-none absolute top-0 -ml-6 -mt-1 size-14 text-primary-background"
             />
             <div className="mt-1 pb-10 pl-12">
-              <div className="size-full space-y-5 rounded border border-white bg-[#1E1E1E] p-7">
+              <div className="size-full space-y-5 rounded-xl border border-white bg-[#1E1E1E] p-7">
                 <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">Setting technical direction</p>
                 <div className="space-y-5 text-primary/70 lg:text-2xl">
                   <p>
@@ -126,7 +126,7 @@ export const WorkExperience = () => {
             className="pointer-events-none absolute top-0 -ml-6 -mt-1 size-14 text-primary-background"
           />
           <div className="mt-1 border-l-[7px] border-dotted border-accent/50 pb-10 pl-12">
-            <div className="size-full space-y-5 rounded border border-white bg-[#1E1E1E] p-7">
+            <div className="size-full space-y-5 rounded-xl border border-white bg-[#1E1E1E] p-7">
               <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">Automation systems that save money</p>
               <div className="space-y-5 text-primary/70 lg:text-2xl">
                 <p>

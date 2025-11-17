@@ -59,7 +59,7 @@ export const InteractionButtonDesktop = ({
             {label}
           </Button>
         </DialogTrigger>
-        <DialogContent className="flex flex-col gap-12 bg-white p-10 pt-14 text-secondary">
+        <DialogContent className="flex max-h-[calc(100vh-4rem)] flex-col gap-12 overflow-y-auto bg-white p-10 pt-14 text-secondary">
           <DialogHeader className="flex flex-col items-center">
             <div className="mb-1 size-24 overflow-hidden rounded-full bg-accent ring-4 ring-accent/30 ring-offset-4 ring-offset-white">
               <Image
@@ -108,7 +108,7 @@ export const InteractionButtonMobile = ({
             {label}
           </Button>
         </DrawerTrigger>
-        <DrawerContent className="inset-x-0 bottom-0 h-auto w-full rounded-t-mobile pb-5 text-secondary">
+        <DrawerContent className="inset-x-0 bottom-0 h-auto w-full rounded-t-3xl pb-5 text-secondary">
           <div className="mx-auto flex h-auto w-full max-w-sm flex-col gap-8 p-8 md:h-full md:w-auto md:max-w-md">
             <DrawerHeader className="flex w-full flex-col items-center gap-3 p-0">
               <div className="mb-5 size-24 overflow-hidden rounded-full bg-accent ring-4 ring-accent/30 ring-offset-4 ring-offset-white">

@@ -225,7 +225,7 @@ const CoinCounter = ({ className }: { className?: string }) => {
                 setAnimate(false)
               }}
               className={cn('inline-block text-right', {
-                'animate-pulse rounded bg-neutral-500 text-neutral-500': !hasStoreHydrated,
+                'animate-pulse rounded-xl bg-neutral-500 text-neutral-500': !hasStoreHydrated,
               })}
               style={{ fontFeatureSettings: "'tnum'" }}
             />

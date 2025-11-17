@@ -16,7 +16,7 @@ export const AboutMe = () => {
   return (
     <section
       id="about"
-      className="relative flex w-full flex-col gap-5 rounded bg-white py-7 text-center lg:container md:px-28 md:py-20 lg:mb-36 lg:gap-16"
+      className="relative flex w-full flex-col gap-5 rounded-xl bg-white py-7 text-center lg:container md:px-28 md:py-20 lg:mb-36 lg:gap-16"
     >
       <CornerMinus pos="top-right" />
       <CornerMinus pos="top-left" />
@@ -31,7 +31,7 @@ export const AboutMe = () => {
       >
         <CarouselContent className="text-left">
           <CarouselItem className="lg:basis-2/3 xl:basis-1/3">
-            <div className="flex h-full flex-col gap-5 rounded bg-[#373943] p-10">
+            <div className="flex h-full flex-col gap-5 rounded-xl bg-[#373943] p-10">
               <RouteIcon strokeWidth={1.5} className="pointer-events-none size-16 text-accent" />
               <h3 className="font-leagueSpartan text-3xl font-medium text-primary max-xl:select-none">Journey</h3>
               <p className="text-primary max-xl:select-none">
@@ -41,7 +41,7 @@ export const AboutMe = () => {
             </div>
           </CarouselItem>
           <CarouselItem className="lg:basis-2/3 xl:basis-1/3">
-            <div className="flex h-full flex-col gap-5 rounded bg-[#373943] p-10">
+            <div className="flex h-full flex-col gap-5 rounded-xl bg-[#373943] p-10">
               <CircleCheckBigIcon strokeWidth={1.5} className="pointer-events-none mb-4 size-12 text-accent" />
               <h3 className="font-leagueSpartan text-3xl font-medium text-primary max-xl:select-none">What matters</h3>
               <p className="text-primary max-xl:select-none">
@@ -52,7 +52,7 @@ export const AboutMe = () => {
             </div>
           </CarouselItem>
           <CarouselItem className="lg:basis-2/3 xl:basis-1/3">
-            <div className="flex h-full flex-col gap-5 rounded bg-[#373943] p-10">
+            <div className="flex h-full flex-col gap-5 rounded-xl bg-[#373943] p-10">
               <TrendingUpIcon strokeWidth={1.5} className="pointer-events-none size-16 text-accent" />
               <h3 className="font-leagueSpartan text-3xl font-medium text-primary max-xl:select-none">Right now</h3>
               <p className="text-primary max-xl:select-none">

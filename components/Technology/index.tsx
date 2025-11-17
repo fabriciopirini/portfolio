@@ -35,7 +35,7 @@ export const Technology = () => (
               {skillChunk.map((skill) => (
                 <div key={skill.name} className="aspect-square h-auto w-5/12">
                   <div
-                    className="flex size-full flex-col items-center justify-between gap-2 overflow-hidden rounded bg-skill-card p-8 drop-shadow-2xl"
+                    className="flex size-full flex-col items-center justify-between gap-2 overflow-hidden rounded-xl bg-skill-card p-8 drop-shadow-2xl"
                     data-atropos-offset="0"
                   >
                     <div className="flex h-full flex-col items-center justify-center" data-atropos-offset="15">
@@ -59,10 +59,10 @@ export const Technology = () => (
             rotateXMax={20}
             rotateYMax={20}
             rotateTouch="scroll-y"
-            className="[&_span.atropos-highlight]:bg-[radial-gradient(circle_at_50%,rgba(255,255,255,0.15)_0%,transparent_50%)] [&_span.atropos-inner]:rounded [&_span.atropos-inner]:bg-skill-card"
+            className="[&_span.atropos-highlight]:bg-[radial-gradient(circle_at_50%,rgba(255,255,255,0.15)_0%,transparent_50%)] [&_span.atropos-inner]:rounded-xl [&_span.atropos-inner]:bg-skill-card"
           >
             <div
-              className="flex h-auto w-40 flex-col items-center justify-between gap-2 overflow-hidden rounded bg-skill-card p-8 drop-shadow-2xl md:size-56 md:gap-4"
+              className="flex h-auto w-40 flex-col items-center justify-between gap-2 overflow-hidden rounded-xl bg-skill-card p-8 drop-shadow-2xl md:size-56 md:gap-4"
               data-atropos-offset="0"
             >
               <div className="flex h-full flex-col items-center justify-between" data-atropos-offset="15">

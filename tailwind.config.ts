@@ -8,6 +8,7 @@ import defaultTheme from 'tailwindcss/defaultTheme'
 import { mapKeys } from 'lodash-es'
 
 import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette'
+import cornerShapePlugin from 'tailwindcss-corner-shape'
 
 const addVariablesForColors = ({ addBase, theme }: any) => {
   const allColors = flattenColorPalette(theme('colors'))
@@ -30,11 +31,6 @@ export const config = {
       screens: {
         '2xl': '1400px',
       },
-    },
-    borderRadius: {
-      DEFAULT: defaultTheme.borderRadius.xl,
-      full: defaultTheme.borderRadius.full,
-      mobile: defaultTheme.borderRadius['3xl'],
     },
     extend: {
       fontFamily: {
@@ -173,6 +169,7 @@ export const config = {
     },
   },
   plugins: [
+  	cornerShapePlugin({ default: 'squircle' }),
     tailwindContainerQueries,
     tailwindDebugScreens,
     tailwindAnimate,

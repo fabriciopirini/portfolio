@@ -21,7 +21,7 @@ export const HeroLegoImage = () => {
         icon={
           <CheckCircle2Icon
             fill="#373943"
-            className="!z-20 size-9 rounded-full bg-accent stroke-accent p-1 md:size-[calc(30px+2*8px)] md:p-2 xl:size-[calc(40px+2*16px)] xl:p-3"
+            className="!z-20 size-9 rounded-full bg-accent stroke-accent p-1 md:size-[calc(30px+2*8px)] md:p-2 xl:size-[calc(35px+2*16px)] xl:p-3"
             aria-hidden
           />
         }
@@ -33,7 +33,7 @@ export const HeroLegoImage = () => {
         icon={
           <RocketIcon
             fill="#373943"
-            className="!z-20 size-9 rounded-full bg-accent stroke-accent p-1 md:size-[calc(30px+2*8px)] md:p-2 xl:size-[calc(40px+2*16px)] xl:p-3"
+            className="!z-20 size-9 rounded-full bg-accent stroke-accent p-1 md:size-[calc(30px+2*8px)] md:p-2 xl:size-[calc(35px+2*16px)] xl:p-3"
             aria-hidden
           />
         }
@@ -45,7 +45,7 @@ export const HeroLegoImage = () => {
         icon={
           <MapPinIcon
             fill="#373943"
-            className="!z-20 size-9 rounded-full bg-accent stroke-accent p-1 md:size-[calc(30px+2*8px)] md:p-2 xl:size-[calc(40px+2*16px)] xl:p-3"
+            className="!z-20 size-9 rounded-full bg-accent stroke-accent p-1 md:size-[calc(30px+2*8px)] md:p-2 xl:size-[calc(35px+2*16px)] xl:p-3"
             aria-hidden
           />
         }

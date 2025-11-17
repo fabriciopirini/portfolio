@@ -34,13 +34,14 @@ export default async function Home() {
   cacheLife('days')
 
   return (
-  <>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-    <div className="mb-3 flex flex-col items-center px-3 md:mb-10 md:px-10 2xl:px-20">
-      <Hero />
-      <AboutMe />
-      <Technology />
-      <WorkExperience />
-    </div>
-  </>
-)
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <div className="mb-3 flex flex-col items-center px-3 md:mb-10 md:px-10 2xl:px-20">
+        <Hero />
+        <AboutMe />
+        <Technology />
+        <WorkExperience />
+      </div>
+    </>
+  )
+}

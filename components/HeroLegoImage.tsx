@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { CheckCircle2Icon, MapPinIcon, RocketIcon } from 'lucide-react'
 import Image from 'next/image'
 
@@ -8,7 +9,11 @@ import { calculateYearsOfExperience } from '@/lib/utils'
 import ProfilePic from '@/public/assets/lego_me.png'
 
 export const HeroLegoImage = () => {
-  const diffYears = calculateYearsOfExperience()
+  const [diffYears, setDiffYears] = useState<number | null>(null)
+
+  useEffect(() => {
+    setDiffYears(calculateYearsOfExperience())
+  }, [])
 
   return (
     <div>
@@ -32,7 +37,7 @@ export const HeroLegoImage = () => {
             aria-hidden
           />
         }
-        highlightedText={`${diffYears}+ years`}
+        highlightedText={`${diffYears ?? '...'}+ years`}
         text="of experience"
         className="right-0 top-1/4"
       />

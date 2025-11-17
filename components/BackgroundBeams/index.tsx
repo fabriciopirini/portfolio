@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
 import { cn } from '@/lib/utils'
@@ -10,6 +10,18 @@ const Y_SCALE = 2
 
 export const BackgroundBeams = ({ className, isMobile = false }: { className?: string; isMobile?: boolean }) => {
   const beamPaths = isMobile ? BEAM_PATHS_MOBILE : BEAM_PATHS
+  const [randomValues, setRandomValues] = useState<Array<{ y2: number; duration: number; delay: number }>>([])
+
+  useEffect(() => {
+    // Generate random values only on client side
+    setRandomValues(
+      beamPaths.map(() => ({
+        y2: 93 + Math.random() * 8,
+        duration: Math.random() * 10 + 10,
+        delay: Math.random() * 10,
+      }))
+    )
+  }, [beamPaths])
 
   return (
     <div
@@ -38,39 +50,44 @@ export const BackgroundBeams = ({ className, isMobile = false }: { className?: s
           />
         ))}
         <defs>
-          {beamPaths.map((path, index) => (
-            <motion.linearGradient
-              id={`linearGradient-${index}`}
-              x1="100%"
-              x2="100%"
-              y1="100%"
-              y2="100%"
-              key={`gradient-${index}-${isMobile ? 'mobile' : 'desktop'}`}
-              initial={{
-                x1: '0%',
-                x2: '0%',
-                y1: '0%',
-                y2: '0%',
-              }}
-              animate={{
-                x1: ['0%', '100%'],
-                x2: ['0%', '95%'],
-                y1: ['0%', '100%'],
-                y2: ['0%', `${93 + Math.random() * 8}%`],
-              }}
-              transition={{
-                duration: Math.random() * 10 + 10,
-                ease: 'easeInOut',
-                repeat: Infinity,
-                delay: Math.random() * 10,
-              }}
-            >
-              <stop stopColor="hsl(var(--bg-animation-color-start))" stopOpacity="0" />
-              <stop stopColor="hsl(var(--bg-animation-color-start))" />
-              <stop offset="32.5%" stopColor="hsl(var(--bg-animation-color-mid))" />
-              <stop offset="100%" stopColor="hsl(var(--bg-animation-color-end))" stopOpacity="0" />
-            </motion.linearGradient>
-          ))}
+          {beamPaths.map((path, index) => {
+            const randomValue = randomValues[index]
+            if (!randomValue) return null
+
+            return (
+              <motion.linearGradient
+                id={`linearGradient-${index}`}
+                x1="100%"
+                x2="100%"
+                y1="100%"
+                y2="100%"
+                key={`gradient-${index}-${isMobile ? 'mobile' : 'desktop'}`}
+                initial={{
+                  x1: '0%',
+                  x2: '0%',
+                  y1: '0%',
+                  y2: '0%',
+                }}
+                animate={{
+                  x1: ['0%', '100%'],
+                  x2: ['0%', '95%'],
+                  y1: ['0%', '100%'],
+                  y2: ['0%', `${randomValue.y2}%`],
+                }}
+                transition={{
+                  duration: randomValue.duration,
+                  ease: 'easeInOut',
+                  repeat: Infinity,
+                  delay: randomValue.delay,
+                }}
+              >
+                <stop stopColor="hsl(var(--bg-animation-color-start))" stopOpacity="0" />
+                <stop stopColor="hsl(var(--bg-animation-color-start))" />
+                <stop offset="32.5%" stopColor="hsl(var(--bg-animation-color-mid))" />
+                <stop offset="100%" stopColor="hsl(var(--bg-animation-color-end))" stopOpacity="0" />
+              </motion.linearGradient>
+            )
+          })}
 
           <radialGradient
             id={`paint-radial-${isMobile ? 'mobile' : 'desktop'}`}

@@ -3,7 +3,8 @@ import { Github, Globe, Linkedin, Mail } from 'lucide-react'
 import Script from 'next/script'
 
 import styles from './resume.module.css'
-import { getCachedYearsOfExperience, cn } from '@/lib/utils'
+import { cn } from '@/lib/utils'
+import { getCachedYearsOfExperience } from '@/lib/server-utils'
 
 export default async function ResumePage() {
   'use cache'

@@ -10,7 +10,8 @@
     "ts": "tsc --noEmit --incremental",
     "lint": "oxlint .",
     "lint:fix": "oxlint . --fix",
-    "format": "echo 'oxfmt is not available via npm yet, skipping formatter setup'",
+    "format": "bunx oxfmt@latest . --write",
+    "format:check": "bunx oxfmt@latest . --check",
     "test": "bun test:unit && bun test:e2e",
     "test:unit": "vitest run",
     "test:e2e": "playwright test"
@@ -66,6 +67,7 @@
     "@vitest/ui": "^3.2.4",
     "happy-dom": "^20.1.0",
     "msw": "^2.12.7",
+    "oxfmt": "^0.24.0",
     "oxlint": "^1.39.0",
     "schema-dts": "^1.1.5",
     "tailwindcss-debug-screens": "^2.2.1",

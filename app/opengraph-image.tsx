@@ -20,14 +20,34 @@ export default async function Image() {
   return new ImageResponse(
     (
       <div
-        className="flex size-full flex-col items-center justify-center bg-black"
-        style={{ fontFamily: 'LeagueSpartan' }}
+        style={{
+          height: '100%',
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: 'black',
+          fontFamily: 'LeagueSpartan',
+        }}
       >
-        <div className="flex size-[160px] flex-none items-center justify-center rounded-xl border border-neutral-700">
+        <div
+          style={{
+            display: 'flex',
+            width: '160px',
+            height: '160px',
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderRadius: '12px',
+            border: '1px solid #404040',
+          }}
+        >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={logoBase64} alt="Logo" width="64" height="64" className="h-[45px] w-auto 2xl:h-16" />
+          <img src={logoBase64} alt="Logo" width="64" height="64" style={{ height: '45px', width: 'auto' }} />
         </div>
-        <p className="mt-12 text-6xl font-bold text-white">{process.env.SITE_NAME || 'Fabricio Pirini'}</p>
+        <p style={{ marginTop: '48px', fontSize: '60px', fontWeight: 'bold', color: 'white' }}>
+          {process.env.SITE_NAME || 'Fabricio Pirini'}
+        </p>
       </div>
     ),
     {

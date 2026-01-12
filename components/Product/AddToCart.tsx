@@ -20,39 +20,35 @@ export const AddToCart = ({ productId }: { productId: string }) => {
     return null
   }
 
-  if (isProductInCart) {
-    return (
-      <button
-        onClick={() => removeProduct(productId)}
-        className={cn(CART_BUTTON_BASE_STYLE, 'relative flex items-center justify-center bg-green-500 text-primary')}
-      >
-        <CartIconFilled className="pointer-events-none size-5 lg:size-7" />
-        <div className="absolute bottom-2 border border-white right-2 z-10 flex size-[15px] items-center justify-center rounded-full bg-green-700">
+  const button = (
+    <button
+      onClick={() => (isProductInCart ? removeProduct(productId) : addProduct(productId))}
+      aria-disabled={!isProductInCart && product.price > coins}
+      disabled={!isProductInCart && product.price > coins}
+      className={cn(
+        CART_BUTTON_BASE_STYLE,
+        isProductInCart
+          ? 'relative flex items-center justify-center bg-green-500 text-primary'
+          : 'bg-accent disabled:bg-neutral-300 disabled:text-neutral-500 disabled:hover:scale-100'
+      )}
+    >
+      <CartIconFilled fill={isProductInCart ? undefined : '#373943'} className="pointer-events-none size-5 lg:size-7" />
+      {isProductInCart && (
+        <div className="absolute bottom-2 right-2 z-10 flex size-[15px] items-center justify-center rounded-full border border-white bg-green-700">
           <CheckIcon className="pointer-events-none size-3" />
         </div>
-        <span className="sr-only">Remove from cart</span>
-      </button>
-    )
-  }
+      )}
+      <span className="sr-only">{isProductInCart ? 'Remove from cart' : 'Add to cart'}</span>
+    </button>
+  )
 
   return (
     <TooltipProvider delayDuration={200}>
       <Tooltip>
-        <TooltipTrigger asChild>
-          <button
-            onClick={() => addProduct(productId)}
-            aria-disabled={product.price > coins}
-            disabled={product.price > coins}
-            className={cn(
-              CART_BUTTON_BASE_STYLE,
-              'bg-accent disabled:bg-neutral-300 disabled:text-neutral-500 disabled:hover:scale-100'
-            )}
-          >
-            <CartIconFilled fill="#373943" className="pointer-events-none size-5 lg:size-7" />
-            <span className="sr-only">Add to cart</span>
-          </button>
+        <TooltipTrigger asChild disabled={isProductInCart}>
+          {button}
         </TooltipTrigger>
-        <TooltipContent className="rounded" hidden={product.price <= coins}>
+        <TooltipContent className="rounded" hidden={isProductInCart || product.price <= coins}>
           <p>Not enough coins</p>
         </TooltipContent>
       </Tooltip>

@@ -5,6 +5,7 @@ import { Inter, League_Spartan, Poppins } from 'next/font/google'
 
 import { Footer } from '@/components/Footer'
 import { NavBar } from '@/components/NavBar'
+import { PageTransition } from '@/components/PageTransition'
 import { CSPostHogProvider } from '@/components/Providers'
 import { SideMe } from '@/components/SideMe'
 import { cn } from '@/lib/utils'
@@ -90,7 +91,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         >
           <AppStoreProvider>
             <NavBar />
-            <main className="flex grow flex-col">{children}</main>
+            <main className="flex grow flex-col">
+              <PageTransition>{children}</PageTransition>
+            </main>
             <Footer />
             <SideMe />
           </AppStoreProvider>

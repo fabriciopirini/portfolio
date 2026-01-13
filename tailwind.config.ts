@@ -169,7 +169,7 @@ export const config = {
     },
   },
   plugins: [
-  	cornerShapePlugin({ default: 'squircle' }),
+    cornerShapePlugin({ default: 'squircle' }),
     tailwindContainerQueries,
     tailwindDebugScreens,
     tailwindAnimate,

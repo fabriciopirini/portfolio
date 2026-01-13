@@ -65,7 +65,10 @@ export const createAppStore = (initState: AppState = defaultInitState) => {
               return state
             }
 
-            return { cartItems: state.cartItems.filter((p) => p !== product), coins: state.coins + productPrice }
+            return {
+              cartItems: state.cartItems.filter((p) => p !== product),
+              coins: state.coins + productPrice,
+            }
           }),
         hideSideBubble: () => set({ shouldShowSideBubble: false }),
         setCoins: (amount) => set({ coins: amount }),

@@ -37,7 +37,7 @@ it('handles error scenarios', async () => {
       return HttpResponse.error()
     })
   )
-  
+
   const response = await GET(createMockRequest())
   expect(response.status).toBe(500)
 })
@@ -48,4 +48,3 @@ it('handles error scenarios', async () => {
 - [MSW Documentation](https://mswjs.io/)
 - [MSW with Vitest](https://mswjs.io/docs/integrations/node)
 - [Next.js Testing Docs](https://nextjs.org/docs/app/building-your-application/testing/vitest)
-

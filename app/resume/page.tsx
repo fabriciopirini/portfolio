@@ -80,10 +80,11 @@ export default async function ResumePage() {
       {/* Summary */}
       <div className="text-sm leading-relaxed text-gray-700">
         <p>
-          Senior Software Engineer with {yearsOfExperience}+ years of experience specializing in React, TypeScript, and modern web
-          technologies. Proven track record in developing scalable web applications, optimizing user interfaces, and
-          leading engineering teams in startup environments. Passionate about creating intuitive and delightful user
-          experiences, with a keen eye for UI/UX and expertise in responsive design and data visualization.
+          Senior Software Engineer with {yearsOfExperience}+ years of experience specializing in React, TypeScript, and
+          modern web technologies. Proven track record in developing scalable web applications, optimizing user
+          interfaces, and leading engineering teams in startup environments. Passionate about creating intuitive and
+          delightful user experiences, with a keen eye for UI/UX and expertise in responsive design and data
+          visualization.
         </p>
       </div>
 

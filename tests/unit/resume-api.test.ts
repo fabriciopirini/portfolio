@@ -43,7 +43,7 @@ describe('Resume API', () => {
     expect(arrayBuffer.byteLength).toBeGreaterThan(0)
   })
 
-  it('handles fetch errors and returns 500 status', async () => {
+  it('handles fetch errors and returns 503 status with retry header', async () => {
     // Suppress expected console.error output
     const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
 
@@ -57,13 +57,17 @@ describe('Resume API', () => {
     const mockRequest = createMockRequest()
     const response = await GET(mockRequest)
 
-    expect(response.status).toBe(500)
-    expect(consoleErrorSpy).toHaveBeenCalled()
+    expect(response.status).toBe(503)
+    expect(response.headers.get('Retry-After')).toBe('30')
+    expect(consoleErrorSpy).toHaveBeenCalledWith(
+      expect.stringContaining('[CRITICAL]'),
+      expect.anything()
+    )
 
     consoleErrorSpy.mockRestore()
   })
 
-  it('returns error message on failure', async () => {
+  it('returns user-friendly error message with retry suggestion on failure', async () => {
     // Suppress expected console.error output
     const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
 
@@ -78,13 +82,14 @@ describe('Resume API', () => {
     const response = await GET(mockRequest)
     const text = await response.text()
 
-    expect(text).toContain('Failed to download')
+    expect(text).toContain('temporarily unavailable')
+    expect(text).toContain('try again')
     expect(consoleErrorSpy).toHaveBeenCalled()
 
     consoleErrorSpy.mockRestore()
   })
 
-  it('handles HTTP error responses', async () => {
+  it('handles HTTP error responses with GitHub instability message', async () => {
     // Suppress expected console.error output
     const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
 
@@ -98,9 +103,11 @@ describe('Resume API', () => {
     const mockRequest = createMockRequest()
     const response = await GET(mockRequest)
 
-    expect(response.status).toBe(500)
-    expect(await response.text()).toContain('Failed to download')
-    expect(consoleErrorSpy).toHaveBeenCalled()
+    expect(response.status).toBe(503)
+    expect(await response.text()).toContain('GitHub instability')
+    expect(consoleErrorSpy).toHaveBeenCalledWith(
+      expect.stringContaining('[CRITICAL]')
+    )
 
     consoleErrorSpy.mockRestore()
   })

@@ -75,7 +75,7 @@ export const Basket = () => {
           </div>
           <DrawerFooter>
             {cart.length === 0 && pathname === '/' ? (
-              <Link href="/shop">
+              <Link href="/shop" transitionTypes={['navigate-forward']}>
                 <DrawerClose className="size-full">
                   <Button className={cn('w-full max-w-[300px] text-base font-medium md:mx-auto')}>Go to shop</Button>
                 </DrawerClose>

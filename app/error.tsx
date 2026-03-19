@@ -27,7 +27,7 @@ const Error = ({ error, reset }: { error: Error & { digest?: string }; reset: ()
         >
           Try again
         </Button>
-        <Link href="/" className="rounded-full">
+        <Link href="/" transitionTypes={['navigate-back']} className="rounded-full">
           <Button variant="outline" className="text-primary">
             Return Home
           </Button>

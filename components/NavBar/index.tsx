@@ -5,7 +5,7 @@ import CountUp from 'react-countup'
 import { InfinityIcon, MenuIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { usePostHog } from 'posthog-js/react'
 
 import { Basket } from '@/components/Basket'
@@ -23,9 +23,17 @@ import FabCoingIcon from '@/public/assets/fab-coin-icon.png'
 import Logo from '@/public/assets/logo.svg'
 import { MAX_COINS } from '@/stores/app-store'
 
-export const NavBar = () => (
+export const NavBar = () => {
+  const router = useRouter()
+
+  useEffect(() => {
+    router.prefetch('/')
+    router.prefetch('/shop')
+  }, [router])
+
+  return (
   <nav className="z-10 flex w-full items-center justify-between p-8 text-[22px] font-light max-[375px]:px-4 sm:px-10 lg:py-12 2xl:px-20 [&_*]:z-10">
-    <Link href="/" className="flex items-center gap-4">
+    <Link href="/" transitionTypes={['navigate-back']} className="flex items-center gap-4">
       <Image
         className="h-8 w-auto md:h-[45px] 2xl:h-16"
         src={Logo}
@@ -42,7 +50,8 @@ export const NavBar = () => (
     </div>
     <MoreNav />
   </nav>
-)
+  )
+}
 
 const MoreNav = () => (
   <div className="flex items-center justify-center gap-[6px] lg:gap-4">
@@ -71,7 +80,7 @@ const SiteLinks = () => (
       </Link>
     </li>
     <li className="relative">
-      <Link href="/shop" className="navLink">
+      <Link href="/shop" transitionTypes={['navigate-forward']} className="navLink">
         <span>Shop</span>
       </Link>
       <div className="absolute -bottom-10 left-1/2 flex items-end gap-2">
@@ -140,7 +149,7 @@ const HamburguerMenu = () => {
         {isHome && (
           <>
             <DropdownMenuSeparator className="mx-5" />
-            <Link href="/shop">
+            <Link href="/shop" transitionTypes={['navigate-forward']}>
               <DropdownMenuItem className="px-5 py-2">Shop</DropdownMenuItem>
             </Link>
           </>

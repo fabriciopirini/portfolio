@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
 import { Inter, League_Spartan, Poppins } from 'next/font/google'
+import { ViewTransition } from 'react'
 
 import { Footer } from '@/components/Footer'
 import { NavBar } from '@/components/NavBar'
@@ -90,7 +91,22 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         >
           <AppStoreProvider>
             <NavBar />
-            <main className="flex grow flex-col">{children}</main>
+            <main className="flex grow flex-col">
+              <ViewTransition
+                enter={{
+                  default: 'none',
+                  'navigate-forward': 'animate-slide-from-right',
+                  'navigate-back': 'animate-slide-from-left',
+                }}
+                exit={{
+                  default: 'none',
+                  'navigate-forward': 'animate-slide-to-left',
+                  'navigate-back': 'animate-slide-to-right',
+                }}
+              >
+                {children}
+              </ViewTransition>
+            </main>
             <Footer />
             <SideMe />
           </AppStoreProvider>

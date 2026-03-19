@@ -11,7 +11,7 @@ const NotFoundPage = () => {
           Looks like the page you were trying to visit is out on a coffee break. Let&apos;s navigate back to the
           homepage before it gets lost in the void of cyberspace.
         </p>
-        <Link href="/" className="rounded-full">
+        <Link href="/" transitionTypes={['navigate-back']} className="rounded-full">
           <Button>Return Home</Button>
         </Link>
       </div>

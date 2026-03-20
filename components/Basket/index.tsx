@@ -63,7 +63,7 @@ export const Basket = () => {
             {cart.length > 0 ? (
               <ul className="flex h-full flex-col gap-4 divide-y overflow-y-auto pr-3 max-md:max-h-[50dvh]">
                 {cart.map((item, i) => (
-                  <ProductCartItem key={i} position={i} productId={item} />
+                  <ProductCartItem key={item} position={i} productId={item} />
                 ))}
               </ul>
             ) : (

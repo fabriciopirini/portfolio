@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import Image from 'next/image'
 import { usePostHog } from 'posthog-js/react'
 
@@ -12,7 +12,7 @@ import { FADE_DOWN_ANIMATION_VARIANTS, FADE_RIGHT_ANIMATION_VARIANTS } from '@/l
 
 export const NameBanner = () => {
   return (
-    <motion.div
+    <m.div
       initial="hidden"
       animate="show"
       viewport={{ once: true }}
@@ -26,7 +26,7 @@ export const NameBanner = () => {
       }}
       className="flex w-auto flex-col gap-4 md:gap-9"
     >
-      <motion.h1
+      <m.h1
         className="flex flex-col gap-1 pb-5 text-3xl font-medium leading-none md:text-7xl xl:text-8xl"
         variants={FADE_DOWN_ANIMATION_VARIANTS}
       >
@@ -42,13 +42,13 @@ export const NameBanner = () => {
           <span className="font-leagueSpartan lg:whitespace-nowrap">Nice to meet you!</span>
         </div>
         <span className="font-leagueSpartan lg:whitespace-nowrap">I&apos;m Fabricio.</span>
-      </motion.h1>
-      <motion.p className="text-base sm:text-xl lg:text-2xl xl:text-[28px]" variants={FADE_DOWN_ANIMATION_VARIANTS}>
+      </m.h1>
+      <m.p className="text-base sm:text-xl lg:text-2xl xl:text-[28px]" variants={FADE_DOWN_ANIMATION_VARIANTS}>
         A dedicated Computer Engineer with a focus on Web Development, working remotely as a contractor from Brazil. My
         goal is to integrate innovation with efficiency, making a meaningful contribution to the technology sector.
-      </motion.p>
+      </m.p>
       <CTAButtons />
-    </motion.div>
+    </m.div>
   )
 }
 
@@ -56,7 +56,7 @@ const CTAButtons = () => {
   const posthog = usePostHog()
 
   return (
-    <motion.div className="flex w-fit gap-2 rounded-full py-4 md:gap-6">
+    <m.div className="flex w-fit gap-2 rounded-full py-4 md:gap-6">
       <CTAButton id="resume_download" type="secondary" as="link" href="/api/resume" text="Resume" />
       <Popover
         onOpenChange={(value) => {
@@ -71,7 +71,7 @@ const CTAButtons = () => {
           className="mt-4 w-56 rounded-xl border-2 border-accent bg-white drop-shadow-md lg:w-72"
           align="center"
         >
-          <motion.div
+          <m.div
             initial="hidden"
             animate="show"
             viewport={{ once: true }}
@@ -85,7 +85,7 @@ const CTAButtons = () => {
             }}
             className="flex flex-row items-center justify-around gap-3"
           >
-            <motion.a
+            <m.a
               href={mailTo}
               className="flex flex-col gap-2"
               variants={FADE_RIGHT_ANIMATION_VARIANTS}
@@ -96,8 +96,8 @@ const CTAButtons = () => {
               </div>
               <span className="mx-auto text-lg text-primary-background">Email</span>
               <span className="sr-only">Send email to Fabricio</span>
-            </motion.a>
-            <motion.a
+            </m.a>
+            <m.a
               href="https://www.linkedin.com/in/fabriciopirini/"
               target="_blank"
               rel="noopener"
@@ -111,10 +111,10 @@ const CTAButtons = () => {
               </div>
               <span className="mx-auto text-lg text-primary-background">LinkedIn</span>
               <span className="sr-only">Visit Fabricio&apos;s LinkedIn profile</span>
-            </motion.a>
-          </motion.div>
+            </m.a>
+          </m.div>
         </PopoverContent>
       </Popover>
-    </motion.div>
+    </m.div>
   )
 }

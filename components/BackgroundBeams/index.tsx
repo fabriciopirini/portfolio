@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 
 import { cn } from '@/lib/utils'
 
@@ -40,7 +40,7 @@ export const BackgroundBeams = ({ className, isMobile = false }: { className?: s
         xmlns="http://www.w3.org/2000/svg"
       >
         {beamPaths.map((path, index) => (
-          <motion.path
+          <m.path
             key={`${index}-${isMobile ? 'mobile' : 'desktop'}`}
             d={path}
             stroke={`url(#linearGradient-${index})`}
@@ -55,7 +55,7 @@ export const BackgroundBeams = ({ className, isMobile = false }: { className?: s
             if (!randomValue) return null
 
             return (
-              <motion.linearGradient
+              <m.linearGradient
                 id={`linearGradient-${index}`}
                 x1="100%"
                 x2="100%"
@@ -85,7 +85,7 @@ export const BackgroundBeams = ({ className, isMobile = false }: { className?: s
                 <stop stopColor="hsl(var(--bg-animation-color-start))" />
                 <stop offset="32.5%" stopColor="hsl(var(--bg-animation-color-mid))" />
                 <stop offset="100%" stopColor="hsl(var(--bg-animation-color-end))" stopOpacity="0" />
-              </motion.linearGradient>
+              </m.linearGradient>
             )
           })}
 

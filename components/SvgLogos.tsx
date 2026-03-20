@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useId } from 'react'
 
 import { cn } from '@/lib/utils'
 
@@ -102,11 +102,7 @@ export const VercelLogo = ({ className, ...props }: { className?: string } & Rea
 )
 
 export const AzureLogo = ({ className, ...props }: { className?: string } & React.SVGProps<SVGSVGElement>) => {
-  const [uniqueId, setUniqueId] = useState('')
-
-  useEffect(() => {
-    setUniqueId(`id_${Math.random().toString(36).substring(2, 9)}`)
-  }, [])
+  const uniqueId = useId()
 
   return (
     <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" className={className} {...props}>
@@ -213,11 +209,7 @@ export const PlaywrightLogo = ({ className, ...props }: { className?: string } &
 )
 
 export const TailwindCSSLogo = ({ className, ...props }: { className?: string } & React.SVGProps<SVGSVGElement>) => {
-  const [uniqueId, setUniqueId] = useState('')
-
-  useEffect(() => {
-    setUniqueId(`id_${Math.random().toString(36).substring(2, 9)}`)
-  }, [])
+  const uniqueId = useId()
 
   return (
     <svg

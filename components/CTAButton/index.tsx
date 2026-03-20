@@ -3,7 +3,7 @@
 import type { Ref } from 'react'
 import React, { useState } from 'react'
 import { cva } from 'class-variance-authority'
-import { type HTMLMotionProps, motion } from 'framer-motion'
+import { type HTMLMotionProps, m } from 'framer-motion'
 import { CloudDownloadIcon } from 'lucide-react'
 import { usePostHog } from 'posthog-js/react'
 
@@ -63,7 +63,7 @@ export const CTAButton = React.forwardRef(
 
     if (as === 'link') {
       return (
-        <motion.a
+        <m.a
           ref={ref as Ref<HTMLAnchorElement>}
           {...(external && { target: '_blank', rel: 'noopener noreferrer' })}
           href={href}
@@ -79,12 +79,12 @@ export const CTAButton = React.forwardRef(
         >
           <CloudDownloadIcon className="pointer-events-none inline-block size-5 md:size-7" />
           {text}
-        </motion.a>
+        </m.a>
       )
     }
 
     return (
-      <motion.button
+      <m.button
         ref={ref as Ref<HTMLButtonElement>}
         className={cn(CTAButtonStyles({ intent: type }), isAnimationRunning && 'animate-none')}
         onClick={() => {
@@ -99,7 +99,7 @@ export const CTAButton = React.forwardRef(
         <MailIconFilled className="pointer-events-none size-7 fill-black" />
         {/* <MailIcon size={28} className="inline-block size-7 min-h-7 min-w-7 fill-black stroke-accent" /> */}
         {text}
-      </motion.button>
+      </m.button>
     )
   }
 )

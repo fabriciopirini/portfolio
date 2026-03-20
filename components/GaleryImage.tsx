@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, m } from 'framer-motion'
 import Image from 'next/image'
 
 import { PRODUCTS } from '@/app/services'
@@ -49,7 +49,7 @@ const CardContentDesktop = ({ item }: { item: (typeof PRODUCTS)[number] }) => {
     <div className="max-lg:hidden lg:h-72">
       <AnimatePresence mode="wait" initial={false}>
         {isHovered ? (
-          <motion.div
+          <m.div
             key="description"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -60,9 +60,9 @@ const CardContentDesktop = ({ item }: { item: (typeof PRODUCTS)[number] }) => {
             className="size-full py-2 lg:py-5"
           >
             <p className="text-lg">{item.description}</p>
-          </motion.div>
+          </m.div>
         ) : (
-          <motion.div
+          <m.div
             key="image"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -73,7 +73,7 @@ const CardContentDesktop = ({ item }: { item: (typeof PRODUCTS)[number] }) => {
             className="size-full p-5"
           >
             {item.featuredImage.staticImage}
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>

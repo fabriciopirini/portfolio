@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, type ReactNode, useContext, useRef } from 'react'
+import { createContext, type ReactNode, useContext, useState } from 'react'
 import { type StoreApi, useStore } from 'zustand'
 
 import { type AppStore, createAppStore } from '@/stores/app-store'
@@ -12,12 +12,9 @@ export interface CounterStoreProviderProps {
 }
 
 export const AppStoreProvider = ({ children }: CounterStoreProviderProps) => {
-  const storeRef = useRef<StoreApi<AppStore>>(null)
-  if (!storeRef.current) {
-    storeRef.current = createAppStore()
-  }
+  const [store] = useState(() => createAppStore())
 
-  return <AppStoreContext.Provider value={storeRef.current}>{children}</AppStoreContext.Provider>
+  return <AppStoreContext.Provider value={store}>{children}</AppStoreContext.Provider>
 }
 
 export const useAppStore = <T,>(selector: (store: AppStore) => T): T => {

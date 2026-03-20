@@ -11,7 +11,13 @@ import ProfilePic from '@/public/assets/lego_me.png'
 export const HeroLegoImage = () => {
   const [diffYears, setDiffYears] = useState<number | null>(null)
 
+  // Intentional: calculateYearsOfExperience() calls new Date(), which Next.js forbids
+  // during static prerendering of Client Components. Deferring to an effect ensures
+  // the value is always computed on the client after hydration. The '...' fallback
+  // shown during SSR/hydration is acceptable for this decorative badge.
+  // react-doctor-disable-next-line react-doctor/rendering-hydration-no-flicker
   useEffect(() => {
+    // react-doctor-disable-next-line react-hooks-js/set-state-in-effect
     setDiffYears(calculateYearsOfExperience())
   }, [])
 

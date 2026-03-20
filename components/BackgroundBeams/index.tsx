@@ -13,7 +13,11 @@ export const BackgroundBeams = ({ className, isMobile = false }: { className?: s
   const [randomValues, setRandomValues] = useState<Array<{ y2: number; duration: number; delay: number }>>([])
 
   useEffect(() => {
-    // Generate random values only on client side
+    // Intentional: Math.random() must run client-only to avoid SSR/hydration mismatch.
+    // Starting with [] on both server and client guarantees a matching initial render;
+    // the effect then populates animation values after mount with no visible flash
+    // because the gradient <defs> are invisible until the animation begins.
+    // react-doctor-disable-next-line react-hooks-js/set-state-in-effect
     setRandomValues(
       beamPaths.map(() => ({
         y2: 93 + Math.random() * 8,

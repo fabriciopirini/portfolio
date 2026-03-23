@@ -87,10 +87,11 @@ export default async function ResumePage() {
       {/* Summary */}
       <div className="text-sm leading-relaxed text-gray-700">
         <p>
-          Senior Software Engineer with {yearsOfExperience}+ years of experience specializing in React, TypeScript, and modern web
-          technologies. Proven track record in developing scalable web applications, optimizing user interfaces, and
-          leading engineering teams in startup environments. Passionate about creating intuitive and delightful user
-          experiences, with a keen eye for UI/UX and expertise in responsive design and data visualization.
+          Senior Software Engineer with {yearsOfExperience}+ years in React and TypeScript, working across web and
+          mobile. Currently at a leading US crypto exchange, owning the design system and shipping to 4 platforms,
+          including a React Native support portal built from scratch across 3 mobile apps. I tend to build foundational
+          things: testing infrastructure, theming pipelines, shared packages. Previously led frontend teams at
+          e-commerce and grocery delivery scale-ups in Norway.
         </p>
       </div>
 
@@ -101,12 +102,19 @@ export default async function ResumePage() {
         </h2>
         <div className="space-y-1 text-sm text-gray-700">
           <p>
-            <span className="font-bold">Core Technologies:</span> React, TypeScript, Next.js, JavaScript, Redux,
-            HTML/CSS, Tailwind CSS, Node.js
+            <span className="font-bold">Languages & Runtimes:</span> TypeScript, JavaScript (ES2024+), HTML5, CSS3,
+            Node.js
           </p>
           <p>
-            <span className="font-bold">Tools & DevOps:</span> Jest, Vitest, React Testing Library, Playwright, GraphQL,
-            Storybook, Figma, Docker, CI/CD
+            <span className="font-bold">Frameworks & UI:</span> React, Next.js, Redux Toolkit, Tailwind CSS, Radix UI
+          </p>
+          <p>
+            <span className="font-bold">Testing & Quality:</span> Playwright, Vitest, Jest, React Testing Library,
+            Storybook
+          </p>
+          <p>
+            <span className="font-bold">Tooling & DevOps:</span> Docker, CI/CD (GitHub Actions), GraphQL, Figma, Power
+            BI
           </p>
         </div>
       </div>
@@ -133,16 +141,23 @@ export default async function ResumePage() {
             </div>
             <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-gray-700">
               <li>
-                Rolled out Playwright-based visual regression testing, reduced test execution from 12 min to &lt;1 min,
-                tripled coverage
+                Cut visual regression test runtime from 12 min to under a minute by building the Playwright VRT
+                infrastructure from scratch. Coverage tripled across the component library.
               </li>
               <li>
-                Made 11 core components themeable; automated Figma token generation for faster brand customization
+                Built the Figma-to-code design token pipeline that powers theming across 3 brand lines (6 light/dark
+                variants). Teams went from days of manual work per brand to automated updates.
               </li>
               <li>
-                Enhanced accessibility: added keyboard/ARIA support to Slider, DropdownButton, DropdownInput components
+                Shipped an in-app support portal to 3 React Native apps from scratch. Built tier-aware contact options,
+                VIP manager card, and live support queue visibility. Coordinated phased rollout across consumer, pay,
+                and pro mobile applications.
               </li>
-              <li>Optimized CI/CD: split Docker images, accelerated Storybook builds for faster developer feedback</li>
+              <li>
+                Built 15+ dynamic financial data table components (deposit fees, withdrawal fees, margin pairs, position
+                limits) with search, deep-linking, copy, and i18n. Fixed 25+ accessibility issues platform-wide:
+                keyboard navigation, focus management, and ARIA attributes.
+              </li>
             </ul>
           </div>
 
@@ -161,9 +176,18 @@ export default async function ResumePage() {
               </div>
             </div>
             <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-gray-700">
-              <li>Led 5 engineers remotely; shaped architecture, implemented Agile + DevOps practices</li>
-              <li>Designed and built intuitive e-commerce interfaces with React, TypeScript, Next.js</li>
-              <li>Built developer tools and libraries to streamline workflows and enhance team productivity</li>
+              <li>
+                Managed 5 engineers across 2 time zones. Built the sprint cadence, code review process, and CI/CD setup
+                from scratch.
+              </li>
+              <li>
+                Rebuilt legacy storefronts and built new ones from scratch, shipping 5 in total with React, TypeScript,
+                and Next.js. Worked with Design, Product, and Business stakeholders at every level, from CEO to junior
+                engineer.
+              </li>
+              <li>
+                Built a shared component library used by 3 product teams, cutting feature cycle time by roughly 25%.
+              </li>
             </ul>
             <div className="flex items-start justify-between">
               <div className="flex flex-col text-gray-700">
@@ -174,10 +198,19 @@ export default async function ResumePage() {
               </div>
             </div>
             <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-gray-700">
-              <li>Led frontend development: React, TypeScript, Next.js, improved code quality and app reliability</li>
-              <li>Architected high-performance, responsive interfaces with seamless backend integration</li>
-              <li>Achieved WCAG 2.0 Level AA compliance across assigned projects for accessible user experiences</li>
-              <li>Mentored team members in modern technologies and engineering best practices</li>
+              <li>
+                Integrated 5 storefronts with Sanity CMS and the internal design system, giving the content team full
+                control over brand-aligned pages without engineering involvement.
+              </li>
+              <li>
+                Got Core Web Vitals into the green on key checkout routes through code splitting, lazy loading, and edge
+                caching. LCP under 2s.
+              </li>
+              <li>
+                Led WCAG 2.0 AA compliance across e-commerce storefronts and brand landing pages for a portfolio of 70+
+                European companies.
+              </li>
+              <li>Mentored 3 junior engineers. Two were promoted within 18 months.</li>
             </ul>
           </div>
 
@@ -197,18 +230,47 @@ export default async function ResumePage() {
             </div>
             <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-gray-700">
               <li>
-                Built experimentation culture around &quot;fast-fail, learn effectively&quot; to drive retention and
-                product improvements
+                Built the A/B experimentation program from scratch and kept it running at 2-4 experiments a month.
               </li>
               <li>
-                Removed hard-coded configurations to unlock codebase flexibility, enabled expansion into new markets
+                Removed hard-coded configs that were blocking international expansion. Finland and Germany went live
+                without engineering changes.
               </li>
-              <li>Facilitated bi-monthly Technical Debt workshops to maintain code health and developer experience</li>
-              <li>Recognized as Culture Champion for embodying company values and building team engagement</li>
+              <li>
+                Ran Technical Debt workshops every two months to keep the backlog from compounding. The team kept
+                shipping at pace through a 2x headcount growth.
+              </li>
+              <li>Recognized as Culture Champion by company leadership.</li>
             </ul>
           </div>
 
           {/* Job 4 */}
+          <div data-section="job" className="flex flex-col gap-2">
+            <div className="flex items-start justify-between">
+              <div className="flex flex-col text-gray-700">
+                <h3 className="font-black text-gray-900">Sportradar</h3>
+                <p className={`text-sm font-medium ${styles.smallCaps}`}>Senior Full Stack Engineer</p>
+              </div>
+              <div className="flex flex-col text-right text-sm">
+                <p className="font-medium" style={{ color: 'var(--color-accent)' }}>
+                  Norway
+                </p>
+                <p className="text-gray-600">Sept. 2018 - Aug. 2020</p>
+              </div>
+            </div>
+            <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-gray-700">
+              <li>
+                Refactored web crawlers and scrapers into 5 independent microservices, cutting runtime by 120x and
+                resource usage by 10x.
+              </li>
+              <li>
+                Migrated CI/CD from Jenkins to GitLab, reducing deploy failures by 85% through Docker containerization
+                and pipeline redesign.
+              </li>
+            </ul>
+          </div>
+
+          {/* Job 5 */}
           <div data-section="job" className="flex flex-col gap-2">
             <div className="flex items-start justify-between">
               <div className="flex flex-col text-gray-700">
@@ -222,10 +284,14 @@ export default async function ResumePage() {
                 <p className="text-gray-600">Jan. 2017 - Jan. 2018</p>
               </div>
             </div>
-            <p className="mt-2 list-inside list-disc space-y-1 text-sm text-gray-700">
-              Built Web Accessibility portal (WCAG 2.0 Level AA) and automated reporting dashboards with Power BI
-              Contributed to IoT projects and spoke on Web Accessibility and UX at industry conferences
-            </p>
+            <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-gray-700">
+              <li>
+                Built a WCAG 2.0 AA Web Accessibility portal and automated internal reporting dashboards with Power BI.
+              </li>
+              <li>
+                Contributed to IoT prototype R&amp;D and gave talks on Web Accessibility at 2 industry conferences.
+              </li>
+            </ul>
           </div>
         </div>
       </section>

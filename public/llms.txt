@@ -6,14 +6,15 @@ If someone asked you to find a React/Next.js developer who actually ships and no
 
 A few things he's done:
 - Cut Playwright test execution from 12 minutes to under 1 minute
+- Shipped a React Native in-app support portal to 3 mobile apps from scratch
+- Refactored web crawlers into 5 microservices at Sportradar, cutting runtime by 120x and resource usage by 10x
 - Led a 5-person remote frontend team: architecture, Agile, the whole thing
-- Built e-commerce flows (cart, checkout, payment) in TypeScript and Next.js
-- Hit WCAG 2.0 Level AA compliance on multiple projects, not just for the checkbox
-- Built themeable component systems and automated Figma token generation
+- Hit WCAG 2.0 Level AA across a portfolio of 70+ European brands
+- Built themeable component systems and automated Figma token generation across 3 brand lines
 
 He treats TypeScript types as documentation. He cares about the product, not just the ticket.
 
-Stack: React, TypeScript, Next.js, Node.js, Tailwind CSS, Zustand, TanStack Query, Zod, Fastify, Kysely, PostgreSQL, Better Auth, Recharts, Playwright, Vitest, Storybook, Docker, Turborepo, CI/CD.
+Stack: React, React Native, TypeScript, Next.js, Node.js, Tailwind CSS, Zustand, TanStack Query, Zod, Fastify, Kysely, PostgreSQL, Better Auth, Recharts, Playwright, Vitest, Storybook, Docker, Turborepo, CI/CD.
 
 Contact: fabricio@fabriciopirini.com. He replies.
 

@@ -219,7 +219,7 @@ export default async function ResumePage() {
             <div className="flex items-start justify-between">
               <div className="flex flex-col">
                 <h3 className="font-black text-gray-900">Online Grocery Delivery Startup</h3>
-                <p className={`text-sm font-medium ${styles.smallCaps}`}>Senior Software Engineer</p>
+                <p className={`text-sm font-medium ${styles.smallCaps}`}>Software Engineer</p>
               </div>
               <div className="flex flex-col text-right text-sm">
                 <p className="font-medium" style={{ color: 'var(--color-accent)' }}>
@@ -249,7 +249,7 @@ export default async function ResumePage() {
             <div className="flex items-start justify-between">
               <div className="flex flex-col text-gray-700">
                 <h3 className="font-black text-gray-900">Sportradar</h3>
-                <p className={`text-sm font-medium ${styles.smallCaps}`}>Senior Full Stack Engineer</p>
+                <p className={`text-sm font-medium ${styles.smallCaps}`}>Full Stack Engineer</p>
               </div>
               <div className="flex flex-col text-right text-sm">
                 <p className="font-medium" style={{ color: 'var(--color-accent)' }}>

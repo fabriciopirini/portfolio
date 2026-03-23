@@ -9,4 +9,3 @@ export async function getCachedYearsOfExperience() {
 
   return calculateYearsOfExperience()
 }
-

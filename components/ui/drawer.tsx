@@ -35,7 +35,7 @@ const DrawerContent = React.forwardRef<
     <DrawerOverlay />
     <DrawerPrimitive.Content
       ref={ref}
-      className={cn('fixed z-50 flex h-full w-full flex-col bg-white ', className)}
+      className={cn('fixed z-50 flex h-full w-full flex-col bg-white', className)}
       onPointerDownOutside={(e) => {
         // don't dismiss dialog when clicking inside the side me bubble
         if (e.target instanceof Element && e.target.closest('#side-me')) {

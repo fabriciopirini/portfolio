@@ -32,24 +32,24 @@ export const NavBar = () => {
   }, [router])
 
   return (
-  <nav className="z-10 flex w-full items-center justify-between p-8 text-[22px] font-light max-[375px]:px-4 sm:px-10 lg:py-12 2xl:px-20 [&_*]:z-10">
-    <Link href="/" transitionTypes={['navigate-back']} className="flex items-center gap-4">
-      <Image
-        className="h-8 w-auto md:h-[45px] 2xl:h-16"
-        src={Logo}
-        alt="Logo"
-        width={80}
-        height={80}
-        priority
-        aria-hidden
-      />
-      {/* <span className="text-[32px] font-medium max-md:hidden">Fabricio</span> */}
-    </Link>
-    <div className="z-10 hidden items-center sm:flex sm:flex-row">
-      <SiteLinks />
-    </div>
-    <MoreNav />
-  </nav>
+    <nav className="z-10 flex w-full items-center justify-between p-8 text-[22px] font-light max-[375px]:px-4 sm:px-10 lg:py-12 2xl:px-20 [&_*]:z-10">
+      <Link href="/" transitionTypes={['navigate-back']} className="flex items-center gap-4">
+        <Image
+          className="h-8 w-auto md:h-[45px] 2xl:h-16"
+          src={Logo}
+          alt="Logo"
+          width={80}
+          height={80}
+          priority
+          aria-hidden
+        />
+        {/* <span className="text-[32px] font-medium max-md:hidden">Fabricio</span> */}
+      </Link>
+      <div className="z-10 hidden items-center sm:flex sm:flex-row">
+        <SiteLinks />
+      </div>
+      <MoreNav />
+    </nav>
   )
 }
 

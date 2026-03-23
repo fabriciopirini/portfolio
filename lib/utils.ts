@@ -1,8 +1,6 @@
-import { PRODUCTS } from '@/app/services'
 import { MAX_COINS } from '@/stores/app-store'
 import type { ClassValue } from 'clsx'
 import { clsx } from 'clsx'
-import type { ReadonlyURLSearchParams } from 'next/navigation'
 import { twMerge } from 'tailwind-merge'
 
 export const cn = (...inputs: ClassValue[]) => {

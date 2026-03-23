@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": ["Skill(humanizer)", "Skill(update-config)", "WebFetch(domain:registry.npmjs.org)"]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // empty' | { read -r f && ./node_modules/.bin/oxfmt \"$f\"; } 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}

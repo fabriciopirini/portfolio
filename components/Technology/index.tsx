@@ -31,7 +31,10 @@ export const Technology = () => (
       <Carousel className="mx-auto w-full lg:hidden">
         <CarouselContent className="text-left">
           {chunk(skills, 4).map((skillChunk, index) => (
-            <CarouselItem key={skillChunk[0]?.name ?? index} className="mx-auto flex flex-row flex-wrap items-center justify-center gap-3">
+            <CarouselItem
+              key={skillChunk[0]?.name ?? index}
+              className="mx-auto flex flex-row flex-wrap items-center justify-center gap-3"
+            >
               {skillChunk.map((skill) => (
                 <div key={skill.name} className="aspect-square h-auto w-5/12">
                   <div

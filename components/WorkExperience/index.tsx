@@ -1,10 +1,5 @@
 import { BadgeCheckIcon } from 'lucide-react'
 
-import NGLogo from '/public/assets/logos/ng-logo-squared.avif'
-import OdaLogo from '/public/assets/logos/oda-logo.avif'
-import SidiLogo from '/public/assets/logos/sidi-logo.avif'
-import SportradarLogo from '/public/assets/logos/sportradar-logo.avif'
-
 export const WorkExperience = () => {
   return (
     <section
@@ -55,8 +50,8 @@ export const WorkExperience = () => {
                     the company expand without breaking a sweat.
                   </p>
                   <p>
-                    Mentored newer developers while on-call for the Django backend. There&apos;s no better way to learn a
-                    system than being responsible for keeping it running.
+                    Mentored newer developers while on-call for the Django backend. There&apos;s no better way to learn
+                    a system than being responsible for keeping it running.
                   </p>
                 </div>
               </div>
@@ -68,8 +63,8 @@ export const WorkExperience = () => {
         <div className="shrink-0 basis-2/5">
           <p className="mb-7 font-leagueSpartan text-3xl font-medium lg:mb-14 lg:text-6xl">Growing into leadership</p>
           <p className="lg:mb-10 lg:text-3xl">
-            When I took on leadership, I realized it wasn&apos;t about me anymore. It was about making my team and company
-            better.
+            When I took on leadership, I realized it wasn&apos;t about me anymore. It was about making my team and
+            company better.
           </p>
         </div>
         <div>

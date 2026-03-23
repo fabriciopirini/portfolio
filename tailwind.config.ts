@@ -4,7 +4,6 @@ import tailwindAnimate from '@anuragroy/tailwindcss-animate'
 import tailwindDebugScreens from 'tailwindcss-debug-screens'
 import tailwindTouch from 'tailwindcss-touch'
 import plugin from 'tailwindcss/plugin'
-import defaultTheme from 'tailwindcss/defaultTheme'
 import { mapKeys } from 'lodash-es'
 
 import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette'
@@ -169,7 +168,7 @@ export const config = {
     },
   },
   plugins: [
-  	cornerShapePlugin({ default: 'squircle' }),
+    cornerShapePlugin({ default: 'squircle' }),
     tailwindContainerQueries,
     tailwindDebugScreens,
     tailwindAnimate,

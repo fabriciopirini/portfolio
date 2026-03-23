@@ -1,0 +1,37 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "react", "jsx-a11y", "import", "nextjs"],
+  "categories": {
+    "correctness": "error"
+  },
+  "rules": {
+    "typescript/consistent-type-imports": "warn",
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "jsx-a11y/alt-text": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "nextjs/no-html-link-for-pages": "off"
+  },
+  "overrides": [
+    {
+      "files": ["app/**/*"],
+      "rules": {
+        "import/no-default-export": "warn"
+      }
+    },
+    {
+      "files": [
+        "app/**/page.tsx",
+        "app/**/layout.tsx",
+        "app/**/opengraph-image.tsx",
+        "app/**/error.tsx",
+        "app/**/not-found.tsx",
+        "app/**/sitemap.ts",
+        "app/**/robots.ts"
+      ],
+      "rules": {
+        "import/no-default-export": "off"
+      }
+    }
+  ]
+}

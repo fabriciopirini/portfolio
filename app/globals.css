@@ -6,7 +6,6 @@
   /* Navlink hover effect copied from Maggie Appleton website: https://maggieappleton.com */
   .navLink {
     @apply relative inline-block h-full;
-    transition: all 0.5s cubic-bezier(0.2, 1, 0.8, 1) 0s;
   }
 
   .navLink::before {
@@ -19,17 +18,20 @@
     clip-path: polygon(0% 0%, 0% 100%, 0px 100%, 0px 0px, 100% 0px, 100% 100%, 0px 100%, 0px 100%, 100% 100%, 100% 0%);
   }
 
-  .navLink:hover::before {
-    transform: translate3d(0, 2px, 0) scale3d(1, 2, 1);
-    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 50% 0px, 50% 0px, 50% 100%, 50% 100%, 0px 100%, 100% 100%, 100% 0%);
-  }
-
   .navLink span {
     @apply inline-block text-primary;
     transition: transform 0.5s cubic-bezier(0.2, 1, 0.8, 1) 0s;
   }
-  .navLink:hover span {
-    transform: translateY(-2px);
+
+  @media (hover: hover) and (pointer: fine) {
+    .navLink:hover::before {
+      transform: translate3d(0, 2px, 0) scale3d(1, 2, 1);
+      clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 50% 0px, 50% 0px, 50% 100%, 50% 100%, 0px 100%, 100% 100%, 100% 0%);
+    }
+
+    .navLink:hover span {
+      transform: translateY(-2px);
+    }
   }
 }
 
@@ -141,7 +143,7 @@
   --vt-slide-offset: -40px;
   animation:
     100ms ease-in both vt-fade reverse,
-    300ms ease-in-out both vt-slide reverse;
+    200ms ease-in both vt-slide reverse;
 }
 
 ::view-transition-new(.animate-slide-from-left) {
@@ -155,5 +157,17 @@
   --vt-slide-offset: 40px;
   animation:
     100ms ease-in both vt-fade reverse,
-    300ms ease-in-out both vt-slide reverse;
+    200ms ease-in both vt-slide reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-sideMe,
+  .animate-sideMeReturn,
+  .animate-coinIncrease,
+  .animate-appearDownAndFade,
+  .animate-scaleIn,
+  .animate-scaleConversationBubble,
+  .animate-scaleConversationBubbleReturn {
+    animation: none;
+  }
 }

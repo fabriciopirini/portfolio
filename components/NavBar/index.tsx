@@ -133,7 +133,7 @@ const HamburguerMenu = () => {
         side="bottom"
         sideOffset={12}
         align="end"
-        className="origin-[var(--radix-dropdown-menu-content-transform-origin)] animate-scaleIn lg:hidden"
+        className="animate-scaleIn lg:hidden"
       >
         <Link href={isHome ? '#about' : '/#about'}>
           <DropdownMenuItem className="px-5 py-2">About</DropdownMenuItem>

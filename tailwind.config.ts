@@ -147,7 +147,7 @@ export const config = {
         scaleIn: {
           from: {
             opacity: '0',
-            transform: 'scale(0)',
+            transform: 'scale(0.92)',
           },
           to: {
             opacity: '1',
@@ -163,7 +163,7 @@ export const config = {
         scaleConversationBubbleReturn: 'scaleConversationBubbleReturn .3s ease-in-out',
         appearDownAndFade: 'appearDownAndFade 3.5s ease-in-out',
         coinIncrease: 'coinIncrease 2s ease-out',
-        scaleIn: 'scaleIn 0.5s ease-in-out',
+        scaleIn: 'scaleIn 200ms ease-out',
       },
     },
   },

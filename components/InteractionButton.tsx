@@ -137,7 +137,7 @@ export const InteractionButtonMobile = ({
 const InteractionInfoContent = () => (
   <div className="flex w-full flex-col items-center justify-between gap-3">
     <span className="hidden lg:mb-5 lg:block lg:text-2xl">Send me an Email from:</span>
-    <Button className="flex items-center gap-3 text-base transition-all duration-300 hover:scale-[1.02] lg:h-20 lg:px-14 lg:py-5 lg:text-2xl">
+    <Button className="flex items-center gap-3 text-base transition-transform duration-200 hover:scale-[1.02] active:scale-[0.97] lg:h-20 lg:px-14 lg:py-5 lg:text-2xl">
       <InboxIcon className="pointer-events-none lg:h-9 lg:w-auto" strokeWidth={1.5} />
       <a href={mailTo} type="submit" className="hidden text-base font-normal md:block lg:text-2xl">
         Your favorite app
@@ -148,7 +148,7 @@ const InteractionInfoContent = () => (
     </Button>
     <span className="hidden text-xl lg:block">or</span>
     <div className="hidden w-full justify-center gap-3 md:flex lg:text-2xl">
-      <Button className="transition-all duration-300 hover:scale-[1.02] lg:h-20 lg:w-60 lg:py-5">
+      <Button className="transition-transform duration-200 hover:scale-[1.02] active:scale-[0.97] lg:h-20 lg:w-60 lg:py-5">
         <a
           href={gmailLink}
           target="_blank"
@@ -159,7 +159,7 @@ const InteractionInfoContent = () => (
           <GmailLogo className="lg:h-9 lg:w-auto" /> Gmail
         </a>
       </Button>
-      <Button className="transition-all duration-300 hover:scale-[1.02] lg:h-20 lg:w-60 lg:py-4">
+      <Button className="transition-transform duration-200 hover:scale-[1.02] active:scale-[0.97] lg:h-20 lg:w-60 lg:py-4">
         <a
           href={outlookLink}
           target="_blank"

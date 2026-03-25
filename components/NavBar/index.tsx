@@ -119,12 +119,12 @@ const HamburguerMenu = () => {
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
         <button
-          className="ml-5 size-11 cursor-pointer rounded-full border border-white/50 p-2 text-primary focus-visible:h-full max-[375px]:ml-0 md:size-14 md:p-3 lg:hidden lg:size-16 lg:p-4"
+          className="group ml-5 size-11 cursor-pointer rounded-full p-2 text-primary ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:bg-white/5 hover:ring-white/80 focus-visible:h-full active:scale-95 max-[375px]:ml-0 md:size-14 md:p-3 lg:hidden lg:size-16 lg:p-4"
           aria-label="Open navigation menu"
           aria-expanded={isOpen}
           aria-haspopup="menu"
         >
-          <MenuIcon className="pointer-events-none size-full" />
+          <MenuIcon className="pointer-events-none size-full transition-transform duration-200 ease-out group-hover:scale-[1.1]" />
           <span className="sr-only">Open the menu</span>
         </button>
       </DropdownMenuTrigger>
@@ -275,10 +275,10 @@ const MediaLinks = () => {
         data-atrr="linkedin-navbar"
         href="https://www.linkedin.com/in/fabriciopirini/"
         aria-label="Checkout my LinkedIn profile"
-        className="hidden size-16 rounded-full border border-white/50 p-4 lg:block"
+        className="group hidden size-16 rounded-full p-4 ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:scale-[1.03] hover:bg-white/5 hover:ring-white/80 active:scale-95 lg:block"
         onClick={() => posthog?.capture('contact_me_linkedin_navbar')}
       >
-        <LinkedInIconFilled className="pointer-events-none size-full" />
+        <LinkedInIconFilled className="pointer-events-none size-full transition-transform duration-200 ease-out group-hover:scale-[1.1]" />
         <span className="sr-only">Visit Fabricio&apos;s LinkedIn profile</span>
       </a>
       <a
@@ -287,10 +287,10 @@ const MediaLinks = () => {
         data-atrr="github-navbar"
         href="https://github.com/fabriciopirini"
         aria-label="Checkout my Github profile"
-        className="hidden size-16 rounded-full border border-white/50 p-4 lg:block"
+        className="group hidden size-16 rounded-full p-4 ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:scale-[1.03] hover:bg-white/5 hover:ring-white/80 active:scale-95 lg:block"
         onClick={() => posthog?.capture('contact_me_github_navbar')}
       >
-        <GithubIconFilled className="pointer-events-none size-full" />
+        <GithubIconFilled className="pointer-events-none size-full transition-transform duration-200 ease-out group-hover:scale-[1.1]" />
         <span className="sr-only">Visit Fabricio&apos;s Github profile</span>
       </a>
     </>

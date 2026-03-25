@@ -154,6 +154,14 @@ export const config = {
             transform: 'scale(1)',
           },
         },
+        wave: {
+          '0%, 100%': { transform: 'rotate(0deg)' },
+          '15%': { transform: 'rotate(10deg)' },
+          '30%': { transform: 'rotate(-5deg)' },
+          '45%': { transform: 'rotate(10deg)' },
+          '60%': { transform: 'rotate(-3deg)' },
+          '75%': { transform: 'rotate(7deg)' },
+        },
       },
       animation: {
         fadeIn: 'fadeIn .3s ease-in-out',
@@ -164,6 +172,7 @@ export const config = {
         appearDownAndFade: 'appearDownAndFade 3.5s ease-in-out',
         coinIncrease: 'coinIncrease 2s ease-out',
         scaleIn: 'scaleIn 200ms ease-out',
+        wave: 'wave 2s ease-in-out',
       },
     },
   },

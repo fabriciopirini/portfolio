@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { m } from 'framer-motion'
 import Image from 'next/image'
 import { usePostHog } from 'posthog-js/react'
@@ -9,8 +10,25 @@ import { mailTo } from '@/components/InteractionButton'
 import { LinkedInIconFilled, MailIconFilled } from '@/components/SvgLogos'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { FADE_DOWN_ANIMATION_VARIANTS, FADE_RIGHT_ANIMATION_VARIANTS } from '@/lib/constants'
+import { cn } from '@/lib/utils'
 
 export const NameBanner = () => {
+  const [isWaving, setIsWaving] = useState(false)
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const timer = setTimeout(() => setIsWaving(true), 500)
+    return () => clearTimeout(timer)
+  }, [])
+
+  const handleMouseEnter = () => {
+    if (!isWaving) setIsWaving(true)
+  }
+
+  const handleAnimationEnd = () => {
+    setIsWaving(false)
+  }
+
   return (
     <m.div
       initial="hidden"
@@ -36,7 +54,9 @@ export const NameBanner = () => {
             alt="Fabricio Pirini"
             width={138}
             height={133}
-            className="size-14 md:size-24 xl:size-28"
+            className={cn('size-14 origin-bottom-right md:size-24 xl:size-28', { 'animate-wave': isWaving })}
+            onMouseEnter={handleMouseEnter}
+            onAnimationEnd={handleAnimationEnd}
             aria-hidden
           />
           <span className="font-leagueSpartan lg:whitespace-nowrap">Nice to meet you!</span>

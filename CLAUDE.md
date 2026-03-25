@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Design context
+
+@.impeccable.md contains the design context for this project — users, brand personality, aesthetic direction, and design principles. Read it before making any UI or design decisions.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 ## Next.js: ALWAYS read docs before coding

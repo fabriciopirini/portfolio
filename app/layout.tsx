@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Inter, League_Spartan, Poppins } from 'next/font/google'
 import { ViewTransition } from 'react'
 
+import { ConsoleEasterEgg } from '@/components/ConsoleEasterEgg'
 import { Footer } from '@/components/Footer'
 import { NavBar } from '@/components/NavBar'
 import { CSPostHogProvider } from '@/components/Providers'
@@ -110,6 +111,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             <Footer />
             <SideMe />
           </AppStoreProvider>
+          <ConsoleEasterEgg />
           <Analytics />
           <SpeedInsights />
         </body>

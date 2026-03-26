@@ -17,6 +17,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media screen {
+  .resumeContainer {
+    hyphens: auto;
+  }
+}
+
+@media (min-width: 640px) {
+  .resumeContainer {
+    box-shadow: -8px 8px 5px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@media print {
+  .resumeContainer {
+    box-shadow: none;
+  }
+}
+
 .resumeContainer :global(h1),
 .resumeContainer :global(h2),
 .resumeContainer :global(h3) {

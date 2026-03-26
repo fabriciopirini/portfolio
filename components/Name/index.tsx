@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { m } from 'framer-motion'
+import { FileUserIcon } from 'lucide-react'
 import Image from 'next/image'
 import { usePostHog } from 'posthog-js/react'
 
@@ -83,14 +84,7 @@ const CTAButtons = () => {
 
   return (
     <m.div className="flex w-fit gap-2 rounded-full py-4 md:gap-6">
-      <CTAButton
-        id="resume_download"
-        type="secondary"
-        as="link"
-        href="/api/resume"
-        text="Resume"
-        showDownloadFeedback
-      />
+      <CTAButton id="resume_download" type="secondary" as="link" href="/resume" text="Resume" icon={FileUserIcon} />
       <Popover
         onOpenChange={(value) => {
           const event = value ? 'contact_me_open' : 'contact_me_close'

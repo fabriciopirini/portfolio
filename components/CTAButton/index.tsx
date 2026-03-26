@@ -1,9 +1,9 @@
 'use client'
 
-import { useState, type Ref } from 'react'
+import { type ComponentType, useState, type Ref } from 'react'
 import { cva } from 'class-variance-authority'
-import { AnimatePresence, type HTMLMotionProps, m } from 'framer-motion'
-import { CheckCircle2Icon, CloudDownloadIcon } from 'lucide-react'
+import { type HTMLMotionProps, m } from 'framer-motion'
+import { CloudDownloadIcon, type LucideProps } from 'lucide-react'
 import { usePostHog } from 'posthog-js/react'
 
 import { MailIconFilled } from '@/components/SvgLogos'
@@ -50,27 +50,19 @@ type CTAButtonProps = {
   external?: boolean
   href?: string
   as?: 'button' | 'link'
-  showDownloadFeedback?: boolean
+  icon?: ComponentType<LucideProps>
   ref?: Ref<HTMLAnchorElement | HTMLButtonElement>
-}
-
-const iconTransition = { duration: 0.15 }
-const iconVariants = {
-  initial: { scale: 0, opacity: 0 },
-  animate: { scale: 1, opacity: 1 },
-  exit: { scale: 0, opacity: 0 },
 }
 
 export const CTAButton = ({
   type = 'primary',
   external = false,
   as,
-  showDownloadFeedback = false,
+  icon: Icon = CloudDownloadIcon,
   ref,
   ...props
 }: CTAButtonProps) => {
   const [isAnimationRunning, setIsAnimationRunning] = useState(false)
-  const [downloaded, setDownloaded] = useState(false)
 
   const posthog = usePostHog()
 
@@ -86,28 +78,14 @@ export const CTAButton = ({
         onClick={() => {
           setIsAnimationRunning(true)
           posthog?.capture(id ?? 'cta_button_click')
-          if (showDownloadFeedback) {
-            setDownloaded(true)
-            setTimeout(() => setDownloaded(false), 2500)
-          }
         }}
         onAnimationEnd={() => setIsAnimationRunning(false)}
         id={id}
         {...animation}
         {...domProps}
       >
-        <AnimatePresence mode="wait" initial={false}>
-          {downloaded ? (
-            <m.span key="check" className="inline-flex" transition={iconTransition} {...iconVariants}>
-              <CheckCircle2Icon className="pointer-events-none inline-block size-5 md:size-7" />
-            </m.span>
-          ) : (
-            <m.span key="download" className="inline-flex" transition={iconTransition} {...iconVariants}>
-              <CloudDownloadIcon className="pointer-events-none inline-block size-5 md:size-7" />
-            </m.span>
-          )}
-        </AnimatePresence>
-        {showDownloadFeedback && downloaded ? 'Saved!' : text}
+        <Icon className="pointer-events-none inline-block size-5 md:size-7" />
+        {text}
       </m.a>
     )
   }

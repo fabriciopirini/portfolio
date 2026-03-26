@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { cacheLife } from 'next/cache'
-import { Github, Globe, Linkedin, Mail } from 'lucide-react'
+import { Download, Github, Globe, Linkedin, Mail } from 'lucide-react'
 import Script from 'next/script'
 
 export const metadata: Metadata = {
@@ -22,12 +22,20 @@ export default async function ResumePage() {
     <div
       className={cn(
         styles.resumeContainer,
-        'm-4 flex max-w-full flex-col gap-6 text-pretty border-2 border-white bg-gray-100 px-4 py-10 font-source-sans-3 text-base text-gray-700 md:mx-auto md:max-w-[210mm] md:p-16 print:bg-white print:text-black print:shadow-none'
+        'relative m-4 flex max-w-full flex-col gap-4 text-pretty border-2 border-white bg-gray-100 px-4 pb-10 pt-14 font-source-sans-3 text-base text-gray-700 md:mx-auto md:max-w-[210mm] md:p-16 print:bg-white print:text-black'
       )}
-      style={{
-        boxShadow: '-8px 8px 5px rgba(0, 0, 0, 0.4)',
-      }}
     >
+      {/* Download PDF — screen only, anchored to card corner */}
+      <a
+        href="/api/resume"
+        target="_blank"
+        rel="noopener"
+        className="absolute right-3 top-3 flex items-center gap-1.5 rounded-md border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-50 active:bg-gray-100 print:hidden"
+      >
+        <Download className="size-3.5" />
+        Download PDF
+      </a>
+
       {/* Header */}
       <div className="flex flex-col items-center justify-center">
         <h1 className="text-center font-roboto text-3xl font-bold leading-none text-gray-900 md:text-[40px]">
@@ -40,52 +48,49 @@ export default async function ResumePage() {
           Senior Software Engineer
         </p>
         <p className="text-sm font-medium italic text-gray-400">Brazil (UTC -3)</p>
-        <div className="mt-3 flex flex-row flex-wrap items-center justify-center gap-2 text-[11px] text-gray-700">
+        <div className="mt-3 flex flex-row flex-wrap items-center justify-center gap-x-3 gap-y-0 text-xs text-gray-700">
           <a
             href="mailto:fabricio@fabriciopirini.com"
-            className="flex items-center gap-1 text-gray-700 hover:text-blue-600"
+            className="flex items-center gap-1 py-2 text-gray-700 hover:text-blue-600 active:text-blue-600"
           >
-            <Mail className="size-3" />
+            <Mail className="size-3.5" />
             fabricio@fabriciopirini.com
           </a>
-          <span>|</span>
           <a
             href="https://fabriciopirini.com"
             target="_blank"
             rel="noopener"
             aria-label="Checkout my website"
-            className="flex items-center gap-1 text-gray-700 hover:text-blue-600"
+            className="flex items-center gap-1 py-2 text-gray-700 hover:text-blue-600 active:text-blue-600"
           >
-            <Globe className="size-3" />
+            <Globe className="size-3.5" />
             fabriciopirini.com
           </a>
-          <span>|</span>
           <a
             href="https://linkedin.com/in/fabriciopirini"
             target="_blank"
             rel="noopener"
             aria-label="Checkout my LinkedIn profile"
-            className="flex items-center gap-1 text-gray-700 hover:text-blue-600"
+            className="flex items-center gap-1 py-2 text-gray-700 hover:text-blue-600 active:text-blue-600"
           >
-            <Linkedin className="size-3" />
+            <Linkedin className="size-3.5" />
             fabriciopirini
           </a>
-          <span>|</span>
           <a
             href="https://github.com/fabriciopirini"
             target="_blank"
             rel="noopener"
             aria-label="Checkout my Github profile"
-            className="flex items-center gap-1 text-gray-700 hover:text-blue-600"
+            className="flex items-center gap-1 py-2 text-gray-700 hover:text-blue-600 active:text-blue-600"
           >
-            <Github className="size-3" />
+            <Github className="size-3.5" />
             fabriciopirini
           </a>
         </div>
       </div>
 
       {/* Summary */}
-      <div className="text-sm leading-relaxed text-gray-700">
+      <div className="text-base leading-relaxed text-gray-700 print:text-sm">
         <p>
           Senior Software Engineer with {yearsOfExperience}+ years in React and TypeScript, working across web and
           mobile. Currently at a leading US crypto exchange, owning the design system and shipping to 4 platforms,
@@ -97,10 +102,10 @@ export default async function ResumePage() {
 
       {/* Technical Skills */}
       <div>
-        <h2 className="mb-2 font-roboto text-xl font-extrabold text-gray-900">
+        <h2 className="mb-3 font-roboto text-xl font-black text-gray-900">
           <span style={{ color: 'var(--color-accent)' }}>Tec</span>hnical Skills
         </h2>
-        <div className="space-y-1 text-sm text-gray-700">
+        <div className="space-y-1 text-base text-gray-700 print:text-sm">
           <p>
             <span className="font-bold">Languages & Runtimes:</span> TypeScript, JavaScript (ES2024+), HTML5, CSS3,
             Node.js
@@ -120,26 +125,26 @@ export default async function ResumePage() {
       </div>
 
       {/* Professional Experience */}
-      <section className="[&_li::marker]:text-[0.7em]">
-        <h2 className="mb-3 font-roboto text-xl font-extrabold text-gray-900">
+      <section className="mt-8 print:mt-0 [&_li::marker]:text-[0.7em]">
+        <h2 className="mb-3 font-roboto text-xl font-black text-gray-900">
           <span style={{ color: 'var(--color-accent)' }}>Prof</span>essional Experience
         </h2>
-        <div className="space-y-4">
+        <div className="divide-y-[0.5px] divide-gray-200">
           {/* Job 1 */}
-          <div data-section="job" className="flex flex-col gap-2">
-            <div className="flex items-start justify-between">
+          <div data-section="job" className="flex flex-col gap-2 py-4 first:pt-0 last:pb-0">
+            <div className="flex flex-col gap-0.5 sm:flex-row sm:items-start sm:justify-between">
               <div className="flex flex-col text-gray-700">
                 <h3 className="font-black text-gray-900">Leading Cryptocurrency Exchange Platform - US Client</h3>
                 <p className={`text-sm font-medium ${styles.smallCaps}`}>Contractor - Frontend Engineer</p>
               </div>
-              <div className="flex flex-col text-right text-sm">
+              <div className="flex flex-col text-sm sm:text-right">
                 <p className="font-medium" style={{ color: 'var(--color-accent)' }}>
                   Brazil (Remote)
                 </p>
                 <p className="text-gray-600">Nov. 2024 - Present</p>
               </div>
             </div>
-            <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-gray-700">
+            <ul className="mt-2 list-inside list-disc space-y-1 text-base text-gray-700 print:text-sm">
               <li>
                 Cut visual regression test runtime from 12 min to under a minute by building the Playwright VRT
                 infrastructure from scratch. Coverage tripled across the component library.
@@ -162,20 +167,20 @@ export default async function ResumePage() {
           </div>
 
           {/* Job 2 */}
-          <div data-section="job" className="flex flex-col gap-2">
-            <div className="flex items-start justify-between">
+          <div data-section="job" className="flex flex-col gap-2 py-4 first:pt-0 last:pb-0">
+            <div className="flex flex-col gap-0.5 sm:flex-row sm:items-start sm:justify-between">
               <div className="flex flex-col text-gray-700">
                 <h3 className="font-black text-gray-900">E-commerce Platform</h3>
                 <p className={`text-sm font-medium ${styles.smallCaps}`}>Lead Software Engineer & Tech Lead</p>
               </div>
-              <div className="flex flex-col text-right text-sm">
+              <div className="flex flex-col text-sm sm:text-right">
                 <p className="font-medium" style={{ color: 'var(--color-accent)' }}>
                   Norway (Remote)
                 </p>
                 <p className="text-gray-600">Sep. 2023 - Sep. 2024</p>
               </div>
             </div>
-            <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-gray-700">
+            <ul className="mt-2 list-inside list-disc space-y-1 text-base text-gray-700 print:text-sm">
               <li>
                 Managed 5 engineers across 2 time zones. Built the sprint cadence, code review process, and CI/CD setup
                 from scratch.
@@ -189,15 +194,15 @@ export default async function ResumePage() {
                 Built a shared component library used by 3 product teams, cutting feature cycle time by roughly 25%.
               </li>
             </ul>
-            <div className="flex items-start justify-between">
+            <div className="flex flex-col gap-0.5 sm:flex-row sm:items-start sm:justify-between">
               <div className="flex flex-col text-gray-700">
                 <p className={`text-sm font-medium ${styles.smallCaps}`}>Lead Frontend Engineer</p>
               </div>
-              <div className="flex flex-col text-right text-sm">
+              <div className="flex flex-col text-sm sm:text-right">
                 <p className="text-gray-600">Sep. 2022 - Aug. 2023</p>
               </div>
             </div>
-            <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-gray-700">
+            <ul className="mt-2 list-inside list-disc space-y-1 text-base text-gray-700 print:text-sm">
               <li>
                 Integrated 5 storefronts with Sanity CMS and the internal design system, giving the content team full
                 control over brand-aligned pages without engineering involvement.
@@ -215,20 +220,20 @@ export default async function ResumePage() {
           </div>
 
           {/* Job 3 */}
-          <div data-section="job" className="flex flex-col gap-2">
-            <div className="flex items-start justify-between">
+          <div data-section="job" className="flex flex-col gap-2 py-4 first:pt-0 last:pb-0">
+            <div className="flex flex-col gap-0.5 sm:flex-row sm:items-start sm:justify-between">
               <div className="flex flex-col">
                 <h3 className="font-black text-gray-900">Online Grocery Delivery Startup</h3>
                 <p className={`text-sm font-medium ${styles.smallCaps}`}>Software Engineer</p>
               </div>
-              <div className="flex flex-col text-right text-sm">
+              <div className="flex flex-col text-sm sm:text-right">
                 <p className="font-medium" style={{ color: 'var(--color-accent)' }}>
                   Norway
                 </p>
                 <p className="text-gray-600">Aug. 2020 - Aug. 2022</p>
               </div>
             </div>
-            <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-gray-700">
+            <ul className="mt-2 list-inside list-disc space-y-1 text-base text-gray-700 print:text-sm">
               <li>
                 Built the A/B experimentation program from scratch and kept it running at 2-4 experiments a month.
               </li>
@@ -245,20 +250,20 @@ export default async function ResumePage() {
           </div>
 
           {/* Job 4 */}
-          <div data-section="job" className="flex flex-col gap-2">
-            <div className="flex items-start justify-between">
+          <div data-section="job" className="flex flex-col gap-2 py-4 first:pt-0 last:pb-0">
+            <div className="flex flex-col gap-0.5 sm:flex-row sm:items-start sm:justify-between">
               <div className="flex flex-col text-gray-700">
                 <h3 className="font-black text-gray-900">Sportradar</h3>
                 <p className={`text-sm font-medium ${styles.smallCaps}`}>Full Stack Engineer</p>
               </div>
-              <div className="flex flex-col text-right text-sm">
+              <div className="flex flex-col text-sm sm:text-right">
                 <p className="font-medium" style={{ color: 'var(--color-accent)' }}>
                   Norway
                 </p>
                 <p className="text-gray-600">Sept. 2018 - Aug. 2020</p>
               </div>
             </div>
-            <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-gray-700">
+            <ul className="mt-2 list-inside list-disc space-y-1 text-base text-gray-700 print:text-sm">
               <li>
                 Refactored web crawlers and scrapers into 5 independent microservices, cutting runtime by 120x and
                 resource usage by 10x.
@@ -271,20 +276,20 @@ export default async function ResumePage() {
           </div>
 
           {/* Job 5 */}
-          <div data-section="job" className="flex flex-col gap-2">
-            <div className="flex items-start justify-between">
+          <div data-section="job" className="flex flex-col gap-2 py-4 first:pt-0 last:pb-0">
+            <div className="flex flex-col gap-0.5 sm:flex-row sm:items-start sm:justify-between">
               <div className="flex flex-col text-gray-700">
                 <h3 className="font-black text-gray-900">Samsung R&D Center</h3>
                 <p className={`text-sm font-medium ${styles.smallCaps}`}>Software Engineering Intern</p>
               </div>
-              <div className="flex flex-col text-right text-sm">
+              <div className="flex flex-col text-sm sm:text-right">
                 <p className="font-medium" style={{ color: 'var(--color-accent)' }}>
                   Campinas, Brazil
                 </p>
                 <p className="text-gray-600">Jan. 2017 - Jan. 2018</p>
               </div>
             </div>
-            <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-gray-700">
+            <ul className="mt-2 list-inside list-disc space-y-1 text-base text-gray-700 print:text-sm">
               <li>
                 Built a WCAG 2.0 AA Web Accessibility portal and automated internal reporting dashboards with Power BI.
               </li>
@@ -297,31 +302,31 @@ export default async function ResumePage() {
       </section>
 
       {/* Education */}
-      <div>
+      <div className="mt-8 print:mt-0">
         <h2 className="mb-3 font-roboto text-xl font-black text-gray-900">
           <span style={{ color: 'var(--color-accent)' }}>Edu</span>cation
         </h2>
-        <div className="space-y-3 text-sm text-gray-700">
-          <div className="flex items-start justify-between">
+        <div className="divide-y-[0.5px] divide-gray-200 text-base text-gray-700 print:text-sm">
+          <div className="flex flex-col gap-0.5 py-3 first:pt-0 last:pb-0 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <h3 className="font-bold text-gray-900">Universidade Federal de Itajuba - UNIFEI</h3>
               <p className={`text-sm font-medium ${styles.smallCaps}`}>Bachelor of Science in Computer Engineering</p>
             </div>
-            <div className="flex flex-col text-right text-sm">
+            <div className="flex flex-col text-sm sm:text-right">
               <p className="font-medium" style={{ color: 'var(--color-accent)' }}>
                 Itabira, Brazil
               </p>
               <p className="text-gray-600">2011 - 2018</p>
             </div>
           </div>
-          <div className="flex items-start justify-between">
+          <div className="flex flex-col gap-0.5 py-3 first:pt-0 last:pb-0 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <h3 className="font-bold text-gray-900">University of Toronto</h3>
               <p className={`text-sm font-medium ${styles.smallCaps}`}>
                 Exchange Student, Electrical and Computer Engineering
               </p>
             </div>
-            <div className="flex flex-col text-right text-sm">
+            <div className="flex flex-col text-sm sm:text-right">
               <p className="font-medium" style={{ color: 'var(--color-accent)' }}>
                 Toronto, Canada
               </p>

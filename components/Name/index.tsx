@@ -12,8 +12,18 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { FADE_DOWN_ANIMATION_VARIANTS, FADE_RIGHT_ANIMATION_VARIANTS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 
+const staggerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+}
+
 export const NameBanner = () => {
   const [isWaving, setIsWaving] = useState(false)
+  const posthog = usePostHog()
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
@@ -22,7 +32,10 @@ export const NameBanner = () => {
   }, [])
 
   const handleMouseEnter = () => {
-    if (!isWaving) setIsWaving(true)
+    if (!isWaving) {
+      setIsWaving(true)
+      posthog?.capture('wave_hand_interaction')
+    }
   }
 
   const handleAnimationEnd = () => {
@@ -34,14 +47,7 @@ export const NameBanner = () => {
       initial="hidden"
       animate="show"
       viewport={{ once: true }}
-      variants={{
-        hidden: {},
-        show: {
-          transition: {
-            staggerChildren: 0.15,
-          },
-        },
-      }}
+      variants={staggerVariants}
       className="flex w-auto flex-col gap-4 md:gap-9"
     >
       <m.h1
@@ -77,7 +83,14 @@ const CTAButtons = () => {
 
   return (
     <m.div className="flex w-fit gap-2 rounded-full py-4 md:gap-6">
-      <CTAButton id="resume_download" type="secondary" as="link" href="/api/resume" text="Resume" />
+      <CTAButton
+        id="resume_download"
+        type="secondary"
+        as="link"
+        href="/api/resume"
+        text="Resume"
+        showDownloadFeedback
+      />
       <Popover
         onOpenChange={(value) => {
           const event = value ? 'contact_me_open' : 'contact_me_close'
@@ -95,14 +108,7 @@ const CTAButtons = () => {
             initial="hidden"
             animate="show"
             viewport={{ once: true }}
-            variants={{
-              hidden: {},
-              show: {
-                transition: {
-                  staggerChildren: 0.15,
-                },
-              },
-            }}
+            variants={staggerVariants}
             className="flex flex-row items-center justify-around gap-3"
           >
             <m.a
@@ -120,7 +126,7 @@ const CTAButtons = () => {
             <m.a
               href="https://www.linkedin.com/in/fabriciopirini/"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               aria-label="Checkout my LinkedIn profile"
               className="flex flex-col items-center justify-center gap-2"
               variants={FADE_RIGHT_ANIMATION_VARIANTS}

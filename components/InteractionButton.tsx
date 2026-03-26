@@ -1,6 +1,9 @@
+'use client'
+
 import { useState } from 'react'
 import { InboxIcon } from 'lucide-react'
 import Image from 'next/image'
+import { usePostHog } from 'posthog-js/react'
 
 import { GmailLogo, OutlookLogo } from '@/components/SvgLogos'
 import { Button, type ButtonProps } from '@/components/ui/button'
@@ -46,10 +49,17 @@ export const InteractionButtonDesktop = ({
   className?: string
 }) => {
   const [open, setOpen] = useState(false)
+  const posthog = usePostHog()
 
   return (
     <div className="hidden md:block">
-      <Dialog open={open} onOpenChange={setOpen}>
+      <Dialog
+        open={open}
+        onOpenChange={(value) => {
+          setOpen(value)
+          if (value) posthog?.capture('checkout_started', { label })
+        }}
+      >
         <DialogTrigger asChild>
           <Button
             disabled={disabled}
@@ -96,9 +106,17 @@ export const InteractionButtonMobile = ({
   label: string
   className?: string
 }) => {
+  const posthog = usePostHog()
+
   return (
     <div className="block w-full md:hidden">
-      <DrawerNested direction="bottom" shouldScaleBackground={false}>
+      <DrawerNested
+        direction="bottom"
+        shouldScaleBackground={false}
+        onOpenChange={(value) => {
+          if (value) posthog?.capture('checkout_started', { label })
+        }}
+      >
         <DrawerTrigger asChild>
           <Button
             disabled={disabled}
@@ -134,44 +152,59 @@ export const InteractionButtonMobile = ({
   )
 }
 
-const InteractionInfoContent = () => (
-  <div className="flex w-full flex-col items-center justify-between gap-3">
-    <span className="hidden lg:mb-5 lg:block lg:text-2xl">Send me an Email from:</span>
-    <Button className="flex items-center gap-3 text-base transition-transform duration-200 hover:scale-[1.02] active:scale-[0.97] lg:h-20 lg:px-14 lg:py-5 lg:text-2xl">
-      <InboxIcon className="pointer-events-none lg:h-9 lg:w-auto" strokeWidth={1.5} />
-      <a href={mailTo} type="submit" className="hidden text-base font-normal md:block lg:text-2xl">
-        Your favorite app
-      </a>
-      <a href={mailTo} type="submit" className="block p-1 md:hidden">
-        Send email
-      </a>
-    </Button>
-    <span className="hidden text-xl lg:block">or</span>
-    <div className="hidden w-full justify-center gap-3 md:flex lg:text-2xl">
-      <Button className="transition-transform duration-200 hover:scale-[1.02] active:scale-[0.97] lg:h-20 lg:w-60 lg:py-5">
+const InteractionInfoContent = () => {
+  const posthog = usePostHog()
+
+  return (
+    <div className="flex w-full flex-col items-center justify-between gap-3">
+      <span className="hidden lg:mb-5 lg:block lg:text-2xl">Send me an Email from:</span>
+      <Button className="flex items-center gap-3 text-base transition-transform duration-200 hover:scale-[1.02] active:scale-[0.97] lg:h-20 lg:px-14 lg:py-5 lg:text-2xl">
+        <InboxIcon className="pointer-events-none lg:h-9 lg:w-auto" strokeWidth={1.5} />
         <a
-          href={gmailLink}
-          target="_blank"
-          rel="noopener"
+          href={mailTo}
           type="submit"
-          className="flex items-center gap-3 text-base font-normal lg:text-2xl"
+          className="hidden text-base font-normal md:block lg:text-2xl"
+          onClick={() => posthog?.capture('email_client_selected', { client: 'default' })}
         >
-          <GmailLogo className="lg:h-9 lg:w-auto" /> Gmail
+          Your favorite app
+        </a>
+        <a
+          href={mailTo}
+          type="submit"
+          className="block p-1 md:hidden"
+          onClick={() => posthog?.capture('email_client_selected', { client: 'default' })}
+        >
+          Send email
         </a>
       </Button>
-      <Button className="transition-transform duration-200 hover:scale-[1.02] active:scale-[0.97] lg:h-20 lg:w-60 lg:py-4">
-        <a
-          href={outlookLink}
-          target="_blank"
-          rel="noopener"
-          type="submit"
-          className="flex items-center gap-3 text-base font-normal lg:text-2xl"
-        >
-          <OutlookLogo className="lg:h-12 lg:w-auto" /> Outlook
-        </a>
-      </Button>
-    </div>
-    {/* <span>or</span>
+      <span className="hidden text-xl lg:block">or</span>
+      <div className="hidden w-full justify-center gap-3 md:flex lg:text-2xl">
+        <Button className="transition-transform duration-200 hover:scale-[1.02] active:scale-[0.97] lg:h-20 lg:w-60 lg:py-5">
+          <a
+            href={gmailLink}
+            target="_blank"
+            rel="noopener"
+            type="submit"
+            className="flex items-center gap-3 text-base font-normal lg:text-2xl"
+            onClick={() => posthog?.capture('email_client_selected', { client: 'gmail' })}
+          >
+            <GmailLogo className="lg:h-9 lg:w-auto" /> Gmail
+          </a>
+        </Button>
+        <Button className="transition-transform duration-200 hover:scale-[1.02] active:scale-[0.97] lg:h-20 lg:w-60 lg:py-4">
+          <a
+            href={outlookLink}
+            target="_blank"
+            rel="noopener"
+            type="submit"
+            className="flex items-center gap-3 text-base font-normal lg:text-2xl"
+            onClick={() => posthog?.capture('email_client_selected', { client: 'outlook' })}
+          >
+            <OutlookLogo className="lg:h-12 lg:w-auto" /> Outlook
+          </a>
+        </Button>
+      </div>
+      {/* <span>or</span>
     <div className="flex flex-col text-center">
       <span>Click on the email to copy it</span>
       <button
@@ -187,8 +220,9 @@ const InteractionInfoContent = () => (
         me@fabriciopirini.com
       </button>
     </div> */}
-  </div>
-)
+    </div>
+  )
+}
 
 // const fallbackCopyTextToClipboard = (text) => {
 //   const textArea: HTMLTextAreaElement = document.createElement('textarea')

@@ -3,6 +3,7 @@
 import { Trash2Icon } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { usePostHog } from 'posthog-js/react'
 import { useWindowSize } from 'usehooks-ts'
 
 import { PRODUCTS } from '@/app/services'
@@ -24,6 +25,7 @@ import { useAppStore } from '@/providers/app-store-provider'
 
 export const Basket = () => {
   const cart = useAppStore((state) => state.cartItems)
+  const posthog = usePostHog()
 
   const pathname = usePathname()
   const screen = useWindowSize()
@@ -31,7 +33,13 @@ export const Basket = () => {
   const isMobile = screen?.width < 768
 
   return (
-    <Drawer direction={isMobile ? 'bottom' : 'right'} shouldScaleBackground={false}>
+    <Drawer
+      direction={isMobile ? 'bottom' : 'right'}
+      shouldScaleBackground={false}
+      onOpenChange={(open) => {
+        if (open) posthog?.capture('basket_opened', { cart_item_count: cart.length })
+      }}
+    >
       <DrawerTrigger
         aria-label="Open cart"
         data-testid="cart-button"
@@ -92,6 +100,7 @@ export const Basket = () => {
 
 const ProductCartItem = ({ productId, position }: { productId: string; position: number }) => {
   const removeProduct = useAppStore((state) => state.removeProduct)
+  const posthog = usePostHog()
   const item = PRODUCTS.find((product) => product.id === productId)
 
   if (!item) return null
@@ -103,7 +112,18 @@ const ProductCartItem = ({ productId, position }: { productId: string; position:
         <h3 className="text-lg font-medium">{item.name}</h3>
         <p className="text-sm">F$ {item.price}</p>
       </div>
-      <button onClick={() => removeProduct(productId)} className="text-xs font-medium">
+      <button
+        onClick={() => {
+          removeProduct(productId)
+          posthog?.capture('remove_from_cart', {
+            product_id: productId,
+            product_name: item.name,
+            product_price: item.price,
+            source: 'basket',
+          })
+        }}
+        className="text-xs font-medium"
+      >
         <Trash2Icon className="pointer-events-none size-5" />
         <span className="sr-only">Remove from cart</span>
       </button>

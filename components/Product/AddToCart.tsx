@@ -1,6 +1,7 @@
 'use client'
 
 import { CheckIcon } from 'lucide-react'
+import { usePostHog } from 'posthog-js/react'
 
 import { PRODUCTS } from '@/app/services'
 import { CartIconFilled } from '@/components/SvgLogos'
@@ -12,6 +13,7 @@ const CART_BUTTON_BASE_STYLE = 'rounded-full p-3 drop-shadow-md transition-trans
 
 export const AddToCart = ({ productId }: { productId: string }) => {
   const { cartItems, addProduct, removeProduct, coins } = useAppStore((state) => state)
+  const posthog = usePostHog()
 
   const isProductInCart = cartItems.includes(productId)
   const product = PRODUCTS.find((item) => item.id === productId)
@@ -23,7 +25,15 @@ export const AddToCart = ({ productId }: { productId: string }) => {
   if (isProductInCart) {
     return (
       <button
-        onClick={() => removeProduct(productId)}
+        onClick={() => {
+          removeProduct(productId)
+          posthog?.capture('remove_from_cart', {
+            product_id: productId,
+            product_name: product.name,
+            product_price: product.price,
+            source: 'product_card',
+          })
+        }}
         className={cn(CART_BUTTON_BASE_STYLE, 'relative flex items-center justify-center bg-green-500 text-primary')}
       >
         <CartIconFilled className="pointer-events-none size-5 lg:size-7" />
@@ -40,7 +50,14 @@ export const AddToCart = ({ productId }: { productId: string }) => {
       <Tooltip>
         <TooltipTrigger asChild>
           <button
-            onClick={() => addProduct(productId)}
+            onClick={() => {
+              addProduct(productId)
+              posthog?.capture('add_to_cart', {
+                product_id: productId,
+                product_name: product.name,
+                product_price: product.price,
+              })
+            }}
             aria-disabled={product.price > coins}
             disabled={product.price > coins}
             className={cn(

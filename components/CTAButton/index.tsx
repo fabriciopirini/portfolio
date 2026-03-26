@@ -1,10 +1,9 @@
 'use client'
 
-import type { Ref } from 'react'
-import React, { useState } from 'react'
+import { useState, type Ref } from 'react'
 import { cva } from 'class-variance-authority'
-import { type HTMLMotionProps, m } from 'framer-motion'
-import { CloudDownloadIcon } from 'lucide-react'
+import { AnimatePresence, type HTMLMotionProps, m } from 'framer-motion'
+import { CheckCircle2Icon, CloudDownloadIcon } from 'lucide-react'
 import { usePostHog } from 'posthog-js/react'
 
 import { MailIconFilled } from '@/components/SvgLogos'
@@ -51,57 +50,86 @@ type CTAButtonProps = {
   external?: boolean
   href?: string
   as?: 'button' | 'link'
+  showDownloadFeedback?: boolean
+  ref?: Ref<HTMLAnchorElement | HTMLButtonElement>
 }
 
-export const CTAButton = React.forwardRef(
-  ({ type = 'primary', external = false, as, ...props }: CTAButtonProps, ref) => {
-    const [isAnimationRunning, setIsAnimationRunning] = useState(false)
+const iconTransition = { duration: 0.15 }
+const iconVariants = {
+  initial: { scale: 0, opacity: 0 },
+  animate: { scale: 1, opacity: 1 },
+  exit: { scale: 0, opacity: 0 },
+}
 
-    const posthog = usePostHog()
+export const CTAButton = ({
+  type = 'primary',
+  external = false,
+  as,
+  showDownloadFeedback = false,
+  ref,
+  ...props
+}: CTAButtonProps) => {
+  const [isAnimationRunning, setIsAnimationRunning] = useState(false)
+  const [downloaded, setDownloaded] = useState(false)
 
-    const { text, href } = props
+  const posthog = usePostHog()
 
-    if (as === 'link') {
-      return (
-        <m.a
-          ref={ref as Ref<HTMLAnchorElement>}
-          {...(external && { target: '_blank', rel: 'noopener noreferrer' })}
-          href={href}
-          className={cn(CTAButtonStyles({ intent: type, external }), isAnimationRunning && 'animate-none')}
-          onClick={() => {
-            setIsAnimationRunning(true)
-            posthog?.capture(props.id ?? 'cta_button_click')
-          }}
-          onAnimationEnd={() => setIsAnimationRunning(false)}
-          suppressHydrationWarning
-          {...animation}
-          {...props}
-        >
-          <CloudDownloadIcon className="pointer-events-none inline-block size-5 md:size-7" />
-          {text}
-        </m.a>
-      )
-    }
+  const { id, text, href, ...domProps } = props
 
+  if (as === 'link') {
     return (
-      <m.button
-        ref={ref as Ref<HTMLButtonElement>}
-        className={cn(CTAButtonStyles({ intent: type }), isAnimationRunning && 'animate-none')}
+      <m.a
+        ref={ref as Ref<HTMLAnchorElement>}
+        {...(external && { target: '_blank', rel: 'noopener noreferrer' })}
+        href={href}
+        className={cn(CTAButtonStyles({ intent: type, external }), isAnimationRunning && 'animate-none')}
         onClick={() => {
           setIsAnimationRunning(true)
-          posthog?.capture(props.id ?? 'cta_button_click')
+          posthog?.capture(id ?? 'cta_button_click')
+          if (showDownloadFeedback) {
+            setDownloaded(true)
+            setTimeout(() => setDownloaded(false), 2500)
+          }
         }}
         onAnimationEnd={() => setIsAnimationRunning(false)}
-        suppressHydrationWarning
+        id={id}
         {...animation}
-        {...props}
+        {...domProps}
       >
-        <MailIconFilled className="pointer-events-none size-7 fill-black" />
-        {/* <MailIcon size={28} className="inline-block size-7 min-h-7 min-w-7 fill-black stroke-accent" /> */}
-        {text}
-      </m.button>
+        <AnimatePresence mode="wait" initial={false}>
+          {downloaded ? (
+            <m.span key="check" className="inline-flex" transition={iconTransition} {...iconVariants}>
+              <CheckCircle2Icon className="pointer-events-none inline-block size-5 md:size-7" />
+            </m.span>
+          ) : (
+            <m.span key="download" className="inline-flex" transition={iconTransition} {...iconVariants}>
+              <CloudDownloadIcon className="pointer-events-none inline-block size-5 md:size-7" />
+            </m.span>
+          )}
+        </AnimatePresence>
+        {showDownloadFeedback && downloaded ? 'Saved!' : text}
+      </m.a>
     )
   }
-)
+
+  return (
+    <m.button
+      ref={ref as Ref<HTMLButtonElement>}
+      className={cn(CTAButtonStyles({ intent: type }), isAnimationRunning && 'animate-none')}
+      onClick={() => {
+        setIsAnimationRunning(true)
+        posthog?.capture(id ?? 'cta_button_click')
+      }}
+      onAnimationEnd={() => setIsAnimationRunning(false)}
+      id={id}
+      {...animation}
+      {...domProps}
+    >
+      <MailIconFilled className="pointer-events-none size-7 fill-black" />
+      {/* <MailIcon size={28} className="inline-block size-7 min-h-7 min-w-7 fill-black stroke-accent" /> */}
+      {text}
+    </m.button>
+  )
+}
 
 CTAButton.displayName = 'CTAButton'

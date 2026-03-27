@@ -129,7 +129,7 @@ export default async function ResumePage() {
         <h2 className="mb-3 font-roboto text-xl font-black text-gray-900">
           <span style={{ color: 'var(--color-accent)' }}>Prof</span>essional Experience
         </h2>
-        <div className="divide-y-[0.5px] divide-gray-200">
+        <div className="divide-y-[0.5px] divide-gray-300">
           {/* Job 1 */}
           <div data-section="job" className="flex flex-col gap-2 py-4 first:pt-0 last:pb-0">
             <div className="flex flex-col gap-0.5 sm:flex-row sm:items-start sm:justify-between">
@@ -306,7 +306,7 @@ export default async function ResumePage() {
         <h2 className="mb-3 font-roboto text-xl font-black text-gray-900">
           <span style={{ color: 'var(--color-accent)' }}>Edu</span>cation
         </h2>
-        <div className="divide-y-[0.5px] divide-gray-200 text-base text-gray-700 print:text-sm">
+        <div className="divide-y-[0.5px] divide-gray-300 text-base text-gray-700 print:text-sm">
           <div className="flex flex-col gap-0.5 py-3 first:pt-0 last:pb-0 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <h3 className="font-bold text-gray-900">Universidade Federal de Itajuba - UNIFEI</h3>

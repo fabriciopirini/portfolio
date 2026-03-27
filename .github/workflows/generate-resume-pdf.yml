@@ -1,0 +1,66 @@
+name: Generate Resume PDF
+
+on:
+  deployment_status:
+  workflow_dispatch:
+    inputs:
+      deploy_url:
+        description: 'Base URL to generate PDF from (e.g. https://fabriciopirini.com)'
+        required: true
+        default: 'https://fabriciopirini.com'
+
+env:
+  PDF_FILENAME: Fabricio_Pirini_CV.pdf
+
+jobs:
+  generate-pdf:
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.deployment_status.state == 'success' &&
+       github.event.deployment.environment == 'Production')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Install Playwright Chromium
+        run: bunx playwright install chromium --with-deps
+
+      - name: Generate PDF
+        env:
+          DEPLOY_URL: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_url || github.event.deployment_status.target_url }}
+          PDF_FILENAME: ${{ env.PDF_FILENAME }}
+        run: |
+          node -e "
+          const { chromium } = require('@playwright/test');
+          (async () => {
+            const browser = await chromium.launch();
+            const page = await browser.newPage();
+            await page.goto(process.env.DEPLOY_URL + '/resume', { waitUntil: 'networkidle' });
+            await page.pdf({ path: process.env.PDF_FILENAME, format: 'A4', printBackground: true });
+            await browser.close();
+          })().catch(err => { console.error(err); process.exit(1); });
+          "
+
+      - name: Checkout utils repo
+        uses: actions/checkout@v6
+        with:
+          repository: fabriciopirini/utils
+          token: ${{ secrets.UTILS_REPO_PAT }}
+          path: utils-repo
+
+      - name: Commit and push PDF
+        run: |
+          cp "$PDF_FILENAME" "utils-repo/Resume/$PDF_FILENAME"
+          cd utils-repo
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add "Resume/$PDF_FILENAME"
+          git diff --cached --quiet || git commit -m 'chore: update resume PDF from deploy ${{ github.sha }}'
+          git push

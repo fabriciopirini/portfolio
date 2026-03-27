@@ -3,14 +3,10 @@ name: Generate Resume PDF
 on:
   deployment_status:
   workflow_dispatch:
-    inputs:
-      deploy_url:
-        description: 'Base URL to generate PDF from (e.g. https://fabriciopirini.com)'
-        required: true
-        default: 'https://fabriciopirini.com'
 
 env:
   PDF_FILENAME: Fabricio_Pirini_CV.pdf
+  BASE_URL: https://fabriciopirini.com
 
 jobs:
   generate-pdf:
@@ -33,16 +29,13 @@ jobs:
         run: bunx playwright install chromium --with-deps
 
       - name: Generate PDF
-        env:
-          DEPLOY_URL: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_url || github.event.deployment_status.target_url }}
-          PDF_FILENAME: ${{ env.PDF_FILENAME }}
         run: |
           node -e "
           const { chromium } = require('@playwright/test');
           (async () => {
             const browser = await chromium.launch();
             const page = await browser.newPage();
-            await page.goto(process.env.DEPLOY_URL + '/resume', { waitUntil: 'networkidle' });
+            await page.goto(process.env.BASE_URL + '/resume', { waitUntil: 'networkidle' });
             await page.pdf({ path: process.env.PDF_FILENAME, format: 'A4', printBackground: true });
             await browser.close();
           })().catch(err => { console.error(err); process.exit(1); });

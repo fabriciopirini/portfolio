@@ -22,7 +22,7 @@ export default async function ResumePage() {
     <div
       className={cn(
         styles.resumeContainer,
-        'relative m-4 flex max-w-full flex-col gap-4 text-pretty border-2 border-white bg-gray-100 px-4 pb-10 pt-14 font-source-sans-3 text-base text-gray-700 md:mx-auto md:max-w-[210mm] md:p-16 print:bg-white print:text-black'
+        'relative m-4 flex max-w-full flex-col gap-4 text-pretty border-2 border-white bg-gray-100 px-4 pb-10 pt-14 font-source-sans-3 text-base text-gray-700 md:mx-auto md:max-w-[210mm] md:p-16 print:m-0 print:bg-white print:p-0 print:text-black'
       )}
     >
       {/* Download PDF — screen only, anchored to card corner */}
@@ -129,7 +129,7 @@ export default async function ResumePage() {
         <h2 className="mb-3 font-roboto text-xl font-black text-gray-900">
           <span style={{ color: 'var(--color-accent)' }}>Prof</span>essional Experience
         </h2>
-        <div className="divide-y-[0.5px] divide-gray-300">
+        <div className="divide-y-[0.5px] divide-gray-300 print:divide-y-0">
           {/* Job 1 */}
           <div data-section="job" className="flex flex-col gap-2 py-4 first:pt-0 last:pb-0">
             <div className="flex flex-col gap-0.5 sm:flex-row sm:items-start sm:justify-between">
@@ -167,56 +167,60 @@ export default async function ResumePage() {
           </div>
 
           {/* Job 2 */}
-          <div data-section="job" className="flex flex-col gap-2 py-4 first:pt-0 last:pb-0">
-            <div className="flex flex-col gap-0.5 sm:flex-row sm:items-start sm:justify-between">
-              <div className="flex flex-col text-gray-700">
-                <h3 className="font-black text-gray-900">E-commerce Platform</h3>
-                <p className={`text-sm font-medium ${styles.smallCaps}`}>Lead Software Engineer & Tech Lead</p>
+          <div className="flex flex-col gap-2 py-4 first:pt-0 last:pb-0">
+            <div data-section="job" className="flex flex-col gap-2">
+              <div className="flex flex-col gap-0.5 sm:flex-row sm:items-start sm:justify-between">
+                <div className="flex flex-col text-gray-700">
+                  <h3 className="font-black text-gray-900">E-commerce Platform</h3>
+                  <p className={`text-sm font-medium ${styles.smallCaps}`}>Lead Software Engineer & Tech Lead</p>
+                </div>
+                <div className="flex flex-col text-sm sm:text-right">
+                  <p className="font-medium" style={{ color: 'var(--color-accent)' }}>
+                    Norway (Remote)
+                  </p>
+                  <p className="text-gray-600">Sep. 2023 - Sep. 2024</p>
+                </div>
               </div>
-              <div className="flex flex-col text-sm sm:text-right">
-                <p className="font-medium" style={{ color: 'var(--color-accent)' }}>
-                  Norway (Remote)
-                </p>
-                <p className="text-gray-600">Sep. 2023 - Sep. 2024</p>
-              </div>
+              <ul className="mt-2 list-inside list-disc space-y-1 text-base text-gray-700 print:text-sm">
+                <li>
+                  Managed 5 engineers across 2 time zones. Built the sprint cadence, code review process, and CI/CD
+                  setup from scratch.
+                </li>
+                <li>
+                  Rebuilt legacy storefronts and built new ones from scratch, shipping 5 in total with React,
+                  TypeScript, and Next.js. Worked with Design, Product, and Business stakeholders at every level, from
+                  CEO to junior engineer.
+                </li>
+                <li>
+                  Built a shared component library used by 3 product teams, cutting feature cycle time by roughly 25%.
+                </li>
+              </ul>
             </div>
-            <ul className="mt-2 list-inside list-disc space-y-1 text-base text-gray-700 print:text-sm">
-              <li>
-                Managed 5 engineers across 2 time zones. Built the sprint cadence, code review process, and CI/CD setup
-                from scratch.
-              </li>
-              <li>
-                Rebuilt legacy storefronts and built new ones from scratch, shipping 5 in total with React, TypeScript,
-                and Next.js. Worked with Design, Product, and Business stakeholders at every level, from CEO to junior
-                engineer.
-              </li>
-              <li>
-                Built a shared component library used by 3 product teams, cutting feature cycle time by roughly 25%.
-              </li>
-            </ul>
-            <div className="flex flex-col gap-0.5 sm:flex-row sm:items-start sm:justify-between">
-              <div className="flex flex-col text-gray-700">
-                <p className={`text-sm font-medium ${styles.smallCaps}`}>Lead Frontend Engineer</p>
+            <div data-section="job" className="flex flex-col gap-2">
+              <div className="flex flex-col gap-0.5 sm:flex-row sm:items-start sm:justify-between">
+                <div className="flex flex-col text-gray-700">
+                  <p className={`text-sm font-medium ${styles.smallCaps}`}>Lead Frontend Engineer</p>
+                </div>
+                <div className="flex flex-col text-sm sm:text-right">
+                  <p className="text-gray-600">Sep. 2022 - Aug. 2023</p>
+                </div>
               </div>
-              <div className="flex flex-col text-sm sm:text-right">
-                <p className="text-gray-600">Sep. 2022 - Aug. 2023</p>
-              </div>
+              <ul className="mt-2 list-inside list-disc space-y-1 text-base text-gray-700 print:text-sm">
+                <li>
+                  Integrated 5 storefronts with Sanity CMS and the internal design system, giving the content team full
+                  control over brand-aligned pages without engineering involvement.
+                </li>
+                <li>
+                  Got Core Web Vitals into the green on key checkout routes through code splitting, lazy loading, and
+                  edge caching. LCP under 2s.
+                </li>
+                <li>
+                  Led WCAG 2.0 AA compliance across e-commerce storefronts and brand landing pages for a portfolio of
+                  70+ European companies.
+                </li>
+                <li>Mentored 3 junior engineers. Two were promoted within 18 months.</li>
+              </ul>
             </div>
-            <ul className="mt-2 list-inside list-disc space-y-1 text-base text-gray-700 print:text-sm">
-              <li>
-                Integrated 5 storefronts with Sanity CMS and the internal design system, giving the content team full
-                control over brand-aligned pages without engineering involvement.
-              </li>
-              <li>
-                Got Core Web Vitals into the green on key checkout routes through code splitting, lazy loading, and edge
-                caching. LCP under 2s.
-              </li>
-              <li>
-                Led WCAG 2.0 AA compliance across e-commerce storefronts and brand landing pages for a portfolio of 70+
-                European companies.
-              </li>
-              <li>Mentored 3 junior engineers. Two were promoted within 18 months.</li>
-            </ul>
           </div>
 
           {/* Job 3 */}
@@ -306,7 +310,7 @@ export default async function ResumePage() {
         <h2 className="mb-3 font-roboto text-xl font-black text-gray-900">
           <span style={{ color: 'var(--color-accent)' }}>Edu</span>cation
         </h2>
-        <div className="divide-y-[0.5px] divide-gray-300 text-base text-gray-700 print:text-sm">
+        <div className="divide-y-[0.5px] divide-gray-300 text-base text-gray-700 print:divide-y-0 print:text-sm">
           <div className="flex flex-col gap-0.5 py-3 first:pt-0 last:pb-0 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <h3 className="font-bold text-gray-900">Universidade Federal de Itajuba - UNIFEI</h3>

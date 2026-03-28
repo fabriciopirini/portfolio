@@ -30,16 +30,41 @@ jobs:
 
       - name: Generate PDF
         run: |
-          node -e "
+          cat << 'SCRIPT' > generate-pdf.js
           const { chromium } = require('@playwright/test');
+
           (async () => {
-            const browser = await chromium.launch();
-            const page = await browser.newPage();
+            const browser = await chromium.launch({
+              args: ['--font-render-hinting=none'],
+            });
+            const context = await browser.newContext({ viewport: { width: 794, height: 1123 }, deviceScaleFactor: 2 });
+            const page = await context.newPage();
+            await page.emulateMedia({ media: 'print' });
             await page.goto(process.env.BASE_URL + '/resume', { waitUntil: 'networkidle' });
-            await page.pdf({ path: process.env.PDF_FILENAME, format: 'A4', printBackground: true });
+            await page.evaluate(() => document.fonts.ready);
+
+            const date = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+            await page.pdf({
+              path: process.env.PDF_FILENAME,
+              format: 'A4',
+              printBackground: false,
+              displayHeaderFooter: true,
+              headerTemplate: '<span></span>',
+              footerTemplate: `
+                <div style="width: 100%; font-size: 9pt; color: #6b7280; padding: 0 2cm; display: flex; justify-content: space-between; font-family: 'Source Sans 3', sans-serif;">
+                  <span>${date}</span>
+                  <span>Fabricio Tramontano Pirini &bull; Resume</span>
+                  <span><span class="pageNumber"></span> / <span class="totalPages"></span></span>
+                </div>
+              `,
+              margin: { top: '2cm', bottom: '2cm', left: '2cm', right: '2cm' },
+            });
+
             await browser.close();
           })().catch(err => { console.error(err); process.exit(1); });
-          "
+          SCRIPT
+          node generate-pdf.js
 
       - name: Checkout utils repo
         uses: actions/checkout@v6

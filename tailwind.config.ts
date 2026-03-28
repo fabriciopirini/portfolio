@@ -1,7 +1,6 @@
 import tailwindContainerQueries from '@tailwindcss/container-queries'
 import type { Config } from 'tailwindcss'
 import tailwindAnimate from '@anuragroy/tailwindcss-animate'
-import tailwindDebugScreens from 'tailwindcss-debug-screens'
 import tailwindTouch from 'tailwindcss-touch'
 import plugin from 'tailwindcss/plugin'
 import { mapKeys } from 'lodash-es'
@@ -179,7 +178,6 @@ export const config = {
   plugins: [
     cornerShapePlugin({ default: 'squircle' }),
     tailwindContainerQueries,
-    tailwindDebugScreens,
     tailwindAnimate,
     addVariablesForColors,
     tailwindTouch(),

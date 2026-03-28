@@ -67,7 +67,6 @@
     "msw": "^2.12.13",
     "oxlint": "^1.39.0",
     "schema-dts": "^1.1.5",
-    "tailwindcss-debug-screens": "^2.2.1",
     "tailwindcss-touch": "^1.0.1",
     "typescript": "^5.9.3",
     "vercel": "^50.34.2",

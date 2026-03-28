@@ -25,8 +25,16 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
-      - name: Install Playwright Chromium
-        run: bunx playwright install chromium --with-deps
+      - name: Install Playwright deps
+        run: bunx playwright install-deps chromium
+
+      - name: Install PDF fonts
+        run: |
+          sudo apt-get install -y -qq fonts-roboto
+          mkdir -p ~/.local/share/fonts
+          curl -sL "https://github.com/google/fonts/raw/main/ofl/sourcesans3/SourceSans3%5Bwght%5D.ttf" -o ~/.local/share/fonts/SourceSans3.ttf
+          curl -sL "https://github.com/google/fonts/raw/main/ofl/sourcesans3/SourceSans3-Italic%5Bwght%5D.ttf" -o ~/.local/share/fonts/SourceSans3-Italic.ttf
+          fc-cache -f
 
       - name: Generate PDF
         run: |
@@ -35,6 +43,7 @@ jobs:
 
           (async () => {
             const browser = await chromium.launch({
+              channel: 'chrome',
               args: ['--font-render-hinting=none'],
             });
             const context = await browser.newContext({ viewport: { width: 794, height: 1123 }, deviceScaleFactor: 2 });

@@ -80,7 +80,7 @@ export const Technology = () => (
   </>
 )
 
-const LogoStyles = 'h-16 w-16 min-h-16 min-w-16 md:h-24 md:w-24 md:min-h-24 md:min-w-24 rounded'
+const LogoStyles = 'h-16 w-16 min-h-16 min-w-16 md:h-24 md:w-24 md:min-h-24 md:min-w-24 rounded-xl'
 
 const skills = [
   {

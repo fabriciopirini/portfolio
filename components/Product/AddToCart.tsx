@@ -69,7 +69,7 @@ export const AddToCart = ({ productId }: { productId: string }) => {
             <span className="sr-only">Add to cart</span>
           </button>
         </TooltipTrigger>
-        <TooltipContent className="rounded" hidden={product.price <= coins}>
+        <TooltipContent hidden={product.price <= coins}>
           <p>Not enough coins</p>
         </TooltipContent>
       </Tooltip>

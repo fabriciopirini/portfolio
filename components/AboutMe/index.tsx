@@ -18,7 +18,7 @@ export const AboutMe = () => {
   return (
     <section
       id="about"
-      className="relative flex w-full flex-col gap-5 rounded-xl bg-white py-7 text-center lg:container md:px-28 md:py-20 lg:mb-36 lg:gap-16"
+      className="relative flex w-full flex-col gap-5 rounded-xl bg-white py-7 text-center lg:container md:px-28 md:py-20 lg:gap-16"
     >
       <CornerMinus pos="top-right" />
       <CornerMinus pos="top-left" />

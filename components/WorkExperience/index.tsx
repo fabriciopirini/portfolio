@@ -4,7 +4,7 @@ export const WorkExperience = () => {
   return (
     <section
       id="experience"
-      className="flex w-full flex-col gap-16 py-16 pl-6 pr-4 lg:container md:px-0 md:py-32 lg:gap-32"
+      className="flex w-full flex-col gap-16 py-16 pl-6 pr-4 lg:container md:px-0 md:py-20 lg:gap-32"
     >
       <div className="flex w-full flex-col gap-8 lg:flex-row lg:gap-10">
         <div className="shrink-0 basis-2/5">

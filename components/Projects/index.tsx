@@ -3,7 +3,7 @@ import type { Project } from '@/app/projects'
 import { PROJECTS } from '@/app/projects'
 
 export const Projects = () => (
-  <section id="projects" className="flex w-full flex-col gap-12 py-16 lg:container md:py-32">
+  <section id="projects" className="flex w-full flex-col gap-12 py-16 lg:container md:py-20">
     <div className="flex flex-col gap-4 pl-6 pr-4 md:px-0">
       <h2 className="font-leagueSpartan text-3xl font-medium lg:text-6xl">Things I&apos;ve actually built</h2>
       <p className="text-primary/70 lg:text-2xl">Selected work. What it was, what went sideways, and what shipped.</p>

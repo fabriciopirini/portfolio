@@ -12,26 +12,25 @@ const IMAGE_STYLES = 'w-auto max-w-full object-contain object-center h-36 lg:h-[
 export const PRODUCTS = [
   {
     id: 'product-1',
-    name: 'Great SEO',
+    name: 'Performance Audit',
     price: 100,
     description:
-      'Boost your web presence with SEO expertise that ensures your site is not just seen, but also heard across the digital landscape.',
+      "Find what's slow before your users do. A deep look at where your interface loses time, trust, and conversions.",
     featuredImage: {
       staticImage: <SEOImage className={IMAGE_STYLES} color="#373943" />,
       altText:
-        'Icon of a magnifying glass over a web page, symbolizing the service of enhancing website search engine optimization for better visibility.',
+        'Magnifying glass over a web page, illustrating an audit that identifies where interfaces lose time and conversions.',
     },
   },
   {
     id: 'product-2',
-    name: 'Rank #1 on Google',
+    name: 'Core Web Vitals',
     price: 200,
     description:
-      "Drive your website to the top of Google's charts with smart SEO that translates into superior search dominance.",
+      'LCP, CLS, INP — the scores that actually affect how your product feels. Fixed properly, not hacked green.',
     featuredImage: {
       staticImage: <SearchEngines className={IMAGE_STYLES} color="#373943" />,
-      altText:
-        "Icon of a trophy atop a number one, representing the service's goal of achieving the top rank on Google search results.",
+      altText: 'Trophy icon representing improved Core Web Vitals scores for LCP, CLS, and INP.',
     },
   },
   {
@@ -39,70 +38,68 @@ export const PRODUCTS = [
     name: 'Responsive Design',
     price: 300,
     description:
-      'Crafting fluid, adaptable websites that provide seamless experiences on any device, from desktop to mobile.',
+      'Every breakpoint is a design decision. Fluid layouts that hold up on any screen without falling apart at the edges.',
     featuredImage: {
       staticImage: <Responsive className={IMAGE_STYLES} color="#373943" />,
       altText:
-        'Icon of a desktop monitor, tablet, and mobile phone displaying the same content, illustrating the service of creating responsive web designs that adapt to all devices.',
+        'Desktop, tablet, and mobile phone showing the same layout, illustrating responsive design across all screen sizes.',
     },
   },
   {
     id: 'product-4',
-    name: 'Ultra fast page load',
+    name: 'UI Performance',
     price: 400,
     description:
-      'Experience blistering speeds with webpages that load faster than the blink of an eye, reducing bounce rates and boosting user satisfaction.',
+      "Render times, bundle sizes, animation jank. An interface that feels fast is one users trust. Let's make yours feel fast.",
     featuredImage: {
       staticImage: <FastLoading className={IMAGE_STYLES} color="#373943" />,
       altText:
-        "Icon of a stopwatch with a web page, indicating the service's focus on ultra-fast website loading times for improved user experience.",
+        'Stopwatch icon representing UI performance work focused on render times, bundle sizes, and animation quality.',
     },
   },
   {
     id: 'product-5',
-    name: 'Smooth checkout',
+    name: 'Component Library',
     price: 500,
     description:
-      'Enjoy a checkout experience as smooth as silk, reducing cart abandonment and converting browsers into buyers.',
+      'Reusable, accessible, type-safe. The kind of components your team actually wants to use instead of working around.',
     featuredImage: {
       staticImage: <AddToCart className={IMAGE_STYLES} color="#373943" />,
-      altText:
-        'Icon of a smooth and simple checkout process with a shopping cart and a check mark, denoting a hassle-free payment experience.',
+      altText: 'Shopping cart with a check mark, representing a component library built for reuse and accessibility.',
     },
   },
   {
     id: 'product-6',
-    name: 'Top of the line analytics',
+    name: 'Design System Setup',
     price: 600,
     description:
-      'Leverage comprehensive analytics that offer deep insights into user behavior, empowering data-driven decisions.',
+      'Tokens, components, documentation. The foundation that lets design and engineering move without stepping on each other.',
     featuredImage: {
       staticImage: <DataTrends className={IMAGE_STYLES} color="#373943" />,
-      altText:
-        "Icon of advanced analytics charts and graphs, denoting the service's provision of comprehensive data insights for websites.",
+      altText: 'Charts icon representing a design system setup with tokens, components, and documentation.',
     },
   },
   {
     id: 'product-7',
-    name: 'Great user experience',
+    name: 'UX & Interface Design',
     price: 600,
-    description: 'Delivering intuitive and enjoyable digital experiences that keep users coming back for more.',
+    description:
+      'Interfaces that look exactly as intended and feel better than expected. From Figma to production without the gap.',
     featuredImage: {
       staticImage: <ExperienceDesign className={IMAGE_STYLES} color="#373943" />,
-      altText:
-        "Icon of a user with a heart, representing the service's dedication to crafting websites with great user experience that customers love.",
+      altText: 'User with a heart icon, representing UX and interface design that bridges Figma and production.',
     },
   },
   {
     id: 'product-8',
-    name: 'Customer loyalty',
+    name: 'Design to Production',
     price: 600,
     description:
-      'Build lasting bonds with customers through tailored experiences that reward engagement and foster loyalty.',
+      'The handoff that usually breaks things. Done right, designers and engineers ship from the same source of truth.',
     featuredImage: {
       staticImage: <SuccessPurchase className={IMAGE_STYLES} color="#373943" />,
       altText:
-        "Icon of a handshake integrated with a heart, symbolizing the service's commitment to building customer loyalty through positive engagement.",
+        'Handshake icon representing a design-to-production service where designers and engineers share a single source of truth.',
     },
   },
   // {

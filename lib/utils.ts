@@ -44,3 +44,28 @@ export const calculateYearsOfExperience = (startDate: string | Date = '2017-09-0
   const diffTime = Math.abs(date2.valueOf() - date1.valueOf())
   return Math.ceil(diffTime / (1000 * 60 * 60 * 24 * 365))
 }
+
+const NUMBER_WORDS: Record<number, string> = {
+  1: 'one',
+  2: 'two',
+  3: 'three',
+  4: 'four',
+  5: 'five',
+  6: 'six',
+  7: 'seven',
+  8: 'eight',
+  9: 'nine',
+  10: 'ten',
+  11: 'eleven',
+  12: 'twelve',
+  13: 'thirteen',
+  14: 'fourteen',
+  15: 'fifteen',
+  16: 'sixteen',
+  17: 'seventeen',
+  18: 'eighteen',
+  19: 'nineteen',
+  20: 'twenty',
+}
+
+export const numberToWords = (n: number): string => NUMBER_WORDS[n] ?? String(n)

@@ -111,9 +111,7 @@ export const SideMe = () => {
                 'origin-left translate-x-0 scale-100 text-base text-primary-background opacity-100 sm:text-lg'
               )}
             >
-              <p className="mb-4 font-semibold">
-                Hey! it seems like you&apos;re enjoying the site. Would you like to chat? I&apos;m here to help!
-              </p>
+              <p className="mb-4 font-semibold">Still here? Let&apos;s talk.</p>
               <div className="flex flex-col-reverse justify-between gap-5 px-2 sm:flex-row">
                 <button className="font-semibold opacity-80" onClick={handleHideSideBubble}>
                   No thanks

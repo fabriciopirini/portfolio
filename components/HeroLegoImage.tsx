@@ -1,16 +1,15 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import { m, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import { CheckCircle2Icon, MapPinIcon, RocketIcon } from 'lucide-react'
 import Image from 'next/image'
 
 import { ImageBubble } from '@/components/ImageBubble'
-import { calculateYearsOfExperience } from '@/lib/utils'
+import { useYearsOfExperience } from '@/hooks/use-years-of-experience'
 import ProfilePic from '@/public/assets/lego_me.png'
 
 export const HeroLegoImage = () => {
-  const [diffYears, setDiffYears] = useState<number | null>(null)
+  const { years: diffYears } = useYearsOfExperience()
   const prefersReducedMotion = useReducedMotion()
   const { scrollY } = useScroll()
 
@@ -20,16 +19,6 @@ export const HeroLegoImage = () => {
   const y1 = useTransform(scrollY, range, [0, -38])
   const y2 = useTransform(scrollY, range, [0, -63])
   const y3 = useTransform(scrollY, range, [0, -23])
-
-  // Intentional: calculateYearsOfExperience() calls new Date(), which Next.js forbids
-  // during static prerendering of Client Components. Deferring to an effect ensures
-  // the value is always computed on the client after hydration. The '...' fallback
-  // shown during SSR/hydration is acceptable for this decorative badge.
-  // react-doctor-disable-next-line react-doctor/rendering-hydration-no-flicker
-  useEffect(() => {
-    // react-doctor-disable-next-line react-hooks-js/set-state-in-effect
-    setDiffYears(calculateYearsOfExperience())
-  }, [])
 
   return (
     <div>
@@ -55,7 +44,7 @@ export const HeroLegoImage = () => {
               aria-hidden
             />
           }
-          highlightedText={`${diffYears ?? '...'}+ years`}
+          highlightedText={`${diffYears ?? '...'} years`}
           text="of experience"
         />
       </m.div>

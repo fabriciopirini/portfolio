@@ -1,15 +1,17 @@
 'use client'
 
-import { CircleCheckBigIcon, QuoteIcon, RouteIcon, TrendingUpIcon } from 'lucide-react'
+import { CircleCheckBigIcon, RouteIcon, TrendingUpIcon } from 'lucide-react'
 import Image from 'next/image'
 import { useWindowSize } from 'usehooks-ts'
 
 import { Carousel, CarouselContent, CarouselDots, CarouselItem } from '@/components/ui/carousel'
+import { useYearsOfExperience } from '@/hooks/use-years-of-experience'
 import { cn } from '@/lib/utils'
 import LegoPiece from '@/public/assets/lego-piece.png'
 
 export const AboutMe = () => {
   const screen = useWindowSize()
+  const { yearsText } = useYearsOfExperience()
 
   const isMobile = screen?.width < 1280 // 1280px is the breakpoint for the xl size
 
@@ -35,8 +37,8 @@ export const AboutMe = () => {
               <RouteIcon strokeWidth={1.5} className="pointer-events-none size-16 text-accent" />
               <h3 className="font-leagueSpartan text-3xl font-medium text-primary max-xl:select-none">Journey</h3>
               <p className="text-primary max-xl:select-none">
-                I build <span className="font-semibold text-accent">fast, scalable systems</span> using React and
-                Next.js. Remote from Brazil. I care about code that works, not corporate theater.
+                I care about the pixel and the pipeline. React and Next.js, {yearsText ?? 'nine'} years building
+                interfaces that work exactly as designed, and hold up under the hood. Not corporate theater. Just craft.
               </p>
             </div>
           </CarouselItem>
@@ -45,9 +47,8 @@ export const AboutMe = () => {
               <CircleCheckBigIcon strokeWidth={1.5} className="pointer-events-none mb-4 size-12 text-accent" />
               <h3 className="font-leagueSpartan text-3xl font-medium text-primary max-xl:select-none">What matters</h3>
               <p className="text-primary max-xl:select-none">
-                <span className="font-semibold">Automation</span> that saves people time.{' '}
-                <span className="font-semibold">Design systems</span> that make teams faster. And building with
-                intention, no bloat.
+                Component craft that scales. Design systems that bridge Figma and production. Every animation, every
+                spacing decision, every hover state is a deliberate choice, not an accident.
               </p>
             </div>
           </CarouselItem>
@@ -56,24 +57,14 @@ export const AboutMe = () => {
               <TrendingUpIcon strokeWidth={1.5} className="pointer-events-none size-16 text-accent" />
               <h3 className="font-leagueSpartan text-3xl font-medium text-primary max-xl:select-none">Right now</h3>
               <p className="text-primary max-xl:select-none">
-                Working on <span className="font-semibold">platform infrastructure</span> that helps other developers
-                build better products. Test suites, design tokens, performance wins.
+                Automating the gap between design and engineering. Design tokens that let designers push to production.
+                Visual testing that ships with confidence. The details that make interfaces feel right.
               </p>
             </div>
           </CarouselItem>
         </CarouselContent>
         <CarouselDots className="xl:hidden" isDarkMode={false} />
       </Carousel>
-      <div className="flex min-h-10 justify-center gap-2 px-8 pb-14 pt-5 lg:py-5">
-        <QuoteIcon
-          fill="#ffc457"
-          className="pointer-events-none size-5 min-h-5 min-w-5 -scale-x-100 text-accent lg:size-7"
-        />
-        <p className="my-auto flex max-w-[30ch] items-end text-xl font-medium text-secondary lg:text-3xl">
-          Good code speaks for itself
-        </p>
-        <QuoteIcon fill="#ffc457" className="mt-auto size-5 min-h-5 min-w-5 text-accent lg:size-7" />
-      </div>
     </section>
   )
 }

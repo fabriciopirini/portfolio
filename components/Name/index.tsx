@@ -71,8 +71,7 @@ export const NameBanner = () => {
         <span className="font-leagueSpartan lg:whitespace-nowrap">I&apos;m Fabricio.</span>
       </m.h1>
       <m.p className="text-base sm:text-xl lg:text-2xl xl:text-[28px]" variants={FADE_DOWN_ANIMATION_VARIANTS}>
-        A dedicated Computer Engineer with a focus on Web Development, working remotely as a contractor from Brazil. My
-        goal is to integrate innovation with efficiency, making a meaningful contribution to the technology sector.
+        Design Engineer. I build interfaces that look exactly as intended and feel better than expected.
       </m.p>
       <CTAButtons />
     </m.div>

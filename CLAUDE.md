@@ -52,13 +52,17 @@ This site positions Fabricio as a **Design Engineer** — someone equally at hom
 - Specificity over claims. Name the metric: "40% faster", "12 minutes to under 1 minute", "11 components". Never "significantly improved performance".
 - Wry, not loud. The personality is a wink, not a shout.
 
+### Process
+
+After drafting any copy, run `/humanizer` on it before finalizing. This catches robotic phrasing that reads as AI-generated even when it technically follows the voice guidelines.
+
 ### What to avoid
 
 - **Banned phrases**: "platform tooling", "platform infrastructure", "platform tools", "integrating innovation with efficiency", "dedicated [job title]", "results-driven", "passionate about", "leveraging", "bringing your ideas to life"
 - **Banned word**: "infrastructure" — unless referring to a specific, named system. Never as a category ("I work on infrastructure").
 - No AI-generated blandness. If a sentence could appear in a LinkedIn autocomplete, rewrite it.
 - No corporate filler. Every sentence should sound like a real person with opinions.
-- Do not use em dashes (—) in copy. Use commas or restructure the sentence.
+- No dashes of any kind in copy — no em dashes (—), no en dashes (–), no hyphens used as pauses. Use commas or restructure the sentence.
 
 ### DE proof points to reinforce
 

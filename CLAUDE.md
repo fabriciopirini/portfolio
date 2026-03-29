@@ -35,6 +35,41 @@ Use `bun`, not `npm` or `yarn`. Use `bunx` instead of `npx`.
 - Use `import type` for type-only imports (oxlint will error otherwise)
 - Path alias `@/` maps to the project root
 
+## Copy voice
+
+This site positions Fabricio as a **Design Engineer** — someone equally at home in Figma discussions and TypeScript PRs. Every word should reinforce that identity.
+
+### Identity
+
+- Title: **Design Engineer**. Not "Full Stack Developer", not "Frontend Engineer", not "Computer Engineer".
+- Engineering depth (backend, infra, cloud) is a **DE amplifier**, not a contradiction. Frame it as: "I know why the API is slow, so I can design around it." Never hide it, never lead with it.
+- Existing work (React modernization, visual testing, design tokens, working directly with designers) is DE work done under other titles. Reframe it through that lens.
+
+### Voice
+
+- Fragment-first, declarative sentences. "Not corporate theater. Just craft." not "I am passionate about crafting high-quality software."
+- Short punchy statements over long explanations. One precise sentence beats three vague ones.
+- Specificity over claims. Name the metric: "40% faster", "12 minutes to under 1 minute", "11 components". Never "significantly improved performance".
+- Wry, not loud. The personality is a wink, not a shout.
+
+### What to avoid
+
+- **Banned phrases**: "platform tooling", "platform infrastructure", "platform tools", "integrating innovation with efficiency", "dedicated [job title]", "results-driven", "passionate about", "leveraging", "bringing your ideas to life"
+- **Banned word**: "infrastructure" — unless referring to a specific, named system. Never as a category ("I work on infrastructure").
+- No AI-generated blandness. If a sentence could appear in a LinkedIn autocomplete, rewrite it.
+- No corporate filler. Every sentence should sound like a real person with opinions.
+- Do not use em dashes (—) in copy. Use commas or restructure the sentence.
+
+### DE proof points to reinforce
+
+When writing about Fabricio's work, these are the DE-specific achievements that prove the identity — use them, don't invent new ones:
+
+- Figma-to-production gap closed (UI shipped matching the Figma file exactly)
+- Design tokens automated across 11 core components — designers push themes without opening a ticket
+- Visual testing system: 12 min → <1 min CI, 3× coverage
+- Live chat unification: one integration, two platforms
+- Sanity CMS rebuild: content teams deploy independently
+
 ## React Compiler
 
 `reactCompiler: true` is enabled. Avoid manual `useMemo`/`useCallback` — the compiler handles memoization automatically. Only add them if you have a concrete performance measurement showing they're needed.

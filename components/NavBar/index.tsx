@@ -94,6 +94,15 @@ const SiteLinks = () => {
           <span>Experience</span>
         </Link>
       </li>
+      <li>
+        <Link
+          href="/#projects"
+          className="navLink"
+          onClick={() => posthog?.capture('nav_link_clicked', { destination: 'projects' })}
+        >
+          <span>Projects</span>
+        </Link>
+      </li>
       <li className="relative">
         <Link
           href="/shop"
@@ -181,6 +190,13 @@ const HamburguerMenu = () => {
           onClick={() => posthog?.capture('nav_link_clicked', { destination: 'experience', source: 'hamburger' })}
         >
           <DropdownMenuItem className="px-5 py-2">Experience</DropdownMenuItem>
+        </Link>
+        <DropdownMenuSeparator className="mx-5" />
+        <Link
+          href={isHome ? '#projects' : '/#projects'}
+          onClick={() => posthog?.capture('nav_link_clicked', { destination: 'projects', source: 'hamburger' })}
+        >
+          <DropdownMenuItem className="px-5 py-2">Projects</DropdownMenuItem>
         </Link>
         {isHome && (
           <>

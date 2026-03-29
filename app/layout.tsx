@@ -6,6 +6,7 @@ import { ViewTransition } from 'react'
 
 import { ConsoleEasterEgg } from '@/components/ConsoleEasterEgg'
 import { Footer } from '@/components/Footer'
+import { MaxCoinsUnlock } from '@/components/MaxCoinsUnlock'
 import { NavBar } from '@/components/NavBar'
 import { CSPostHogProvider } from '@/components/Providers'
 import { SideMe } from '@/components/SideMe'
@@ -110,6 +111,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             </main>
             <Footer />
             <SideMe />
+            <MaxCoinsUnlock />
           </AppStoreProvider>
           <ConsoleEasterEgg />
           <Analytics />

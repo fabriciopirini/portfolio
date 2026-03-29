@@ -11,6 +11,7 @@ export type AppState = {
   cartItems: string[]
   coins: number
   firstVisitTimestamp: number | undefined
+  hasReachedMaxCoins: boolean
 }
 
 export type AppActions = {
@@ -22,6 +23,7 @@ export type AppActions = {
   addCoins: (amount: number) => void
   removeCoins: (amount: number) => void
   setFirstVisitTimestamp: (timestamp: number) => void
+  unlockMaxCoins: () => void
 }
 
 export type AppStore = AppState & AppActions
@@ -32,6 +34,7 @@ export const defaultInitState: AppState = {
   cartItems: [],
   coins: 0,
   firstVisitTimestamp: undefined,
+  hasReachedMaxCoins: false,
 }
 
 export const createAppStore = (initState: AppState = defaultInitState) => {
@@ -72,6 +75,7 @@ export const createAppStore = (initState: AppState = defaultInitState) => {
         addCoins: (amount) => set((state) => ({ coins: state.coins + amount })),
         removeCoins: (amount) => set((state) => ({ coins: state.coins - amount })),
         setFirstVisitTimestamp: (timestamp) => set({ firstVisitTimestamp: timestamp }),
+        unlockMaxCoins: () => set({ hasReachedMaxCoins: true }),
       }),
       {
         name: 'app-store',

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 
 import { Galery } from '@/components/GaleryImage'
+import { ShopHeroSubtitle } from '@/components/ShopHeroSubtitle'
 import ProfilePic from '@/public/assets/lego_me.png'
 
 export const metadata: Metadata = {
@@ -38,9 +39,7 @@ const ShopHero = () => (
           />
         </div>
         <h1 className="text-center font-leagueSpartan text-4xl font-medium lg:text-7xl">Fab&apos;s Shop</h1>
-        <p className="text-center lg:text-3xl">
-          We have a wide variety of high-quality services for you to choose from.
-        </p>
+        <ShopHeroSubtitle />
       </div>
     </div>
   </section>

@@ -4,6 +4,7 @@ import type { Person, WithContext } from 'schema-dts'
 
 import { AboutMe } from '@/components/AboutMe'
 import { Hero } from '@/components/Hero'
+import { Projects } from '@/components/Projects'
 import { Technology } from '@/components/Technology'
 import { WorkExperience } from '@/components/WorkExperience'
 
@@ -41,6 +42,7 @@ export default async function Home() {
         <AboutMe />
         <Technology />
         <WorkExperience />
+        <Projects />
       </div>
     </>
   )

@@ -24,7 +24,7 @@ import 'atropos/css'
 
 export const Technology = () => (
   <>
-    <section id="technology" className="w-full pt-20 lg:container lg:pt-10">
+    <section id="technology" className="w-full py-16 lg:container md:py-20">
       <h2 className="mb-5 text-center font-leagueSpartan text-3xl font-medium lg:text-7xl lg:font-bold xl:mb-14">
         Technology
       </h2>

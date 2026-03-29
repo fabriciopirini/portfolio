@@ -267,7 +267,7 @@ const CoinCounter = ({ className }: { className?: string }) => {
         className
       )}
       role="status"
-      aria-label="Fab coins counter"
+      aria-label="Fab coins balance — your in-shop currency. Earn coins on the main page, spend them in the shop."
       aria-live="polite"
     >
       <div

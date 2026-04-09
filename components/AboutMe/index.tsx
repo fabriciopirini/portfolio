@@ -6,6 +6,8 @@ import { useWindowSize } from 'usehooks-ts'
 
 import { Carousel, CarouselContent, CarouselDots, CarouselItem } from '@/components/ui/carousel'
 import { useYearsOfExperience } from '@/hooks/use-years-of-experience'
+import { COPY } from '@/lib/site-copy'
+import { ACTIVE_VARIANT } from '@/lib/site-config'
 import { cn } from '@/lib/utils'
 import LegoPiece from '@/public/assets/lego-piece.png'
 
@@ -24,7 +26,7 @@ export const AboutMe = () => {
       <CornerMinus pos="top-left" />
       <CornerMinus pos="bottom-left" />
       <CornerMinus pos="bottom-right" />
-      <h2 className="font-leagueSpartan text-3xl font-medium text-secondary md:text-7xl">About me</h2>
+      <h2 className="font-leagueSpartan text-3xl font-medium text-secondary md:text-7xl">{COPY.about.heading}</h2>
       <Carousel
         className="mx-auto w-full max-w-xs md:max-w-2xl xl:max-w-none"
         opts={{
@@ -32,36 +34,22 @@ export const AboutMe = () => {
         }}
       >
         <CarouselContent className="text-left">
-          <CarouselItem className="lg:basis-2/3 xl:basis-1/3">
-            <div className="flex h-full flex-col gap-5 rounded-xl bg-[#373943] p-10">
-              <RouteIcon strokeWidth={1.5} className="pointer-events-none size-16 text-accent" />
-              <h3 className="font-leagueSpartan text-3xl font-medium text-primary max-xl:select-none">Journey</h3>
-              <p className="text-primary max-xl:select-none">
-                I care about the pixel and the pipeline. React and Next.js, {yearsText ?? 'nine'} years building
-                interfaces that work exactly as designed, and hold up under the hood. Not corporate theater. Just craft.
-              </p>
-            </div>
-          </CarouselItem>
-          <CarouselItem className="lg:basis-2/3 xl:basis-1/3">
-            <div className="flex h-full flex-col gap-5 rounded-xl bg-[#373943] p-10">
-              <CircleCheckBigIcon strokeWidth={1.5} className="pointer-events-none mb-4 size-12 text-accent" />
-              <h3 className="font-leagueSpartan text-3xl font-medium text-primary max-xl:select-none">What matters</h3>
-              <p className="text-primary max-xl:select-none">
-                Component craft that scales. Design systems that bridge Figma and production. Every animation, every
-                spacing decision, every hover state is a deliberate choice, not an accident.
-              </p>
-            </div>
-          </CarouselItem>
-          <CarouselItem className="lg:basis-2/3 xl:basis-1/3">
-            <div className="flex h-full flex-col gap-5 rounded-xl bg-[#373943] p-10">
-              <TrendingUpIcon strokeWidth={1.5} className="pointer-events-none size-16 text-accent" />
-              <h3 className="font-leagueSpartan text-3xl font-medium text-primary max-xl:select-none">Right now</h3>
-              <p className="text-primary max-xl:select-none">
-                Automating the gap between design and engineering. Design tokens that let designers push to production.
-                Visual testing that ships with confidence. The details that make interfaces feel right.
-              </p>
-            </div>
-          </CarouselItem>
+          {[RouteIcon, CircleCheckBigIcon, TrendingUpIcon].map((Icon, i) => {
+            const card = COPY.about.cards[ACTIVE_VARIANT][i]
+            const body = typeof card.body === 'function' ? card.body(yearsText ?? 'nine') : card.body
+            return (
+              <CarouselItem key={card.title} className="lg:basis-2/3 xl:basis-1/3">
+                <div className="flex h-full flex-col gap-5 rounded-xl bg-[#373943] p-10">
+                  <Icon
+                    strokeWidth={1.5}
+                    className={cn('pointer-events-none text-accent', i === 1 ? 'mb-4 size-12' : 'size-16')}
+                  />
+                  <h3 className="font-leagueSpartan text-3xl font-medium text-primary max-xl:select-none">{card.title}</h3>
+                  <p className="text-primary max-xl:select-none">{body}</p>
+                </div>
+              </CarouselItem>
+            )
+          })}
         </CarouselContent>
         <CarouselDots className="xl:hidden" isDarkMode={false} />
       </Carousel>

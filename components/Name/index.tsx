@@ -12,6 +12,8 @@ import { LinkedInIconFilled, MailIconFilled } from '@/components/SvgLogos'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { FADE_DOWN_ANIMATION_VARIANTS, FADE_RIGHT_ANIMATION_VARIANTS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
+import { COPY } from '@/lib/site-copy'
+import { ACTIVE_VARIANT } from '@/lib/site-config'
 
 const staggerVariants = {
   hidden: {},
@@ -66,12 +68,12 @@ export const NameBanner = () => {
             onAnimationEnd={handleAnimationEnd}
             aria-hidden
           />
-          <span className="font-leagueSpartan lg:whitespace-nowrap">Nice to meet you!</span>
+          <span className="font-leagueSpartan lg:whitespace-nowrap">{COPY.hero.greeting}</span>
         </div>
         <span className="font-leagueSpartan lg:whitespace-nowrap">I&apos;m Fabricio.</span>
       </m.h1>
       <m.p className="text-base sm:text-xl lg:text-2xl xl:text-[28px]" variants={FADE_DOWN_ANIMATION_VARIANTS}>
-        Design Engineer. I build interfaces that look exactly as intended and feel better than expected.
+        {COPY.hero.tagline[ACTIVE_VARIANT]}
       </m.p>
       <CTAButtons />
     </m.div>
@@ -83,7 +85,7 @@ const CTAButtons = () => {
 
   return (
     <m.div className="flex w-fit gap-2 rounded-full py-4 md:gap-6">
-      <CTAButton id="resume_download" type="secondary" as="link" href="/resume" text="Resume" icon={FileUserIcon} />
+      <CTAButton id="resume_download" type="secondary" as="link" href="/resume" text={COPY.hero.ctaResume} icon={FileUserIcon} />
       <Popover
         onOpenChange={(value) => {
           const event = value ? 'contact_me_open' : 'contact_me_close'
@@ -91,7 +93,7 @@ const CTAButtons = () => {
         }}
       >
         <PopoverTrigger asChild>
-          <CTAButton type="primary" as="button" text="Contact me" />
+          <CTAButton type="primary" as="button" text={COPY.hero.ctaContact} />
         </PopoverTrigger>
         <PopoverContent
           className="mt-4 w-56 rounded-xl border-2 border-accent bg-white drop-shadow-md lg:w-72"
@@ -113,7 +115,7 @@ const CTAButtons = () => {
               <div className="size-12 rounded-full bg-primary p-3 lg:size-16 lg:p-4">
                 <MailIconFilled className="pointer-events-none size-full" />
               </div>
-              <span className="mx-auto text-lg text-primary-background">Email</span>
+              <span className="mx-auto text-lg text-primary-background">{COPY.hero.emailLabel}</span>
               <span className="sr-only">Send email to Fabricio</span>
             </m.a>
             <m.a
@@ -128,7 +130,7 @@ const CTAButtons = () => {
               <div className="size-12 rounded-full bg-primary p-3 lg:size-16 lg:p-4">
                 <LinkedInIconFilled className="pointer-events-none size-full" />
               </div>
-              <span className="mx-auto text-lg text-primary-background">LinkedIn</span>
+              <span className="mx-auto text-lg text-primary-background">{COPY.hero.linkedinLabel}</span>
               <span className="sr-only">Visit Fabricio&apos;s LinkedIn profile</span>
             </m.a>
           </m.div>

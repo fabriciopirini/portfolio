@@ -23,15 +23,13 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer'
+import { COPY } from '@/lib/site-copy'
 import { cn } from '@/lib/utils'
 import ProfilePic from '@/public/assets/lego_me.png'
 
-const recipient = encodeURIComponent('fabricio@fabriciopirini.com')
-// const recipient = 'Fabricio Pirini<me@fabriciopirini.com>'
-const subject = encodeURIComponent("Let's have a chat")
-const body = encodeURIComponent(
-  "Hey, Fabricio! I'm very interested in your services. Can we have a chat? By the way, loved the website! 🚀"
-)
+const recipient = encodeURIComponent(COPY.contact.email)
+const subject = encodeURIComponent(COPY.contact.subject)
+const body = encodeURIComponent(COPY.contact.body)
 
 export const mailTo = `mailto:${recipient}?subject=${subject}&body=${body}`
 
@@ -82,10 +80,10 @@ export const InteractionButtonDesktop = ({
               />
             </div>
             <DialogTitle className="pb-8 text-center font-leagueSpartan text-5xl font-normal text-secondary">
-              Interested?
+              {COPY.contact.dialogTitle}
             </DialogTitle>
             <DialogDescription className="flex flex-col text-center text-2xl text-black">
-              <span>You seemed interested on the values I can bring to your project. Let&apos;s have a chat!</span>
+              <span>{COPY.contact.dialogBody}</span>
             </DialogDescription>
           </DialogHeader>
           <hr className="mx-auto h-px w-3/4 border-black/30" />
@@ -139,9 +137,9 @@ export const InteractionButtonMobile = ({
                   priority
                 />
               </div>
-              <DrawerTitle>Interested?</DrawerTitle>
+              <DrawerTitle>{COPY.contact.dialogTitle}</DrawerTitle>
               <DrawerDescription className="flex flex-col gap-1">
-                <span>You seemed interested on the values I can bring to your project. Let&apos;s have a chat!</span>
+                <span>{COPY.contact.dialogBody}</span>
               </DrawerDescription>
             </DrawerHeader>
             <InteractionInfoContent />
@@ -157,7 +155,7 @@ const InteractionInfoContent = () => {
 
   return (
     <div className="flex w-full flex-col items-center justify-between gap-3">
-      <span className="hidden lg:mb-5 lg:block lg:text-2xl">Send me an Email from:</span>
+      <span className="hidden lg:mb-5 lg:block lg:text-2xl">{COPY.contact.emailPrompt}</span>
       <Button className="flex items-center gap-3 text-base transition-transform duration-200 hover:scale-[1.02] active:scale-[0.97] lg:h-20 lg:px-14 lg:py-5 lg:text-2xl">
         <InboxIcon className="pointer-events-none lg:h-9 lg:w-auto" strokeWidth={1.5} />
         <a
@@ -166,7 +164,7 @@ const InteractionInfoContent = () => {
           className="hidden text-base font-normal md:block lg:text-2xl"
           onClick={() => posthog?.capture('email_client_selected', { client: 'default' })}
         >
-          Your favorite app
+          {COPY.contact.emailClientDefault}
         </a>
         <a
           href={mailTo}
@@ -174,7 +172,7 @@ const InteractionInfoContent = () => {
           className="block p-1 md:hidden"
           onClick={() => posthog?.capture('email_client_selected', { client: 'default' })}
         >
-          Send email
+          {COPY.contact.emailClientSend}
         </a>
       </Button>
       <span className="hidden text-xl lg:block">or</span>

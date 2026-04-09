@@ -12,6 +12,8 @@ import { CSPostHogProvider } from '@/components/Providers'
 import { SideMe } from '@/components/SideMe'
 import { cn } from '@/lib/utils'
 import { getCachedYearsOfExperience } from '@/lib/server-utils'
+import { COPY } from '@/lib/site-copy'
+import { ACTIVE_VARIANT } from '@/lib/site-config'
 import { AppStoreProvider } from '@/providers/app-store-provider'
 import Thumbnail from '@/public/assets/thumbnail.png'
 
@@ -24,16 +26,19 @@ const poppins = Poppins({ subsets: ['latin'], weight: ['400'], variable: '--font
 export async function generateMetadata(): Promise<Metadata> {
   const yearsOfExperience = await getCachedYearsOfExperience()
 
+  const title = COPY.meta.title[ACTIVE_VARIANT]
+  const description = COPY.meta.description[ACTIVE_VARIANT](yearsOfExperience)
+
   return {
     metadataBase: new URL(process.env.NEXT_PUBLIC_VERCEL_URL ?? 'https://fabriciopirini.com'),
-    title: 'Fabricio Pirini - Senior Web Fullstack Engineer',
-    description: `Meet Fabricio Pirini, a seasoned Senior Web Fullstack Engineer with over ${yearsOfExperience} years of experience specializing in the Frontend with React, Next.js, and Typescript.`,
+    title,
+    description,
     openGraph: {
       type: 'website',
       locale: 'en_US',
       url: process.env.NEXT_PUBLIC_VERCEL_URL,
-      title: 'Fabricio Pirini - Senior Web Fullstack Engineer',
-      description: `Meet Fabricio Pirini, a seasoned Senior Web Fullstack Engineer with over ${yearsOfExperience} years of experience specializing in the Frontend with React, Next.js, and Typescript.`,
+      title,
+      description,
       siteName: 'Fabricio Pirini',
       images: [
         {

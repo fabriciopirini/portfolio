@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
 import { InteractionButtonDesktop, InteractionButtonMobile } from '@/components/InteractionButton'
+import { COPY } from '@/lib/site-copy'
 import { cn } from '@/lib/utils'
 import { useAppStore } from '@/providers/app-store-provider'
 import ProfilePic from '@/public/assets/lego_me.png'
@@ -111,13 +112,13 @@ export const SideMe = () => {
                 'origin-left translate-x-0 scale-100 text-base text-primary-background opacity-100 sm:text-lg'
               )}
             >
-              <p className="mb-4 font-semibold">Still here? Let&apos;s talk.</p>
+              <p className="mb-4 font-semibold">{COPY.contact.sideTitle}</p>
               <div className="flex flex-col-reverse justify-between gap-5 px-2 sm:flex-row">
                 <button className="font-semibold opacity-80" onClick={handleHideSideBubble}>
-                  No thanks
+                  {COPY.contact.sideDismiss}
                 </button>
-                <InteractionButtonDesktop label="Sure!" onClick={handleHideSideBubble} />
-                <InteractionButtonMobile label="Sure!" onClick={handleHideSideBubble} />
+                <InteractionButtonDesktop label={COPY.contact.sideAccept} onClick={handleHideSideBubble} />
+                <InteractionButtonMobile label={COPY.contact.sideAccept} onClick={handleHideSideBubble} />
               </div>
             </div>
           </div>

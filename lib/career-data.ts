@@ -68,6 +68,8 @@ export interface CareerData {
   subtitle: Record<SiteVariant, string>
   summary: Record<SiteVariant, (yearsOfExperience: number) => string>
   skills: Record<SiteVariant, SkillsRow[]>
+  /** Variant-specific display order for jobs — list job ids in desired order */
+  jobOrder: Record<SiteVariant, string[]>
   jobs: CompanyEntry[]
   education: EducationEntry[]
   sideProjects: SideProject[]
@@ -104,6 +106,11 @@ export const CAREER: CareerData = {
       { label: 'Testing & Quality', value: 'Playwright, Vitest, Jest, React Testing Library, Storybook' },
       { label: 'Tooling & DevOps', value: 'Docker, CI/CD (GitHub Actions), GraphQL, Figma, Power BI' },
     ],
+  },
+
+  jobOrder: {
+    default: ['crypto-exchange', 'ecommerce-platform', 'grocery-startup', 'sportradar', 'samsung'],
+    growth: ['crypto-exchange', 'ecommerce-platform', 'grocery-startup', 'sportradar', 'samsung'],
   },
 
   jobs: [
@@ -152,11 +159,25 @@ export const CAREER: CareerData = {
         - 25+ a11y fixes across the platform
         - Keyboard navigation, focus management, ARIA attributes
         - Financial data tables: 15+ components, search, deep-linking, i18n
+
+        CURRENT PROFESSIONAL DEVELOPMENT (2025–2026):
+        - Deliberately investing in product mindset and software architecture as AI lowers the cost of implementation
+        - Core thesis: as AI makes shipping code cheaper, the bottleneck shifts to deciding what to build and whether it's worth it
+        - Reading list completed or in progress:
+          * The Mom Test — Rob Fitzpatrick (ask about past behavior, not hypothetical opinions)
+          * Continuous Discovery Habits — Teresa Torres (continuous customer discovery as a team habit)
+          * Lean Analytics — Croll & Yoskovitz (know the one metric your current work is meant to move)
+          * INSPIRED — Marty Cagan (product thinking, empowered teams)
+          * Designing Data-Intensive Applications — Martin Kleppmann (systems architecture at scale)
+        - Two daily habits derived from this reading, now applied to every non-trivial ticket:
+          1. Before starting: write one sentence in the ticket description: "The last time this hurt was when [person] had to [workaround] because [gap]." If you can't fill it in, go ask before starting.
+          2. In every PR description: add a success metric field: "This should move [metric] from [baseline] to [target] by [date]." Review it two weeks post-deploy.
+        - Used as Q6 Loom video topic in Buffer application (April 2026)
       `,
     },
     {
       id: 'ecommerce-platform',
-      company: 'E-commerce Platform',
+      company: 'Norsk Gjenvinning',
       location: 'Norway (Remote)',
       periods: [
         {
@@ -218,7 +239,7 @@ export const CAREER: CareerData = {
     },
     {
       id: 'grocery-startup',
-      company: 'Online Grocery Delivery Startup',
+      company: 'Oda',
       location: 'Norway',
       periods: [
         {
@@ -236,7 +257,7 @@ export const CAREER: CareerData = {
               'Ran a homepage restructure experiment: removed the hero section to surface products above the fold. High confidence it would lift conversion. It dropped. Concluded that introductory context drives purchase commitment. Killed the variant based on data.',
               'Shipped an immersive onboarding flow, stripped to a stepper form and logo only. Collected only the minimum info per step needed to validate delivery coverage. Added lead capture for out-of-coverage users. Conversion increased.',
               'Removed hard-coded locale configurations blocking international expansion. Finland and Germany launched without engineering changes to the core platform.',
-              'Ran Technical Debt workshops every two months to keep the backlog from compounding while the team doubled in size.',
+              'Picked by the Chief Growth Officer (ex-VP Growth, Skyscanner) for an internal growth program cohort after standing out at a company-wide growth workshop.',
             ],
           },
         },
@@ -254,8 +275,38 @@ export const CAREER: CareerData = {
         EXPERIMENTATION CONTEXT:
         - First experimentation team at the company — no prior program, no prior platform
         - Had to build the platform AND run experiments simultaneously
-        - Cadence: 2-4 live experiments per month
+        - Starting cadence: 1 experiment every 2 weeks (~2/month)
+        - As tooling matured and parallel experiment isolation improved: grew to 2 experiments per week (~8/month)
+        - Resume bullets currently say "2 to 4 live experiments per month" — conservative average; peak was higher
         - This is directly analogous to what Buffer needs: they have no dedicated A/B testing framework
+
+        TOOLING EVOLUTION:
+        - Started with Unleash (open source feature flagging tool, Norwegian-origin, already familiar to parts of the engineering org)
+        - Unleash only did feature flags — not enough for a full experimentation program
+        - Moved to Growthbook: feature flags + experiment setup and rollout + results dashboards + statistical layer, all in one place
+        - Team could define experiments, read results, and make decisions without pulling in an engineer
+        - Tracking stack: gtag → GTM → server-side GTM
+        - Moved to server-side GTM specifically to stop adblockers from silently dropping analytics events
+        - Frontend: integrated Growthbook SDK into the React + Next.js app from scratch
+        - Wired experiment assignment logic; ensured variants didn't bleed across user sessions
+
+        TEAM COMPOSITION:
+        - Started as sole engineer on the team — did initial research and architecture alone
+        - Once scope was defined, made the case to hire a second SWE; built implementation together after that
+        - Full team: 2 SWEs + 1 growth expert (team manager) + 1 data analyst + 2 designers
+        - Tech was a 2-person job; the platform was a full team effort
+
+        REFORGE INFLUENCE:
+        - Fabricio did not complete Reforge programs himself
+        - Direct managers at Oda had Reforge credentials and ran the team using that framework
+        - Fabricio absorbed the language and methodology by working inside it daily
+        - Application framing: "I didn't do the programs, but I worked inside that thinking every day until it stopped feeling like a framework and just felt like how you approach a problem"
+        - Do not claim the credentials; do own the applied knowledge
+
+        CULTURE-BUILDING WORK:
+        - Building the platform was roughly half the work
+        - The other half: getting the team to write hypotheses before building, define success metrics before shipping (not after), and agree upfront on what a conclusive result looked like
+        - The tooling enables the culture — it doesn't create it
 
         EXPERIMENT 1 — Homepage "Show, Don't Tell" (FAILED):
         - Hypothesis: removing hero section and showing products above the fold would increase conversion
@@ -444,6 +495,40 @@ export const CAREER: CareerData = {
   // SIDE PROJECTS
   // ============================================================
   sideProjects: [
+    {
+      id: 'encontra-ferias',
+      name: 'Encontra Férias',
+      url: 'https://vercel.com/fabricio-pirinis-projects/v0-encontra-ferias',
+      year: '2025',
+      description: 'CLT vacation optimizer — calculates how to stretch Brazilian statutory vacation days around public holidays.',
+      rawNotes: `
+        - Full name: Férias CLT Otimizador
+        - Solves a real, recurring Brazilian problem: CLT workers have 30 vacation days/year and need to align them with public holidays to maximize actual time off
+        - Built with v0.app + Next.js + TypeScript, deployed on Vercel
+        - Shows product instinct: identified a shared pain point for any Brazilian salaried worker, built a clean tool around it
+        - Part of the pattern: felt friction → built a fix → deployed it properly
+        - Referenced in Buffer application (April 2026) Q5 as evidence of building things for real users
+      `,
+    },
+    {
+      id: 'personal-utilities',
+      name: 'Personal & Family Utilities',
+      url: '',
+      year: '2025–2026',
+      description: 'Cluster of small Next.js/TypeScript apps built for daily personal and family use.',
+      rawNotes: `
+        - All private repos, all TypeScript + Next.js
+        - shopping-list — shared family shopping list
+        - trip-checklist — packing/prep checklist for trips
+        - drink-tracker — personal drink tracking
+        - salva-meu-cafe ("save my coffee") — coffee-related personal tracker
+        - expenses — personal expense tracking
+        - v0-expenses-converter-app — expense converter, built with v0.app, deployed on Vercel
+        - Pattern: built for actual daily use by himself and family, not portfolio pieces
+        - Referenced in Buffer application (April 2026) Q5 as evidence of building things real people use
+        - Same instinct as Sorteador and University Timetable Generator — friction felt, solution shipped
+      `,
+    },
     {
       id: 'sorteador',
       name: 'Sorteador',

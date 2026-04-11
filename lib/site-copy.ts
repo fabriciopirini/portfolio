@@ -97,7 +97,7 @@ export const COPY: SiteCopy = {
       default: (years) =>
         `Design Engineer with ${years}+ years in React, Next.js, and TypeScript. I build interfaces that look exactly as intended and hold up under the hood.`,
       growth: (years) =>
-        `Growth Engineer with ${years}+ years in React and TypeScript. Built experimentation programs, A/B testing platforms, and event tracking at scale. Based in Brazil, working remotely.`,
+        `Growth Engineer with ${years}+ years in React and TypeScript. Built A/B experimentation programs from scratch, owned the tracking stack, and shipped based on data. Based in Brazil, working remotely.`,
     },
   },
 
@@ -108,7 +108,7 @@ export const COPY: SiteCopy = {
     greeting: 'Nice to meet you!',
     tagline: {
       default: 'Design Engineer. I build interfaces that look exactly as intended and feel better than expected.',
-      growth: 'Growth Engineer. I build the experiments, own the platform, and ship the measurement.',
+      growth: 'Growth Engineer. I build the program, run the experiments, and own the numbers.',
     },
     ctaResume: 'Resume',
     ctaContact: 'Contact me',
@@ -141,15 +141,15 @@ export const COPY: SiteCopy = {
         {
           title: 'Journey',
           body: (yearsText) =>
-            `I care about the experiment and the outcome. ${yearsText} years in React and TypeScript, building products that measure what matters and ship based on data, not opinion.`,
+            `I care about the experiment and what comes back from it. ${yearsText} years in React and TypeScript. I build the thing, set up the tracking, and let the data settle the argument.`,
         },
         {
           title: 'What matters',
-          body: 'Building the program, not just running experiments. Owning the platform, the tooling, and the cadence. Growth that compounds because the system behind it is solid.',
+          body: 'Building the program, not just running experiments. The platform matters as much as the test. Without the right tooling and cadence, you are running one-offs. With it, you are learning at speed.',
         },
         {
           title: 'Right now',
-          body: 'Setting up event tracking at a US crypto exchange. Instrumented experiments, feature adoption signals, retention data. Making the invisible visible so the team can ship with confidence.',
+          body: 'Setting up event tracking at a US crypto exchange. Tracking which features users actually use, which flows break quietly, whether the experiments are doing anything. The kind of data that tells you when you are wrong.',
         },
       ],
     },
@@ -247,7 +247,7 @@ export const COPY: SiteCopy = {
         {
           heading: 'Where it all started',
           intro:
-            'From web scrapers to design systems, then to growth engineering. Each role added a layer: performance at scale, the full stack, then what moves a conversion needle.',
+            'From web scrapers to growth engineering. Each role added a layer: performance at scale, the full stack, then what actually moves a metric.',
           cards: [
             {
               title: 'Scaling data collection',
@@ -266,7 +266,7 @@ export const COPY: SiteCopy = {
           ],
         },
         {
-          heading: 'Growing into growth',
+          heading: 'Building the experimentation program',
           intro:
             "Built the first A/B experimentation program at an online grocery startup. Owned the platform, the experiments, and the measurement.",
           cards: [
@@ -293,10 +293,10 @@ export const COPY: SiteCopy = {
         {
           heading: 'Current work',
           intro:
-            'Setting up event tracking and experimentation tooling at a US crypto exchange. Making the data layer visible so the team can ship with confidence.',
+            'Setting up event tracking at a US crypto exchange. Building the visibility layer: which features users actually use, which flows drop off, whether the numbers back up the assumptions.',
           cards: [
             {
-              title: 'Tracking, testing, and design systems',
+              title: 'Tracking and experimentation',
               paragraphs: [
                 [
                   'Set up ',

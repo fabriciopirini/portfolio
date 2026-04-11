@@ -14,6 +14,8 @@ export function ResumeContent({ variant, yearsOfExperience }: ResumeContentProps
   const skills = CAREER.skills[variant]
   const subtitle = CAREER.subtitle[variant]
   const summary = CAREER.summary[variant](yearsOfExperience)
+  const jobOrder = CAREER.jobOrder[variant]
+  const jobs = [...CAREER.jobs].sort((a, b) => jobOrder.indexOf(a.id) - jobOrder.indexOf(b.id))
 
   return (
     <div
@@ -111,7 +113,7 @@ export function ResumeContent({ variant, yearsOfExperience }: ResumeContentProps
           <span style={{ color: 'var(--color-accent)' }}>Prof</span>essional Experience
         </h2>
         <div className="divide-y-[0.5px] divide-gray-300 print:divide-y-0">
-          {CAREER.jobs.map((company) => {
+          {jobs.map((company) => {
             const isMultiRole = company.periods.length > 1
 
             return (

@@ -209,7 +209,6 @@ export const CAREER: CareerData = {
             ],
             growth: [
               'Set up Google Analytics and SEO tooling from scratch for Norwegian client properties, including Norsk Gjenvinning, one of Norway\'s largest recycling companies.',
-              'Got Core Web Vitals into the green on key checkout routes (LCP under 2s) through code splitting, lazy loading, and edge caching.',
               'Integrated 5 storefronts with Sanity CMS, giving the content team full control over brand-aligned pages without engineering involvement.',
               'Led WCAG 2.0 AA compliance across e-commerce storefronts and brand landing pages for a portfolio of 70+ European companies.',
             ],

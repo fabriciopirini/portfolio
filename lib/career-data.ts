@@ -131,7 +131,7 @@ export const CAREER: CareerData = {
               'Built 15+ dynamic financial data table components (deposit fees, withdrawal fees, margin pairs, position limits) with search, deep-linking, copy, and i18n. Fixed 25+ accessibility issues platform-wide: keyboard navigation, focus management, and ARIA attributes.',
             ],
             growth: [
-              'Set up Segment event tracking for the Support Center portal across web and 3 React Native apps. Instrumented experiment touchpoints and new UI elements to measure feature adoption and retention signal.',
+              'Set up Segment tracking for the Support Center portal across web and 3 React Native apps, instrumenting experiment touchpoints to measure feature adoption and retention signal.',
               'Cut visual regression test runtime from 12 min to under a minute by building the Playwright VRT infrastructure from scratch. Coverage tripled across the component library.',
               'Built 15+ dynamic financial data tables with search, deep-linking, copy, and i18n support.',
               'Fixed 25+ accessibility issues platform-wide: keyboard navigation, focus management, and ARIA attributes.',
@@ -190,6 +190,10 @@ export const CAREER: CareerData = {
               'Rebuilt legacy storefronts and built new ones, shipping 5 with React, TypeScript, and Next.js. Worked with everyone from the CEO to junior engineers across design, product, and business.',
               'Built a shared component library used by 3 product teams, cutting feature cycle time by roughly 25%.',
             ],
+            growth: [
+              'Managed 5 engineers across 2 time zones. Built the sprint cadence, code review process, and CI/CD setup from scratch.',
+              'Shipped 5 storefronts with React, TypeScript, and Next.js. Built a shared component library adopted by 3 product teams.',
+            ],
           },
         },
         {
@@ -208,7 +212,6 @@ export const CAREER: CareerData = {
               'Got Core Web Vitals into the green on key checkout routes (LCP under 2s) through code splitting, lazy loading, and edge caching.',
               'Integrated 5 storefronts with Sanity CMS, giving the content team full control over brand-aligned pages without engineering involvement.',
               'Led WCAG 2.0 AA compliance across e-commerce storefronts and brand landing pages for a portfolio of 70+ European companies.',
-              'Mentored 3 junior engineers. Two were promoted within 18 months.',
             ],
           },
         },
@@ -254,10 +257,9 @@ export const CAREER: CareerData = {
             ],
             growth: [
               'Built the A/B experimentation program from scratch, the company\'s first, while also owning the platform it ran on. Ran 2 to 4 live experiments per month through a 2x headcount growth.',
-              'Ran a homepage restructure experiment: removed the hero section to surface products above the fold. High confidence it would lift conversion. It dropped. Concluded that introductory context drives purchase commitment. Killed the variant based on data.',
-              'Shipped an immersive onboarding flow, stripped to a stepper form and logo only. Collected only the minimum info per step needed to validate delivery coverage. Added lead capture for out-of-coverage users. Conversion increased.',
+              'Ran a hero-removal experiment expecting higher conversion. It dropped. The introductory layer was providing context users needed to commit. Killed the variant on data, not instinct.',
+              'Shipped a stripped onboarding flow (stepper + logo only, minimum data per step) with lead capture for out-of-coverage users. Conversion increased.',
               'Removed hard-coded locale configurations blocking international expansion. Finland and Germany launched without engineering changes to the core platform.',
-              'Picked by the Chief Growth Officer (ex-VP Growth, Skyscanner) for an internal growth program cohort after standing out at a company-wide growth workshop.',
             ],
           },
         },

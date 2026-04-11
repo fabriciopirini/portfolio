@@ -209,6 +209,7 @@ export const CAREER: CareerData = {
             ],
             growth: [
               'Set up Google Analytics and SEO tooling from scratch for Norwegian client properties, including Norsk Gjenvinning, one of Norway\'s largest recycling companies.',
+              'Got Core Web Vitals into the green on key checkout routes (LCP under 2s) through code splitting, lazy loading, and edge caching.',
               'Integrated 5 storefronts with Sanity CMS, giving the content team full control over brand-aligned pages without engineering involvement.',
               'Led WCAG 2.0 AA compliance across e-commerce storefronts and brand landing pages for a portfolio of 70+ European companies.',
             ],
@@ -259,6 +260,7 @@ export const CAREER: CareerData = {
               'Ran a hero-removal experiment expecting higher conversion. It dropped. The introductory layer was providing context users needed to commit. Killed the variant on data, not instinct.',
               'Shipped a stripped onboarding flow (stepper + logo only, minimum data per step) with lead capture for out-of-coverage users. Conversion increased.',
               'Removed hard-coded locale configurations blocking international expansion. Finland and Germany launched without engineering changes to the core platform.',
+              'Picked by the Chief Growth Officer (ex-VP Growth, Skyscanner) for an internal growth program cohort after standing out at a company-wide growth workshop.',
             ],
           },
         },

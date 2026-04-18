@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-const URL = process.env.NEXT_PUBLIC_VERCEL_URL
+const SITE_URL = process.env.NEXT_PUBLIC_VERCEL_URL ?? 'https://fabriciopirini.com'
 
 const Robots = (): MetadataRoute.Robots => {
   return {
@@ -8,7 +8,7 @@ const Robots = (): MetadataRoute.Robots => {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: `${URL}/sitemap.xml`,
+    sitemap: `${SITE_URL}/sitemap.xml`,
   }
 }
 

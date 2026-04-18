@@ -1,13 +1,12 @@
-const URL = process.env.NEXT_PUBLIC_VERCEL_URL
+import type { MetadataRoute } from 'next'
 
-// https://claritydev.net/blog/nextjs-dynamic-sitemap-pages-app-directory
-const Sitemap = async () => {
-  const routes = ['', '/shop', '/resume'].map((route) => ({
-    url: `${URL}${route}`,
-    lastModified: new Date().toISOString(),
+const SITE_URL = process.env.NEXT_PUBLIC_VERCEL_URL ?? 'https://fabriciopirini.com'
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return ['', '/shop', '/resume'].map((route) => ({
+    url: `${SITE_URL}${route}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: route === '' ? 1 : 0.8,
   }))
-
-  return [...routes]
 }
-
-export default Sitemap

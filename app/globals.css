@@ -23,6 +23,16 @@
     transition: transform 0.5s cubic-bezier(0.2, 1, 0.8, 1) 0s;
   }
 
+  .navLink[data-active]::before {
+    transform: translate3d(0, 2px, 0) scale3d(1, 2, 1);
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 50% 0px, 50% 0px, 50% 100%, 50% 100%, 0px 100%, 100% 100%, 100% 0%);
+  }
+
+  .navLink[data-active] span {
+    transform: translateY(-2px);
+    color: hsl(var(--color-text-accent));
+  }
+
   @media (hover: hover) and (pointer: fine) {
     .navLink:hover::before {
       transform: translate3d(0, 2px, 0) scale3d(1, 2, 1);

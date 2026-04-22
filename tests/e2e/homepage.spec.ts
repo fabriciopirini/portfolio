@@ -244,3 +244,41 @@ test.describe('Reduced-motion preference', () => {
     await context.close()
   })
 })
+
+test.describe('Active nav state follows scroll', () => {
+  test.use({ viewport: { width: 1280, height: 720 } })
+
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/')
+  })
+
+  test('highlights About link when about section is visible', async ({ page }) => {
+    await page.locator('#about').scrollIntoViewIfNeeded()
+    await page.waitForTimeout(500)
+
+    const aboutLink = page.locator('.navLink', { hasText: 'About' })
+    await expect(aboutLink).toHaveAttribute('data-active')
+  })
+
+  test('highlights Technology link when technology section is visible', async ({ page }) => {
+    await page.locator('#technology').scrollIntoViewIfNeeded()
+    await page.waitForTimeout(500)
+
+    const techLink = page.locator('.navLink', { hasText: 'Technology' })
+    const aboutLink = page.locator('.navLink', { hasText: 'About' })
+
+    await expect(techLink).toHaveAttribute('data-active')
+    await expect(aboutLink).not.toHaveAttribute('data-active')
+  })
+
+  test('only one nav link is active at a time', async ({ page }) => {
+    await page.locator('#experience').scrollIntoViewIfNeeded()
+    await page.waitForTimeout(500)
+
+    const activeCount = await page.locator('.navLink[data-active]').count()
+    expect(activeCount).toBe(1)
+
+    const expLink = page.locator('.navLink', { hasText: 'Experience' })
+    await expect(expLink).toHaveAttribute('data-active')
+  })
+})

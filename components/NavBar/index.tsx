@@ -19,6 +19,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { calculateCoinsToAdd, cn } from '@/lib/utils'
 import { useAppStore } from '@/providers/app-store-provider'
+import { useActiveSection } from '@/hooks/use-active-section'
 import FabCoingIcon from '@/public/assets/fab-coin-icon.png'
 import Logo from '@/public/assets/logo.svg'
 import { MAX_COINS } from '@/stores/app-store'
@@ -64,45 +65,29 @@ const MoreNav = () => (
 
 const SiteLinks = () => {
   const posthog = usePostHog()
+  const activeSection = useActiveSection()
+
+  const links = [
+    { href: '/#about', label: 'About', id: 'about' },
+    { href: '/#technology', label: 'Technology', id: 'technology' },
+    { href: '/#experience', label: 'Experience', id: 'experience' },
+    { href: '/#projects', label: 'Projects', id: 'projects' },
+  ]
 
   return (
     <ul className="flex w-full select-none flex-row items-center justify-center gap-8 max-lg:hidden lg:gap-16">
-      <li>
-        <Link
-          href="/#about"
-          className="navLink"
-          onClick={() => posthog?.capture('nav_link_clicked', { destination: 'about' })}
-        >
-          <span>About</span>
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="/#technology"
-          className="navLink"
-          onClick={() => posthog?.capture('nav_link_clicked', { destination: 'technology' })}
-        >
-          <span>Technology</span>
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="/#experience"
-          className="navLink"
-          onClick={() => posthog?.capture('nav_link_clicked', { destination: 'experience' })}
-        >
-          <span>Experience</span>
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="/#projects"
-          className="navLink"
-          onClick={() => posthog?.capture('nav_link_clicked', { destination: 'projects' })}
-        >
-          <span>Projects</span>
-        </Link>
-      </li>
+      {links.map(({ href, label, id }) => (
+        <li key={id}>
+          <Link
+            href={href}
+            className="navLink"
+            {...(activeSection === id ? { 'data-active': '' } : {})}
+            onClick={() => posthog?.capture('nav_link_clicked', { destination: id })}
+          >
+            <span>{label}</span>
+          </Link>
+        </li>
+      ))}
       <li className="relative">
         <Link
           href="/shop"

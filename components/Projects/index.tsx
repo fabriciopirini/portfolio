@@ -29,7 +29,7 @@ const ProjectCard = ({ project }: { project: Project }) => (
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`View ${project.title} source code on GitHub`}
-          className="shrink-0 rounded-full p-2 ring-1 ring-white/20 transition-colors duration-200 hover:ring-white/60"
+          className="flex size-11 shrink-0 items-center justify-center rounded-full ring-1 ring-white/20 transition-colors duration-200 hover:ring-white/60"
         >
           <GithubIconFilled className="size-5" />
         </a>

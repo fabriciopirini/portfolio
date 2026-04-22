@@ -143,3 +143,41 @@ test.describe('Hamburger menu keyboard navigation', () => {
     await expect(techItem).toHaveAttribute('data-highlighted')
   })
 })
+
+test.describe('Touch targets meet 44px minimum (WCAG 2.5.8)', () => {
+  test.use({ viewport: { width: 375, height: 812 } })
+
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/')
+  })
+
+  test('footer social icons are at least 44x44px', async ({ page }) => {
+    await page.locator('footer').scrollIntoViewIfNeeded()
+
+    const footerLinks = page.locator('footer a[data-atrr]')
+    const count = await footerLinks.count()
+    expect(count).toBeGreaterThanOrEqual(3)
+
+    for (let i = 0; i < count; i++) {
+      const link = footerLinks.nth(i)
+      const box = await link.boundingBox()
+      expect(box).toBeTruthy()
+      expect(box!.width).toBeGreaterThanOrEqual(44)
+      expect(box!.height).toBeGreaterThanOrEqual(44)
+    }
+  })
+
+  test('CTA buttons are at least 44px tall on mobile', async ({ page }) => {
+    const ctaSelectors = [
+      page.getByRole('link', { name: /resume/i }),
+      page.getByRole('button', { name: /contact me/i }),
+    ]
+
+    for (const cta of ctaSelectors) {
+      await expect(cta).toBeVisible()
+      const box = await cta.boundingBox()
+      expect(box).toBeTruthy()
+      expect(box!.height).toBeGreaterThanOrEqual(44)
+    }
+  })
+})

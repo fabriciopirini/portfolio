@@ -1,7 +1,7 @@
 'use client'
 
 import { useReducedMotion } from 'framer-motion'
-import Atropos from 'atropos/react'
+import dynamic from 'next/dynamic'
 import { chunk } from 'lodash-es'
 
 import {
@@ -22,6 +22,10 @@ import { Carousel, CarouselContent, CarouselDots, CarouselItem } from '@/compone
 import { cn } from '@/lib/utils'
 
 import 'atropos/css'
+
+const Atropos = dynamic(() => import('atropos/react').then((mod) => mod.default), {
+  ssr: false,
+})
 
 const SkillCard = ({ skill }: { skill: (typeof skills)[number] }) => {
   const prefersReducedMotion = useReducedMotion()

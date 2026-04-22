@@ -18,7 +18,7 @@ Source: UI/UX Pro Max audit conducted April 2026. Work through these one at a ti
 
 - [x] **P1 #5**: Respect reduced-motion for Framer Motion animations and Atropos 3D tilt
 - [x] **P1 #6**: Add active nav state with IntersectionObserver
-- [ ] **P1 #7**: Reduce long animation durations (sideMe 1.2s, appearDownAndFade 3.5s)
+- [x] **P1 #7**: Reduce long animation durations (sideMe 1.2s, appearDownAndFade 3.5s)
 - [ ] **P1 #8**: Consider dropping Poppins font (3 → 2 font families)
 - [ ] **P1 #9**: Define z-index token scale (SideMe uses z-[1000])
 - [ ] **P1 #10**: Fix hover-only interactions for touch devices (MediaLinks hover:scale sticky on iOS)

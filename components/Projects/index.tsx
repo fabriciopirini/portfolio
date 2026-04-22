@@ -46,7 +46,7 @@ const ProjectCard = ({ project }: { project: Project }) => (
     </div>
     {project.thingThatWentWrong && (
       <details className="group">
-        <summary className="cursor-pointer select-none text-sm text-primary/40 transition-colors duration-200 hover:text-primary/70">
+        <summary           className="cursor-pointer select-none text-sm text-primary/60 transition-colors duration-200 hover:text-primary/80">
           What went wrong
         </summary>
         <p className="mt-3 text-sm text-primary/60">{project.thingThatWentWrong}</p>

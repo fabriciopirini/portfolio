@@ -76,7 +76,7 @@ export const SideMe = () => {
     <div id="side-me" className="max-[300px]:hidden" aria-hidden={!shouldShowSideBubble}>
       <div
         className={cn(
-          'fixed bottom-40 left-0 z-[1000] -translate-x-full rotate-0 fill-mode-both min-[250px]:bottom-36 min-[300px]:bottom-40 min-[350px]:bottom-28 sm:bottom-20',
+          'fixed bottom-40 left-0 z-sidePanel -translate-x-full rotate-0 fill-mode-both min-[250px]:bottom-36 min-[300px]:bottom-40 min-[350px]:bottom-28 sm:bottom-20',
           {
             'animate-sideMe': animate && shouldShowSideBubble,
             'animate-sideMeReturn': animateReturn,
@@ -92,7 +92,7 @@ export const SideMe = () => {
         </div>
       </div>
       <div
-        className={cn('pointer-events-none fixed bottom-5 left-28 z-[1001] w-0 origin-left opacity-0', {
+        className={cn('pointer-events-none fixed bottom-5 left-28 z-sidePanelContent w-0 origin-left opacity-0', {
           'pointer-events-auto w-auto animate-scaleConversationBubble opacity-100': showBubble && shouldShowSideBubble,
           'animate-scaleConversationBubbleReturn opacity-0': showBubbleReturn,
         })}

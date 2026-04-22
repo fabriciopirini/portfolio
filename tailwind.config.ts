@@ -90,6 +90,17 @@ export const config = {
       height: {
         'full-with-shop-nav': 'calc(100svh - var(--nav-height-shop))',
       },
+      zIndex: {
+        base: '0',
+        content: '10',
+        float: '20',
+        column: '30',
+        popover: '40',
+        overlay: '50',
+        sidePanel: '100',
+        sidePanelContent: '101',
+        skipLink: '9999',
+      },
       transitionTimingFunction: {
         'in-quad': 'var(--ease-in-quad)',
         'in-cubic': 'var(--ease-in-cubic)',

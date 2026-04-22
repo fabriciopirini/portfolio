@@ -83,7 +83,7 @@ export const SideMe = () => {
           }
         )}
       >
-        <div className="motion-safe:animate-none motion-safe:fill-mode-backwards">
+        <div className="motion-reduce:animate-none">
           <Image
             src={ProfilePic}
             alt="3D Lego portrait of the shop's author, Fabricio Pirini"

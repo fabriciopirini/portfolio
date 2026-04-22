@@ -175,7 +175,15 @@
   .animate-appearDownAndFade,
   .animate-scaleIn,
   .animate-scaleConversationBubble,
-  .animate-scaleConversationBubbleReturn {
+  .animate-scaleConversationBubbleReturn,
+  .animate-wave,
+  .animate-pulse {
     animation: none;
+  }
+
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
   }
 }

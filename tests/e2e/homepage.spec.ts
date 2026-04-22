@@ -181,3 +181,66 @@ test.describe('Touch targets meet 44px minimum (WCAG 2.5.8)', () => {
     }
   })
 })
+
+test.describe('Reduced-motion preference', () => {
+  test.use({ viewport: { width: 1280, height: 720 } })
+
+  test('disables CSS animations when prefers-reduced-motion is set', async ({ browser }) => {
+    const context = await browser.newContext({
+      reducedMotion: 'reduce',
+    })
+    const page = await context.newPage()
+    await page.goto('/')
+
+    const hasAnimationsDisabled = await page.evaluate(() => {
+      const el = document.createElement('div')
+      el.className = 'animate-wave'
+      document.body.appendChild(el)
+      const computed = getComputedStyle(el).animationName
+      document.body.removeChild(el)
+      return computed === 'none'
+    })
+    expect(hasAnimationsDisabled).toBe(true)
+
+    await context.close()
+  })
+
+  test('Atropos cards render without 3D tilt when prefers-reduced-motion is set', async ({ browser }) => {
+    const context = await browser.newContext({
+      reducedMotion: 'reduce',
+      viewport: { width: 1280, height: 720 },
+    })
+    const page = await context.newPage()
+    await page.goto('/')
+
+    const section = page.locator('#technology')
+    await section.scrollIntoViewIfNeeded()
+    await page.waitForTimeout(500)
+
+    const atroposContainers = await page.locator('.atropos').count()
+    expect(atroposContainers).toBe(0)
+
+    const desktopSkillCards = page.locator('#technology > div:last-child .bg-skill-card')
+    await expect(desktopSkillCards.first()).toBeVisible()
+
+    await context.close()
+  })
+
+  test('Atropos cards render with 3D tilt when motion is not reduced', async ({ browser }) => {
+    const context = await browser.newContext({
+      reducedMotion: 'no-preference',
+      viewport: { width: 1280, height: 720 },
+    })
+    const page = await context.newPage()
+    await page.goto('/')
+
+    const section = page.locator('#technology')
+    await section.scrollIntoViewIfNeeded()
+    await page.waitForTimeout(500)
+
+    const atroposContainers = await page.locator('.atropos').count()
+    expect(atroposContainers).toBeGreaterThan(0)
+
+    await context.close()
+  })
+})

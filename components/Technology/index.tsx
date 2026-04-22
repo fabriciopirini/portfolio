@@ -1,5 +1,6 @@
 'use client'
 
+import { useReducedMotion } from 'framer-motion'
 import Atropos from 'atropos/react'
 import { chunk } from 'lodash-es'
 
@@ -21,6 +22,43 @@ import { Carousel, CarouselContent, CarouselDots, CarouselItem } from '@/compone
 import { cn } from '@/lib/utils'
 
 import 'atropos/css'
+
+const SkillCard = ({ skill }: { skill: (typeof skills)[number] }) => {
+  const prefersReducedMotion = useReducedMotion()
+
+  if (prefersReducedMotion) {
+    return (
+      <div className="[&_span.atropos-inner]:rounded-xl [&_span.atropos-inner]:bg-skill-card">
+        <div className="flex h-auto w-40 flex-col items-center justify-between gap-2 overflow-hidden rounded-xl bg-skill-card p-8 drop-shadow-2xl md:size-56 md:gap-4">
+          <div className="flex h-full flex-col items-center justify-between">
+            {skill.icon}
+            <h3 className="text-lg font-semibold">{skill.name}</h3>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <Atropos
+      shadow={false}
+      rotateXMax={20}
+      rotateYMax={20}
+      rotateTouch="scroll-y"
+      className="[&_span.atropos-highlight]:bg-[radial-gradient(circle_at_50%,rgba(255,255,255,0.15)_0%,transparent_50%)] [&_span.atropos-inner]:rounded-xl [&_span.atropos-inner]:bg-skill-card"
+    >
+      <div
+        className="flex h-auto w-40 flex-col items-center justify-between gap-2 overflow-hidden rounded-xl bg-skill-card p-8 drop-shadow-2xl md:size-56 md:gap-4"
+        data-atropos-offset="0"
+      >
+        <div className="flex h-full flex-col items-center justify-between" data-atropos-offset="15">
+          {skill.icon}
+          <h3 className="text-lg font-semibold">{skill.name}</h3>
+        </div>
+      </div>
+    </Atropos>
+  )
+}
 
 export const Technology = () => (
   <>
@@ -55,25 +93,7 @@ export const Technology = () => (
       </Carousel>
       <div className="hidden py-6 text-2xl md:flex-[1_1_21%] lg:flex lg:flex-row lg:flex-wrap lg:items-center lg:justify-center lg:gap-5">
         {skills.map((skill) => (
-          <Atropos
-            key={skill.name}
-            shadow={false}
-            // highlight={false}
-            rotateXMax={20}
-            rotateYMax={20}
-            rotateTouch="scroll-y"
-            className="[&_span.atropos-highlight]:bg-[radial-gradient(circle_at_50%,rgba(255,255,255,0.15)_0%,transparent_50%)] [&_span.atropos-inner]:rounded-xl [&_span.atropos-inner]:bg-skill-card"
-          >
-            <div
-              className="flex h-auto w-40 flex-col items-center justify-between gap-2 overflow-hidden rounded-xl bg-skill-card p-8 drop-shadow-2xl md:size-56 md:gap-4"
-              data-atropos-offset="0"
-            >
-              <div className="flex h-full flex-col items-center justify-between" data-atropos-offset="15">
-                {skill.icon}
-                <h3 className="text-lg font-semibold">{skill.name}</h3>
-              </div>
-            </div>
-          </Atropos>
+          <SkillCard key={skill.name} skill={skill} />
         ))}
       </div>
     </section>

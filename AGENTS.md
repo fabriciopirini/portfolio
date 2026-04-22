@@ -26,7 +26,7 @@ Source: UI/UX Pro Max audit conducted April 2026. Work through these one at a ti
 ### Pending (Low Priority)
 
 - [x] **P2 #11**: Section padding inconsistency across Hero/AboutMe/Technology/WorkExperience/Projects
-- [ ] **P2 #12**: WorkExperience timeline border only renders for cardIdx === 0
+- [x] **P2 #12**: WorkExperience timeline border only renders for cardIdx === 0
 - [ ] **P2 #13**: Atropos library loaded for skill cards — consider lazy-loading
 - [ ] **P2 #14**: Project "What went wrong" summary text-primary/40 is borderline contrast (~4.2:1)
 - [ ] **P2 #15**: Coin counter hidden outside /shop — breaks gamification loop awareness

@@ -3,7 +3,6 @@ import { BadgeCheckIcon } from 'lucide-react'
 import type { Paragraph } from '@/lib/site-copy'
 import { COPY } from '@/lib/site-copy'
 import { ACTIVE_VARIANT } from '@/lib/site-config'
-import { cn } from '@/lib/utils'
 
 const renderParagraph = (para: Paragraph, key: number) => {
   if (typeof para === 'string') {
@@ -46,9 +45,7 @@ export const WorkExperience = () => {
                   className="pointer-events-none absolute top-0 -ml-6 -mt-1 size-14 text-primary-background"
                 />
                 <div
-                  className={cn('mt-1 pb-10 pl-12', {
-                    'border-l-[7px] border-dotted border-accent/50': cardIdx === 0,
-                  })}
+                  className="mt-1 border-l-[7px] border-dotted border-accent/50 pb-10 pl-12"
                 >
                   <div className="size-full space-y-5 rounded-xl border border-white bg-[#1E1E1E] p-7">
                     <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">{card.title}</p>

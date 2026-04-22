@@ -155,7 +155,7 @@ const HamburguerMenu = () => {
     >
       <DropdownMenuTrigger asChild>
         <button
-          className="group ml-5 size-11 cursor-pointer rounded-full p-2 text-primary ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:bg-white/5 hover:ring-white/80 focus-visible:h-full active:scale-95 max-[375px]:ml-0 md:size-14 md:p-3 lg:hidden lg:size-16 lg:p-4"
+          className="group ml-5 size-11 cursor-pointer rounded-full p-2 text-primary ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:bg-white/5 hover:ring-white/80 active:scale-95 max-[375px]:ml-0 md:size-14 md:p-3 lg:hidden lg:size-16 lg:p-4"
           aria-label="Open navigation menu"
           aria-expanded={isOpen}
           aria-haspopup="menu"

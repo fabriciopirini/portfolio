@@ -65,4 +65,81 @@ test.describe('Homepage', () => {
     const linkedInLink = page.locator('a[href*="linkedin.com"]').first()
     await expect(linkedInLink).toBeVisible()
   })
+
+  test('skip to my story link navigates to experience section when activated', async ({ page }) => {
+    const skipLink = page.getByRole('link', { name: /skip to my story/i })
+
+    await expect(skipLink).toBeAttached()
+    await expect(skipLink).toHaveAttribute('href', '#experience')
+
+    await page.keyboard.press('Tab')
+    await expect(skipLink).toBeFocused()
+
+    await page.keyboard.press('Enter')
+    await expect(page.locator('#experience')).toBeVisible()
+    await expect(page).toHaveURL(/#experience$/)
+  })
+
+  test('nav links show focus ring on keyboard navigation', async ({ page }) => {
+    await page.keyboard.press('Tab')
+    await page.keyboard.press('Tab')
+
+    const focusedLink = page.locator('a:focus-visible').first()
+    await expect(focusedLink).toBeVisible()
+    const boxShadow = await focusedLink.evaluate((el) => getComputedStyle(el).boxShadow)
+    expect(boxShadow).not.toBe('none')
+  })
+
+  test('contact me button shows focus ring on keyboard navigation', async ({ page }) => {
+    const contactBtn = page.getByRole('button', { name: /contact me/i })
+    await contactBtn.focus()
+    await expect(contactBtn).toBeFocused()
+
+    const boxShadow = await contactBtn.evaluate((el) => getComputedStyle(el).boxShadow)
+    expect(boxShadow).not.toBe('none')
+  })
+})
+
+test.describe('Hamburger menu keyboard navigation', () => {
+  test.use({ viewport: { width: 375, height: 812 } })
+
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/')
+  })
+
+  test('hamburger menu opens with Space and first item has visual highlight', async ({ page }) => {
+    const menuButton = page.getByRole('button', { name: /open navigation menu/i })
+
+    for (let i = 0; i < 3; i++) {
+      await page.keyboard.press('Tab')
+    }
+    await expect(menuButton).toBeFocused()
+
+    await page.keyboard.press('Space')
+    const aboutItem = page.getByRole('menuitem', { name: 'About' })
+    await expect(aboutItem).toBeVisible()
+
+    const bg = await aboutItem.evaluate((el) => getComputedStyle(el).backgroundColor)
+    expect(bg).not.toBe('rgba(0, 0, 0, 0)')
+  })
+
+  test('arrow keys navigate between menu items with highlight', async ({ page }) => {
+    const menuButton = page.getByRole('button', { name: /open navigation menu/i })
+    await menuButton.focus()
+    await page.keyboard.press('Space')
+
+    const aboutItem = page.getByRole('menuitem', { name: 'About' })
+    await expect(aboutItem).toBeVisible()
+
+    await page.keyboard.press('ArrowDown')
+    const techItem = page.getByRole('menuitem', { name: 'Technology' })
+    await expect(techItem).toHaveAttribute('data-highlighted')
+
+    await page.keyboard.press('ArrowDown')
+    const expItem = page.getByRole('menuitem', { name: 'Experience' })
+    await expect(expItem).toHaveAttribute('data-highlighted')
+
+    await page.keyboard.press('ArrowUp')
+    await expect(techItem).toHaveAttribute('data-highlighted')
+  })
 })

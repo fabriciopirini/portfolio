@@ -108,6 +108,14 @@
     --scroll-behavior: smooth !important;
     scroll-behavior: smooth !important;
   }
+
+  a:focus-visible,
+  button:focus-visible,
+  summary:focus-visible,
+  [role='button']:focus-visible {
+    @apply rounded-sm outline-none ring-2 ring-accent ring-offset-2;
+    ring-offset-color: hsl(var(--background));
+  }
 }
 
 /* ─── View Transitions ─── */

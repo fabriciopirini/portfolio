@@ -20,7 +20,7 @@ Use `bun`, not `npm` or `yarn`. Use `bunx` instead of `npx`.
 
 ## Commands
 
-- **Dev**: `bun dev` (port 3001, not 3000)
+- **Dev**: `bun dev` (port 3000)
 - **Type check**: `bun ts`
 - **Type check + lint**: `bun check-code`
 - **Format + lint (write)**: `bun lint`

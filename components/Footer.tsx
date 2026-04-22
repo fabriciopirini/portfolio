@@ -26,9 +26,9 @@ export const Footer = () => {
             <a
               target="_blank"
               rel="noopener"
-              data-atrr="github-footer"
+              data-atrr="email-footer"
               href={mailTo}
-              aria-label="Checkout my Github profile"
+              aria-label="Send email to Fabricio"
               className="group size-10 rounded-full p-2 ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:scale-[1.03] hover:bg-white/5 hover:ring-white/80 active:scale-95 lg:size-16 lg:p-4"
               onClick={() => posthog?.capture('contact_me_email_footer')}
             >

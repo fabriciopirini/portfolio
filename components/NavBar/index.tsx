@@ -26,6 +26,8 @@ import { MAX_COINS } from '@/stores/app-store'
 
 export const NavBar = () => {
   const router = useRouter()
+  const pathname = usePathname()
+  const isShop = pathname === '/shop'
 
   useEffect(() => {
     router.prefetch('/')
@@ -44,26 +46,25 @@ export const NavBar = () => {
           priority
           aria-hidden
         />
-        {/* <span className="text-[32px] font-medium max-md:hidden">Fabricio</span> */}
       </Link>
-      <div className="z-10 hidden items-center sm:flex sm:flex-row">
-        <SiteLinks />
+      <div className={cn('z-10 items-center', isShop ? 'hidden xl:flex xl:flex-row' : 'hidden lg:flex lg:flex-row')}>
+        <SiteLinks isShop={isShop} />
       </div>
-      <MoreNav />
+      <MoreNav isShop={isShop} />
     </nav>
   )
 }
 
-const MoreNav = () => (
+const MoreNav = ({ isShop }: { isShop: boolean }) => (
   <div className="flex items-center justify-center gap-[6px] lg:gap-4">
     <CoinCounter />
-    <MediaLinks />
+    <MediaLinks isShop={isShop} />
     <Basket />
-    <HamburguerMenu />
+    <HamburguerMenu isShop={isShop} />
   </div>
 )
 
-const SiteLinks = () => {
+const SiteLinks = ({ isShop }: { isShop: boolean }) => {
   const posthog = usePostHog()
   const activeSection = useActiveSection()
 
@@ -75,7 +76,7 @@ const SiteLinks = () => {
   ]
 
   return (
-    <ul className="flex w-full select-none flex-row items-center justify-center gap-8 max-lg:hidden lg:gap-16">
+    <ul className={cn('flex w-full select-none flex-row items-center justify-center gap-8', isShop ? 'xl:gap-16' : 'lg:gap-16')}>
       {links.map(({ href, label, id }) => (
         <li key={id}>
           <Link
@@ -121,7 +122,7 @@ const SiteLinks = () => {
   )
 }
 
-const HamburguerMenu = () => {
+const HamburguerMenu = ({ isShop }: { isShop: boolean }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const posthog = usePostHog()
@@ -140,7 +141,10 @@ const HamburguerMenu = () => {
     >
       <DropdownMenuTrigger asChild>
         <button
-          className="group ml-5 size-11 cursor-pointer rounded-full p-2 text-primary ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:bg-white/5 hover:ring-white/80 active:scale-[0.96] max-[375px]:ml-0 md:size-14 md:p-3 lg:hidden lg:size-16 lg:p-4"
+          className={cn(
+            'group ml-5 size-11 cursor-pointer rounded-full p-2 text-primary ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:bg-white/5 hover:ring-white/80 active:scale-[0.96] max-[375px]:ml-0 md:size-14 md:p-3',
+            isShop ? 'xl:hidden' : 'lg:hidden'
+          )}
           aria-label="Open navigation menu"
           aria-expanded={isOpen}
           aria-haspopup="menu"
@@ -154,7 +158,7 @@ const HamburguerMenu = () => {
         side="bottom"
         sideOffset={12}
         align="end"
-        className="animate-scaleIn lg:hidden"
+        className={cn('animate-scaleIn', isShop ? 'xl:hidden' : 'lg:hidden')}
       >
         {!isHome && (
           <>
@@ -207,7 +211,7 @@ const HamburguerMenu = () => {
             </Link>
           </>
         )}
-        <div className="lg:hidden">
+        <div className={cn(isShop ? 'xl:hidden' : 'lg:hidden')}>
           <DropdownMenuSeparator className="mx-5" />
           <a
             target="_blank"
@@ -317,8 +321,10 @@ const CoinCounter = ({ className }: { className?: string }) => {
   )
 }
 
-const MediaLinks = () => {
+const MediaLinks = ({ isShop }: { isShop: boolean }) => {
   const posthog = usePostHog()
+
+  const breakpoint = isShop ? 'xl:block' : 'lg:block'
 
   return (
     <>
@@ -328,7 +334,7 @@ const MediaLinks = () => {
         data-atrr="linkedin-navbar"
         href="https://www.linkedin.com/in/fabriciopirini/"
         aria-label="Checkout my LinkedIn profile"
-        className="group hidden size-16 rounded-full p-4 ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:scale-[1.03] hover:bg-white/5 hover:ring-white/80 active:scale-[0.96] lg:block"
+        className={cn('group hidden size-16 rounded-full p-4 ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:scale-[1.03] hover:bg-white/5 hover:ring-white/80 active:scale-[0.96]', breakpoint)}
         onClick={() => posthog?.capture('contact_me_linkedin_navbar')}
       >
         <LinkedInIconFilled className="pointer-events-none size-full transition-transform duration-200 ease-out group-hover:scale-[1.1]" />
@@ -340,7 +346,7 @@ const MediaLinks = () => {
         data-atrr="github-navbar"
         href="https://github.com/fabriciopirini"
         aria-label="Checkout my Github profile"
-        className="group hidden size-16 rounded-full p-4 ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:scale-[1.03] hover:bg-white/5 hover:ring-white/80 active:scale-[0.96] lg:block"
+        className={cn('group hidden size-16 rounded-full p-4 ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:scale-[1.03] hover:bg-white/5 hover:ring-white/80 active:scale-[0.96]', breakpoint)}
         onClick={() => posthog?.capture('contact_me_github_navbar')}
       >
         <GithubIconFilled className="pointer-events-none size-full transition-transform duration-200 ease-out group-hover:scale-[1.1]" />

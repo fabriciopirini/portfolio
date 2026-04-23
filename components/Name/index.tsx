@@ -108,6 +108,7 @@ const CTAButtons = () => {
           >
             <m.a
               href={mailTo}
+              aria-label="Send email to Fabricio"
               className="flex flex-col gap-2"
               variants={FADE_RIGHT_ANIMATION_VARIANTS}
               onClick={() => posthog?.capture('contact_me_email')}

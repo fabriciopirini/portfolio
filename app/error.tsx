@@ -13,7 +13,7 @@ const Error = ({ error, reset }: { error: Error & { digest?: string }; reset: ()
   }, [error])
 
   return (
-    <div className="mb-3 flex size-full grow flex-col items-center px-4 md:mb-10 md:px-10 2xl:px-20">
+    <div className="mb-3 flex size-full grow flex-col items-center px-4 md:mb-10 md:px-10 2xl:px-20" role="alert" aria-live="assertive">
       <div className="m-auto flex h-full grow flex-col items-center justify-center gap-10 text-center">
         <h2 className="font-leagueSpartan text-xl font-medium lg:text-4xl">{COPY.errors.error.heading}</h2>
         <p className="max-w-lg text-lg font-normal lg:text-xl">{COPY.errors.error.body}</p>

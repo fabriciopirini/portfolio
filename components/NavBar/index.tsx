@@ -156,6 +156,18 @@ const HamburguerMenu = () => {
         align="end"
         className="animate-scaleIn lg:hidden"
       >
+        {!isHome && (
+          <>
+            <Link
+              href="/"
+              transitionTypes={['navigate-back']}
+              onClick={() => posthog?.capture('nav_link_clicked', { destination: 'home', source: 'hamburger' })}
+            >
+              <DropdownMenuItem className="px-5 py-2">Home</DropdownMenuItem>
+            </Link>
+            <DropdownMenuSeparator className="mx-5" />
+          </>
+        )}
         <Link
           href={isHome ? '#about' : '/#about'}
           onClick={() => posthog?.capture('nav_link_clicked', { destination: 'about', source: 'hamburger' })}

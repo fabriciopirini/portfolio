@@ -20,7 +20,7 @@ const ProjectCard = ({ project }: { project: Project }) => (
   <article className="flex flex-col gap-5 border border-white/10 bg-white/5 p-7">
     <div className="flex items-start justify-between gap-4">
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-primary/50">{project.role}</span>
+        <span className="text-sm text-primary/65">{project.role}</span>
         <h3 className="font-leagueSpartan text-xl font-medium lg:text-2xl">{project.title}</h3>
       </div>
       {project.repoUrl && (
@@ -46,10 +46,10 @@ const ProjectCard = ({ project }: { project: Project }) => (
     </div>
     {project.thingThatWentWrong && (
       <details className="group">
-        <summary           className="cursor-pointer select-none text-sm text-primary/60 transition-colors duration-200 hover:text-primary/80">
+        <summary           className="cursor-pointer select-none text-sm text-primary/70 transition-colors duration-200 hover:text-primary/80">
           What went wrong
         </summary>
-        <p className="mt-3 text-sm text-primary/60">{project.thingThatWentWrong}</p>
+        <p className="mt-3 text-sm text-primary/70">{project.thingThatWentWrong}</p>
       </details>
     )}
   </article>

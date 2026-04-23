@@ -66,7 +66,7 @@ export const HeroLegoImage = () => {
           id="hero-lego-image"
           className="mx-auto max-h-[800px] object-contain"
           src={ProfilePic}
-          alt="Profile Picture"
+          alt=""
           width={500}
           height={800}
           priority

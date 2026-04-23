@@ -122,10 +122,10 @@ const ProductCartItem = ({ productId, position }: { productId: string; position:
             source: 'basket',
           })
         }}
-        className="text-xs font-medium"
+        aria-label={`Remove ${item.name} from cart`}
+        className="flex size-11 items-center justify-center rounded-full text-xs font-medium transition-colors duration-200 hover:bg-red-100 active:scale-95"
       >
         <Trash2Icon className="pointer-events-none size-5" />
-        <span className="sr-only">Remove from cart</span>
       </button>
     </li>
   )

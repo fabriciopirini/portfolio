@@ -17,7 +17,7 @@ export const Projects = () => (
 )
 
 const ProjectCard = ({ project }: { project: Project }) => (
-  <article className="flex flex-col gap-5 rounded-xl border border-white/10 bg-white/5 p-7">
+  <article className="flex flex-col gap-5 border border-white/10 bg-white/5 p-7">
     <div className="flex items-start justify-between gap-4">
       <div className="flex flex-col gap-1">
         <span className="text-sm text-primary/50">{project.role}</span>

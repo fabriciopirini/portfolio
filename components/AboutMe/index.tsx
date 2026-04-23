@@ -21,7 +21,7 @@ export const AboutMe = () => {
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="relative flex w-full flex-col gap-5 rounded-xl bg-white py-16 text-center lg:container md:px-28 md:py-20 lg:gap-16"
+      className="relative flex w-full flex-col gap-5 bg-white py-16 text-center lg:container md:px-28 md:py-20 lg:gap-16"
     >
       <CornerMinus pos="top-right" />
       <CornerMinus pos="top-left" />
@@ -40,7 +40,7 @@ export const AboutMe = () => {
             const body = typeof card.body === 'function' ? card.body(yearsText ?? 'nine') : card.body
             return (
               <CarouselItem key={card.title} className="lg:basis-2/3 xl:basis-1/3">
-                <div className="flex h-full flex-col gap-5 rounded-xl bg-[#373943] p-10">
+                <div className="flex h-full flex-col gap-5 bg-[#373943] p-10">
                   <Icon
                     strokeWidth={1.5}
                     className={cn('pointer-events-none text-accent', i === 1 ? 'mb-4 size-12' : 'size-16')}

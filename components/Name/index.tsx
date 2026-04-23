@@ -96,7 +96,7 @@ const CTAButtons = () => {
           <CTAButton type="primary" as="button" text={COPY.hero.ctaContact} />
         </PopoverTrigger>
         <PopoverContent
-          className="mt-4 w-56 rounded-xl border-2 border-accent bg-white drop-shadow-md lg:w-72"
+          className="mt-4 w-56 border-2 border-accent bg-white drop-shadow-md lg:w-72"
           align="center"
         >
           <m.div

@@ -44,14 +44,14 @@ export const Basket = () => {
         aria-label="Open cart"
         data-testid="cart-button"
         className={cn(
-          'group relative hidden size-11 items-center justify-center rounded-3xl p-2 text-primary ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:scale-[1.03] hover:bg-white/5 hover:ring-white/80 active:scale-95 lg:size-16 lg:rounded-full lg:p-4',
+          'group relative hidden size-11 items-center justify-center p-2 text-primary ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:scale-[1.03] hover:bg-white/5 hover:ring-white/80 active:scale-95 lg:size-16 lg:rounded-full lg:p-4',
           {
             flex: pathname === '/shop',
           }
         )}
       >
         <CartIconFilled className="pointer-events-none size-full transition-transform duration-200 ease-out group-hover:scale-[1.1]" />
-        <div className="absolute right-0 top-0 z-10 aspect-square size-5 rounded-3xl bg-accent p-1 text-sm leading-none text-secondary lg:size-6 lg:rounded-full">
+        <div className="absolute right-0 top-0 z-10 aspect-square size-5 bg-accent p-1 text-sm leading-none text-secondary lg:size-6 lg:rounded-full">
           {cart.length}
         </div>
       </DrawerTrigger>

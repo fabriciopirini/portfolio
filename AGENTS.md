@@ -1,5 +1,43 @@
 # AGENTS.md
 
+## Agent Discovery & Content Negotiation
+
+Patterns established April 2026 for AI agent discoverability (isitagentready.com checks).
+
+### Link Headers (RFC 8288)
+
+- Use **registered IANA relation types only** — `describedby`, `service-doc`, `api-catalog` etc. Custom types like `rel="cv"` are ignored by validators.
+- Set via `headers()` export in `app/page.tsx` (Next.js page convention).
+- Example: `Link: '</llms.txt>; rel="describedby", </resume>; rel="describedby"'`
+
+### Markdown Content Negotiation
+
+- **Do NOT use `proxy.ts`** for header-based routing. Next.js 16 deprecated middleware in favor of proxy, but rewrites are better here.
+- Use `beforeFiles` rewrites in `next.config.js` with `has` conditions matching `Accept` headers. Default array rewrites are `afterFiles` (fire after filesystem routes like `app/page.tsx`), so they lose to filesystem routes.
+- Route handler returns `Content-Type: text/markdown` + `Vary: Accept` + `x-markdown-tokens`.
+- Pattern from Next.js 16 docs: `{ source: '/', destination: '/api/markdown', has: [{ type: 'header', key: 'accept', value: '(.*)text/markdown(.*)' }] }`
+
+### robots.txt with Content Signals
+
+- `MetadataRoute.Robots` type in `app/robots.ts` **cannot emit comments**. Switched to route handler (`app/api/robots/route.ts`) + rewrite.
+- Content-Signal format: `# Content-Signal: ai-train=no, search=yes, ai-input=yes` (IETF aipref working group).
+- Keep dynamic — use env var for sitemap URL. **Bug caught**: `NEXT_PUBLIC_VERCEL_URL` already includes `https://`, don't prepend it again.
+
+### Key Lessons
+
+- **Read Context7 docs before implementing** — Next.js 16 renamed middleware.ts to proxy.ts, and the rewrite execution order (`beforeFiles` vs `afterFiles`) matters for content negotiation.
+- **Test locally AND on Vercel** — some behaviors (caching headers, edge runtime) differ between local and production.
+- **Use `vercel ls`** to check deployment status instead of hardcoded waits.
+
+## Testing Policy
+
+All new features, updates, and changes must include tests to prevent regressions:
+
+- **API routes** (`app/api/*`): unit tests verifying response headers, status codes, and body content.
+- **Rewrite rules**: integration tests confirming content negotiation returns correct `Content-Type` based on `Accept` header.
+- **Route handlers**: test edge cases (missing files, invalid paths).
+- Use `bun test:unit` for unit tests, `bun test:e2e` for end-to-end.
+
 ## UI/UX Audit Progress
 
 Source: UI/UX Pro Max audit conducted April 2026. Work through these one at a time, test via browser, commit before moving on.

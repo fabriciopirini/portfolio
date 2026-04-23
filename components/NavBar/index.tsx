@@ -38,7 +38,7 @@ export const NavBar = () => {
         <Image
           className="h-8 w-auto md:h-[45px] 2xl:h-16"
           src={Logo}
-          alt="Logo"
+          alt=""
           width={80}
           height={80}
           priority

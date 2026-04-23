@@ -34,5 +34,6 @@ Source: UI/UX Pro Max audit conducted April 2026. Work through these one at a ti
 - [x] **P2 #17**: Border-radius inconsistency — 21 instances of `rounded-xl/md/lg/3xl` override squircle default (skill cards, project cards, experience cards, footer, AboutMe, SideMe bubble, gallery cards, contact popover, basket trigger, drawers)
 - [x] **P2 #18**: AboutMe carousel opts.active=false on desktop — verify graceful degradation — works, 3 cards visible in row
 - [ ] **P3 #19**: Logo has both alt text and aria-hidden (redundant)
-- [ ] **P3 #19**: View transition blur filter may cause performance issues on low-end devices
-- [ ] **P3 #20**: SideMe 90s delay is very conservative for engagement
+- [x] **P3 #19**: Logo has both alt text and aria-hidden (redundant) — fixed, decorative logo uses alt="" with aria-hidden
+- [x] **P3 #20**: View transition blur filter may cause performance issues on low-end devices — already disabled via prefers-reduced-motion in P1 #5
+- [x] **P3 #21**: SideMe 90s delay is very conservative for engagement — kept, intentional design

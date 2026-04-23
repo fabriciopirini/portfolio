@@ -32,7 +32,7 @@ Source: UI/UX Pro Max audit conducted April 2026. Work through these one at a ti
 - [x] **P2 #15**: Coin counter hidden outside /shop — breaks gamification loop awareness — kept shop-only, intentional design
 - [x] **P2 #16**: Add aria-labelledby to sections
 - [x] **P2 #17**: Border-radius inconsistency — 21 instances of `rounded-xl/md/lg/3xl` override squircle default (skill cards, project cards, experience cards, footer, AboutMe, SideMe bubble, gallery cards, contact popover, basket trigger, drawers)
-- [ ] **P2 #18**: AboutMe carousel opts.active=false on desktop — verify graceful degradation
-- [ ] **P3 #18**: Logo has both alt text and aria-hidden (redundant)
+- [x] **P2 #18**: AboutMe carousel opts.active=false on desktop — verify graceful degradation — works, 3 cards visible in row
+- [ ] **P3 #19**: Logo has both alt text and aria-hidden (redundant)
 - [ ] **P3 #19**: View transition blur filter may cause performance issues on low-end devices
 - [ ] **P3 #20**: SideMe 90s delay is very conservative for engagement

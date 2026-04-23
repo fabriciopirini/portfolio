@@ -30,7 +30,7 @@ export const Galery = () => {
                   className="pointer-events-none size-7 lg:size-9"
                   aria-hidden
                 />
-                <span>{item.price}</span>
+                <span className="tabular-nums">{item.price}</span>
                 <span className="whitespace-nowrap">Fab coins</span>
               </span>
               <AddToCart productId={item.id} />

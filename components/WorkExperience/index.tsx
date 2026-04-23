@@ -35,7 +35,7 @@ export const WorkExperience = () => {
       {chapters.map((chapter, chapterIdx) => (
         <div key={chapterIdx} className="flex w-full flex-col gap-8 lg:flex-row lg:gap-10">
           <div className="shrink-0 basis-2/5">
-            <h2 id={chapterIdx === 0 ? 'experience-heading' : undefined} className="mb-7 font-leagueSpartan text-3xl font-medium lg:mb-14 lg:text-6xl">{chapter.heading}</h2>
+            <h2 id={chapterIdx === 0 ? 'experience-heading' : undefined} className="mb-7 font-leagueSpartan text-3xl font-medium text-balance lg:mb-14 lg:text-6xl">{chapter.heading}</h2>
             <p className="lg:mb-10 lg:text-3xl">{chapter.intro}</p>
           </div>
           <div>

@@ -114,7 +114,7 @@ export const SideMe = () => {
             >
               <p className="mb-4 font-semibold">{COPY.contact.sideTitle}</p>
               <div className="flex flex-col-reverse justify-between gap-5 px-2 sm:flex-row">
-                <button className="font-semibold opacity-80" onClick={handleHideSideBubble}>
+                <button className="font-semibold opacity-80 transition-transform duration-200 active:scale-[0.96]" onClick={handleHideSideBubble}>
                   {COPY.contact.sideDismiss}
                 </button>
                 <InteractionButtonDesktop label={COPY.contact.sideAccept} onClick={handleHideSideBubble} />

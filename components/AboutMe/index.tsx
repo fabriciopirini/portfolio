@@ -27,7 +27,7 @@ export const AboutMe = () => {
       <CornerMinus pos="top-left" />
       <CornerMinus pos="bottom-left" />
       <CornerMinus pos="bottom-right" />
-      <h2 id="about-heading" className="font-leagueSpartan text-3xl font-medium text-secondary md:text-7xl">{COPY.about.heading}</h2>
+      <h2 id="about-heading" className="font-leagueSpartan text-3xl font-medium text-secondary text-balance md:text-7xl">{COPY.about.heading}</h2>
       <Carousel
         className="mx-auto w-full max-w-xs md:max-w-2xl xl:max-w-none"
         opts={{

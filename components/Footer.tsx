@@ -29,7 +29,7 @@ export const Footer = () => {
               data-atrr="email-footer"
               href={mailTo}
               aria-label="Send email to Fabricio"
-              className="group size-11 rounded-full p-2 ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:scale-[1.03] hover:bg-white/5 hover:ring-white/80 active:scale-95 lg:size-16 lg:p-4"
+              className="group size-11 rounded-full p-2 ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:scale-[1.03] hover:bg-white/5 hover:ring-white/80 active:scale-[0.96] lg:size-16 lg:p-4"
               onClick={() => posthog?.capture('contact_me_email_footer')}
             >
               <MailIconFilled className="pointer-events-none size-full transition-transform duration-200 ease-out group-hover:scale-[1.1]" />
@@ -41,7 +41,7 @@ export const Footer = () => {
               data-atrr="linkedin-footer"
               href="https://www.linkedin.com/in/fabriciopirini/"
               aria-label="Checkout my LinkedIn profile"
-              className="group size-11 rounded-full p-2 ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:scale-[1.03] hover:bg-white/5 hover:ring-white/80 active:scale-95 lg:size-16 lg:p-4"
+              className="group size-11 rounded-full p-2 ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:scale-[1.03] hover:bg-white/5 hover:ring-white/80 active:scale-[0.96] lg:size-16 lg:p-4"
               onClick={() => posthog?.capture('contact_me_linkedin_footer')}
             >
               <LinkedInIconFilled className="pointer-events-none size-full transition-transform duration-200 ease-out group-hover:scale-[1.1]" />
@@ -53,7 +53,7 @@ export const Footer = () => {
               data-atrr="github-footer"
               href="https://github.com/fabriciopirini"
               aria-label="Checkout my Github profile"
-              className="group size-11 rounded-full p-2 ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:scale-[1.03] hover:bg-white/5 hover:ring-white/80 active:scale-95 lg:size-16 lg:p-4"
+              className="group size-11 rounded-full p-2 ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:scale-[1.03] hover:bg-white/5 hover:ring-white/80 active:scale-[0.96] lg:size-16 lg:p-4"
               onClick={() => posthog?.capture('contact_me_github_footer')}
             >
               <GithubIconFilled className="pointer-events-none size-full transition-transform duration-200 ease-out group-hover:scale-[1.1]" />

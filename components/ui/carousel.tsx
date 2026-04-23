@@ -225,7 +225,7 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<ty
 )
 CarouselNext.displayName = 'CarouselNext'
 
-const dotsVariants = cva('rounded-full transition-all duration-300', {
+const dotsVariants = cva('rounded-full transition-[opacity,transform] duration-300', {
   variants: {
     variant: {
       lightModeActive: 'bg-[#1A1A1A]',

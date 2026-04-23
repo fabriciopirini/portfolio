@@ -38,6 +38,29 @@ All new features, updates, and changes must include tests to prevent regressions
 - **Route handlers**: test edge cases (missing files, invalid paths).
 - Use `bun test:unit` for unit tests, `bun test:e2e` for end-to-end.
 
+## Copy Consistency
+
+Site content is spread across multiple locations — component files, route handlers, metadata, API responses, and static files. Any copy change MUST be verified across the entire application.
+
+### Content locations (not exhaustive, verify each time)
+
+- `lib/site-copy.ts` — central copy definitions (meta titles, descriptions, CTAs)
+- `app/page.tsx` — homepage metadata, Link headers, JSON-LD structured data
+- `app/resume/page.tsx`, `app/shop/page.tsx` — per-page metadata
+- `app/api/markdown/[[...slug]]/route.ts` — markdown representations of each page
+- `app/api/robots/route.ts` — robots.txt content signals
+- `public/llms.txt` — agent-facing site description
+- `app/services.tsx` — shop product names, descriptions, and prices
+- Component files — hero copy, about me text, section headings, footer, nav labels
+
+### Rules
+
+- **Changing any copy in one location = grep the entire codebase** for the old text before finalizing. Update every occurrence.
+- **Product changes** (name, price, description in `app/services.tsx`) must also update `/shop` markdown in the API route handler.
+- **Title/role changes** must propagate to: `site-copy.ts`, `llms.txt`, `public/llms-full.txt` (if exists), JSON-LD in `app/page.tsx`, per-page metadata, and markdown API responses.
+- **Contact info changes** must propagate to: `llms.txt`, markdown routes, footer, navbar popover, `site-copy.ts`, JSON-LD.
+- After any copy change, run `bun ts` and verify no type errors, then grep for stale references.
+
 ## UI/UX Audit Progress
 
 Source: UI/UX Pro Max audit conducted April 2026. Work through these one at a time, test via browser, commit before moving on.

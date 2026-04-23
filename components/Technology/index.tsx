@@ -66,8 +66,8 @@ const SkillCard = ({ skill }: { skill: (typeof skills)[number] }) => {
 
 export const Technology = () => (
   <>
-    <section id="technology" className="w-full py-16 lg:container md:py-20">
-      <h2 className="mb-5 text-center font-leagueSpartan text-3xl font-medium lg:text-7xl lg:font-bold xl:mb-14">
+    <section id="technology" aria-labelledby="technology-heading" className="w-full py-16 lg:container md:py-20">
+      <h2 id="technology-heading" className="mb-5 text-center font-leagueSpartan text-3xl font-medium lg:text-7xl lg:font-bold xl:mb-14">
         Technology
       </h2>
       <Carousel className="mx-auto w-full lg:hidden">

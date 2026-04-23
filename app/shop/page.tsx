@@ -25,7 +25,7 @@ const ShopFrontPage = async () => {
 export default ShopFrontPage
 
 const ShopHero = () => (
-  <section className="relative mb-10 max-w-[2000px] pt-12 lg:mb-28 lg:pt-20 min-[2000px]:mx-auto">
+  <section aria-labelledby="shop-heading" className="relative mb-10 max-w-[2000px] pt-12 lg:mb-28 lg:pt-20 min-[2000px]:mx-auto">
     <div className="z-10 flex flex-col px-7 md:px-16 lg:flex-row lg:px-32">
       <div className="z-30 mx-auto flex size-full flex-col items-center justify-center gap-8 lg:w-2/3">
         <div className="size-24 overflow-hidden rounded-full bg-accent ring-4 ring-accent/30 ring-offset-8 ring-offset-primary">
@@ -38,7 +38,7 @@ const ShopHero = () => (
             priority
           />
         </div>
-        <h1 className="text-center font-leagueSpartan text-4xl font-medium lg:text-7xl">Fab&apos;s Shop</h1>
+        <h1 id="shop-heading" className="text-center font-leagueSpartan text-4xl font-medium lg:text-7xl">Fab&apos;s Shop</h1>
         <ShopHeroSubtitle />
       </div>
     </div>

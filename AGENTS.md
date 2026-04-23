@@ -30,7 +30,7 @@ Source: UI/UX Pro Max audit conducted April 2026. Work through these one at a ti
 - [x] **P2 #13**: Atropos library loaded for skill cards — consider lazy-loading
 - [x] **P2 #14**: Project "What went wrong" summary text-primary/40 is borderline contrast (~4.2:1)
 - [x] **P2 #15**: Coin counter hidden outside /shop — breaks gamification loop awareness — kept shop-only, intentional design
-- [ ] **P2 #16**: Add aria-labelledby to sections
+- [x] **P2 #16**: Add aria-labelledby to sections
 - [ ] **P2 #17**: Border-radius inconsistency — 21 instances of `rounded-xl/md/lg/3xl` override squircle default (skill cards, project cards, experience cards, footer, AboutMe, SideMe bubble, gallery cards, contact popover, basket trigger, drawers)
 - [ ] **P2 #18**: AboutMe carousel opts.active=false on desktop — verify graceful degradation
 - [ ] **P3 #18**: Logo has both alt text and aria-hidden (redundant)

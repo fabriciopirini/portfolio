@@ -3,9 +3,9 @@ import type { Project } from '@/app/projects'
 import { PROJECTS } from '@/app/projects'
 
 export const Projects = () => (
-  <section id="projects" className="flex w-full flex-col gap-12 py-16 lg:container md:py-20">
+  <section id="projects" aria-labelledby="projects-heading" className="flex w-full flex-col gap-12 py-16 lg:container md:py-20">
     <div className="flex flex-col gap-4 pl-6 pr-4 md:px-0">
-      <h2 className="font-leagueSpartan text-3xl font-medium lg:text-6xl">Things I&apos;ve actually built</h2>
+      <h2 id="projects-heading" className="font-leagueSpartan text-3xl font-medium lg:text-6xl">Things I&apos;ve actually built</h2>
       <p className="text-primary/70 lg:text-2xl">Selected work. What it was, what went sideways, and what shipped.</p>
     </div>
     <div className="grid grid-cols-1 gap-6 pl-6 pr-4 md:grid-cols-2 md:px-0 xl:grid-cols-2">

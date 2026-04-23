@@ -29,12 +29,13 @@ export const WorkExperience = () => {
   return (
     <section
       id="experience"
+      aria-labelledby="experience-heading"
       className="flex w-full flex-col gap-16 py-16 pl-6 pr-4 lg:container md:px-0 md:py-20 lg:gap-32"
     >
       {chapters.map((chapter, chapterIdx) => (
         <div key={chapterIdx} className="flex w-full flex-col gap-8 lg:flex-row lg:gap-10">
           <div className="shrink-0 basis-2/5">
-            <p className="mb-7 font-leagueSpartan text-3xl font-medium lg:mb-14 lg:text-6xl">{chapter.heading}</p>
+            <h2 id={chapterIdx === 0 ? 'experience-heading' : undefined} className="mb-7 font-leagueSpartan text-3xl font-medium lg:mb-14 lg:text-6xl">{chapter.heading}</h2>
             <p className="lg:mb-10 lg:text-3xl">{chapter.intro}</p>
           </div>
           <div>

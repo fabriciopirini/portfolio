@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 
 export function headers() {
   return {
-    Link: '</resume>; rel="cv"',
+    Link: '</llms.txt>; rel="describedby", </resume>; rel="describedby"',
   }
 }
 

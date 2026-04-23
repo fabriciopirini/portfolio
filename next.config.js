@@ -17,6 +17,11 @@ const nextConfig = {
     return {
       beforeFiles: [
         {
+          source: '/:path(resume|shop|blog)/:slug*',
+          destination: '/api/markdown/:path/:slug*',
+          has: [{ type: 'header', key: 'accept', value: '(.*)text/markdown(.*)' }],
+        },
+        {
           source: '/',
           destination: '/api/markdown',
           has: [{ type: 'header', key: 'accept', value: '(.*)text/markdown(.*)' }],

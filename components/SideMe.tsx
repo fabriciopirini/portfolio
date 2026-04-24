@@ -98,7 +98,7 @@ export const SideMe = () => {
         })}
       >
         <div className="relative will-change-transform">
-          <div className="relative z-[2] mr-5 min-h-20 w-auto bg-white p-5 text-primary drop-shadow max-sm:max-w-[250px] sm:w-[350px] sm:px-8 sm:py-6">
+          <div className="relative z-[2] mr-5 min-h-20 w-auto rounded-xl bg-white p-5 text-primary drop-shadow max-sm:max-w-[250px] sm:w-[350px] sm:px-8 sm:py-6">
             <div className="pointer-events-none absolute left-px top-[-10px] -translate-x-full">
               <svg width="65" height="78" viewBox="0 0 95 95" fill="none" preserveAspectRatio="none">
                 <path
@@ -114,7 +114,10 @@ export const SideMe = () => {
             >
               <p className="mb-4 font-semibold">{COPY.contact.sideTitle}</p>
               <div className="flex flex-col-reverse justify-between gap-5 px-2 sm:flex-row">
-                <button className="font-semibold opacity-80 transition-transform duration-200 active:scale-[0.96]" onClick={handleHideSideBubble}>
+                <button
+                  className="font-semibold opacity-80 transition-transform duration-200 active:scale-[0.96]"
+                  onClick={handleHideSideBubble}
+                >
                   {COPY.contact.sideDismiss}
                 </button>
                 <InteractionButtonDesktop label={COPY.contact.sideAccept} onClick={handleHideSideBubble} />

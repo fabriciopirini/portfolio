@@ -21,13 +21,18 @@ export const AboutMe = () => {
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="relative flex w-full flex-col gap-5 bg-white py-16 text-center lg:container md:px-28 md:py-20 lg:gap-16"
+      className="relative flex w-full flex-col gap-5 rounded-xl bg-white py-16 text-center lg:container md:px-28 md:py-20 lg:gap-16"
     >
       <CornerMinus pos="top-right" />
       <CornerMinus pos="top-left" />
       <CornerMinus pos="bottom-left" />
       <CornerMinus pos="bottom-right" />
-      <h2 id="about-heading" className="font-leagueSpartan text-3xl font-medium text-secondary text-balance md:text-7xl">{COPY.about.heading}</h2>
+      <h2
+        id="about-heading"
+        className="text-balance font-leagueSpartan text-3xl font-medium text-secondary md:text-7xl"
+      >
+        {COPY.about.heading}
+      </h2>
       <Carousel
         className="mx-auto w-full max-w-xs md:max-w-2xl xl:max-w-none"
         opts={{
@@ -40,12 +45,14 @@ export const AboutMe = () => {
             const body = typeof card.body === 'function' ? card.body(yearsText ?? 'nine') : card.body
             return (
               <CarouselItem key={card.title} className="lg:basis-2/3 xl:basis-1/3">
-                <div className="flex h-full flex-col gap-5 bg-[#373943] p-10">
+                <div className="flex h-full flex-col gap-5 rounded-xl bg-[#373943] p-10">
                   <Icon
                     strokeWidth={1.5}
                     className={cn('pointer-events-none text-accent', i === 1 ? 'mb-4 size-12' : 'size-16')}
                   />
-                  <h3 className="font-leagueSpartan text-3xl font-medium text-primary max-xl:select-none">{card.title}</h3>
+                  <h3 className="font-leagueSpartan text-3xl font-medium text-primary max-xl:select-none">
+                    {card.title}
+                  </h3>
                   <p className="text-primary max-xl:select-none">{body}</p>
                 </div>
               </CarouselItem>

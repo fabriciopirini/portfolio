@@ -32,8 +32,8 @@ const SkillCard = ({ skill }: { skill: (typeof skills)[number] }) => {
 
   if (prefersReducedMotion) {
     return (
-      <div className="[&_span.atropos-inner]:bg-skill-card">
-        <div className="flex h-auto w-40 flex-col items-center justify-between gap-2 overflow-hidden bg-skill-card p-8 drop-shadow-2xl md:size-56 md:gap-4">
+      <div className="[&_span.atropos-inner]:rounded-xl [&_span.atropos-inner]:bg-skill-card">
+        <div className="flex h-auto w-40 flex-col items-center justify-between gap-2 overflow-hidden rounded-xl bg-skill-card p-8 drop-shadow-2xl md:size-56 md:gap-4">
           <div className="flex h-full flex-col items-center justify-between">
             {skill.icon}
             <h3 className="text-lg font-semibold">{skill.name}</h3>
@@ -49,10 +49,10 @@ const SkillCard = ({ skill }: { skill: (typeof skills)[number] }) => {
       rotateXMax={20}
       rotateYMax={20}
       rotateTouch="scroll-y"
-      className="[&_span.atropos-highlight]:bg-[radial-gradient(circle_at_50%,rgba(255,255,255,0.15)_0%,transparent_50%)] [&_span.atropos-inner]:bg-skill-card"
+      className="[&_span.atropos-highlight]:bg-[radial-gradient(circle_at_50%,rgba(255,255,255,0.15)_0%,transparent_50%)] [&_span.atropos-inner]:rounded-xl [&_span.atropos-inner]:bg-skill-card"
     >
       <div
-        className="flex h-auto w-40 flex-col items-center justify-between gap-2 overflow-hidden bg-skill-card p-8 drop-shadow-2xl md:size-56 md:gap-4"
+        className="flex h-auto w-40 flex-col items-center justify-between gap-2 overflow-hidden rounded-xl bg-skill-card p-8 drop-shadow-2xl md:size-56 md:gap-4"
         data-atropos-offset="0"
       >
         <div className="flex h-full flex-col items-center justify-between" data-atropos-offset="15">
@@ -67,7 +67,10 @@ const SkillCard = ({ skill }: { skill: (typeof skills)[number] }) => {
 export const Technology = () => (
   <>
     <section id="technology" aria-labelledby="technology-heading" className="w-full py-16 lg:container md:py-20">
-      <h2 id="technology-heading" className="mb-5 text-center font-leagueSpartan text-3xl font-medium lg:text-7xl lg:font-bold xl:mb-14">
+      <h2
+        id="technology-heading"
+        className="mb-5 text-center font-leagueSpartan text-3xl font-medium lg:text-7xl lg:font-bold xl:mb-14"
+      >
         Technology
       </h2>
       <Carousel className="mx-auto w-full lg:hidden">
@@ -80,7 +83,7 @@ export const Technology = () => (
               {skillChunk.map((skill) => (
                 <div key={skill.name} className="aspect-square h-auto w-5/12">
                   <div
-                    className="flex size-full flex-col items-center justify-between gap-2 overflow-hidden bg-skill-card p-8 drop-shadow-2xl"
+                    className="flex size-full flex-col items-center justify-between gap-2 overflow-hidden rounded-xl bg-skill-card p-8 drop-shadow-2xl"
                     data-atropos-offset="0"
                   >
                     <div className="flex h-full flex-col items-center justify-center" data-atropos-offset="15">
@@ -104,7 +107,7 @@ export const Technology = () => (
   </>
 )
 
-const LogoStyles = 'h-16 w-16 min-h-16 min-w-16 md:h-24 md:w-24 md:min-h-24 md:min-w-24'
+const LogoStyles = 'h-16 w-16 min-h-16 min-w-16 md:h-24 md:w-24 md:min-h-24 md:min-w-24 rounded-xl'
 
 const skills = [
   {

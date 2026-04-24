@@ -3,9 +3,15 @@ import type { Project } from '@/app/projects'
 import { PROJECTS } from '@/app/projects'
 
 export const Projects = () => (
-  <section id="projects" aria-labelledby="projects-heading" className="flex w-full flex-col gap-12 py-16 lg:container md:py-20">
+  <section
+    id="projects"
+    aria-labelledby="projects-heading"
+    className="flex w-full flex-col gap-12 py-16 lg:container md:py-20"
+  >
     <div className="flex flex-col gap-4 pl-6 pr-4 md:px-0">
-      <h2 id="projects-heading" className="font-leagueSpartan text-3xl font-medium text-balance lg:text-6xl">Things I&apos;ve actually built</h2>
+      <h2 id="projects-heading" className="text-balance font-leagueSpartan text-3xl font-medium lg:text-6xl">
+        Things I&apos;ve actually built
+      </h2>
       <p className="text-primary/70 lg:text-2xl">Selected work. What it was, what went sideways, and what shipped.</p>
     </div>
     <div className="grid grid-cols-1 gap-6 pl-6 pr-4 md:grid-cols-2 md:px-0 xl:grid-cols-2">
@@ -17,7 +23,7 @@ export const Projects = () => (
 )
 
 const ProjectCard = ({ project }: { project: Project }) => (
-  <article className="flex flex-col gap-5 border border-white/10 bg-white/5 p-7">
+  <article className="flex flex-col gap-5 rounded-xl border border-white/10 bg-white/5 p-7">
     <div className="flex items-start justify-between gap-4">
       <div className="flex flex-col gap-1">
         <span className="text-sm text-primary/65">{project.role}</span>
@@ -46,7 +52,7 @@ const ProjectCard = ({ project }: { project: Project }) => (
     </div>
     {project.thingThatWentWrong && (
       <details className="group">
-        <summary           className="cursor-pointer select-none text-sm text-primary/70 transition-colors duration-200 hover:text-primary/80">
+        <summary className="cursor-pointer select-none text-sm text-primary/70 transition-colors duration-200 hover:text-primary/80">
           What went wrong
         </summary>
         <p className="mt-3 text-sm text-primary/70">{project.thingThatWentWrong}</p>

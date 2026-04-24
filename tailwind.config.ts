@@ -187,7 +187,18 @@ export const config = {
     },
   },
   plugins: [
-    cornerShapePlugin({ default: 'squircle' }),
+    cornerShapePlugin({
+      default: 'squircle',
+      variants: {
+        sm: 'squircle',
+        md: 'squircle',
+        lg: 'squircle',
+        xl: 'squircle',
+        '2xl': 'squircle',
+        '3xl': 'squircle',
+        full: 'squircle',
+      },
+    }),
     tailwindContainerQueries,
     tailwindAnimate,
     addVariablesForColors,

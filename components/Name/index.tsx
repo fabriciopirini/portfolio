@@ -85,7 +85,14 @@ const CTAButtons = () => {
 
   return (
     <m.div className="flex w-fit gap-2 rounded-full py-4 md:gap-6">
-      <CTAButton id="resume_download" type="secondary" as="link" href="/resume" text={COPY.hero.ctaResume} icon={FileUserIcon} />
+      <CTAButton
+        id="resume_download"
+        type="secondary"
+        as="link"
+        href="/resume"
+        text={COPY.hero.ctaResume}
+        icon={FileUserIcon}
+      />
       <Popover
         onOpenChange={(value) => {
           const event = value ? 'contact_me_open' : 'contact_me_close'
@@ -96,7 +103,7 @@ const CTAButtons = () => {
           <CTAButton type="primary" as="button" text={COPY.hero.ctaContact} />
         </PopoverTrigger>
         <PopoverContent
-          className="mt-4 w-56 border-2 border-accent bg-white drop-shadow-md lg:w-72"
+          className="mt-4 w-56 rounded-xl border-2 border-accent bg-white drop-shadow-md lg:w-72"
           align="center"
         >
           <m.div

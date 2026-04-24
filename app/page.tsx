@@ -30,12 +30,6 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://fabriciopirini.com/' },
 }
 
-export function headers() {
-  return {
-    Link: '</llms.txt>; rel="describedby", </resume>; rel="describedby"',
-  }
-}
-
 export default async function Home() {
   'use cache'
   cacheLife('days')

@@ -43,6 +43,19 @@ const nextConfig = {
       ],
     }
   },
+  async headers() {
+    return [
+      {
+        source: '/',
+        headers: [
+          {
+            key: 'Link',
+            value: '</llms.txt>; rel="describedby", </resume>; rel="describedby"',
+          },
+        ],
+      },
+    ]
+  },
   // This is required to support PostHog trailing slash API requests
   skipTrailingSlashRedirect: true,
 }

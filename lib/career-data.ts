@@ -208,7 +208,7 @@ export const CAREER: CareerData = {
               'Mentored 3 junior engineers. Two were promoted within 18 months.',
             ],
             growth: [
-              'Set up Google Analytics and SEO tooling from scratch for Norwegian client properties, including Norsk Gjenvinning, one of Norway\'s largest recycling companies.',
+              "Set up Google Analytics and SEO tooling from scratch for Norwegian client properties, including Norsk Gjenvinning, one of Norway's largest recycling companies.",
               'Got Core Web Vitals into the green on key checkout routes (LCP under 2s) through code splitting, lazy loading, and edge caching.',
               'Integrated 5 storefronts with Sanity CMS, giving the content team full control over brand-aligned pages without engineering involvement.',
               'Led WCAG 2.0 AA compliance across e-commerce storefronts and brand landing pages for a portfolio of 70+ European companies.',
@@ -256,7 +256,7 @@ export const CAREER: CareerData = {
               'Ran Technical Debt workshops every two months to keep the backlog from compounding. Shipping pace held through a 2x headcount growth.',
             ],
             growth: [
-              'Built the A/B experimentation program from scratch, the company\'s first, while also owning the platform it ran on. Ran 2 to 4 live experiments per month through a 2x headcount growth.',
+              "Built the A/B experimentation program from scratch, the company's first, while also owning the platform it ran on. Ran 2 to 4 live experiments per month through a 2x headcount growth.",
               'Ran a hero-removal experiment expecting higher conversion. It dropped. The introductory layer was providing context users needed to commit. Killed the variant on data, not instinct.',
               'Shipped a stripped onboarding flow (stepper + logo only, minimum data per step) with lead capture for out-of-coverage users. Conversion increased.',
               'Removed hard-coded locale configurations blocking international expansion. Finland and Germany launched without engineering changes to the core platform.',
@@ -503,7 +503,8 @@ export const CAREER: CareerData = {
       name: 'Encontra Férias',
       url: 'https://vercel.com/fabricio-pirinis-projects/v0-encontra-ferias',
       year: '2025',
-      description: 'CLT vacation optimizer — calculates how to stretch Brazilian statutory vacation days around public holidays.',
+      description:
+        'CLT vacation optimizer — calculates how to stretch Brazilian statutory vacation days around public holidays.',
       rawNotes: `
         - Full name: Férias CLT Otimizador
         - Solves a real, recurring Brazilian problem: CLT workers have 30 vacation days/year and need to align them with public holidays to maximize actual time off

@@ -44,11 +44,11 @@ export default function ResumeLayout({ children }: { children: React.ReactNode }
           margin: 2cm;
         }
         `,
-        // @media print {
-        //   [data-section="job"] {
-        //     break-inside: avoid;
-        //   }
-        // }
+          // @media print {
+          //   [data-section="job"] {
+          //     break-inside: avoid;
+          //   }
+          // }
         }}
       />
       {children}

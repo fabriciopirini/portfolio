@@ -2,6 +2,7 @@ import tailwindContainerQueries from '@tailwindcss/container-queries'
 import type { Config } from 'tailwindcss'
 import tailwindAnimate from '@anuragroy/tailwindcss-animate'
 import tailwindTouch from 'tailwindcss-touch'
+import tailwindScrollbar from 'tailwind-scrollbar'
 import plugin from 'tailwindcss/plugin'
 import { mapKeys } from 'lodash-es'
 
@@ -203,6 +204,7 @@ export const config = {
     tailwindAnimate,
     addVariablesForColors,
     tailwindTouch(),
+    tailwindScrollbar({}),
     plugin(({ matchUtilities, theme }) => {
       matchUtilities(
         {

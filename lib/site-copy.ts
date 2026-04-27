@@ -268,7 +268,7 @@ export const COPY: SiteCopy = {
         {
           heading: 'Building the experimentation program',
           intro:
-            "Built the first A/B experimentation program at an online grocery startup. Owned the platform, the experiments, and the measurement.",
+            'Built the first A/B experimentation program at an online grocery startup. Owned the platform, the experiments, and the measurement.',
           cards: [
             {
               title: 'Building the experimentation program',

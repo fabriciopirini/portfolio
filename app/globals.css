@@ -117,6 +117,7 @@
   html {
     --scroll-behavior: smooth !important;
     scroll-behavior: smooth !important;
+    @apply scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-500;
   }
 
   a:focus-visible,

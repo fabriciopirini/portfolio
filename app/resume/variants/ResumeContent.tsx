@@ -124,8 +124,7 @@ export function ResumeContent({ variant, yearsOfExperience }: ResumeContentProps
                 })}
               >
                 {company.periods.map((period, periodIndex) => {
-                  const bullets =
-                    period.bullets[variant] ?? period.bullets['default'] ?? []
+                  const bullets = period.bullets[variant] ?? period.bullets['default'] ?? []
                   const showCompanyHeader = !isMultiRole || periodIndex === 0
 
                   return (
@@ -138,9 +137,7 @@ export function ResumeContent({ variant, yearsOfExperience }: ResumeContentProps
                     >
                       <div className="flex flex-col gap-0.5 sm:flex-row sm:items-start sm:justify-between">
                         <div className="flex flex-col text-gray-700">
-                          {showCompanyHeader && (
-                            <h3 className="font-black text-gray-900">{company.company}</h3>
-                          )}
+                          {showCompanyHeader && <h3 className="font-black text-gray-900">{company.company}</h3>}
                           <p className={`text-sm font-medium ${styles.smallCaps}`}>{period.role}</p>
                         </div>
                         <div className="flex flex-col text-sm sm:text-right">
@@ -177,9 +174,7 @@ export function ResumeContent({ variant, yearsOfExperience }: ResumeContentProps
           <div className="flex flex-col gap-0.5 py-3 first:pt-0 last:pb-0 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <h3 className="font-bold text-gray-900">Universidade Federal de Itajuba - UNIFEI</h3>
-              <p className={`text-sm font-medium ${styles.smallCaps}`}>
-                Bachelor of Science in Computer Engineering
-              </p>
+              <p className={`text-sm font-medium ${styles.smallCaps}`}>Bachelor of Science in Computer Engineering</p>
             </div>
             <div className="flex flex-col text-sm sm:text-right">
               <p className="font-medium" style={{ color: 'var(--color-accent)' }}>

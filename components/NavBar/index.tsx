@@ -78,7 +78,7 @@ const SiteLinks = ({ isShop }: { isShop: boolean }) => {
   return (
     <ul
       className={cn(
-        'flex w-full select-none flex-row items-center justify-center gap-8',
+        'flex w-full flex-row items-center justify-center gap-8 select-none',
         isShop ? 'xl:gap-16' : 'lg:gap-16'
       )}
     >
@@ -118,7 +118,7 @@ const SiteLinks = ({ isShop }: { isShop: boolean }) => {
               stroke="#FEC556"
             />
           </svg>
-          <span className="-mb-2 block whitespace-nowrap font-poppins text-lg font-medium leading-none text-accent">
+          <span className="font-poppins text-accent -mb-2 block text-lg leading-none font-medium whitespace-nowrap">
             Click Me!
           </span>
         </div>
@@ -147,7 +147,7 @@ const HamburguerMenu = ({ isShop }: { isShop: boolean }) => {
       <DropdownMenuTrigger asChild>
         <button
           className={cn(
-            'group ml-5 size-11 cursor-pointer rounded-full p-2 text-primary ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:bg-white/5 hover:ring-white/80 active:scale-[0.96] max-[375px]:ml-0 md:size-14 md:p-3',
+            'group text-primary ml-5 size-11 cursor-pointer rounded-full p-2 ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:bg-white/5 hover:ring-white/80 active:scale-[0.96] max-[375px]:ml-0 md:size-14 md:p-3',
             isShop ? 'xl:hidden' : 'lg:hidden'
           )}
           aria-label="Open navigation menu"
@@ -170,7 +170,12 @@ const HamburguerMenu = ({ isShop }: { isShop: boolean }) => {
             <Link
               href="/"
               transitionTypes={['navigate-back']}
-              onClick={() => posthog?.capture('nav_link_clicked', { destination: 'home', source: 'hamburger' })}
+              onClick={() =>
+                posthog?.capture('nav_link_clicked', {
+                  destination: 'home',
+                  source: 'hamburger',
+                })
+              }
             >
               <DropdownMenuItem className="px-5 py-2">Home</DropdownMenuItem>
             </Link>
@@ -179,28 +184,48 @@ const HamburguerMenu = ({ isShop }: { isShop: boolean }) => {
         )}
         <Link
           href={isHome ? '#about' : '/#about'}
-          onClick={() => posthog?.capture('nav_link_clicked', { destination: 'about', source: 'hamburger' })}
+          onClick={() =>
+            posthog?.capture('nav_link_clicked', {
+              destination: 'about',
+              source: 'hamburger',
+            })
+          }
         >
           <DropdownMenuItem className="px-5 py-2">About</DropdownMenuItem>
         </Link>
         <DropdownMenuSeparator className="mx-5" />
         <Link
           href={isHome ? '#technology' : '/#technology'}
-          onClick={() => posthog?.capture('nav_link_clicked', { destination: 'technology', source: 'hamburger' })}
+          onClick={() =>
+            posthog?.capture('nav_link_clicked', {
+              destination: 'technology',
+              source: 'hamburger',
+            })
+          }
         >
           <DropdownMenuItem className="px-5 py-2">Technology</DropdownMenuItem>
         </Link>
         <DropdownMenuSeparator className="mx-5" />
         <Link
           href={isHome ? '#experience' : '/#experience'}
-          onClick={() => posthog?.capture('nav_link_clicked', { destination: 'experience', source: 'hamburger' })}
+          onClick={() =>
+            posthog?.capture('nav_link_clicked', {
+              destination: 'experience',
+              source: 'hamburger',
+            })
+          }
         >
           <DropdownMenuItem className="px-5 py-2">Experience</DropdownMenuItem>
         </Link>
         <DropdownMenuSeparator className="mx-5" />
         <Link
           href={isHome ? '#projects' : '/#projects'}
-          onClick={() => posthog?.capture('nav_link_clicked', { destination: 'projects', source: 'hamburger' })}
+          onClick={() =>
+            posthog?.capture('nav_link_clicked', {
+              destination: 'projects',
+              source: 'hamburger',
+            })
+          }
         >
           <DropdownMenuItem className="px-5 py-2">Projects</DropdownMenuItem>
         </Link>
@@ -210,7 +235,12 @@ const HamburguerMenu = ({ isShop }: { isShop: boolean }) => {
             <Link
               href="/shop"
               transitionTypes={['navigate-forward']}
-              onClick={() => posthog?.capture('nav_link_clicked', { destination: 'shop', source: 'hamburger' })}
+              onClick={() =>
+                posthog?.capture('nav_link_clicked', {
+                  destination: 'shop',
+                  source: 'hamburger',
+                })
+              }
             >
               <DropdownMenuItem className="px-5 py-2">Shop</DropdownMenuItem>
             </Link>
@@ -264,7 +294,7 @@ const CoinCounter = ({ className }: { className?: string }) => {
   }, [animate])
 
   return (
-    <div
+    <output
       className={cn(
         'relative hidden overflow-hidden rounded-full bg-white/20',
         {
@@ -272,19 +302,18 @@ const CoinCounter = ({ className }: { className?: string }) => {
         },
         className
       )}
-      role="status"
       aria-label="Fab coins balance — your in-shop currency. Earn coins on the main page, spend them in the shop."
       aria-live="polite"
     >
       <div
         className={cn(
-          'absolute size-full -translate-x-[200%] rounded-full bg-accent bg-gradient-to-r from-[#BF9137] to-accent transition-colors',
+          'bg-accent to-accent absolute size-full -translate-x-[200%] rounded-full bg-gradient-to-r from-[#BF9137] transition-colors',
           {
             'animate-coinIncrease': animate,
           }
         )}
       />
-      <div className="flex h-11 select-none items-center justify-end gap-2 px-2 py-[6px] text-base text-white md:px-3 md:py-2 lg:h-16 lg:text-xl">
+      <div className="flex h-11 items-center justify-end gap-2 px-2 py-[6px] text-base text-white select-none md:px-3 md:py-2 lg:h-16 lg:text-xl">
         <Image src={FabCoingIcon} alt="FabCoin" className="pointer-events-none mr-2 size-8 lg:size-11" aria-hidden />
         {coins < MAX_COINS ? (
           <div className="relative">
@@ -302,7 +331,7 @@ const CoinCounter = ({ className }: { className?: string }) => {
             />
             <span
               className={cn(
-                'absolute right-0 top-5 text-center text-xs opacity-0 mix-blend-lighten lg:top-6 xl:text-base',
+                'absolute top-5 right-0 text-center text-xs opacity-0 mix-blend-lighten lg:top-6 xl:text-base',
                 {
                   'animate-appearDownAndFade': animate,
                   hidden: !hasStoreHydrated,
@@ -322,7 +351,7 @@ const CoinCounter = ({ className }: { className?: string }) => {
           coins
         </span>
       </div>
-    </div>
+    </output>
   )
 }
 

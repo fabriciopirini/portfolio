@@ -82,29 +82,56 @@ export interface CareerData {
 export const CAREER: CareerData = {
   subtitle: {
     default: 'Senior Software Engineer',
-    growth: 'Senior Engineer, Growth and Experimentation',
+    growth: 'Senior Frontend Engineer - Growth & Experimentation',
   },
 
   summary: {
     default: (years) =>
       `Senior Software Engineer with ${years}+ years in React and TypeScript, working across web and mobile. Currently at a leading US crypto exchange, owning the design system and shipping to 4 platforms, including a React Native support portal built from scratch across 3 mobile apps. I tend to build foundational things: testing pipelines, theming systems, shared packages. Previously led frontend teams at e-commerce and grocery delivery scale-ups in Norway.`,
     growth: (years) =>
-      `Senior engineer with ${years}+ years in React, Next.js, and TypeScript. Built the first A/B experimentation program at an online grocery startup. Owned the platform, the experiments, and the measurement. Ran 2 to 4 live experiments per month. Opened Finland and Germany by removing locale blockers. Currently setting up event tracking at a US crypto exchange using Segment. WCAG 2.0 AA compliance across 70+ European properties.`,
+      `Senior frontend engineer with ${years}+ years building high-performance React and Next.js applications across fintech, e-commerce, and experimentation focused teams. Specialized in growth engineering, A/B testing platforms, analytics instrumentation, and performance optimization. Experienced working remotely across Brazil, Europe, and US-based organizations.`,
   },
 
   skills: {
     default: [
-      { label: 'Languages & Runtimes', value: 'TypeScript, JavaScript (ES2024+), HTML5, CSS3, Node.js' },
-      { label: 'Frameworks & UI', value: 'React, Next.js, Redux Toolkit, Tailwind CSS, Radix UI' },
-      { label: 'Testing & Quality', value: 'Playwright, Vitest, Jest, React Testing Library, Storybook' },
-      { label: 'Tooling & DevOps', value: 'Docker, CI/CD (GitHub Actions), GraphQL, Figma, Power BI' },
+      {
+        label: 'Languages & Runtimes',
+        value: 'TypeScript, JavaScript (ES2024+), HTML5, CSS3, Node.js',
+      },
+      {
+        label: 'Frameworks & UI',
+        value: 'React, Next.js, Redux Toolkit, Tailwind CSS, Radix UI',
+      },
+      {
+        label: 'Testing & Quality',
+        value: 'Playwright, Vitest, Jest, React Testing Library, Storybook',
+      },
+      {
+        label: 'Tooling & DevOps',
+        value: 'Docker, CI/CD (GitHub Actions), GraphQL, Figma, Power BI',
+      },
     ],
     growth: [
-      { label: 'Languages & Runtimes', value: 'TypeScript, JavaScript (ES2024+), HTML5, CSS3, Node.js' },
-      { label: 'Frameworks & UI', value: 'React, Next.js, Redux Toolkit, Tailwind CSS, Radix UI' },
-      { label: 'Analytics & Experimentation', value: 'Segment, Mixpanel, Growthbook, LaunchDarkly, Unleash, StatSig' },
-      { label: 'Testing & Quality', value: 'Playwright, Vitest, Jest, React Testing Library, Storybook' },
-      { label: 'Tooling & DevOps', value: 'Docker, CI/CD (GitHub Actions), GraphQL, Figma, Power BI' },
+      {
+        label: 'Languages & Runtimes',
+        value: 'TypeScript, JavaScript (ES2024+), HTML5, CSS3, Node.js',
+      },
+      {
+        label: 'Frameworks & UI',
+        value: 'React, Next.js, Redux Toolkit, Tailwind CSS, Radix UI',
+      },
+      {
+        label: 'Analytics & Experimentation',
+        value: 'Segment, Mixpanel, Growthbook, LaunchDarkly, Unleash, StatSig',
+      },
+      {
+        label: 'Testing & Quality',
+        value: 'Playwright, Vitest, Jest, React Testing Library, Storybook',
+      },
+      {
+        label: 'Tooling & DevOps',
+        value: 'Docker, CI/CD (GitHub Actions), GraphQL, Figma, Power BI',
+      },
     ],
   },
 
@@ -258,7 +285,7 @@ export const CAREER: CareerData = {
             growth: [
               "Built the A/B experimentation program from scratch, the company's first, while also owning the platform it ran on. Ran 2 to 4 live experiments per month through a 2x headcount growth.",
               'Ran a hero-removal experiment expecting higher conversion. It dropped. The introductory layer was providing context users needed to commit. Killed the variant on data, not instinct.',
-              'Shipped a stripped onboarding flow (stepper + logo only, minimum data per step) with lead capture for out-of-coverage users. Conversion increased.',
+              'Shipped a stripped onboarding flow (stepper + logo only, minimum data per step) with lead capture for out-of-coverage users. Conversion increased by 15%.',
               'Removed hard-coded locale configurations blocking international expansion. Finland and Germany launched without engineering changes to the core platform.',
               'Picked by the Chief Growth Officer (ex-VP Growth, Skyscanner) for an internal growth program cohort after standing out at a company-wide growth workshop.',
             ],

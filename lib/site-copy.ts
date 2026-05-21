@@ -108,7 +108,8 @@ export const COPY: SiteCopy = {
     greeting: 'Nice to meet you!',
     tagline: {
       default: 'Design Engineer. I build interfaces that look exactly as intended and feel better than expected.',
-      growth: 'Senior Frontend Engineer - Growth & Experimentation. I build the program, run the experiments, and own the numbers.',
+      growth:
+        'Senior Frontend Engineer - Growth & Experimentation. I build the program, run the experiments, and own the numbers.',
     },
     ctaResume: 'Resume',
     ctaContact: 'Contact me',

@@ -67,9 +67,9 @@ export const InteractionButtonDesktop = ({
             {label}
           </Button>
         </DialogTrigger>
-        <DialogContent className="text-secondary flex max-h-[calc(100vh-4rem)] flex-col gap-12 overflow-y-auto bg-white p-10 pt-14">
+        <DialogContent className="flex max-h-[calc(100vh-4rem)] flex-col gap-12 overflow-y-auto bg-white p-10 pt-14 text-secondary">
           <DialogHeader className="flex flex-col items-center">
-            <div className="bg-accent ring-accent/30 mb-1 size-24 overflow-hidden rounded-full ring-4 ring-offset-4 ring-offset-white">
+            <div className="mb-1 size-24 overflow-hidden rounded-full bg-accent ring-4 ring-accent/30 ring-offset-4 ring-offset-white">
               <Image
                 className="mt-7 size-full scale-[1.60]"
                 src={ProfilePic}
@@ -79,7 +79,7 @@ export const InteractionButtonDesktop = ({
                 priority
               />
             </div>
-            <DialogTitle className="font-leagueSpartan text-secondary pb-8 text-center text-5xl font-normal">
+            <DialogTitle className="pb-8 text-center font-leagueSpartan text-5xl font-normal text-secondary">
               {COPY.contact.dialogTitle}
             </DialogTitle>
             <DialogDescription className="flex flex-col text-center text-2xl text-black">
@@ -124,10 +124,10 @@ export const InteractionButtonMobile = ({
             {label}
           </Button>
         </DrawerTrigger>
-        <DrawerContent className="text-secondary inset-x-0 bottom-0 h-auto w-full rounded-t-3xl pb-5">
+        <DrawerContent className="inset-x-0 bottom-0 h-auto w-full rounded-t-3xl pb-5 text-secondary">
           <div className="mx-auto flex h-auto w-full max-w-sm flex-col gap-8 p-8 md:h-full md:w-auto md:max-w-md">
             <DrawerHeader className="flex w-full flex-col items-center gap-3 p-0">
-              <div className="bg-accent ring-accent/30 mb-5 size-24 overflow-hidden rounded-full ring-4 ring-offset-4 ring-offset-white">
+              <div className="mb-5 size-24 overflow-hidden rounded-full bg-accent ring-4 ring-accent/30 ring-offset-4 ring-offset-white">
                 <Image
                   className="mt-7 size-full scale-[1.60]"
                   src={ProfilePic}

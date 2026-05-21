@@ -54,7 +54,7 @@ DrawerContent.displayName = 'DrawerContent'
 const DrawerHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
   <div className="flex items-start justify-between">
     <div className={cn('flex flex-col gap-1.5 p-4 text-center sm:text-left', className)} {...props} />
-    <DrawerClose className="absolute top-4 right-4 mr-4 flex items-center justify-center rounded-full border transition-[transform,opacity] duration-200 active:scale-[0.96] lg:size-11">
+    <DrawerClose className="absolute right-4 top-4 mr-4 flex items-center justify-center rounded-full border transition-[transform,opacity] duration-200 active:scale-[0.96] lg:size-11">
       <XIcon className="pointer-events-none hidden size-5 text-black md:block" strokeWidth={3.5} />
       <span className="sr-only">Close</span>
     </DrawerClose>
@@ -73,7 +73,7 @@ const DrawerTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Title
     ref={ref}
-    className={cn('text-lg leading-none font-semibold tracking-tight', className)}
+    className={cn('text-lg font-semibold leading-none tracking-tight', className)}
     {...props}
   />
 ))
@@ -83,7 +83,7 @@ const DrawerDescription = React.forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Description>
 >(({ className, ...props }, ref) => (
-  <DrawerPrimitive.Description ref={ref} className={cn('text-secondary/70 text-sm', className)} {...props} />
+  <DrawerPrimitive.Description ref={ref} className={cn('text-sm text-secondary/70', className)} {...props} />
 ))
 DrawerDescription.displayName = DrawerPrimitive.Description.displayName
 

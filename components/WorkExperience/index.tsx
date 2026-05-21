@@ -14,7 +14,7 @@ const renderParagraph = (para: Paragraph, key: number) => {
         typeof seg === 'string' ? (
           seg
         ) : (
-          <span key={i} className="text-accent font-semibold">
+          <span key={i} className="font-semibold text-accent">
             {seg.text}
           </span>
         )
@@ -30,14 +30,14 @@ export const WorkExperience = () => {
     <section
       id="experience"
       aria-labelledby="experience-heading"
-      className="flex w-full flex-col gap-16 py-16 pr-4 pl-6 md:px-0 md:py-20 lg:container lg:gap-32"
+      className="flex w-full flex-col gap-16 py-16 pl-6 pr-4 lg:container md:px-0 md:py-20 lg:gap-32"
     >
       {chapters.map((chapter, chapterIdx) => (
         <div key={chapterIdx} className="flex w-full flex-col gap-8 lg:flex-row lg:gap-10">
           <div className="shrink-0 basis-2/5">
             <h2
               id={chapterIdx === 0 ? 'experience-heading' : undefined}
-              className="font-leagueSpartan mb-7 text-3xl font-medium text-balance lg:mb-14 lg:text-6xl"
+              className="mb-7 text-balance font-leagueSpartan text-3xl font-medium lg:mb-14 lg:text-6xl"
             >
               {chapter.heading}
             </h2>
@@ -48,12 +48,12 @@ export const WorkExperience = () => {
               <div key={cardIdx} className="relative ml-2 basis-3/5 md:ml-8">
                 <BadgeCheckIcon
                   fill="#ffc457"
-                  className="text-primary-background pointer-events-none absolute top-0 -mt-1 -ml-6 size-14"
+                  className="pointer-events-none absolute top-0 -ml-6 -mt-1 size-14 text-primary-background"
                 />
-                <div className="border-accent/50 mt-1 border-l-[7px] border-dotted pb-10 pl-12">
+                <div className="mt-1 border-l-[7px] border-dotted border-accent/50 pb-10 pl-12">
                   <div className="size-full space-y-5 rounded-xl border border-white bg-[#1E1E1E] p-7">
                     <p className="font-leagueSpartan text-xl font-medium lg:text-3xl">{card.title}</p>
-                    <div className="text-primary/70 space-y-5 lg:text-2xl">
+                    <div className="space-y-5 text-primary/70 lg:text-2xl">
                       {card.paragraphs.map((para, paraIdx) => renderParagraph(para, paraIdx))}
                     </div>
                   </div>

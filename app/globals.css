@@ -10,7 +10,7 @@
 
   .navLink::before {
     content: '';
-    @apply bg-accent pointer-events-none absolute top-[95%] left-0 h-px w-full;
+    @apply pointer-events-none absolute left-0 top-[95%] h-px w-full bg-accent;
     transition:
       clip-path 0.3s ease,
       transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
@@ -19,7 +19,7 @@
   }
 
   .navLink span {
-    @apply text-primary inline-block;
+    @apply inline-block text-primary;
     transition: transform 0.5s cubic-bezier(0.2, 1, 0.8, 1) 0s;
   }
 
@@ -117,14 +117,14 @@
   html {
     --scroll-behavior: smooth !important;
     scroll-behavior: smooth !important;
-    @apply scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-transparent;
+    @apply scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-500;
   }
 
   a:focus-visible,
   button:focus-visible,
   summary:focus-visible,
   [role='button']:focus-visible {
-    @apply ring-accent rounded-sm ring-2 ring-offset-2 outline-none;
+    @apply rounded-sm outline-none ring-2 ring-accent ring-offset-2;
     ring-offset-color: hsl(var(--background));
   }
 }

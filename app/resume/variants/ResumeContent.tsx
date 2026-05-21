@@ -21,7 +21,7 @@ export function ResumeContent({ variant, yearsOfExperience }: ResumeContentProps
     <div
       className={cn(
         styles.resumeContainer,
-        'font-source-sans-3 relative m-4 flex max-w-full flex-col gap-4 border-2 border-white bg-gray-100 px-4 pt-14 pb-10 text-base text-pretty text-gray-700 md:mx-auto md:max-w-[210mm] md:p-16 print:m-0 print:bg-white print:p-0 print:text-black'
+        'relative m-4 flex max-w-full flex-col gap-4 text-pretty border-2 border-white bg-gray-100 px-4 pb-10 pt-14 font-source-sans-3 text-base text-gray-700 md:mx-auto md:max-w-[210mm] md:p-16 print:m-0 print:bg-white print:p-0 print:text-black'
       )}
     >
       {/* Download PDF */}
@@ -29,7 +29,7 @@ export function ResumeContent({ variant, yearsOfExperience }: ResumeContentProps
         href="/api/resume"
         target="_blank"
         rel="noopener"
-        className="absolute top-3 right-3 flex items-center gap-1.5 rounded-md border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-50 active:bg-gray-100 print:hidden"
+        className="absolute right-3 top-3 flex items-center gap-1.5 rounded-md border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-50 active:bg-gray-100 print:hidden"
       >
         <Download className="size-3.5" />
         Download PDF
@@ -37,7 +37,7 @@ export function ResumeContent({ variant, yearsOfExperience }: ResumeContentProps
 
       {/* Header */}
       <div className="flex flex-col items-center justify-center">
-        <h1 className="font-roboto text-center text-3xl leading-none font-bold text-gray-900 md:text-[40px]">
+        <h1 className="text-center font-roboto text-3xl font-bold leading-none text-gray-900 md:text-[40px]">
           Fabricio Tramontano Pirini
         </h1>
         <p
@@ -46,7 +46,7 @@ export function ResumeContent({ variant, yearsOfExperience }: ResumeContentProps
         >
           {subtitle}
         </p>
-        <p className="text-sm font-medium text-gray-400 italic">Brazil (UTC -3)</p>
+        <p className="text-sm font-medium italic text-gray-400">Brazil (UTC -3)</p>
         <div className="mt-3 flex flex-row flex-wrap items-center justify-center gap-x-3 gap-y-0 text-xs text-gray-700">
           <a
             href="mailto:fabricio@fabriciopirini.com"
@@ -95,7 +95,7 @@ export function ResumeContent({ variant, yearsOfExperience }: ResumeContentProps
 
       {/* Technical Skills */}
       <div>
-        <h2 className="font-roboto mb-3 text-xl font-black text-gray-900">
+        <h2 className="mb-3 font-roboto text-xl font-black text-gray-900">
           <span style={{ color: 'var(--color-accent)' }}>Tec</span>hnical Skills
         </h2>
         <div className="space-y-1 text-base text-gray-700 print:text-sm">
@@ -109,7 +109,7 @@ export function ResumeContent({ variant, yearsOfExperience }: ResumeContentProps
 
       {/* Professional Experience */}
       <section className="mt-8 print:mt-0 [&_li::marker]:text-[0.7em]">
-        <h2 className="font-roboto mb-3 text-xl font-black text-gray-900">
+        <h2 className="mb-3 font-roboto text-xl font-black text-gray-900">
           <span style={{ color: 'var(--color-accent)' }}>Prof</span>essional Experience
         </h2>
         <div className="divide-y-[0.5px] divide-gray-300 print:divide-y-0">
@@ -167,7 +167,7 @@ export function ResumeContent({ variant, yearsOfExperience }: ResumeContentProps
 
       {/* Education */}
       <div className="mt-8 print:mt-0">
-        <h2 className="font-roboto mb-3 text-xl font-black text-gray-900">
+        <h2 className="mb-3 font-roboto text-xl font-black text-gray-900">
           <span style={{ color: 'var(--color-accent)' }}>Edu</span>cation
         </h2>
         <div className="divide-y-[0.5px] divide-gray-300 text-base text-gray-700 print:divide-y-0 print:text-sm">

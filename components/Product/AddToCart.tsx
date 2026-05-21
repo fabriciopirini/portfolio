@@ -35,10 +35,10 @@ export const AddToCart = ({ productId }: { productId: string }) => {
             source: 'product_card',
           })
         }}
-        className={cn(CART_BUTTON_BASE_STYLE, 'text-primary relative flex items-center justify-center bg-green-500')}
+        className={cn(CART_BUTTON_BASE_STYLE, 'relative flex items-center justify-center bg-green-500 text-primary')}
       >
         <CartIconFilled className="pointer-events-none size-5 lg:size-7" />
-        <div className="absolute right-2 bottom-2 z-10 flex size-[15px] items-center justify-center rounded-full border border-white bg-green-700">
+        <div className="absolute bottom-2 right-2 z-10 flex size-[15px] items-center justify-center rounded-full border border-white bg-green-700">
           <CheckIcon className="pointer-events-none size-3" />
         </div>
         <span className="sr-only">Remove from cart</span>

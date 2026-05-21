@@ -78,7 +78,7 @@ const SiteLinks = ({ isShop }: { isShop: boolean }) => {
   return (
     <ul
       className={cn(
-        'flex w-full flex-row items-center justify-center gap-8 select-none',
+        'flex w-full select-none flex-row items-center justify-center gap-8',
         isShop ? 'xl:gap-16' : 'lg:gap-16'
       )}
     >
@@ -118,7 +118,7 @@ const SiteLinks = ({ isShop }: { isShop: boolean }) => {
               stroke="#FEC556"
             />
           </svg>
-          <span className="font-poppins text-accent -mb-2 block text-lg leading-none font-medium whitespace-nowrap">
+          <span className="-mb-2 block whitespace-nowrap font-poppins text-lg font-medium leading-none text-accent">
             Click Me!
           </span>
         </div>
@@ -147,7 +147,7 @@ const HamburguerMenu = ({ isShop }: { isShop: boolean }) => {
       <DropdownMenuTrigger asChild>
         <button
           className={cn(
-            'group text-primary ml-5 size-11 cursor-pointer rounded-full p-2 ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:bg-white/5 hover:ring-white/80 active:scale-[0.96] max-[375px]:ml-0 md:size-14 md:p-3',
+            'group ml-5 size-11 cursor-pointer rounded-full p-2 text-primary ring-2 ring-white/50 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:bg-white/5 hover:ring-white/80 active:scale-[0.96] max-[375px]:ml-0 md:size-14 md:p-3',
             isShop ? 'xl:hidden' : 'lg:hidden'
           )}
           aria-label="Open navigation menu"
@@ -307,13 +307,13 @@ const CoinCounter = ({ className }: { className?: string }) => {
     >
       <div
         className={cn(
-          'bg-accent to-accent absolute size-full -translate-x-[200%] rounded-full bg-gradient-to-r from-[#BF9137] transition-colors',
+          'absolute size-full -translate-x-[200%] rounded-full bg-accent bg-gradient-to-r from-[#BF9137] to-accent transition-colors',
           {
             'animate-coinIncrease': animate,
           }
         )}
       />
-      <div className="flex h-11 items-center justify-end gap-2 px-2 py-[6px] text-base text-white select-none md:px-3 md:py-2 lg:h-16 lg:text-xl">
+      <div className="flex h-11 select-none items-center justify-end gap-2 px-2 py-[6px] text-base text-white md:px-3 md:py-2 lg:h-16 lg:text-xl">
         <Image src={FabCoingIcon} alt="FabCoin" className="pointer-events-none mr-2 size-8 lg:size-11" aria-hidden />
         {coins < MAX_COINS ? (
           <div className="relative">
@@ -331,7 +331,7 @@ const CoinCounter = ({ className }: { className?: string }) => {
             />
             <span
               className={cn(
-                'absolute top-5 right-0 text-center text-xs opacity-0 mix-blend-lighten lg:top-6 xl:text-base',
+                'absolute right-0 top-5 text-center text-xs opacity-0 mix-blend-lighten lg:top-6 xl:text-base',
                 {
                   'animate-appearDownAndFade': animate,
                   hidden: !hasStoreHydrated,

@@ -90,7 +90,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <CSPostHogProvider>
         <body
           className={cn(
-            'relative mx-auto flex min-h-dvh w-full flex-col justify-between pb-4 text-pretty antialiased lg:pb-8',
+            'relative mx-auto flex min-h-dvh w-full flex-col justify-between text-pretty pb-4 antialiased lg:pb-8',
             {
               'debug-screens': process.env.VERCEL_ENV !== 'production',
             }
@@ -99,7 +99,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           <AppStoreProvider>
             <a
               href="#experience"
-              className="focus:z-skipLink focus:bg-accent focus:text-primary-background sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:rounded-lg focus:px-4 focus:py-2 focus:shadow-lg focus:outline-none"
+              className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-skipLink focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-primary-background focus:shadow-lg focus:outline-none"
             >
               Skip to my story
             </a>

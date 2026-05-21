@@ -5,7 +5,7 @@
 //
 // Variants:
 //   'default' — Design Engineer positioning (general purpose)
-//   'growth'  — Growth Engineer positioning (PLG, experimentation roles)
+//   'growth'  — Senior Frontend Engineer - Growth & Experimentation positioning (PLG, experimentation roles)
 //
 // To switch variants: change ACTIVE_VARIANT and redeploy to Vercel.
 //

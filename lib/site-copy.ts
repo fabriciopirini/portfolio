@@ -4,7 +4,7 @@
 // All user-facing text for the website, organized by section.
 // Fields typed Record<SiteVariant, ...> vary between:
 //   'default' — Design Engineer positioning
-//   'growth'  — Growth Engineer positioning
+//   'growth'  — Senior Frontend Engineer - Growth & Experimentation positioning
 //
 // ACTIVE_VARIANT in lib/site-config.ts controls which renders.
 // ============================================================
@@ -91,13 +91,13 @@ export const COPY: SiteCopy = {
   meta: {
     title: {
       default: 'Fabricio Pirini, Design Engineer',
-      growth: 'Fabricio Pirini, Growth Engineer',
+      growth: 'Fabricio Pirini, Senior Frontend Engineer - Growth & Experimentation',
     },
     description: {
       default: (years) =>
         `Design Engineer with ${years}+ years in React, Next.js, and TypeScript. I build interfaces that look exactly as intended and hold up under the hood.`,
       growth: (years) =>
-        `Growth Engineer with ${years}+ years in React and TypeScript. Built A/B experimentation programs from scratch, owned the tracking stack, and shipped based on data. Based in Brazil, working remotely.`,
+        `Senior Frontend Engineer with ${years}+ years in React and TypeScript. Built A/B experimentation programs from scratch, owned the tracking stack, and shipped based on data. Based in Brazil, working remotely.`,
     },
   },
 
@@ -108,7 +108,7 @@ export const COPY: SiteCopy = {
     greeting: 'Nice to meet you!',
     tagline: {
       default: 'Design Engineer. I build interfaces that look exactly as intended and feel better than expected.',
-      growth: 'Growth Engineer. I build the program, run the experiments, and own the numbers.',
+      growth: 'Senior Frontend Engineer - Growth & Experimentation. I build the program, run the experiments, and own the numbers.',
     },
     ctaResume: 'Resume',
     ctaContact: 'Contact me',

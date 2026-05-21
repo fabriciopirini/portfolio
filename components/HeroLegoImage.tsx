@@ -22,12 +22,12 @@ export const HeroLegoImage = () => {
 
   return (
     <div>
-      <m.div className="absolute left-0 top-1/2" style={{ y: y1 }}>
+      <m.div className="absolute top-1/2 left-0" style={{ y: y1 }}>
         <ImageBubble
           icon={
             <CheckCircle2Icon
               fill="#373943"
-              className="!z-20 size-9 rounded-full bg-accent stroke-accent p-1 md:size-[calc(30px+2*8px)] md:p-2 xl:size-[calc(35px+2*16px)] xl:p-3"
+              className="bg-accent stroke-accent !z-20 size-9 rounded-full p-1 md:size-[calc(30px+2*8px)] md:p-2 xl:size-[calc(35px+2*16px)] xl:p-3"
               aria-hidden
             />
           }
@@ -35,12 +35,12 @@ export const HeroLegoImage = () => {
           text="Software Engineer"
         />
       </m.div>
-      <m.div className="absolute right-0 top-1/4" style={{ y: y2 }}>
+      <m.div className="absolute top-1/4 right-0" style={{ y: y2 }}>
         <ImageBubble
           icon={
             <RocketIcon
               fill="#373943"
-              className="!z-20 size-9 rounded-full bg-accent stroke-accent p-1 md:size-[calc(30px+2*8px)] md:p-2 xl:size-[calc(35px+2*16px)] xl:p-3"
+              className="bg-accent stroke-accent !z-20 size-9 rounded-full p-1 md:size-[calc(30px+2*8px)] md:p-2 xl:size-[calc(35px+2*16px)] xl:p-3"
               aria-hidden
             />
           }
@@ -48,12 +48,12 @@ export const HeroLegoImage = () => {
           text="of experience"
         />
       </m.div>
-      <m.div className="absolute bottom-5 right-5" style={{ y: y3 }}>
+      <m.div className="absolute right-5 bottom-5" style={{ y: y3 }}>
         <ImageBubble
           icon={
             <MapPinIcon
               fill="#373943"
-              className="!z-20 size-9 rounded-full bg-accent stroke-accent p-1 md:size-[calc(30px+2*8px)] md:p-2 xl:size-[calc(35px+2*16px)] xl:p-3"
+              className="bg-accent stroke-accent !z-20 size-9 rounded-full p-1 md:size-[calc(30px+2*8px)] md:p-2 xl:size-[calc(35px+2*16px)] xl:p-3"
               aria-hidden
             />
           }
@@ -61,7 +61,7 @@ export const HeroLegoImage = () => {
           text="Based"
         />
       </m.div>
-      <div className="size-full @container" style={{ containerType: 'inline-size' }}>
+      <div className="@container size-full" style={{ containerType: 'inline-size' }}>
         <Image
           id="hero-lego-image"
           className="mx-auto max-h-[800px] object-contain"

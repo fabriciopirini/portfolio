@@ -21,7 +21,7 @@ export const AboutMe = () => {
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="relative flex w-full flex-col gap-5 rounded-xl bg-white py-16 text-center lg:container md:px-28 md:py-20 lg:gap-16"
+      className="relative flex w-full flex-col gap-5 rounded-xl bg-white py-16 text-center md:px-28 md:py-20 lg:container lg:gap-16"
     >
       <CornerMinus pos="top-right" />
       <CornerMinus pos="top-left" />
@@ -29,7 +29,7 @@ export const AboutMe = () => {
       <CornerMinus pos="bottom-right" />
       <h2
         id="about-heading"
-        className="text-balance font-leagueSpartan text-3xl font-medium text-secondary md:text-7xl"
+        className="font-leagueSpartan text-secondary text-3xl font-medium text-balance md:text-7xl"
       >
         {COPY.about.heading}
       </h2>
@@ -48,9 +48,9 @@ export const AboutMe = () => {
                 <div className="flex h-full flex-col gap-5 rounded-xl bg-[#373943] p-10">
                   <Icon
                     strokeWidth={1.5}
-                    className={cn('pointer-events-none text-accent', i === 1 ? 'mb-4 size-12' : 'size-16')}
+                    className={cn('text-accent pointer-events-none', i === 1 ? 'mb-4 size-12' : 'size-16')}
                   />
-                  <h3 className="font-leagueSpartan text-3xl font-medium text-primary max-xl:select-none">
+                  <h3 className="font-leagueSpartan text-primary text-3xl font-medium max-xl:select-none">
                     {card.title}
                   </h3>
                   <p className="text-primary max-xl:select-none">{body}</p>
@@ -76,10 +76,10 @@ const CornerMinus = ({
     className={cn(
       'pointer-events-none absolute',
       {
-        'right-2 top-2 lg:right-4 lg:top-4': pos === 'top-right',
-        'left-2 top-2 lg:left-4 lg:top-4': pos === 'top-left',
+        'top-2 right-2 lg:top-4 lg:right-4': pos === 'top-right',
+        'top-2 left-2 lg:top-4 lg:left-4': pos === 'top-left',
         'bottom-2 left-2 lg:bottom-4 lg:left-4': pos === 'bottom-left',
-        'bottom-2 right-2 lg:bottom-4 lg:right-4': pos === 'bottom-right',
+        'right-2 bottom-2 lg:right-4 lg:bottom-4': pos === 'bottom-right',
       },
       className
     )}
@@ -89,7 +89,7 @@ const CornerMinus = ({
       alt="Lego piece"
       width={48}
       height={48}
-      className={cn('pointer-events-none size-9 text-accent drop-shadow lg:size-12', {
+      className={cn('text-accent pointer-events-none size-9 drop-shadow lg:size-12', {
         'rotate-12': pos === 'top-left' || pos === 'bottom-right',
         '-rotate-12': pos === 'top-right' || pos === 'bottom-left',
       })}

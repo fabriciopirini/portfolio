@@ -7,7 +7,6 @@
   "rules": {
     "typescript/consistent-type-imports": "warn",
     "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off",
     "jsx-a11y/alt-text": "off",
     "react-hooks/exhaustive-deps": "off",
     "nextjs/no-html-link-for-pages": "off"

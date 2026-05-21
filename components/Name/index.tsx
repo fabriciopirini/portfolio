@@ -54,7 +54,7 @@ export const NameBanner = () => {
       className="flex w-auto flex-col gap-4 md:gap-9"
     >
       <m.h1
-        className="flex flex-col gap-1 pb-5 text-3xl font-medium leading-none md:text-7xl xl:text-8xl"
+        className="flex flex-col gap-1 pb-5 text-3xl leading-none font-medium md:text-7xl xl:text-8xl"
         variants={FADE_DOWN_ANIMATION_VARIANTS}
       >
         <div className="flex flex-row-reverse items-end justify-end md:flex-col md:items-start">
@@ -103,7 +103,7 @@ const CTAButtons = () => {
           <CTAButton type="primary" as="button" text={COPY.hero.ctaContact} />
         </PopoverTrigger>
         <PopoverContent
-          className="mt-4 w-56 rounded-xl border-2 border-accent bg-white drop-shadow-md lg:w-72"
+          className="border-accent mt-4 w-56 rounded-xl border-2 bg-white drop-shadow-md lg:w-72"
           align="center"
         >
           <m.div
@@ -120,10 +120,10 @@ const CTAButtons = () => {
               variants={FADE_RIGHT_ANIMATION_VARIANTS}
               onClick={() => posthog?.capture('contact_me_email')}
             >
-              <div className="size-12 rounded-full bg-primary p-3 lg:size-16 lg:p-4">
+              <div className="bg-primary size-12 rounded-full p-3 lg:size-16 lg:p-4">
                 <MailIconFilled className="pointer-events-none size-full" />
               </div>
-              <span className="mx-auto text-lg text-primary-background">{COPY.hero.emailLabel}</span>
+              <span className="text-primary-background mx-auto text-lg">{COPY.hero.emailLabel}</span>
               <span className="sr-only">Send email to Fabricio</span>
             </m.a>
             <m.a
@@ -135,10 +135,10 @@ const CTAButtons = () => {
               variants={FADE_RIGHT_ANIMATION_VARIANTS}
               onClick={() => posthog?.capture('contact_me_linkedin')}
             >
-              <div className="size-12 rounded-full bg-primary p-3 lg:size-16 lg:p-4">
+              <div className="bg-primary size-12 rounded-full p-3 lg:size-16 lg:p-4">
                 <LinkedInIconFilled className="pointer-events-none size-full" />
               </div>
-              <span className="mx-auto text-lg text-primary-background">{COPY.hero.linkedinLabel}</span>
+              <span className="text-primary-background mx-auto text-lg">{COPY.hero.linkedinLabel}</span>
               <span className="sr-only">Visit Fabricio&apos;s LinkedIn profile</span>
             </m.a>
           </m.div>

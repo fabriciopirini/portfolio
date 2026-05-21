@@ -15,7 +15,7 @@ export const Galery = () => {
       {PRODUCTS.map((item) => (
         <div
           key={item.id}
-          className="group size-[345px] max-w-[calc(100vw-2rem)] overflow-hidden rounded-xl text-secondary lg:size-[450px]"
+          className="group text-secondary size-[345px] max-w-[calc(100vw-2rem)] overflow-hidden rounded-xl lg:size-[450px]"
         >
           <div className="flex aspect-square size-full flex-col justify-between bg-neutral-50 p-6 lg:p-10">
             <div>
@@ -87,11 +87,11 @@ const CardContentMobile = ({ item }: { item: (typeof PRODUCTS)[number] }) => (
   <Carousel className="flex w-full flex-col gap-3 lg:hidden">
     <CarouselContent className="h-44 text-left">
       <CarouselItem>
-        <div className="size-full select-none p-5">{item.featuredImage.staticImage}</div>
+        <div className="size-full p-5 select-none">{item.featuredImage.staticImage}</div>
       </CarouselItem>
       <CarouselItem>
         <div className="size-full py-2">
-          <p className="select-none text-lg">{item.description}</p>
+          <p className="text-lg select-none">{item.description}</p>
         </div>
       </CarouselItem>
     </CarouselContent>

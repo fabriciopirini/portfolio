@@ -91,13 +91,16 @@ export const COPY: SiteCopy = {
   meta: {
     title: {
       default: 'Fabricio Pirini, Design Engineer',
-      growth: 'Fabricio Pirini, Senior Frontend Engineer - Growth & Experimentation',
+      growth: 'Fabricio Pirini, Growth Engineer',
+      product: 'Fabricio Pirini, Product Engineer',
     },
     description: {
       default: (years) =>
         `Design Engineer with ${years}+ years in React, Next.js, and TypeScript. I build interfaces that look exactly as intended and hold up under the hood.`,
       growth: (years) =>
-        `Senior Frontend Engineer with ${years}+ years in React and TypeScript. Built A/B experimentation programs from scratch, owned the tracking stack, and shipped based on data. Based in Brazil, working remotely.`,
+        `Growth Engineer with ${years}+ years in React and TypeScript. Built A/B experimentation programs from scratch, owned the tracking stack, and shipped based on data. Based in Brazil, working remotely.`,
+      product: (years) =>
+        `Product Engineer with ${years}+ years in React, Next.js, and TypeScript. I build systems that solve real user problems and measure what matters. Based in Brazil, working remotely.`,
     },
   },
 
@@ -108,8 +111,8 @@ export const COPY: SiteCopy = {
     greeting: 'Nice to meet you!',
     tagline: {
       default: 'Design Engineer. I build interfaces that look exactly as intended and feel better than expected.',
-      growth:
-        'Senior Frontend Engineer - Growth & Experimentation. I build the program, run the experiments, and own the numbers.',
+      growth: 'Growth Engineer. I build the program, run the experiments, and own the numbers.',
+      product: 'Product Engineer. Ship. Measure. Follow up. Define what moves the needle before writing the first line.',
     },
     ctaResume: 'Resume',
     ctaContact: 'Contact me',
@@ -151,6 +154,21 @@ export const COPY: SiteCopy = {
         {
           title: 'Right now',
           body: 'Setting up event tracking at a US crypto exchange. Tracking which features users actually use, which flows break quietly, whether the experiments are doing anything. The kind of data that tells you when you are wrong.',
+        },
+      ],
+      product: [
+        {
+          title: 'Journey',
+          body: (yearsText) =>
+            `I care about the user and the metrics. ${yearsText} years in React and TypeScript. I build the thing, measure whether it solved the problem, and iterate based on data.`,
+        },
+        {
+          title: 'What matters',
+          body: 'Writing success metrics before writing code. Following up after deployment to see if it worked. Shipping quickly, then iterating. The product mindset that separates feature factories from product teams.',
+        },
+        {
+          title: 'Right now',
+          body: 'Building a Figma-to-code design token pipeline that powers 3 brand lines. Setting up Segment tracking for a React Native support portal. The kind of foundational work that makes better product development possible.',
         },
       ],
     },
@@ -319,6 +337,79 @@ export const COPY: SiteCopy = {
           ],
         },
       ],
+      product: [
+        {
+          heading: 'Where it all started',
+          intro:
+            'From web scrapers to product engineering. Each role added a layer: performance at scale, the full stack, then what it means to build the right thing, not just the thing right.',
+          cards: [
+            {
+              title: 'Scaling data collection',
+              paragraphs: [
+                'Refactored web crawlers and scrapers into 5 independent microservices. 120x faster, 10x less resource usage. Measured the improvement to justify the migration.',
+                'Migrated CI/CD from Jenkins to GitLab. 85% reduction in deploy failures. Tracked deployment frequency and failure rate as metrics.',
+              ],
+            },
+            {
+              title: 'Learning full stack',
+              paragraphs: [
+                'Worked across Django backend and React frontend. Built A/B experimentation infrastructure from scratch.',
+                "The full-stack perspective helps me make better product decisions. I know what's possible, what's hard, and what's expensive.",
+              ],
+            },
+          ],
+        },
+        {
+          heading: 'Building the experimentation program',
+          intro:
+            'Built the first A/B experimentation program at an online grocery startup. Owned the platform (GrowthBook), the experiments, and the measurement.',
+          cards: [
+            {
+              title: 'From 0 to 1 experimentation',
+              paragraphs: [
+                [
+                  'Ran ',
+                  { text: '2 to 4 experiments per month', accent: true },
+                  ' while building the platform they ran on. The company had no prior experimentation program.',
+                ],
+                'Analyzed results and made go/no-go decisions based on data. Killed features that looked good on paper but failed in the wild.',
+              ],
+            },
+            {
+              title: 'Measured international expansion',
+              paragraphs: [
+                'Removed hard-coded locale configurations blocking Finland and Germany. Monitored adoption via product analytics after launch.',
+                "The work was done. The measurement proved it worked. That's the product engineer difference.",
+              ],
+            },
+          ],
+        },
+        {
+          heading: 'Current work',
+          intro:
+            'Building foundational systems at a US crypto exchange. Design tokens, shared components, and the measurement infrastructure that makes product development possible.',
+          cards: [
+            {
+              title: 'Figma-to-code design pipeline',
+              paragraphs: [
+                [
+                  'Built ',
+                  { text: 'design token pipeline', accent: true },
+                  ' powering 3 brand lines (6 light/dark variants). Replaced days of manual work per brand change.',
+                ],
+                'Measured reduction in handoff time. Faster time-to-market for brand initiatives.',
+              ],
+            },
+            {
+              title: 'Component library for internal products',
+              paragraphs: [
+                'Built a shared component library adopted by 3 product teams. Measured ~25% reduction in feature cycle time.',
+                'Tracked component usage patterns to prioritize investment vs deprecation.',
+              ],
+            },
+          ],
+        },
+      ],
     },
   },
 
@@ -345,12 +436,15 @@ export const COPY: SiteCopy = {
     tagline: {
       default: 'Ship less fluff. Build more trust.',
       growth: 'Measure first. Then ship.',
+      product: 'Ship. Then measure. Then iterate.',
     },
     description: {
       default:
         'Remote from Brazil. React, Next.js, design engineering. Available for contracts where the work matters more than the process deck.',
       growth:
         'Remote from Brazil. React, Next.js, TypeScript. Growth engineering, experimentation, event tracking. Available for contracts where the work is measured.',
+      product:
+        'Remote from Brazil. React, Next.js, product engineering. Available for roles where you ship what you measure.',
     },
   },
 

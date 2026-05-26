@@ -5,7 +5,8 @@
 //
 // Variants:
 //   'default' — Design Engineer positioning (general purpose)
-//   'growth'  — Senior Frontend Engineer - Growth & Experimentation positioning (PLG, experimentation roles)
+//   'growth'  — Growth Engineer positioning (PLG, experimentation roles)
+//   'product' — Product Engineer positioning (PostHog Product Analytics team)
 //
 // To switch variants: change ACTIVE_VARIANT and redeploy to Vercel.
 //
@@ -14,6 +15,6 @@
 // the fallback constant below are the only things that would need to change.
 // ============================================================
 
-export type SiteVariant = 'default' | 'growth'
+export type SiteVariant = 'default' | 'growth' | 'product'
 
-export const ACTIVE_VARIANT: SiteVariant = 'growth'
+export const ACTIVE_VARIANT: SiteVariant = 'product'

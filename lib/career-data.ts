@@ -82,14 +82,17 @@ export interface CareerData {
 export const CAREER: CareerData = {
   subtitle: {
     default: 'Senior Software Engineer',
-    growth: 'Senior Frontend Engineer - Growth & Experimentation',
+    growth: 'Senior Engineer, Growth and Experimentation',
+    product: 'Product Engineer',
   },
 
   summary: {
     default: (years) =>
-      `Senior Software Engineer with ${years}+ years in React and TypeScript, working across web and mobile. Currently at a leading US crypto exchange, owning the design system and shipping to 4 platforms, including a React Native support portal built from scratch across 3 mobile apps. I tend to build foundational things: testing pipelines, theming systems, shared packages. Previously led frontend teams at e-commerce and grocery delivery scale-ups in Norway.`,
+      `Senior Software Engineer with nearly ${years} years in React and TypeScript, working across web and mobile. Currently at a leading US crypto exchange, owning the design system and shipping to 4 platforms, including a React Native support portal built from scratch across 3 mobile apps. I tend to build foundational things: testing pipelines, theming systems, shared packages. Previously led frontend teams at e-commerce and grocery delivery scale-ups in Norway.`,
     growth: (years) =>
-      `Senior frontend engineer with ${years}+ years building high-performance React and Next.js applications across fintech, e-commerce, and experimentation focused teams. Specialized in growth engineering, A/B testing platforms, analytics instrumentation, and performance optimization. Experienced working remotely across Brazil, Europe, and US-based organizations.`,
+      `Senior engineer with nearly ${years} years in React, Next.js, and TypeScript. Built the first A/B experimentation program at an online grocery startup. Owned the platform, the experiments, and the measurement. Ran 2 to 4 live experiments per month. Opened Finland and Germany by removing locale blockers. Currently setting up event tracking at a US crypto exchange using Segment. WCAG 2.0 AA compliance across 70+ European properties.`,
+    product: (years) =>
+      `Product engineer with nearly ${years} years in React, Next.js, and TypeScript. Builds foundational systems that solve real user problems: design tokens powering 6 brand variants, shared component libraries adopted by 3 teams, and A/B experimentation infrastructure running 2 to 8 experiments/month as the program matured. Writes success metrics before building ("this should move [metric] from X to Y"), measures post-deploy, and iterates. Applies product discovery habits daily: one-sentence problem statements before starting work, metric targets in every PR description.`,
   },
 
   skills: {
@@ -133,11 +136,34 @@ export const CAREER: CareerData = {
         value: 'Docker, CI/CD (GitHub Actions), GraphQL, Figma, Power BI',
       },
     ],
+    product: [
+      {
+        label: 'Languages & Runtimes',
+        value: 'TypeScript, JavaScript, Python, Node.js',
+      },
+      {
+        label: 'Frameworks & UI',
+        value: 'React, Next.js, Django, Tailwind CSS, Radix UI, React Native',
+      },
+      {
+        label: 'Product & Analytics',
+        value: 'Segment, PostHog, GrowthBook, LaunchDarkly, Unleash, StatSig',
+      },
+      {
+        label: 'Testing & Quality',
+        value: 'Playwright, Vitest, Jest, React Testing Library, Storybook',
+      },
+      {
+        label: 'Tooling & DevOps',
+        value: 'Docker, CI/CD (GitHub Actions), GraphQL, Figma',
+      },
+    ],
   },
 
   jobOrder: {
     default: ['crypto-exchange', 'ecommerce-platform', 'grocery-startup', 'sportradar', 'samsung'],
     growth: ['crypto-exchange', 'ecommerce-platform', 'grocery-startup', 'sportradar', 'samsung'],
+    product: ['crypto-exchange', 'ecommerce-platform', 'grocery-startup', 'sportradar', 'samsung'],
   },
 
   jobs: [
@@ -162,6 +188,12 @@ export const CAREER: CareerData = {
               'Cut visual regression test runtime from 12 min to under a minute by building the Playwright VRT infrastructure from scratch. Coverage tripled across the component library.',
               'Built 15+ dynamic financial data tables with search, deep-linking, copy, and i18n support.',
               'Fixed 25+ accessibility issues platform-wide: keyboard navigation, focus management, and ARIA attributes.',
+            ],
+            product: [
+              "Set up Segment tracking for an in-app support portal across web and 3 React Native apps. Instrumented user interactions, experiment touchpoints, and feature adoption. Measured ticket deflection rate to validate the feature's value and identify iteration opportunities.",
+              'Built 15+ dynamic financial data tables for critical analytics queries: deposit fees, withdrawal fees, margin pairs, position limits. Designed with search, deep-linking, copy, and i18n for power users who access these ~50x per session. Tracked usage patterns to prioritize the 20% of features driving 80% of value.',
+              'Built a Figma-to-code design token pipeline powering 3 brand lines (6 light/dark variants). Replaced days of manual work per brand with automated updates. Faster time-to-market for brand initiatives and reduced handoff friction between design and engineering.',
+              'Shipped in-app support portal with feature flags and controlled rollouts. Built tier-aware contact options, VIP manager card, and live support queue visibility. Iterated based on Segment data and user feedback.',
             ],
           },
         },
@@ -220,6 +252,13 @@ export const CAREER: CareerData = {
             growth: [
               'Managed 5 engineers across 2 time zones. Built the sprint cadence, code review process, and CI/CD setup from scratch.',
               'Shipped 5 storefronts with React, TypeScript, and Next.js. Built a shared component library adopted by 3 product teams.',
+            ],
+            product: [
+              'Built a shared component library adopted by 3 product teams. Measured ~25% reduction in feature cycle time. Components tracked via Storybook, usage patterns analyzed to prioritize components for investment vs deprecation.',
+              "Set up Google Analytics and SEO tooling from scratch for Norwegian client properties, including Norsk Gjenvinning (one of Norway's largest recycling companies). Tracked page views, conversion funnels, and user flows. Used data to identify conversion bottlenecks and prioritize fixes.",
+              'Got Core Web Vitals into the green on key checkout routes (LCP under 2s). Measured performance impact on conversion and user retention. Used Core Web Vitals as input metrics for performance optimization initiatives.',
+              'Integrated 5 storefronts with Sanity CMS. Gave the content team full control over brand-aligned pages without engineering involvement. Tracked content performance via GA to understand which page types drove the most engagement and conversions.',
+              'Managed 5 engineers across 2 time zones. Built sprint cadence, code review process, and CI/CD setup from scratch. Emphasized shipping quickly and measuring impact — team used GA and custom dashboards to validate that features were solving the problems they were meant to solve.',
             ],
           },
         },
@@ -288,6 +327,12 @@ export const CAREER: CareerData = {
               'Shipped a stripped onboarding flow (stepper + logo only, minimum data per step) with lead capture for out-of-coverage users. Conversion increased by 15%.',
               'Removed hard-coded locale configurations blocking international expansion. Finland and Germany launched without engineering changes to the core platform.',
               'Picked by the Chief Growth Officer (ex-VP Growth, Skyscanner) for an internal growth program cohort after standing out at a company-wide growth workshop.',
+            ],
+            product: [
+              'Built the A/B experimentation program from scratch — first at the company. Owned the platform (GrowthBook), the experiments, and the measurement. Ran 2 to 4 experiments/month through 2x headcount growth. Analyzed results and made go/no-go decisions based on data.',
+              'Ran homepage hero-removal experiment expecting higher conversion. Conversion dropped. Learned that introductory context is necessary for users to commit to purchase. Killed the variant on data, not instinct.',
+              "Shipped stripped onboarding flow for out-of-coverage users. Added lead capture to capture intent even when delivery wasn't available. Conversion increased — measured via funnel analysis in GrowthBook.",
+              'Removed hard-coded locale configurations blocking international expansion. Finland and Germany launched without engineering changes to the core platform. Monitored adoption via product analytics.',
             ],
           },
         },
@@ -385,6 +430,10 @@ export const CAREER: CareerData = {
               'Refactored web crawlers and scrapers into 5 independent microservices, cutting runtime by 120x and resource usage by 10x.',
               'Migrated CI/CD from Jenkins to GitLab, reducing deploy failures by 85% through Docker containerization and pipeline redesign.',
             ],
+            product: [
+              'Refactored web crawlers and scrapers into 5 independent microservices, cutting runtime by 120x and resource usage by 10x. Measured performance improvements to justify the migration.',
+              'Migrated CI/CD from Jenkins to GitLab, reducing deploy failures by 85% through Docker containerization and pipeline redesign. Tracked deployment frequency and failure rate as metrics for engineering effectiveness.',
+            ],
           },
         },
       ],
@@ -423,6 +472,9 @@ export const CAREER: CareerData = {
             default: [
               'Built a WCAG 2.0 AA Web Accessibility portal and automated internal reporting dashboards with Power BI.',
               'Contributed to IoT prototype R&D and gave talks on Web Accessibility at 2 industry conferences.',
+            ],
+            product: [
+              'Built a WCAG 2.0 AA Web Accessibility portal. Created internal dashboards with Power BI to monitor compliance and prioritize fixes across properties.',
             ],
           },
         },

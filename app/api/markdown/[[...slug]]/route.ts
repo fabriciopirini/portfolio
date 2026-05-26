@@ -1,6 +1,9 @@
 import { readFile } from 'fs/promises'
 import path from 'path'
 
+import { ACTIVE_VARIANT } from '@/lib/site-config'
+import { CAREER } from '@/lib/career-data'
+
 const pageMarkdown: Record<string, () => Promise<string>> = {
   '/': async () => {
     const filePath = path.join(process.cwd(), 'public', 'llms.txt')
@@ -10,7 +13,7 @@ const pageMarkdown: Record<string, () => Promise<string>> = {
     return [
       '# Resume — Fabricio Pirini',
       '',
-      '> Senior Web Fullstack Engineer specializing in React, Next.js, and TypeScript.',
+      `> ${CAREER.subtitle[ACTIVE_VARIANT]} specializing in React, Next.js, and TypeScript.`,
       '',
       'For the full interactive resume, visit [fabriciopirini.com/resume](https://fabriciopirini.com/resume).',
       '',

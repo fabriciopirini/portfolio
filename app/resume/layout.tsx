@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
 import { Roboto, Source_Sans_3 } from 'next/font/google'
 
+import { ACTIVE_VARIANT } from '@/lib/site-config'
+import { CAREER } from '@/lib/career-data'
+
 import './resume.module.css'
 
 const roboto = Roboto({
@@ -19,7 +22,7 @@ const sourceSans3 = Source_Sans_3({
 
 export const metadata: Metadata = {
   title: 'Fabricio Pirini - Resume',
-  description: 'Resume of Fabricio Tramontano Pirini - Senior Software Engineer',
+  description: `Resume of Fabricio Tramontano Pirini - ${CAREER.subtitle[ACTIVE_VARIANT]}`,
 }
 
 export default function ResumeLayout({ children }: { children: React.ReactNode }) {

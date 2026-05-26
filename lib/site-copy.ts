@@ -164,11 +164,11 @@ export const COPY: SiteCopy = {
         },
         {
           title: 'What matters',
-          body: 'Writing success metrics before writing code. Following up after deployment to see if it worked. Shipping quickly, then iterating. The product mindset that separates feature factories from product teams.',
+          body: 'Writing success metrics before writing code. Following up after deployment to see if it worked. Shipping quickly, then iterating. I open PRs early and document decisions because context that stays in your head helps nobody.',
         },
         {
           title: 'Right now',
-          body: 'Building a Figma-to-code design token pipeline that powers 3 brand lines. Setting up Segment tracking for a React Native support portal. The kind of foundational work that makes better product development possible.',
+          body: 'Building a Figma-to-code design token pipeline that powers 3 brand lines. Setting up Segment tracking for a React Native support portal. In both cases the work started with a success metric and a problem statement, not a ticket.',
         },
       ],
     },
@@ -341,7 +341,7 @@ export const COPY: SiteCopy = {
         {
           heading: 'Where it all started',
           intro:
-            'From web scrapers to product engineering. Each role added a layer: performance at scale, the full stack, then what it means to build the right thing, not just the thing right.',
+            'From web scrapers to product engineering. Each role added a layer: performance at scale, the full stack, then learning that shipping is the easier part. The hard part is whether it worked.',
           cards: [
             {
               title: 'Scaling data collection',
@@ -379,7 +379,7 @@ export const COPY: SiteCopy = {
               title: 'Measured international expansion',
               paragraphs: [
                 'Removed hard-coded locale configurations blocking Finland and Germany. Monitored adoption via product analytics after launch.',
-                "The work was done. The measurement proved it worked. That's the product engineer difference.",
+                'The work was done. The measurement proved it worked. Parsed, not guessed.',
               ],
             },
           ],
@@ -387,7 +387,7 @@ export const COPY: SiteCopy = {
         {
           heading: 'Current work',
           intro:
-            'Building foundational systems at a US crypto exchange. Design tokens, shared components, and the measurement infrastructure that makes product development possible.',
+            'Building foundational systems at Kraken. Design tokens that eliminated manual theme work, shared components adopted by 3 teams, and the tracking setup that finally tells us which features users touch.',
           cards: [
             {
               title: 'Figma-to-code design pipeline',

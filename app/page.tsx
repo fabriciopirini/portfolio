@@ -7,12 +7,18 @@ import { Hero } from '@/components/Hero'
 import { Projects } from '@/components/Projects'
 import { Technology } from '@/components/Technology'
 import { WorkExperience } from '@/components/WorkExperience'
+import { ACTIVE_VARIANT } from '@/lib/site-config'
+import { COPY } from '@/lib/site-copy'
+import { CAREER } from '@/lib/career-data'
+import { calculateYearsOfExperience } from '@/lib/utils'
+
+const years = calculateYearsOfExperience()
 
 const jsonLd: WithContext<Person> = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Fabricio Tramontano Pirini',
-  jobTitle: 'Software Engineer',
+  jobTitle: CAREER.subtitle[ACTIVE_VARIANT],
   gender: 'male',
   url: 'https://fabriciopirini.com/',
   image: 'https://github.com/fabriciopirini.png',
@@ -25,8 +31,7 @@ const jsonLd: WithContext<Person> = {
 }
 
 export const metadata: Metadata = {
-  description:
-    'Fabricio Tramontano Pirini builds fast systems and platform infrastructure. React, Next.js, automation. Based in Brazil, working with startups and scale-ups.',
+  description: COPY.meta.description[ACTIVE_VARIANT](years),
   alternates: { canonical: 'https://fabriciopirini.com/' },
 }
 

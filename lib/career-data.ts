@@ -169,7 +169,7 @@ export const CAREER: CareerData = {
   jobs: [
     {
       id: 'crypto-exchange',
-      company: 'Leading Cryptocurrency Exchange Platform - US Client',
+      company: 'Kraken',
       location: 'Brazil (Remote)',
       periods: [
         {
@@ -192,7 +192,7 @@ export const CAREER: CareerData = {
             product: [
               "Set up Segment tracking for an in-app support portal across web and 3 React Native apps. Instrumented user interactions, experiment touchpoints, and feature adoption. Measured ticket deflection rate to validate the feature's value and identify iteration opportunities.",
               'Built 15+ dynamic financial data tables for critical analytics queries: deposit fees, withdrawal fees, margin pairs, position limits. Designed with search, deep-linking, copy, and i18n for power users who access these ~50x per session. Tracked usage patterns to prioritize the 20% of features driving 80% of value.',
-              'Built a Figma-to-code design token pipeline powering 3 brand lines (6 light/dark variants). Replaced days of manual work per brand with automated updates. Faster time-to-market for brand initiatives and reduced handoff friction between design and engineering.',
+              'Built a Figma-to-code design token pipeline powering 3 brand lines (6 light/dark variants). Replaced days of manual work per brand with automated updates. Measured reduction in handoff time from design approval to production-ready theme.',
               'Shipped in-app support portal with feature flags and controlled rollouts. Built tier-aware contact options, VIP manager card, and live support queue visibility. Iterated based on Segment data and user feedback.',
             ],
           },
@@ -258,7 +258,7 @@ export const CAREER: CareerData = {
               "Set up Google Analytics and SEO tooling from scratch for Norwegian client properties, including Norsk Gjenvinning (one of Norway's largest recycling companies). Tracked page views, conversion funnels, and user flows. Used data to identify conversion bottlenecks and prioritize fixes.",
               'Got Core Web Vitals into the green on key checkout routes (LCP under 2s). Measured performance impact on conversion and user retention. Used Core Web Vitals as input metrics for performance optimization initiatives.',
               'Integrated 5 storefronts with Sanity CMS. Gave the content team full control over brand-aligned pages without engineering involvement. Tracked content performance via GA to understand which page types drove the most engagement and conversions.',
-              'Managed 5 engineers across 2 time zones. Built sprint cadence, code review process, and CI/CD setup from scratch. Emphasized shipping quickly and measuring impact — team used GA and custom dashboards to validate that features were solving the problems they were meant to solve.',
+              'Managed 5 engineers across 2 time zones. Built sprint cadence, code review process, and CI/CD setup from scratch. Emphasized shipping quickly and measuring impact. The team used GA and custom dashboards to validate that features were solving the problems they were meant to solve.',
             ],
           },
         },
@@ -278,6 +278,10 @@ export const CAREER: CareerData = {
               'Got Core Web Vitals into the green on key checkout routes (LCP under 2s) through code splitting, lazy loading, and edge caching.',
               'Integrated 5 storefronts with Sanity CMS, giving the content team full control over brand-aligned pages without engineering involvement.',
               'Led WCAG 2.0 AA compliance across e-commerce storefronts and brand landing pages for a portfolio of 70+ European companies.',
+            ],
+            product: [
+              'Led WCAG 2.0 AA compliance across e-commerce storefronts and brand landing pages for 70+ European companies. Treated accessibility as a product quality metric, not a compliance checkbox. Prioritized fixes based on user impact and usage data.',
+              'Mentored 3 junior engineers. Two promoted within 18 months. Embedded product habits in the team: writing success criteria before starting work and reviewing outcomes post-deploy.',
             ],
           },
         },
@@ -329,9 +333,9 @@ export const CAREER: CareerData = {
               'Picked by the Chief Growth Officer (ex-VP Growth, Skyscanner) for an internal growth program cohort after standing out at a company-wide growth workshop.',
             ],
             product: [
-              'Built the A/B experimentation program from scratch — first at the company. Owned the platform (GrowthBook), the experiments, and the measurement. Ran 2 to 4 experiments/month through 2x headcount growth. Analyzed results and made go/no-go decisions based on data.',
+              "Built the company's first A/B experimentation program from scratch. Owned the platform (GrowthBook), the experiments, and the measurement. Ran 2 to 4 experiments/month through 2x headcount growth. Analyzed results and made go/no-go decisions based on data.",
               'Ran homepage hero-removal experiment expecting higher conversion. Conversion dropped. Learned that introductory context is necessary for users to commit to purchase. Killed the variant on data, not instinct.',
-              "Shipped stripped onboarding flow for out-of-coverage users. Added lead capture to capture intent even when delivery wasn't available. Conversion increased — measured via funnel analysis in GrowthBook.",
+              "Shipped stripped onboarding flow for out-of-coverage users. Added lead capture to capture intent even when delivery wasn't available. Conversion increased, measured via funnel analysis in GrowthBook.",
               'Removed hard-coded locale configurations blocking international expansion. Finland and Germany launched without engineering changes to the core platform. Monitored adoption via product analytics.',
             ],
           },
@@ -474,7 +478,7 @@ export const CAREER: CareerData = {
               'Contributed to IoT prototype R&D and gave talks on Web Accessibility at 2 industry conferences.',
             ],
             product: [
-              'Built a WCAG 2.0 AA Web Accessibility portal. Created internal dashboards with Power BI to monitor compliance and prioritize fixes across properties.',
+              'Built a WCAG 2.0 AA Web Accessibility portal presented at 2 industry conferences. Created internal dashboards with Power BI to monitor compliance and prioritize fixes across properties.',
             ],
           },
         },

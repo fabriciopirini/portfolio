@@ -112,7 +112,8 @@ export const COPY: SiteCopy = {
     tagline: {
       default: 'Design Engineer. I build interfaces that look exactly as intended and feel better than expected.',
       growth: 'Growth Engineer. I build the program, run the experiments, and own the numbers.',
-      product: 'Product Engineer. Ship. Measure. Follow up. Define what moves the needle before writing the first line.',
+      product:
+        'Product Engineer. Ship. Measure. Follow up. Define what moves the needle before writing the first line.',
     },
     ctaResume: 'Resume',
     ctaContact: 'Contact me',

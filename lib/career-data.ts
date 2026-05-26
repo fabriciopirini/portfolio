@@ -173,7 +173,7 @@ export const CAREER: CareerData = {
       location: 'Brazil (Remote)',
       periods: [
         {
-          role: 'Contractor - Frontend Engineer',
+          role: 'Contractor - Product Engineer',
           start: 'Nov. 2024',
           end: 'Present',
           bullets: {
@@ -260,7 +260,7 @@ export const CAREER: CareerData = {
           },
         },
         {
-          role: 'Lead Frontend Engineer',
+          role: 'Lead Product Engineer',
           start: 'Sep. 2022',
           end: 'Aug. 2023',
           bullets: {

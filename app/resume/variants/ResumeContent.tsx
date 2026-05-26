@@ -131,8 +131,9 @@ export function ResumeContent({ variant, yearsOfExperience }: ResumeContentProps
                     <div
                       key={`${company.id}-${periodIndex}`}
                       data-section="job"
-                      className={cn('flex flex-col gap-2', {
-                        'pt-3 first:pt-0': isMultiRole,
+                      className={cn('space-y-2', {
+                        'pt-2 first:pt-0': isMultiRole,
+                        'break-before-page': isMultiRole && periodIndex > 0,
                       })}
                     >
                       <div className="flex flex-col gap-0.5 sm:flex-row sm:items-start sm:justify-between">

@@ -53,3 +53,10 @@
 .smallCaps {
   font-variant-caps: small-caps;
 }
+
+@media print {
+  .jobEntry {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}

@@ -169,7 +169,7 @@ export const COPY: SiteCopy = {
         },
         {
           title: 'Right now',
-          body: 'Building a Figma-to-code design token pipeline that powers 3 brand lines. Setting up Segment tracking for a React Native support portal. In both cases the work started with a success metric and a problem statement, not a ticket.',
+          body: 'Building a Figma-to-code design token pipeline that powers multiple brands. Setting up Segment tracking for a React Native in-app support portal. In both cases the work started with a success metric and a problem statement, not a ticket.',
         },
       ],
     },
@@ -321,7 +321,7 @@ export const COPY: SiteCopy = {
                 [
                   'Set up ',
                   { text: 'Segment event tracking', accent: true },
-                  ' for the Support Center portal across web and 3 React Native apps. Instrumented experiment touchpoints and new UI elements to measure adoption and retention.',
+                  ' for an in-app support portal across web and 3 React Native apps (Kraken, Kraken Pro, Krak). Instrumented experiment touchpoints and new UI elements to measure adoption and retention.',
                 ],
                 [
                   'Built a ',
@@ -396,7 +396,7 @@ export const COPY: SiteCopy = {
                 [
                   'Built ',
                   { text: 'design token pipeline', accent: true },
-                  ' powering 3 brand lines (6 light/dark variants). Replaced days of manual work per brand change.',
+                  ' powering multiple brands (light/dark variants). Replaced days of manual work per brand change.',
                 ],
                 'Measured reduction in handoff time. Faster time-to-market for brand initiatives.',
               ],

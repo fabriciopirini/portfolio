@@ -81,14 +81,14 @@ export interface CareerData {
 
 export const CAREER: CareerData = {
   subtitle: {
-    default: 'Senior Software Engineer',
+    default: 'Full Stack Engineer',
     growth: 'Senior Engineer, Growth and Experimentation',
     product: 'Product Engineer',
   },
 
   summary: {
     default: (years) =>
-      `Senior Software Engineer with nearly ${years} years in React and TypeScript, working across web and mobile. Currently at a leading US crypto exchange, owning the design system and shipping to 4 platforms, including a React Native support portal built from scratch across 3 mobile apps. I tend to build foundational things: testing pipelines, theming systems, shared packages. Previously led frontend teams at e-commerce and grocery delivery scale-ups in Norway.`,
+      `Nearly 9 years building full-stack features across web and mobile. Currently at Kraken, owning the design system, building React Native apps and backend integrations for 4 platforms. Before that: 5 e-commerce storefronts from requirements to deployment, teams across 2 time zones, the first A/B experimentation program at a Nordic scale-up, and microservices that ran 120x faster. React and Next.js on the frontend, Node.js, Django, and Python services on the backend, CI/CD end to end.`,
     growth: (years) =>
       `Senior engineer with nearly ${years} years in React, Next.js, and TypeScript. Built the first A/B experimentation program at an online grocery startup. Owned the platform, the experiments, and the measurement. Ran 2 to 4 live experiments per month. Opened Finland and Germany by removing locale blockers. Currently setting up event tracking at a US crypto exchange using Segment. WCAG 2.0 AA compliance across 70+ European properties.`,
     product: (years) =>
@@ -99,11 +99,15 @@ export const CAREER: CareerData = {
     default: [
       {
         label: 'Languages & Runtimes',
-        value: 'TypeScript, JavaScript (ES2024+), HTML5, CSS3, Node.js',
+        value: 'TypeScript, JavaScript (ES2024+), HTML5, CSS3, Node.js, Python',
+      },
+      {
+        label: 'Full Stack',
+        value: 'React, Next.js, Django, Node.js, REST APIs, GraphQL, TypeScript',
       },
       {
         label: 'Frameworks & UI',
-        value: 'React, Next.js, Redux Toolkit, Tailwind CSS, Radix UI',
+        value: 'React, Next.js, Django, Redux Toolkit, Tailwind CSS, Radix UI',
       },
       {
         label: 'Testing & Quality',
@@ -173,25 +177,25 @@ export const CAREER: CareerData = {
       location: 'Brazil (Remote)',
       periods: [
         {
-          role: 'Contractor - Product Engineer',
+          role: 'Contractor - Full Stack Engineer',
           start: 'Nov. 2024',
           end: 'Present',
           bullets: {
             default: [
-              'Cut visual regression test runtime from 12 min to under a minute by building the Playwright VRT infrastructure from scratch. Coverage tripled across the component library.',
-              'Built the Figma-to-code design token pipeline that powers theming across 3 brand lines (6 light/dark variants). Teams went from days of manual work per brand to automated updates.',
-              'Shipped an in-app support portal to 3 React Native apps from scratch. Built tier-aware contact options, VIP manager card, and live support queue visibility. Coordinated phased rollout across consumer, pay, and pro mobile applications.',
-              'Built 15+ dynamic financial data table components (deposit fees, withdrawal fees, margin pairs, position limits) with search, deep-linking, copy, and i18n. Fixed 25+ accessibility issues platform-wide: keyboard navigation, focus management, and ARIA attributes.',
+              'Built a React Native in-app support portal from scratch across 3 mobile apps (Kraken, Kraken Pro, Krak) with tier-aware contact options, VIP escalation, and live queue visibility. Owned end to end: frontend, backend integration, and rollout.',
+              'Cut visual regression test runtime from 12 min to under a minute by building Playwright VRT infrastructure from scratch. Coverage tripled across the component library.',
+              'Built the Figma-to-code design token pipeline powering theming across multiple brands (light/dark variants). Teams went from days of manual work per brand to automated updates.',
+              'Set up Segment event tracking across web and 3 React Native apps. Used the data to measure feature adoption and retention across the platform.',
             ],
             growth: [
-              'Set up Segment tracking for the Support Center portal across web and 3 React Native apps, instrumenting experiment touchpoints to measure feature adoption and retention signal.',
+              'Set up Segment tracking for an in-app support portal across web and 3 React Native apps (Kraken, Kraken Pro, Krak), instrumenting experiment touchpoints to measure feature adoption and retention signal.',
               'Cut visual regression test runtime from 12 min to under a minute by building the Playwright VRT infrastructure from scratch. Coverage tripled across the component library.',
               'Built 15+ dynamic financial data tables with search, deep-linking, copy, and i18n support.',
               'Fixed 25+ accessibility issues platform-wide: keyboard navigation, focus management, and ARIA attributes.',
             ],
             product: [
-              "Set up Segment tracking for an in-app support portal across web and 3 React Native apps. Measured ticket deflection rate to validate the feature's value and identify iteration opportunities.",
-              'Built a Figma-to-code design token pipeline powering 3 brand lines (6 variants). Replaced days of manual work per brand with automated updates.',
+              "Set up Segment tracking for an in-app support portal across web and 3 React Native apps (Kraken, Kraken Pro, Krak). Measured ticket deflection rate to validate the feature's value and identify iteration opportunities.",
+              'Built a Figma-to-code design token pipeline powering multiple brands (light/dark variants). Replaced days of manual work per brand with automated updates.',
               'Built 15+ dynamic financial data tables accessed ~50x per session by power users. Tracked usage patterns to prioritize the 20% of features driving 80% of value.',
             ],
           },
@@ -199,18 +203,18 @@ export const CAREER: CareerData = {
       ],
       rawNotes: `
         TRACKING WORK (not on default resume):
-        - Set up Segment tracking for the Support Center portal (web + 3 mobile apps)
+        - Set up Segment tracking for the in-app support portal (web + 3 mobile apps)
         - Track user interactions with experiments and new UI elements
         - Measure feature adoption and retention signal to decide if new features are worth keeping
         - This is the primary growth-adjacent work in this role
 
         DESIGN SYSTEM:
         - Owns the design system for the company
-        - Figma-to-code token pipeline: 3 brand lines, 6 light/dark variants
+        - Figma-to-code token pipeline: multiple brands, light/dark variants
         - Before: days of manual work per brand change; after: automated
 
         REACT NATIVE:
-        - Support portal shipped to 3 apps: consumer, pay, pro
+        - Support portal shipped to 3 apps: Kraken, Kraken Pro, Krak
         - Tier-aware contact options, VIP manager card, live support queue
 
         ACCESSIBILITY:
@@ -244,9 +248,9 @@ export const CAREER: CareerData = {
           end: 'Sep. 2024',
           bullets: {
             default: [
-              'Managed 5 engineers across 2 time zones. Built the sprint cadence, code review process, and CI/CD setup from scratch.',
-              'Rebuilt legacy storefronts and built new ones, shipping 5 with React, TypeScript, and Next.js. Worked with everyone from the CEO to junior engineers across design, product, and business.',
-              'Built a shared component library used by 3 product teams, cutting feature cycle time by roughly 25%.',
+              'Built 5 storefronts end to end with React, TypeScript, and Next.js. Worked directly with the CEO, product, design, and business stakeholders from requirements to deployment.',
+              'Built a shared component library used by 3 product teams. Feature cycle time dropped by roughly 25%.',
+              'Managed 5 engineers across 2 time zones. Set up the sprint cadence, code review process, and CI/CD pipeline from scratch.',
             ],
             growth: [
               'Managed 5 engineers across 2 time zones. Built the sprint cadence, code review process, and CI/CD setup from scratch.',
@@ -260,15 +264,15 @@ export const CAREER: CareerData = {
           },
         },
         {
-          role: 'Lead Product Engineer',
+          role: 'Lead Full Stack Engineer',
           start: 'Sep. 2022',
           end: 'Aug. 2023',
           bullets: {
             default: [
-              'Integrated 5 storefronts with Sanity CMS and the internal design system, giving the content team full control over brand-aligned pages without engineering involvement.',
+              'Integrated 5 storefronts with Sanity CMS and the internal design system. The content team could now manage brand-aligned pages without engineering help.',
               'Got Core Web Vitals into the green on key checkout routes through code splitting, lazy loading, and edge caching. LCP under 2s.',
-              'Led WCAG 2.0 AA compliance across e-commerce storefronts and brand landing pages for a portfolio of 70+ European companies.',
-              'Mentored 3 junior engineers. Two were promoted within 18 months.',
+              'Set up Google Analytics and SEO tooling from scratch for Norwegian client properties, including a major Norwegian recycling company.',
+              'Led WCAG 2.0 AA compliance across e-commerce storefronts and brand landing pages for 70+ European companies.',
             ],
             growth: [
               "Set up Google Analytics and SEO tooling from scratch for Norwegian client properties, including Norsk Gjenvinning, one of Norway's largest recycling companies.",
@@ -427,8 +431,8 @@ export const CAREER: CareerData = {
           end: 'Aug. 2020',
           bullets: {
             default: [
-              'Refactored web crawlers and scrapers into 5 independent microservices, cutting runtime by 120x and resource usage by 10x.',
-              'Migrated CI/CD from Jenkins to GitLab, reducing deploy failures by 85% through Docker containerization and pipeline redesign.',
+              'Refactored web crawlers and scrapers into 5 independent Node.js microservices. Runtime dropped by 120x and resource usage by 10x. Designed REST APIs for inter-service communication.',
+              'Migrated CI/CD from Jenkins to GitLab with Docker containerization. Deploy failures fell by 85%.',
             ],
             product: [
               'Refactored web crawlers and scrapers into 5 independent microservices, cutting runtime by 120x and resource usage by 10x. Measured performance improvements to justify the migration.',

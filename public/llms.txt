@@ -10,7 +10,7 @@ A few things he's done:
 - Refactored web crawlers into 5 microservices at Sportradar, cutting runtime by 120x and resource usage by 10x
 - Led a 5-person remote frontend team: architecture, Agile, the whole thing
 - Hit WCAG 2.0 Level AA across a portfolio of 70+ European brands
-- Built themeable component systems and automated Figma token generation across 3 brand lines
+- Built themeable component systems and automated Figma token generation across multiple brands
 
 He treats TypeScript types as documentation. He cares about the product, not just the ticket.
 

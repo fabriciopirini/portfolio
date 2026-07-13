@@ -129,7 +129,7 @@ export const CAREER: CareerData = {
       },
       {
         label: 'Analytics & Experimentation',
-        value: 'Segment, Mixpanel, Growthbook, LaunchDarkly, Unleash, StatSig',
+        value: 'Segment, Amplitude, Mixpanel, Growthbook, LaunchDarkly, Unleash, StatSig',
       },
       {
         label: 'Testing & Quality',
@@ -151,7 +151,7 @@ export const CAREER: CareerData = {
       },
       {
         label: 'Product & Analytics',
-        value: 'Segment, PostHog, GrowthBook, LaunchDarkly, Unleash, StatSig',
+        value: 'Segment, Amplitude, PostHog, GrowthBook, LaunchDarkly, Unleash, StatSig',
       },
       {
         label: 'Testing & Quality',
@@ -364,7 +364,8 @@ export const CAREER: CareerData = {
         - Unleash only did feature flags — not enough for a full experimentation program
         - Moved to Growthbook: feature flags + experiment setup and rollout + results dashboards + statistical layer, all in one place
         - Team could define experiments, read results, and make decisions without pulling in an engineer
-        - Tracking stack: gtag → GTM → server-side GTM
+        - Tracking pipeline: gtag → GTM → server-side GTM
+        - Product analytics destination: Amplitude
         - Moved to server-side GTM specifically to stop adblockers from silently dropping analytics events
         - Frontend: integrated Growthbook SDK into the React + Next.js app from scratch
         - Wired experiment assignment logic; ensured variants didn't bleed across user sessions

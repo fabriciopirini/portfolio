@@ -17,4 +17,4 @@
 
 export type SiteVariant = 'default' | 'growth' | 'product'
 
-export const ACTIVE_VARIANT: SiteVariant = 'product'
+export const ACTIVE_VARIANT: SiteVariant = 'default'

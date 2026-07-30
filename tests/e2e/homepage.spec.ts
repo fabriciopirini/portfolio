@@ -23,19 +23,11 @@ test.describe('Homepage', () => {
     await expect(page.getByText(/where it all started/i)).toBeVisible()
   })
 
-  test('resume download button has correct href', async ({ page }) => {
-    const resumeButton = page.getByRole('link', { name: /resume/i })
-    await expect(resumeButton).toBeVisible()
-    await expect(resumeButton).toHaveAttribute('href', '/api/resume')
-  })
+  test('resume link points to the resume page', async ({ page }) => {
+    const resumeLink = page.getByRole('link', { name: /resume/i })
 
-  test('resume download button initiates download', async ({ page }) => {
-    const resumeButton = page.getByRole('link', { name: /resume/i })
-    await expect(resumeButton).toBeVisible()
-
-    // Check that clicking doesn't navigate away (downloads instead)
-    const href = await resumeButton.getAttribute('href')
-    expect(href).toBe('/api/resume')
+    await expect(resumeLink).toBeVisible()
+    await expect(resumeLink).toHaveAttribute('href', '/resume')
   })
 
   test('contact me button opens popover', async ({ page }) => {
@@ -130,17 +122,19 @@ test.describe('Hamburger menu keyboard navigation', () => {
 
     const aboutItem = page.getByRole('menuitem', { name: 'About' })
     await expect(aboutItem).toBeVisible()
+    await aboutItem.focus()
+    await expect(aboutItem).toBeFocused()
 
     await page.keyboard.press('ArrowDown')
     const techItem = page.getByRole('menuitem', { name: 'Technology' })
-    await expect(techItem).toHaveAttribute('data-highlighted')
+    await expect(techItem).toBeFocused()
 
     await page.keyboard.press('ArrowDown')
     const expItem = page.getByRole('menuitem', { name: 'Experience' })
-    await expect(expItem).toHaveAttribute('data-highlighted')
+    await expect(expItem).toBeFocused()
 
     await page.keyboard.press('ArrowUp')
-    await expect(techItem).toHaveAttribute('data-highlighted')
+    await expect(techItem).toBeFocused()
   })
 })
 

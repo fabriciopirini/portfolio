@@ -3,7 +3,7 @@
 // ============================================================
 // All user-facing text for the website, organized by section.
 // Fields typed Record<SiteVariant, ...> vary between:
-//   'default' — Design Engineer positioning
+//   'default' — Senior Software Engineer positioning
 //   'growth'  — Senior Frontend Engineer - Growth & Experimentation positioning
 //
 // ACTIVE_VARIANT in lib/site-config.ts controls which renders.
@@ -90,13 +90,13 @@ export const COPY: SiteCopy = {
   // ----------------------------------------------------------
   meta: {
     title: {
-      default: 'Fabricio Pirini, Design Engineer',
+      default: 'Fabricio Pirini, Senior Software Engineer',
       growth: 'Fabricio Pirini, Growth Engineer',
       product: 'Fabricio Pirini, Product Engineer',
     },
     description: {
       default: (years) =>
-        `Design Engineer with ${years}+ years in React, Next.js, and TypeScript. I build interfaces that look exactly as intended and hold up under the hood.`,
+        `Senior Software Engineer with ${years}+ years in React, Next.js, and TypeScript. I build full-stack products across web and mobile, from frontend architecture to backend integrations.`,
       growth: (years) =>
         `Growth Engineer with ${years}+ years in React and TypeScript. Built A/B experimentation programs from scratch, owned the tracking stack, and shipped based on data. Based in Brazil, working remotely.`,
       product: (years) =>
@@ -110,7 +110,7 @@ export const COPY: SiteCopy = {
   hero: {
     greeting: 'Nice to meet you!',
     tagline: {
-      default: 'Design Engineer. I build interfaces that look exactly as intended and feel better than expected.',
+      default: 'Senior Software Engineer. I build full-stack products across web and mobile, from frontend architecture to backend integrations.',
       growth: 'Growth Engineer. I build the program, run the experiments, and own the numbers.',
       product:
         'Product Engineer. Ship. Measure. Follow up. Define what moves the needle before writing the first line.',
@@ -131,15 +131,15 @@ export const COPY: SiteCopy = {
         {
           title: 'Journey',
           body: (yearsText) =>
-            `I care about the pixel and the pipeline. React and Next.js, ${yearsText} years building interfaces that work exactly as designed, and hold up under the hood. Not corporate theater. Just craft.`,
+            `I care about the product and the engineering underneath it. React and Next.js, ${yearsText} years building full-stack features across web and mobile.`,
         },
         {
           title: 'What matters',
-          body: 'Component craft that scales. Design systems that bridge Figma and production. Every animation, every spacing decision, every hover state is a deliberate choice, not an accident.',
+          body: 'Foundational systems that make teams faster: component libraries, testing infrastructure, design token pipelines, and APIs that hold up under load.',
         },
         {
           title: 'Right now',
-          body: 'Automating the gap between design and engineering. Design tokens that let designers push to production. Visual testing that ships with confidence. The details that make interfaces feel right.',
+          body: 'Building React Native apps, backend integrations, visual testing infrastructure, and design systems across web and mobile.',
         },
       ],
       growth: [
@@ -187,7 +187,7 @@ export const COPY: SiteCopy = {
         {
           heading: 'Where it all started',
           intro:
-            'From web scrapers to design systems. Each role added a layer: performance at scale, the full stack, then what it means to make something feel right for the person using it.',
+            'From web scrapers to full-stack software engineering. Each role added a layer: performance at scale, the full stack, then leading teams and systems that ship.',
           cards: [
             {
               title: 'Scaling data collection',
@@ -211,7 +211,7 @@ export const COPY: SiteCopy = {
             "When I took on leadership, I realized it wasn't about me anymore. It was about making my team and company better.",
           cards: [
             {
-              title: 'Frontend performance and design systems',
+              title: 'Frontend architecture and performance',
               paragraphs: [
                 [
                   'Led frontend architecture for an e-commerce platform. Made things ',
@@ -233,10 +233,10 @@ export const COPY: SiteCopy = {
         {
           heading: 'Current work',
           intro:
-            'Bridging design and engineering. Design systems that scale, visual testing that ships with confidence, tokens that let designers work directly in production.',
+            'Building foundational systems across web and mobile: design systems, visual testing, backend integrations, and software that teams can ship with confidence.',
           cards: [
             {
-              title: 'Design systems and engineering craft',
+              title: 'Full-stack systems and engineering craft',
               paragraphs: [
                 [
                   'Automated ',
@@ -441,7 +441,7 @@ export const COPY: SiteCopy = {
     },
     description: {
       default:
-        'Remote from Brazil. React, Next.js, design engineering. Available for contracts where the work matters more than the process deck.',
+        'Remote from Brazil. React, Next.js, TypeScript, and full-stack engineering. Available for contracts where the work matters more than the process deck.',
       growth:
         'Remote from Brazil. React, Next.js, TypeScript. Growth engineering, experimentation, event tracking. Available for contracts where the work is measured.',
       product:

@@ -81,14 +81,14 @@ export interface CareerData {
 
 export const CAREER: CareerData = {
   subtitle: {
-    default: 'Full Stack Engineer',
+    default: 'Senior Software Engineer',
     growth: 'Senior Engineer, Growth and Experimentation',
     product: 'Product Engineer',
   },
 
   summary: {
     default: (years) =>
-      `Nearly 9 years building full-stack features across web and mobile. Currently at Kraken, owning the design system, building React Native apps and backend integrations for 4 platforms. Before that: 5 e-commerce storefronts from requirements to deployment, teams across 2 time zones, the first A/B experimentation program at a Nordic scale-up, and microservices that ran 120x faster. React and Next.js on the frontend, Node.js, Django, and Python services on the backend, CI/CD end to end.`,
+      `Senior Software Engineer with ${years}+ years in React and TypeScript, working across web and mobile. Currently at Kraken, owning the design system and shipping to 4 platforms, including a React Native support portal built from scratch across 3 mobile apps. I build foundational systems: testing infrastructure, theming pipelines, shared packages. Previously led frontend teams at e-commerce and grocery delivery scale-ups in Norway.`,
     growth: (years) =>
       `Senior engineer with nearly ${years} years in React, Next.js, and TypeScript. Built the first A/B experimentation program at an online grocery startup. Owned the platform, the experiments, and the measurement. Ran 2 to 4 live experiments per month. Opened Finland and Germany by removing locale blockers. Currently setting up event tracking at a US crypto exchange using Segment. WCAG 2.0 AA compliance across 70+ European properties.`,
     product: (years) =>

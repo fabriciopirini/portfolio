@@ -4,7 +4,7 @@
 // Controls the positioning of the entire site.
 //
 // Variants:
-//   'default' — Design Engineer positioning (general purpose)
+//   'default' — Senior Software Engineer positioning (general purpose)
 //   'growth'  — Growth Engineer positioning (PLG, experimentation roles)
 //   'product' — Product Engineer positioning (PostHog Product Analytics team)
 //

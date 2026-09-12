@@ -37,13 +37,13 @@ Use `bun`, not `npm` or `yarn`. Use `bunx` instead of `npx`.
 
 ## Copy voice
 
-This site positions Fabricio as a **Design Engineer** — someone equally at home in Figma discussions and TypeScript PRs. Every word should reinforce that identity.
+This site positions Fabricio as a **Senior Software Engineer** with strong frontend and backend depth. Every word should reinforce that identity.
 
 ### Identity
 
-- Title: **Design Engineer**. Not "Full Stack Developer", not "Frontend Engineer", not "Computer Engineer".
-- Engineering depth (backend, infra, cloud) is a **DE amplifier**, not a contradiction. Frame it as: "I know why the API is slow, so I can design around it." Never hide it, never lead with it.
-- Existing work (React modernization, visual testing, design tokens, working directly with designers) is DE work done under other titles. Reframe it through that lens.
+- Title: **Senior Software Engineer**. Emphasize full-stack product delivery across web and mobile.
+- Engineering depth (backend, infra, cloud) is part of the role, not a contradiction. Name specific systems and outcomes.
+- Existing work (React modernization, visual testing, design tokens, working directly with designers) supports the broader software engineering identity.
 
 ### Voice
 

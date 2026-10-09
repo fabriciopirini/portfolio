@@ -7,13 +7,12 @@ import styles from '../resume.module.css'
 
 interface ResumeContentProps {
   variant: SiteVariant
-  yearsOfExperience: number
 }
 
-export function ResumeContent({ variant, yearsOfExperience }: ResumeContentProps) {
+export function ResumeContent({ variant }: ResumeContentProps) {
   const skills = CAREER.skills[variant]
   const subtitle = CAREER.subtitle[variant]
-  const summary = CAREER.summary[variant](yearsOfExperience)
+  const summary = CAREER.summary[variant]
   const jobOrder = CAREER.jobOrder[variant]
   const jobs = [...CAREER.jobs].sort((a, b) => jobOrder.indexOf(a.id) - jobOrder.indexOf(b.id))
 

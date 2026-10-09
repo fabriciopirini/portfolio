@@ -46,7 +46,7 @@ Site content is spread across multiple locations — component files, route hand
 
 - `lib/site-copy.ts` — central copy definitions (meta titles, descriptions, CTAs)
 - `app/page.tsx` — homepage metadata, Link headers, JSON-LD structured data
-- `app/resume/page.tsx`, `app/shop/page.tsx` — per-page metadata
+- `app/resume/page.tsx` — per-page metadata
 - `app/api/markdown/[[...slug]]/route.ts` — markdown representations of each page
 - `app/api/robots/route.ts` — robots.txt content signals
 - `public/llms.txt` — agent-facing site description
@@ -56,7 +56,6 @@ Site content is spread across multiple locations — component files, route hand
 ### Rules
 
 - **Changing any copy in one location = grep the entire codebase** for the old text before finalizing. Update every occurrence.
-- **Product changes** (name, price, description in `app/services.tsx`) must also update `/shop` markdown in the API route handler.
 - **Title/role changes** must propagate to: `site-copy.ts`, `llms.txt`, `public/llms-full.txt` (if exists), JSON-LD in `app/page.tsx`, per-page metadata, and markdown API responses.
 - **Contact info changes** must propagate to: `llms.txt`, markdown routes, footer, navbar popover, `site-copy.ts`, JSON-LD.
 - After any copy change, run `bun ts` and verify no type errors, then grep for stale references.

@@ -11,7 +11,6 @@ import { NavBar } from '@/components/NavBar'
 import { CSPostHogProvider } from '@/components/Providers'
 import { SideMe } from '@/components/SideMe'
 import { cn } from '@/lib/utils'
-import { getCachedYearsOfExperience } from '@/lib/server-utils'
 import { COPY } from '@/lib/site-copy'
 import { ACTIVE_VARIANT } from '@/lib/site-config'
 import { AppStoreProvider } from '@/providers/app-store-provider'
@@ -23,11 +22,9 @@ const leagueSpartan = League_Spartan({ subsets: ['latin'], variable: '--font-lea
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const poppins = Poppins({ subsets: ['latin'], weight: ['400'], variable: '--font-poppins' })
 
-export async function generateMetadata(): Promise<Metadata> {
-  const yearsOfExperience = await getCachedYearsOfExperience()
-
+export function generateMetadata(): Metadata {
   const title = COPY.meta.title[ACTIVE_VARIANT]
-  const description = COPY.meta.description[ACTIVE_VARIANT](yearsOfExperience)
+  const description = COPY.meta.description[ACTIVE_VARIANT]
 
   return {
     metadataBase: new URL(process.env.NEXT_PUBLIC_VERCEL_URL ?? 'https://fabriciopirini.com'),

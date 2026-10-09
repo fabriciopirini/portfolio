@@ -5,11 +5,9 @@ import { CheckCircle2Icon, MapPinIcon, RocketIcon } from 'lucide-react'
 import Image from 'next/image'
 
 import { ImageBubble } from '@/components/ImageBubble'
-import { useYearsOfExperience } from '@/hooks/use-years-of-experience'
 import ProfilePic from '@/public/assets/lego_me.png'
 
 export const HeroLegoImage = () => {
-  const { years: diffYears } = useYearsOfExperience()
   const prefersReducedMotion = useReducedMotion()
   const { scrollY } = useScroll()
 
@@ -44,8 +42,8 @@ export const HeroLegoImage = () => {
               aria-hidden
             />
           }
-          highlightedText={`${diffYears ?? '...'} years`}
-          text="of experience"
+          highlightedText="building since"
+          text="2017"
         />
       </m.div>
       <m.div className="absolute bottom-5 right-5" style={{ y: y3 }}>

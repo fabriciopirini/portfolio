@@ -66,7 +66,7 @@ export interface SideProject {
 
 export interface CareerData {
   subtitle: Record<SiteVariant, string>
-  summary: Record<SiteVariant, (yearsOfExperience: number) => string>
+  summary: Record<SiteVariant, string>
   skills: Record<SiteVariant, SkillsRow[]>
   /** Variant-specific display order for jobs — list job ids in desired order */
   jobOrder: Record<SiteVariant, string[]>
@@ -81,18 +81,18 @@ export interface CareerData {
 
 export const CAREER: CareerData = {
   subtitle: {
-    default: 'Senior Software Engineer',
+    default: 'Senior Frontend Engineer',
     growth: 'Senior Engineer, Growth and Experimentation',
     product: 'Product Engineer',
   },
 
   summary: {
-    default: (years) =>
-      `Senior Software Engineer with ${years}+ years in React and TypeScript, working across web and mobile. Currently at Kraken, owning the design system and shipping to 4 platforms, including a React Native support portal built from scratch across 3 mobile apps. I build foundational systems: testing infrastructure, theming pipelines, shared packages. Previously led frontend teams at e-commerce and grocery delivery scale-ups in Norway.`,
-    growth: (years) =>
-      `Senior engineer with nearly ${years} years in React, Next.js, and TypeScript. Built the first A/B experimentation program at an online grocery startup. Owned the platform, the experiments, and the measurement. Ran 2 to 4 live experiments per month. Opened Finland and Germany by removing locale blockers. Currently setting up event tracking at a US crypto exchange using Segment. WCAG 2.0 AA compliance across 70+ European properties.`,
-    product: (years) =>
-      `Product engineer with nearly ${years} years in React, Next.js, and TypeScript. Builds foundational systems that solve real user problems: design tokens powering 6 brand variants, shared component libraries adopted by 3 teams, and A/B experimentation infrastructure running 2 to 8 experiments/month as the program matured. Writes success metrics before building ("this should move [metric] from X to Y"), measures post-deploy, and iterates. Applies product discovery habits daily: one-sentence problem statements before starting work, metric targets in every PR description.`,
+    default:
+      'Senior Frontend Engineer building fintech products for web and mobile, building since 2017. Building a pre-launch US consumer fintech\'s Expo and React Native app for iOS, Android, and web, plus its Next.js admin, from the first commit. At Kraken (2024–2026), owned the design system and shipped a React Native support portal across 3 mobile apps.',
+    growth:
+      'Senior engineer, building since 2017, working in React, Next.js, and TypeScript. Built the first A/B experimentation program at an online grocery startup. Owned the platform, the experiments, and the measurement. Ran 2 to 4 live experiments per month. Opened Finland and Germany by removing locale blockers. Set up event tracking at Kraken (2024–2026) using Segment. WCAG 2.0 AA compliance across 70+ European properties.',
+    product:
+      'Product engineer, building since 2017, working in React, Next.js, and TypeScript. Builds foundational systems that solve real user problems: design tokens powering 6 brand variants, shared component libraries adopted by 3 teams, and A/B experimentation infrastructure running 2 to 8 experiments/month as the program matured. Writes success metrics before building ("this should move [metric] from X to Y"), measures post-deploy, and iterates. Applies product discovery habits daily: one-sentence problem statements before starting work, metric targets in every PR description.',
   },
 
   skills: {
@@ -165,12 +165,33 @@ export const CAREER: CareerData = {
   },
 
   jobOrder: {
-    default: ['crypto-exchange', 'ecommerce-platform', 'grocery-startup', 'sportradar', 'samsung'],
-    growth: ['crypto-exchange', 'ecommerce-platform', 'grocery-startup', 'sportradar', 'samsung'],
-    product: ['crypto-exchange', 'ecommerce-platform', 'grocery-startup', 'sportradar', 'samsung'],
+    default: ['consumer-fintech', 'crypto-exchange', 'ecommerce-platform', 'grocery-startup', 'sportradar', 'samsung'],
+    growth: ['consumer-fintech', 'crypto-exchange', 'ecommerce-platform', 'grocery-startup', 'sportradar', 'samsung'],
+    product: ['consumer-fintech', 'crypto-exchange', 'ecommerce-platform', 'grocery-startup', 'sportradar', 'samsung'],
   },
 
   jobs: [
+    {
+      id: 'consumer-fintech',
+      company: 'Pre-launch US consumer fintech',
+      location: 'Brazil (Remote)',
+      periods: [
+        {
+          role: 'Senior Frontend Engineer',
+          start: '2026',
+          end: 'now',
+          bullets: {
+            default: [
+              'Set up the TypeScript monorepo with one Expo and React Native app for iOS, Android, and web, plus a Next.js admin, from the first commit.',
+              'Built the theme tokens, with a CI check that fails when the design spec drifts from the theme. Every pull request is gated on lint, type checks, unit tests, and Playwright end-to-end runs at desktop and mobile viewports.',
+            ],
+          },
+        },
+      ],
+      rawNotes: `
+        Cleared public scope only: monorepo, Expo and React Native for iOS, Android, and web, Next.js admin, theme tokens with a CI drift check, PR gates.
+      `,
+    },
     {
       id: 'crypto-exchange',
       company: 'Kraken',
@@ -179,12 +200,13 @@ export const CAREER: CareerData = {
         {
           role: 'Contractor - Full Stack Engineer',
           start: 'Nov. 2024',
-          end: 'Present',
+          end: '2026',
           bullets: {
             default: [
               'Built a React Native in-app support portal from scratch across 3 mobile apps (Kraken, Kraken Pro, Krak) with tier-aware contact options, VIP escalation, and live queue visibility. Owned end to end: frontend, backend integration, and rollout.',
               'Cut visual regression test runtime from 12 min to under a minute by building Playwright VRT infrastructure from scratch. Coverage tripled across the component library.',
               'Built the Figma-to-code design token pipeline powering theming across multiple brands (light/dark variants). Teams went from days of manual work per brand to automated updates.',
+              'Built 15+ financial data tables and fixed 25+ accessibility issues: keyboard navigation, focus management, and ARIA attributes.',
               'Set up Segment event tracking across web and 3 React Native apps. Used the data to measure feature adoption and retention across the platform.',
             ],
             growth: [

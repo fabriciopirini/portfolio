@@ -3,7 +3,7 @@
 // ============================================================
 // All user-facing text for the website, organized by section.
 // Fields typed Record<SiteVariant, ...> vary between:
-//   'default' — Senior Software Engineer positioning
+//   'default' — Senior Frontend Engineer positioning
 //   'growth'  — Senior Frontend Engineer - Growth & Experimentation positioning
 //
 // ACTIVE_VARIANT in lib/site-config.ts controls which renders.
@@ -29,13 +29,13 @@ export interface WorkChapter {
 
 export interface AboutCard {
   title: string
-  body: string | ((yearsText: string) => string)
+  body: string
 }
 
 export interface SiteCopy {
   meta: {
     title: Record<SiteVariant, string>
-    description: Record<SiteVariant, (years: number) => string>
+    description: Record<SiteVariant, string>
   }
   hero: {
     greeting: string
@@ -90,17 +90,17 @@ export const COPY: SiteCopy = {
   // ----------------------------------------------------------
   meta: {
     title: {
-      default: 'Fabricio Pirini, Senior Software Engineer',
+      default: 'Fabricio Pirini, Senior Frontend Engineer',
       growth: 'Fabricio Pirini, Growth Engineer',
       product: 'Fabricio Pirini, Product Engineer',
     },
     description: {
-      default: (years) =>
-        `Senior Software Engineer with ${years}+ years in React, Next.js, and TypeScript. I build full-stack products across web and mobile, from frontend architecture to backend integrations.`,
-      growth: (years) =>
-        `Growth Engineer with ${years}+ years in React and TypeScript. Built A/B experimentation programs from scratch, owned the tracking stack, and shipped based on data. Based in Brazil, working remotely.`,
-      product: (years) =>
-        `Product Engineer with ${years}+ years in React, Next.js, and TypeScript. I build systems that solve real user problems and measure what matters. Based in Brazil, working remotely.`,
+      default:
+        'Senior Frontend Engineer building fintech products for web and mobile, building since 2017. React, React Native, Expo, and Next.js.',
+      growth:
+        'Growth Engineer, building since 2017. Built A/B experimentation programs from scratch, owned the tracking stack, and shipped based on data. Based in Brazil, working remotely.',
+      product:
+        'Product Engineer, building since 2017. I build systems that solve real user problems and measure what matters. Based in Brazil, working remotely.',
     },
   },
 
@@ -110,7 +110,7 @@ export const COPY: SiteCopy = {
   hero: {
     greeting: 'Nice to meet you!',
     tagline: {
-      default: 'Senior Software Engineer. I build full-stack products across web and mobile, from frontend architecture to backend integrations.',
+      default: 'Senior Frontend Engineer building fintech products for web and mobile.',
       growth: 'Growth Engineer. I build the program, run the experiments, and own the numbers.',
       product:
         'Product Engineer. Ship. Measure. Follow up. Define what moves the needle before writing the first line.',
@@ -130,8 +130,7 @@ export const COPY: SiteCopy = {
       default: [
         {
           title: 'Journey',
-          body: (yearsText) =>
-            `I care about the product and the engineering underneath it. React and Next.js, ${yearsText} years building full-stack features across web and mobile.`,
+          body: 'I care about the product and the engineering underneath it. React and Next.js, building since 2017.',
         },
         {
           title: 'What matters',
@@ -139,14 +138,13 @@ export const COPY: SiteCopy = {
         },
         {
           title: 'Right now',
-          body: 'Building React Native apps, backend integrations, visual testing infrastructure, and design systems across web and mobile.',
+          body: "Building a pre-launch US consumer fintech's Expo and React Native app for iOS, Android, and web, plus its Next.js admin, from the first commit.",
         },
       ],
       growth: [
         {
           title: 'Journey',
-          body: (yearsText) =>
-            `I care about the experiment and what comes back from it. ${yearsText} years in React and TypeScript. I build the thing, set up the tracking, and let the data settle the argument.`,
+          body: 'I care about the experiment and what comes back from it. Building since 2017 in React and TypeScript. I build the thing, set up the tracking, and let the data settle the argument.',
         },
         {
           title: 'What matters',
@@ -154,14 +152,13 @@ export const COPY: SiteCopy = {
         },
         {
           title: 'Right now',
-          body: 'Setting up event tracking at a US crypto exchange. Tracking which features users actually use, which flows break quietly, whether the experiments are doing anything. The kind of data that tells you when you are wrong.',
+          body: "Building a pre-launch US consumer fintech's Expo and React Native app for iOS, Android, and web, plus its Next.js admin, from the first commit.",
         },
       ],
       product: [
         {
           title: 'Journey',
-          body: (yearsText) =>
-            `I care about the user and the metrics. ${yearsText} years in React and TypeScript. I build the thing, measure whether it solved the problem, and iterate based on data.`,
+          body: 'I care about the user and the metrics. Building since 2017 in React and TypeScript. I build the thing, measure whether it solved the problem, and iterate based on data.',
         },
         {
           title: 'What matters',
@@ -169,7 +166,7 @@ export const COPY: SiteCopy = {
         },
         {
           title: 'Right now',
-          body: 'Building a Figma-to-code design token pipeline that powers multiple brands. Setting up Segment tracking for a React Native in-app support portal. In both cases the work started with a success metric and a problem statement, not a ticket.',
+          body: "Building a pre-launch US consumer fintech's Expo and React Native app for iOS, Android, and web, plus its Next.js admin, from the first commit.",
         },
       ],
     },
@@ -192,7 +189,7 @@ export const COPY: SiteCopy = {
             {
               title: 'Scaling data collection',
               paragraphs: [
-                'Rebuilt web crawlers and scrapers from the ground up. 10x faster, half the resource cost. First exposure to shipping at scale and learning that performance is a feature, not an afterthought.',
+                'Rebuilt web crawlers and scrapers from the ground up. 120x faster runtime, 10x fewer resources. First exposure to shipping at scale and learning that performance is a feature, not an afterthought.',
                 'Learned how teams actually work together: Agile in practice, not on a slide deck.',
               ],
             },
@@ -231,9 +228,9 @@ export const COPY: SiteCopy = {
           ],
         },
         {
-          heading: 'Current work',
+          heading: 'Kraken, 2024–2026',
           intro:
-            'Building foundational systems across web and mobile: design systems, visual testing, backend integrations, and software that teams can ship with confidence.',
+            'Foundational systems across web and mobile: design systems, visual testing, backend integrations, and software that teams could ship with confidence.',
           cards: [
             {
               title: 'Full-stack systems and engineering craft',
@@ -272,7 +269,7 @@ export const COPY: SiteCopy = {
             {
               title: 'Scaling data collection',
               paragraphs: [
-                'Rebuilt web crawlers and scrapers from the ground up. 10x faster, half the resource cost. First exposure to shipping at scale and learning that performance is a feature, not an afterthought.',
+                'Rebuilt web crawlers and scrapers from the ground up. 120x faster runtime, 10x fewer resources. First exposure to shipping at scale and learning that performance is a feature, not an afterthought.',
                 'Learned how teams actually work together: Agile in practice, not on a slide deck.',
               ],
             },
@@ -311,9 +308,9 @@ export const COPY: SiteCopy = {
           ],
         },
         {
-          heading: 'Current work',
+          heading: 'Kraken, 2024–2026',
           intro:
-            'Setting up event tracking at a US crypto exchange. Building the visibility layer: which features users actually use, which flows drop off, whether the numbers back up the assumptions.',
+            'Event tracking at Kraken. The visibility layer: which features users actually use, which flows drop off, whether the numbers back up the assumptions.',
           cards: [
             {
               title: 'Tracking and experimentation',
@@ -386,9 +383,9 @@ export const COPY: SiteCopy = {
           ],
         },
         {
-          heading: 'Current work',
+          heading: 'Kraken, 2024–2026',
           intro:
-            'Building foundational systems at Kraken. Design tokens that eliminated manual theme work, shared components adopted by 3 teams, and the tracking setup that finally tells us which features users touch.',
+            'Foundational systems at Kraken: design tokens that eliminated manual theme work, shared components adopted by 3 teams, and the tracking setup that shows which features users touch.',
           cards: [
             {
               title: 'Figma-to-code design pipeline',
@@ -441,11 +438,11 @@ export const COPY: SiteCopy = {
     },
     description: {
       default:
-        'Remote from Brazil. React, Next.js, TypeScript, and full-stack engineering. Available for contracts where the work matters more than the process deck.',
+        'Remote from Brazil. React, React Native, Expo, and Next.js. Building fintech products for web and mobile.',
       growth:
-        'Remote from Brazil. React, Next.js, TypeScript. Growth engineering, experimentation, event tracking. Available for contracts where the work is measured.',
+        'Remote from Brazil. React, Next.js, TypeScript. Growth engineering, experimentation, and event tracking.',
       product:
-        'Remote from Brazil. React, Next.js, product engineering. Available for roles where you ship what you measure.',
+        'Remote from Brazil. React, Next.js, and product engineering.',
     },
   },
 

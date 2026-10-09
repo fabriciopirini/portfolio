@@ -10,10 +10,6 @@ import { WorkExperience } from '@/components/WorkExperience'
 import { ACTIVE_VARIANT } from '@/lib/site-config'
 import { COPY } from '@/lib/site-copy'
 import { CAREER } from '@/lib/career-data'
-import { calculateYearsOfExperience } from '@/lib/utils'
-
-const years = calculateYearsOfExperience()
-
 const jsonLd: WithContext<Person> = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -31,7 +27,7 @@ const jsonLd: WithContext<Person> = {
 }
 
 export const metadata: Metadata = {
-  description: COPY.meta.description[ACTIVE_VARIANT](years),
+  description: COPY.meta.description[ACTIVE_VARIANT],
   alternates: { canonical: 'https://fabriciopirini.com/' },
 }
 

@@ -37,11 +37,11 @@ Use `bun`, not `npm` or `yarn`. Use `bunx` instead of `npx`.
 
 ## Copy voice
 
-This site positions Fabricio as a **Senior Software Engineer** with strong frontend and backend depth. Every word should reinforce that identity.
+This site positions Fabricio as a **Senior Frontend Engineer** building fintech products for web and mobile. Every word should reinforce that identity.
 
 ### Identity
 
-- Title: **Senior Software Engineer**. Emphasize full-stack product delivery across web and mobile.
+- Title: **Senior Frontend Engineer**. Building fintech products for web and mobile.
 - Engineering depth (backend, infra, cloud) is part of the role, not a contradiction. Name specific systems and outcomes.
 - Existing work (React modernization, visual testing, design tokens, working directly with designers) supports the broader software engineering identity.
 

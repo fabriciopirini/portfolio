@@ -13,12 +13,20 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      { source: '/shop', destination: '/', permanent: true },
+      { source: '/shop/:path*', destination: '/', permanent: true },
+      { source: '/blog', destination: '/', permanent: true },
+      { source: '/blog/:path*', destination: '/', permanent: true },
+    ]
+  },
   async rewrites() {
     return {
       beforeFiles: [
         {
-          source: '/:path(resume|shop|blog)/:slug*',
-          destination: '/api/markdown/:path/:slug*',
+          source: '/resume/:slug*',
+          destination: '/api/markdown/resume/:slug*',
           has: [{ type: 'header', key: 'accept', value: '(.*)text/markdown(.*)' }],
         },
         {

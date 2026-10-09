@@ -5,7 +5,6 @@ import Image from 'next/image'
 import { useWindowSize } from 'usehooks-ts'
 
 import { Carousel, CarouselContent, CarouselDots, CarouselItem } from '@/components/ui/carousel'
-import { useYearsOfExperience } from '@/hooks/use-years-of-experience'
 import { COPY } from '@/lib/site-copy'
 import { ACTIVE_VARIANT } from '@/lib/site-config'
 import { cn } from '@/lib/utils'
@@ -13,7 +12,6 @@ import LegoPiece from '@/public/assets/lego-piece.png'
 
 export const AboutMe = () => {
   const screen = useWindowSize()
-  const { yearsText } = useYearsOfExperience()
 
   const isMobile = screen?.width < 1280 // 1280px is the breakpoint for the xl size
 
@@ -42,7 +40,7 @@ export const AboutMe = () => {
         <CarouselContent className="text-left">
           {[RouteIcon, CircleCheckBigIcon, TrendingUpIcon].map((Icon, i) => {
             const card = COPY.about.cards[ACTIVE_VARIANT][i]
-            const body = typeof card.body === 'function' ? card.body(yearsText ?? 'nine') : card.body
+            const body = card.body
             return (
               <CarouselItem key={card.title} className="lg:basis-2/3 xl:basis-1/3">
                 <div className="flex h-full flex-col gap-5 rounded-xl bg-[#373943] p-10">

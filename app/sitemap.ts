@@ -27,12 +27,6 @@ const Sitemap = async (): Promise<MetadataRoute.Sitemap> => {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
-    {
-      url: `${BASE_URL}/shop`,
-      lastModified: getLastModified('app/shop/page.tsx'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
   ]
 }
 

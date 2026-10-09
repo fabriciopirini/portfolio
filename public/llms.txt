@@ -15,9 +15,11 @@ A few things he's done:
 
 He treats TypeScript types as documentation. He cares about the product, not just the ticket.
 
+I moved to Norway straight after graduating for my first full-time engineering job, stayed six years, and now work from Brazil.
+
 Stack: React, React Native, TypeScript, Next.js, Node.js, Tailwind CSS, Zustand, TanStack Query, Zod, Fastify, Kysely, PostgreSQL, Better Auth, Recharts, Playwright, Vitest, Storybook, Docker, Turborepo, CI/CD.
 
-Contact: fabricio@fabriciopirini.com. He replies.
+Contact: fabricio@fabriciopirini.com. Building something in fintech? I'm happy to chat.
 
 ## Links
 

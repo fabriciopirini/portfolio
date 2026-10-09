@@ -2,18 +2,12 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
 import { Inter, League_Spartan, Poppins } from 'next/font/google'
-import { ViewTransition } from 'react'
 
 import { ConsoleEasterEgg } from '@/components/ConsoleEasterEgg'
-import { Footer } from '@/components/Footer'
-import { MaxCoinsUnlock } from '@/components/MaxCoinsUnlock'
-import { NavBar } from '@/components/NavBar'
 import { CSPostHogProvider } from '@/components/Providers'
-import { SideMe } from '@/components/SideMe'
 import { cn } from '@/lib/utils'
 import { COPY } from '@/lib/site-copy'
 import { ACTIVE_VARIANT } from '@/lib/site-config'
-import { AppStoreProvider } from '@/providers/app-store-provider'
 import Thumbnail from '@/public/assets/thumbnail.png'
 
 import '@/app/globals.css'
@@ -93,34 +87,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             }
           )}
         >
-          <AppStoreProvider>
-            <a
-              href="#experience"
-              className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-skipLink focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-primary-background focus:shadow-lg focus:outline-none"
-            >
-              Skip to my story
-            </a>
-            <NavBar />
-            <main id="main-content" className="flex grow flex-col">
-              <ViewTransition
-                enter={{
-                  default: 'none',
-                  'navigate-forward': 'animate-slide-from-right',
-                  'navigate-back': 'animate-slide-from-left',
-                }}
-                exit={{
-                  default: 'none',
-                  'navigate-forward': 'animate-slide-to-left',
-                  'navigate-back': 'animate-slide-to-right',
-                }}
-              >
-                {children}
-              </ViewTransition>
-            </main>
-            <Footer />
-            <SideMe />
-            <MaxCoinsUnlock />
-          </AppStoreProvider>
+          {children}
           <ConsoleEasterEgg />
           <Analytics />
           <SpeedInsights />

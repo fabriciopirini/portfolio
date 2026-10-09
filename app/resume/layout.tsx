@@ -15,7 +15,6 @@ const roboto = Roboto({
 
 const sourceSans3 = Source_Sans_3({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
   variable: '--font-source-sans-3',
   display: 'swap',
 })

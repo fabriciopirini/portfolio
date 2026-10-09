@@ -118,7 +118,7 @@ export function ResumeContent({ variant }: ResumeContentProps) {
             return (
               <div
                 key={company.id}
-                className={cn('flex flex-col gap-2 py-4 first:pt-0 last:pb-0', {
+                className={cn('flex flex-col gap-2 py-4 print:py-2 first:pt-0 last:pb-0', {
                   'divide-y-[0.5px] divide-gray-200 print:divide-y-0': isMultiRole,
                 })}
               >
@@ -130,22 +130,33 @@ export function ResumeContent({ variant }: ResumeContentProps) {
                     <div
                       key={`${company.id}-${periodIndex}`}
                       data-section="job"
-                      className={cn('space-y-2', {
+                      className={cn('space-y-2', styles.jobEntry, {
                         'pt-2 first:pt-0': isMultiRole,
-                        'break-before-page': isMultiRole && periodIndex > 0,
                       })}
                     >
-                      <div className="flex flex-col gap-0.5 sm:flex-row sm:items-start sm:justify-between">
+                      <div
+                        className={cn(
+                          'flex flex-col gap-0.5 sm:flex-row sm:items-start sm:justify-between',
+                          styles.roleHeading
+                        )}
+                      >
                         <div className="flex flex-col text-gray-700">
-                          {showCompanyHeader && <h3 className="font-black text-gray-900">{company.company}</h3>}
+                          <h3
+                            className={cn('font-black text-gray-900', {
+                              'hidden print:block': !showCompanyHeader,
+                            })}
+                          >
+                            {company.company}
+                          </h3>
                           <p className={`text-sm font-medium ${styles.smallCaps}`}>{period.role}</p>
                         </div>
                         <div className="flex flex-col text-sm sm:text-right">
-                          {showCompanyHeader && (
-                            <p className="font-medium" style={{ color: 'var(--color-accent)' }}>
-                              {company.location}
-                            </p>
-                          )}
+                          <p
+                            className={cn('font-medium', { 'hidden print:block': !showCompanyHeader })}
+                            style={{ color: 'var(--color-accent)' }}
+                          >
+                            {company.location}
+                          </p>
                           <p className="text-gray-600">
                             {period.start} - {period.end}
                           </p>
@@ -167,11 +178,16 @@ export function ResumeContent({ variant }: ResumeContentProps) {
 
       {/* Education */}
       <div className="mt-8 print:mt-0">
-        <h2 className="mb-3 font-roboto text-xl font-black text-gray-900">
+        <h2 className="mb-3 font-roboto text-xl font-black text-gray-900 print:mb-1">
           <span style={{ color: 'var(--color-accent)' }}>Edu</span>cation
         </h2>
         <div className="divide-y-[0.5px] divide-gray-300 text-base text-gray-700 print:divide-y-0 print:text-sm">
-          <div className="flex flex-col gap-0.5 py-3 first:pt-0 last:pb-0 sm:flex-row sm:items-start sm:justify-between">
+          <div
+            className={cn(
+              'flex flex-col gap-0.5 py-3 print:py-1 first:pt-0 last:pb-0 sm:flex-row sm:items-start sm:justify-between',
+              styles.jobEntry
+            )}
+          >
             <div>
               <h3 className="font-bold text-gray-900">Universidade Federal de Itajuba - UNIFEI</h3>
               <p className={`text-sm font-medium ${styles.smallCaps}`}>Bachelor of Science in Computer Engineering</p>
@@ -183,7 +199,12 @@ export function ResumeContent({ variant }: ResumeContentProps) {
               <p className="text-gray-600">2011 - 2018</p>
             </div>
           </div>
-          <div className="flex flex-col gap-0.5 py-3 first:pt-0 last:pb-0 sm:flex-row sm:items-start sm:justify-between">
+          <div
+            className={cn(
+              'flex flex-col gap-0.5 py-3 print:py-1 first:pt-0 last:pb-0 sm:flex-row sm:items-start sm:justify-between',
+              styles.jobEntry
+            )}
+          >
             <div>
               <h3 className="font-bold text-gray-900">University of Toronto</h3>
               <p className={`text-sm font-medium ${styles.smallCaps}`}>

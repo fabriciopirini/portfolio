@@ -55,6 +55,17 @@
 }
 
 @media print {
+  /* pb-4 on body outranks an element selector and spills a blank last page. */
+  :global(body) {
+    padding-bottom: 0 !important;
+  }
+
+  .resumeContainer :global(h2),
+  .roleHeading {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
   .jobEntry {
     break-inside: avoid;
     page-break-inside: avoid;

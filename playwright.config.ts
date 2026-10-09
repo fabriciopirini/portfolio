@@ -37,5 +37,11 @@ export default defineConfig({
     url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
     timeout: 30_000,
+    env: {
+      ...(process.env as Record<string, string>),
+      // The layout throws if this public key is missing. CI has no PostHog secret; a placeholder lets the suite boot. A real key in the environment still wins.
+      NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY || 'phc_ci_placeholder',
+      NEXT_PUBLIC_POSTHOG_HOST: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com',
+    },
   },
 })

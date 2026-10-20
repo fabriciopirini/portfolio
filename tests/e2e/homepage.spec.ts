@@ -80,4 +80,26 @@ test.describe('Quiet Ledger homepage', () => {
       }
     }
   })
+
+  test('links are underlined, and spaced links lift off a growing line on hover', async ({ page }) => {
+    const resume = page.getByRole('link', { name: 'Résumé' }).first()
+    await expect(resume).toHaveCSS('text-decoration-line', 'underline')
+
+    // Touch screens get no hover, so nothing sticks after a tap.
+    if (!(await page.evaluate(() => matchMedia('(hover: hover) and (pointer: fine)').matches))) return
+    const top = async () => (await resume.boundingBox())!.y
+    const rest = await top()
+    await resume.hover()
+    await expect.poll(top).toBeCloseTo(rest - 2, 1)
+    await expect
+      .poll(() => resume.evaluate((a) => getComputedStyle(a, '::before').transform))
+      .toBe('matrix(1, 0, 0, 2, 0, 4)')
+    await expect(resume).toHaveCSS('text-decoration-color', 'rgba(0, 0, 0, 0)')
+
+    // Still hovered: with reduced motion the text stays put and keeps its underline.
+    await page.emulateMedia({ reducedMotion: 'reduce' })
+    await expect(resume).toHaveCSS('transform', 'none')
+    expect(await top()).toBeCloseTo(rest, 1)
+    await expect(resume).not.toHaveCSS('text-decoration-color', 'rgba(0, 0, 0, 0)')
+  })
 })

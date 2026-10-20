@@ -7,13 +7,13 @@ Patterns established April 2026 for AI agent discoverability (isitagentready.com
 ### Link Headers (RFC 8288)
 
 - Use **registered IANA relation types only** — `describedby`, `service-doc`, `api-catalog` etc. Custom types like `rel="cv"` are ignored by validators.
-- Set via `headers()` export in `app/page.tsx` (Next.js page convention).
+- Set via `headers()` in `next.config.js`.
 - Example: `Link: '</llms.txt>; rel="describedby", </resume>; rel="describedby"'`
 
 ### Markdown Content Negotiation
 
 - **Do NOT use `proxy.ts`** for header-based routing. Next.js 16 deprecated middleware in favor of proxy, but rewrites are better here.
-- Use `beforeFiles` rewrites in `next.config.js` with `has` conditions matching `Accept` headers. Default array rewrites are `afterFiles` (fire after filesystem routes like `app/page.tsx`), so they lose to filesystem routes.
+- Use `beforeFiles` rewrites in `next.config.js` with `has` conditions matching `Accept` headers. Default array rewrites are `afterFiles` (fire after filesystem routes like `pages/index.tsx`), so they lose to filesystem routes.
 - Route handler returns `Content-Type: text/markdown` + `Vary: Accept` + `x-markdown-tokens`.
 - Pattern from Next.js 16 docs: `{ source: '/', destination: '/api/markdown', has: [{ type: 'header', key: 'accept', value: '(.*)text/markdown(.*)' }] }`
 
@@ -38,6 +38,12 @@ All new features, updates, and changes must include tests to prevent regressions
 - **Route handlers**: test edge cases (missing files, invalid paths).
 - Use `bun test:unit` for unit tests, `bun test:e2e` for end-to-end.
 
+## Speed Budget
+
+- First view of `/` and `/resume`: no web fonts, no stylesheet links, no third parties, and no `/_next/` scripts. `tests/e2e/performance-budget.spec.ts` enforces it.
+- Both pages live in the Pages Router with `unstable_runtimeJS: false`, so they ship zero framework JavaScript. `pages/_document.tsx` inlines `app/ledger.css` (plus `app/resume/resume.css` on `/resume`) and carries the Vercel Analytics and Speed Insights tags. Everything else (API routes, sitemap, 404) stays in the App Router.
+- Exit: if the budget test's zero-JS check fails after a Next.js upgrade, or a page ever needs client interactivity, port the two pages to Astro instead of patching around the flag.
+
 ## Copy Consistency
 
 Site content is spread across multiple locations — component files, route handlers, metadata, API responses, and static files. Any copy change MUST be verified across the entire application.
@@ -45,8 +51,9 @@ Site content is spread across multiple locations — component files, route hand
 ### Content locations (not exhaustive, verify each time)
 
 - `lib/site-copy.ts` — central copy definitions (meta titles, descriptions, CTAs)
-- `app/page.tsx` — homepage metadata, Link headers, JSON-LD structured data
-- `app/resume/page.tsx` — per-page metadata
+- `pages/index.tsx` — homepage metadata, JSON-LD structured data (Link headers live in `next.config.js`)
+- `pages/resume.tsx` — per-page metadata
+- `pages/_document.tsx` — link-preview (Open Graph) tags shared by both pages
 - `app/api/markdown/route.ts`, `app/api/markdown/resume/route.ts` — markdown representations of each page
 - `app/api/robots/route.ts` — robots.txt content signals
 - `public/llms.txt` — agent-facing site description
@@ -55,7 +62,7 @@ Site content is spread across multiple locations — component files, route hand
 ### Rules
 
 - **Changing any copy in one location = grep the entire codebase** for the old text before finalizing. Update every occurrence.
-- **Title/role changes** must propagate to: `site-copy.ts`, `llms.txt`, `public/llms-full.txt` (if exists), JSON-LD in `app/page.tsx`, per-page metadata, and markdown API responses.
+- **Title/role changes** must propagate to: `site-copy.ts`, `llms.txt`, `public/llms-full.txt` (if exists), JSON-LD in `pages/index.tsx`, per-page metadata, and markdown API responses.
 - **Contact info changes** must propagate to: `llms.txt`, markdown routes, footer, `site-copy.ts`, JSON-LD.
 - After any copy change, run `bun ts` and verify no type errors, then grep for stale references.
 

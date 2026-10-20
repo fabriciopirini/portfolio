@@ -17,13 +17,13 @@ const Sitemap = async (): Promise<MetadataRoute.Sitemap> => {
   return [
     {
       url: BASE_URL,
-      lastModified: getLastModified('app/page.tsx'),
+      lastModified: getLastModified('pages/index.tsx'),
       changeFrequency: 'monthly',
       priority: 1.0,
     },
     {
       url: `${BASE_URL}/resume`,
-      lastModified: getLastModified('app/resume/page.tsx'),
+      lastModified: getLastModified('pages/resume.tsx'),
       changeFrequency: 'monthly',
       priority: 0.9,
     },

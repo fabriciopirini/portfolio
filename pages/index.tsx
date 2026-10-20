@@ -1,13 +1,13 @@
-import type { Metadata } from 'next'
+import type { PageConfig } from 'next'
+import Head from 'next/head'
 
+import { ContactLinks } from '@/app/contact-links'
 import { person } from '@/lib/person'
+import { ACTIVE_VARIANT } from '@/lib/site-config'
+import { COPY } from '@/lib/site-copy'
 
-import { ContactLinks } from './contact-links'
-
-export const metadata: Metadata = {
-  description: 'Senior Frontend Engineer building fintech products for web and mobile. Building since 2017.',
-  alternates: { canonical: 'https://fabriciopirini.com/' },
-}
+// Ships no framework JavaScript; tests/e2e/performance-budget.spec.ts fails if the flag stops working.
+export const config: PageConfig = { unstable_runtimeJS: false }
 
 // Chromium prerenders the résumé on hover or pointer-down; other browsers ignore the rules.
 const speculationRules = JSON.stringify({
@@ -17,10 +17,19 @@ const speculationRules = JSON.stringify({
 export default function Home() {
   return (
     <div className="ledger-page">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', ...person }) }}
-      />
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{COPY.meta.title[ACTIVE_VARIANT]}</title>
+        <meta
+          name="description"
+          content="Senior Frontend Engineer building fintech products for web and mobile. Building since 2017."
+        />
+        <link rel="canonical" href="https://fabriciopirini.com" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', ...person }) }}
+        />
+      </Head>
       <script type="speculationrules" dangerouslySetInnerHTML={{ __html: speculationRules }} />
       <a className="skip" href="#work">
         Skip to selected work

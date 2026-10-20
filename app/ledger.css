@@ -187,6 +187,11 @@ body:has(.ledger-page) {
   color: var(--muted);
 }
 
+/* Flush with the top of the page, so an outset ring would be cut off. */
+.ledger-page .theme:focus-visible {
+  outline-offset: -2px;
+}
+
 .ledger-page h1 {
   font-size: 1.25rem;
   font-weight: 650;

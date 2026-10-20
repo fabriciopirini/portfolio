@@ -12,6 +12,10 @@ for (const path of ['/', '/resume']) {
     const toggle = page.getByRole('button', { name: 'Dark theme' })
     await expect(toggle).toHaveAttribute('aria-pressed', 'true')
     expect(await background(page)).toBe(darkBackground)
+    // A tap paints no grey box over the toggle (Blink and WebKit; Firefox draws no tap highlight).
+    expect(await toggle.evaluate((el) => getComputedStyle(el).getPropertyValue('-webkit-tap-highlight-color'))).toMatch(
+      /^(rgba\(0, 0, 0, 0\)|transparent|)$/
+    )
 
     await toggle.click()
     await expect(toggle).toHaveAttribute('aria-pressed', 'false')

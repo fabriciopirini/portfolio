@@ -133,6 +133,7 @@ body:has(.ledger-page) {
   border: 0;
   padding: 0;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 @media (hover: hover) and (pointer: fine) {

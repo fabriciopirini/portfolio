@@ -177,7 +177,7 @@ export const CAREER: CareerData = {
       location: 'Brazil (Remote)',
       periods: [
         {
-          role: 'Senior Frontend Engineer',
+          role: 'Contractor - Senior Frontend Engineer',
           start: 'Sep. 2026',
           end: 'Present',
           bullets: {

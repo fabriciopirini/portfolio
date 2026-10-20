@@ -34,14 +34,17 @@ export default function ResumePage() {
           Skip to experience
         </a>
         <div className="page">
-          <a className="back" href="/">
-            ← fabriciopirini.com
-          </a>
           <header className="intro">
-            <h1>Fabricio Tramontano Pirini</h1>
-            <p className="headline">{RESUME.subtitle}</p>
-            <p className="support">React, React Native, Expo, and Next.js. Brazil (UTC−3), working with US teams.</p>
-            <ContactLinks pdf />
+            <div className="top">
+              <h1>Résumé</h1>
+              <nav aria-label="Résumé">
+                <a href="/">Home</a>
+                <a className="pdf" href="/api/resume">
+                  Download PDF
+                </a>
+              </nav>
+            </div>
+            <p className="support">Fabricio Tramontano Pirini · {RESUME.subtitle} · Brazil (UTC−3)</p>
           </header>
 
           <main>

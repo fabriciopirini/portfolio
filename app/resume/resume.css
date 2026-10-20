@@ -1,12 +1,37 @@
 /* The résumé on top of the Quiet Ledger. Print swaps it for .paper, the look the PDF has always had. */
 
-.resume .back {
+/* The page's own heading, with the way home and the PDF on the same line, so the résumé reads apart from the homepage. */
+.resume .top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  column-gap: 1.25rem;
+}
+
+.resume h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.resume .top nav {
+  display: flex;
+  column-gap: 1.25rem;
+}
+
+.resume .top a {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  margin-bottom: 0.75rem;
-  font-size: 0.875rem;
-  color: var(--muted);
+}
+
+.resume .top .pdf {
+  color: var(--accent);
+}
+
+.resume .intro .support {
+  margin-top: 0.25rem;
 }
 
 .resume .proof h3 {
@@ -49,6 +74,10 @@
 }
 
 @media (min-width: 40rem) {
+  .resume h1 {
+    font-size: 1.875rem;
+  }
+
   .resume .skills div {
     display: grid;
     grid-template-columns: 11rem minmax(0, 1fr);

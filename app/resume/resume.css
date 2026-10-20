@@ -1,4 +1,4 @@
-/* The résumé on top of the Quiet Ledger, plus the print block the PDF workflow renders. */
+/* The résumé on top of the Quiet Ledger. Print swaps it for .paper, the look the PDF has always had. */
 
 .resume .back {
   display: inline-flex;
@@ -36,12 +36,6 @@
   padding-top: 0.25rem;
 }
 
-@media screen {
-  .resume .continued :is(h3, .where) {
-    display: none;
-  }
-}
-
 .resume .skills {
   border-top: 1px solid var(--rule);
 }
@@ -67,69 +61,218 @@
   }
 }
 
-@page {
-  size: A4;
-  margin: 1.6cm 1.8cm;
+@media screen {
+  .paper {
+    display: none;
+  }
 }
 
-@media print {
-  html:has(.resume) {
-    font-size: 9.5pt;
-    background: none;
-  }
+@page {
+  size: A4;
+  margin: 2cm;
+}
 
-  body:has(.resume) {
+/*
+ * Fonts are the ones the PDF workflow installs on its runner, so screen visitors download none. The full
+ * Source Sans 3 carries real small caps; a subset without them makes Chrome print one glyph per letter.
+ */
+@media print {
+  html:has(.paper),
+  body:has(.paper) {
     background: none;
   }
 
   .ledger-page.resume {
-    --bg: #fff;
-    --fg: #000;
-    --muted: #444;
-    --rule: #ccc;
-    --accent: #1d6448;
-    font-family: Roboto, Arial, sans-serif;
-    line-height: 1.4;
-    min-height: 0;
-  }
-
-  .resume .page {
-    max-width: none;
-    padding: 0;
-  }
-
-  .resume :is(.skip, .back, .invite, .outro),
-  .resume .contact li:has(a[href='/api/resume']) {
     display: none;
   }
 
-  .resume h2 {
-    padding-top: 1rem;
+  .paper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-family: 'Source Sans 3', sans-serif;
+    line-height: 1.5rem;
+    color: #000;
   }
 
-  /* The role is the break unit: a company-level unit pushes a long multi-role company whole to the next page. */
-  .resume .proof {
-    padding: 0.6rem 0;
-    break-inside: avoid;
+  .paper :is(h1, h2, h3, p, ul) {
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
   }
 
-  .resume :is(h2, h3) {
-    break-after: avoid;
+  .paper :is(h1, h2, h3) {
+    font-family: Roboto, sans-serif;
+    color: #111827;
   }
 
-  .resume .continued {
+  .paper a {
+    color: inherit;
+  }
+
+  .paper header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .paper h1 {
+    font-size: 1.875rem;
+    line-height: 1;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .paper .caps {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    font-variant-caps: small-caps;
+  }
+
+  .paper .subtitle {
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    color: #0395de;
+  }
+
+  .paper .zone {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    font-style: italic;
+    color: #9ca3af;
+  }
+
+  .paper .links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 0.75rem;
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: #374151;
+  }
+
+  .paper .links a {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.5rem 0;
+  }
+
+  .paper .links svg {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+
+  .paper :is(.summary, .skills, .when, ul) {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #374151;
+  }
+
+  .paper .skills {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .paper h2 {
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 900;
+  }
+
+  .paper h2 span,
+  .paper .where {
+    color: #0395de;
+  }
+
+  .paper .company {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+  }
+
+  .paper .company .entry + .entry {
+    padding-top: 0.5rem;
+  }
+
+  .paper .company .entry > * + * {
+    margin-top: 0.5rem;
+  }
+
+  .paper .heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.125rem;
+    color: #374151;
+  }
+
+  .paper h3 {
+    font-weight: 900;
+  }
+
+  .paper .when {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+
+  .paper .where {
+    font-weight: 500;
+  }
+
+  .paper .when p:last-child {
+    color: #4b5563;
+  }
+
+  .paper ul {
+    padding: 0;
+    list-style: disc inside;
+  }
+
+  .paper li + li {
+    margin-top: 0.25rem;
+  }
+
+  .paper li::marker {
+    font-size: 0.7em;
+  }
+
+  .paper .education h2 {
+    margin-bottom: 0.25rem;
+  }
+
+  .paper .education h3 {
+    font-weight: 700;
+  }
+
+  .paper :is(h2 + .company, .education h2 + .entry) {
     padding-top: 0;
   }
 
-  .resume .proof ul {
-    margin-top: 0.3rem;
+  .paper :is(.company, .education .entry):last-child {
+    padding-bottom: 0;
   }
 
-  .resume .proof li + li {
-    margin-top: 0.15rem;
+  .paper .education .entry {
+    padding: 0.25rem 0;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 
-  .resume :is(.skills div, .ledger li) {
-    padding: 0.3rem 0;
+  /* The role is the break unit: a company-level unit pushes a long multi-role company whole to the next page. */
+  .paper .entry {
+    break-inside: avoid;
+  }
+
+  .paper :is(h2, .heading) {
+    break-after: avoid;
   }
 }

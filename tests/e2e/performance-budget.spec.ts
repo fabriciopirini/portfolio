@@ -4,7 +4,7 @@ import { expect, test, type Response } from '@playwright/test'
 // Raise a budget only with a reason in the pull request.
 const routes = [
   { path: '/', maxBytes: 600_000 },
-  { path: '/resume', maxBytes: 615_000 },
+  { path: '/resume', maxBytes: 645_000 },
   { path: '/does-not-exist', maxBytes: 585_000 },
 ]
 

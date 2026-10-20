@@ -259,11 +259,11 @@ body:has(.ledger-page) {
   overflow-wrap: anywhere;
 }
 
-.ledger-page .contact a:has(svg) {
+.ledger-page :is(.contact, .top nav) a:has(svg) {
   gap: 0.35em;
 }
 
-.ledger-page .contact svg {
+.ledger-page :is(.contact, .top nav) svg {
   flex: none;
   width: 1em;
   height: 1em;
@@ -305,8 +305,8 @@ body:has(.ledger-page) {
   }
 
   /* Underline the text only: skip the 1em icon and its gap. */
-  .ledger-page .contact a:has(svg)::before,
-  .ledger-page .contact a:has(svg)::after {
+  .ledger-page :is(.contact, .top nav) a:has(svg)::before,
+  .ledger-page :is(.contact, .top nav) a:has(svg)::after {
     inset-inline-start: 1.35em;
   }
 

@@ -1,3 +1,10 @@
+/** Material Icons "file_download" (filled), Apache 2.0. */
+export const DownloadIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+  </svg>
+)
+
 /** The invite line, then email, the résumé (its PDF on the résumé itself), LinkedIn, GitHub. */
 export const ContactLinks = ({ pdf = false }: { pdf?: boolean }) => (
   <>
@@ -15,10 +22,7 @@ export const ContactLinks = ({ pdf = false }: { pdf?: boolean }) => (
       <li>
         {pdf ? (
           <a href="/api/resume">
-            {/* Material Icons "file_download" (filled), Apache 2.0. */}
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
-            </svg>
+            <DownloadIcon />
             Download PDF
           </a>
         ) : (

@@ -23,7 +23,7 @@ test('homepage states the fintech title and building since 2017', async ({ page 
 
 test('resume dates Kraken through 2026 and names the current client', async ({ page }) => {
   await page.goto('/resume')
-  await expect(page.getByText('Senior Frontend Engineer').first()).toBeVisible()
+  await expect(page.getByText('Contractor - Senior Frontend Engineer').filter({ visible: true })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Pre-launch US consumer fintech' })).toBeVisible()
   await expect(page.getByText('Nov. 2024 – June 2026')).toBeVisible()
   // The print-only copy of the résumé repeats every line, hidden on screen.

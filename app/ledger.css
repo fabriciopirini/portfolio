@@ -238,7 +238,7 @@ body:has(.ledger-page) {
 }
 
 /* ponytail: fixed threshold sits ~7% above the one-line width in SF; revisit if the links or font change. */
-@container (max-width: 28em) {
+@container (max-width: 29.5em) {
   .ledger-page .contact .email {
     flex-basis: 100%;
   }
@@ -250,6 +250,16 @@ body:has(.ledger-page) {
   align-items: center;
   min-height: 44px;
   overflow-wrap: anywhere;
+}
+
+.ledger-page .contact .email a {
+  gap: 0.35em;
+}
+
+.ledger-page .contact .email svg {
+  flex: none;
+  width: 1em;
+  height: 1em;
 }
 
 /* Spaced links get the 2024 navbar hover (after maggieappleton.com): the text lifts and the underline hands over
@@ -285,6 +295,12 @@ body:has(.ledger-page) {
 
   .ledger-page :is(.contact, .top nav) a::after {
     background: var(--muted);
+  }
+
+  /* Underline the address only: skip the 1em envelope and its gap. */
+  .ledger-page .contact .email a::before,
+  .ledger-page .contact .email a::after {
+    inset-inline-start: 1.35em;
   }
 
   .ledger-page :is(.contact, .top nav) a:hover {

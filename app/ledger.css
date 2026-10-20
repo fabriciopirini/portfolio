@@ -237,9 +237,16 @@ body:has(.ledger-page) {
   container-type: inline-size;
 }
 
-/* ponytail: fixed threshold sits ~7% above the one-line width in SF; revisit if the links or font change. */
-@container (max-width: 29.5em) {
+/* ponytail: fixed thresholds sit ~7% above the one-line widths in SF (the résumé's row is the wider); revisit if the
+   links or font change. Too narrow for one line, the email takes its own; narrower still, so does Download PDF. */
+@container (max-width: 34em) {
   .ledger-page .contact .email {
+    flex-basis: 100%;
+  }
+}
+
+@container (max-width: 18.5em) {
+  .ledger-page .contact li:has(svg) {
     flex-basis: 100%;
   }
 }
@@ -252,11 +259,11 @@ body:has(.ledger-page) {
   overflow-wrap: anywhere;
 }
 
-.ledger-page .contact .email a {
+.ledger-page .contact a:has(svg) {
   gap: 0.35em;
 }
 
-.ledger-page .contact .email svg {
+.ledger-page .contact svg {
   flex: none;
   width: 1em;
   height: 1em;
@@ -297,9 +304,9 @@ body:has(.ledger-page) {
     background: var(--muted);
   }
 
-  /* Underline the address only: skip the 1em envelope and its gap. */
-  .ledger-page .contact .email a::before,
-  .ledger-page .contact .email a::after {
+  /* Underline the text only: skip the 1em icon and its gap. */
+  .ledger-page .contact a:has(svg)::before,
+  .ledger-page .contact a:has(svg)::after {
     inset-inline-start: 1.35em;
   }
 

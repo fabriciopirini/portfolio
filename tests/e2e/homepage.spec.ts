@@ -80,4 +80,41 @@ test.describe('Quiet Ledger homepage', () => {
       }
     }
   })
+
+  test('links are underlined, and spaced links lift off a growing line on hover', async ({ page }) => {
+    const resume = page.getByRole('link', { name: 'Résumé' }).first()
+    // Touch screens keep the plain underline and get no hover, so nothing sticks after a tap.
+    if (!(await page.evaluate(() => matchMedia('(hover: hover) and (pointer: fine)').matches))) {
+      await expect(resume).toHaveCSS('text-decoration-line', 'underline')
+      return
+    }
+
+    // With a mouse, ::after draws the underline in the box the hover line (::before) grows in, so they move as one.
+    const lines = () =>
+      resume.evaluate((a) =>
+        ['::after', '::before'].map((pseudo) => {
+          const { content, top, transform, opacity } = getComputedStyle(a, pseudo)
+          return { content, top, transform, opacity }
+        })
+      )
+    const [underline, line] = await lines()
+    expect(underline).toMatchObject({ content: '""', transform: 'none', opacity: '1' })
+    expect(line.top).toBe(underline.top)
+
+    const top = async () => (await resume.boundingBox())!.y
+    const rest = await top()
+    await resume.hover()
+    await expect.poll(top).toBeCloseTo(rest - 2, 1)
+    const dropped = 'matrix(1, 0, 0, 2, 0, 4)'
+    await expect.poll(lines).toEqual([
+      { ...underline, transform: dropped, opacity: '0' },
+      { ...line, transform: dropped },
+    ])
+
+    // Still hovered: with reduced motion the text stays put and the plain underline comes back.
+    await page.emulateMedia({ reducedMotion: 'reduce' })
+    await expect(resume).toHaveCSS('transform', 'none')
+    expect(await top()).toBeCloseTo(rest, 1)
+    await expect(resume).toHaveCSS('text-decoration-line', 'underline')
+  })
 })

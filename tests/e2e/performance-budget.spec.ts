@@ -4,8 +4,8 @@ import { expect, test, type Response } from '@playwright/test'
 // Raise a budget only with a reason in the pull request.
 // `/` and `/resume` ship no framework JavaScript (Pages Router, `unstable_runtimeJS: false`); the App Router's 404 does.
 const routes = [
-  { path: '/', maxBytes: 16_800, runtime: false },
-  { path: '/resume', maxBytes: 32_000, runtime: false },
+  { path: '/', maxBytes: 18_550, runtime: false },
+  { path: '/resume', maxBytes: 33_750, runtime: false },
   { path: '/does-not-exist', maxBytes: 585_000, runtime: true },
 ]
 

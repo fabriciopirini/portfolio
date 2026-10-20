@@ -21,11 +21,6 @@ body {
   text-wrap: pretty;
 }
 
-/* Links carry no underline today; drop this rule to bring the underlines below back. */
-a {
-  text-decoration: inherit;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   @view-transition {
     navigation: auto;
@@ -213,6 +208,60 @@ body:has(.ledger-page) {
 .ledger-page .contact .email a {
   font-variant-numeric: tabular-nums;
   color: var(--accent);
+}
+
+/* Spaced links get the 2024 navbar hover (after maggieappleton.com): the text lifts and the underline hands over
+   to a line that grows and drops. ::after redraws the underline in the box ::before grows in, so the fading line and
+   the new one move as one. ponytail: the lines sit under one line of text; a wrapping link needs a span. */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .ledger-page :is(.contact, .top nav) a {
+    position: relative;
+    text-decoration: none;
+    transition:
+      color 120ms ease,
+      transform 0.5s cubic-bezier(0.2, 1, 0.8, 1);
+  }
+
+  .ledger-page :is(.contact, .top nav) a::before,
+  .ledger-page :is(.contact, .top nav) a::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    top: calc(50% + 0.55em);
+    height: 1px;
+    background: currentColor;
+    transform-origin: bottom;
+    transition:
+      clip-path 0.3s ease,
+      opacity 0.3s ease,
+      transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+  }
+
+  .ledger-page :is(.contact, .top nav) a::before {
+    clip-path: polygon(0 0, 0 100%, 0 100%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%, 100% 100%, 100% 0);
+  }
+
+  .ledger-page :is(.contact, .top nav) a::after {
+    background: var(--muted);
+  }
+
+  .ledger-page :is(.contact, .top nav) a:hover {
+    transform: translateY(-2px);
+  }
+
+  /* The lines ride the link's 2px lift, so they move 4px to end 2px lower. */
+  .ledger-page :is(.contact, .top nav) a:hover::before,
+  .ledger-page :is(.contact, .top nav) a:hover::after {
+    transform: translateY(4px) scaleY(2);
+  }
+
+  .ledger-page :is(.contact, .top nav) a:hover::before {
+    clip-path: polygon(0 0, 0 100%, 100% 100%, 50% 0, 50% 0, 50% 100%, 50% 100%, 0 100%, 100% 100%, 100% 0);
+  }
+
+  .ledger-page :is(.contact, .top nav) a:hover::after {
+    opacity: 0;
+  }
 }
 
 .ledger-page .now {

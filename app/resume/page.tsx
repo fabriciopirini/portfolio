@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { cacheLife } from 'next/cache'
 import { ACTIVE_VARIANT } from '@/lib/site-config'
 import { COPY } from '@/lib/site-copy'
 import { ResumeContent } from './variants/ResumeContent'
@@ -9,9 +8,6 @@ export const metadata: Metadata = {
   description: COPY.meta.description[ACTIVE_VARIANT],
 }
 
-export default async function ResumePage() {
-  'use cache'
-  cacheLife('days')
-
+export default function ResumePage() {
   return <ResumeContent variant={ACTIVE_VARIANT} />
 }

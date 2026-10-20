@@ -4,6 +4,7 @@ import { Roboto, Source_Sans_3 } from 'next/font/google'
 import { ACTIVE_VARIANT } from '@/lib/site-config'
 import { CAREER } from '@/lib/career-data'
 
+import '@/app/globals.css'
 import './resume.module.css'
 
 const roboto = Roboto({
@@ -36,7 +37,16 @@ export default function ResumeLayout({ children }: { children: React.ReactNode }
           --color-accent: #0395de;
         }
         body {
+          display: flex;
+          flex-direction: column;
+          min-height: 100dvh;
+          padding-bottom: 1rem;
           background-color: #cbd1d7 !important;
+        }
+        @media (min-width: 1024px) {
+          body {
+            padding-bottom: 2rem;
+          }
         }
         nav, footer {
           display: none !important;

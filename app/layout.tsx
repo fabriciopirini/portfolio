@@ -1,20 +1,12 @@
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
-import { Inter, League_Spartan, Poppins } from 'next/font/google'
 
-import { ConsoleEasterEgg } from '@/components/ConsoleEasterEgg'
-import { CSPostHogProvider } from '@/components/Providers'
-import { cn } from '@/lib/utils'
 import { COPY } from '@/lib/site-copy'
 import { ACTIVE_VARIANT } from '@/lib/site-config'
-import Thumbnail from '@/public/assets/thumbnail.png'
+import Thumbnail from '@/public/assets/thumbnail.jpg'
 
-import '@/app/globals.css'
-
-const leagueSpartan = League_Spartan({ subsets: ['latin'], variable: '--font-league-spartan' })
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const poppins = Poppins({ subsets: ['latin'], weight: ['400'], variable: '--font-poppins' })
+import '@/app/ledger.css'
 
 export function generateMetadata(): Metadata {
   const title = COPY.meta.title[ACTIVE_VARIANT]
@@ -64,35 +56,12 @@ export function generateMetadata(): Metadata {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html
-      lang="en"
-      className={cn(
-        leagueSpartan.variable,
-        inter.variable,
-        poppins.variable,
-        'size-full scroll-smooth motion-reduce:scroll-auto'
-      )}
-      style={{ scrollbarGutter: 'stable' }}
-      suppressHydrationWarning
-    >
-      {/* <head>
-        <script src="https://unpkg.com/react-scan/dist/auto.global.js" defer />
-      </head> */}
-      <CSPostHogProvider>
-        <body
-          className={cn(
-            'relative mx-auto flex min-h-dvh w-full flex-col justify-between text-pretty pb-4 antialiased lg:pb-8',
-            {
-              'debug-screens': process.env.VERCEL_ENV !== 'production',
-            }
-          )}
-        >
-          {children}
-          <ConsoleEasterEgg />
-          <Analytics />
-          <SpeedInsights />
-        </body>
-      </CSPostHogProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        {children}
+        <Analytics />
+        <SpeedInsights />
+      </body>
     </html>
   )
 }

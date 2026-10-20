@@ -43,6 +43,27 @@ for (const path of ['/', '/resume']) {
   })
 }
 
+test('a light pick holds through the page transition on a dark system', async ({ page, browserName }) => {
+  test.skip(browserName === 'firefox', 'Firefox has no cross-document view transitions yet')
+  await page.emulateMedia({ colorScheme: 'dark' })
+  await page.goto('/')
+  await page.getByRole('button', { name: 'Dark theme' }).click()
+
+  // Between the two pages' fades, the transition's own background is all that shows.
+  await page.addInitScript(() =>
+    addEventListener('pagereveal', () =>
+      Reflect.set(
+        window,
+        'transitionBackground',
+        getComputedStyle(document.documentElement, '::view-transition').backgroundColor
+      )
+    )
+  )
+  await page.getByRole('link', { name: 'Résumé' }).first().click()
+  await expect(page.getByRole('heading', { name: 'Résumé', level: 1 })).toBeVisible()
+  expect(await page.evaluate(() => Reflect.get(window, 'transitionBackground'))).toBe(lightBackground)
+})
+
 test('a dark pick still prints light', async ({ page }) => {
   await page.goto('/')
   await page.getByRole('button', { name: 'Dark theme' }).click()

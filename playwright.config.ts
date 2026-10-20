@@ -29,7 +29,16 @@ export default defineConfig({
     },
     {
       name: 'Mobile Chrome',
-      use: { ...devices['Mobile Chrome'] },
+      use: { ...devices['Pixel 9'] },
+    },
+    {
+      name: 'Mobile Safari',
+      use: { ...devices['iPhone 17'] },
+    },
+    {
+      // Playwright's Firefox cannot emulate isMobile (no mobile viewport meta handling), so this is a phone-sized touch window.
+      name: 'Mobile Firefox',
+      use: { ...devices['Desktop Firefox'], viewport: devices['Pixel 9'].viewport, hasTouch: true },
     },
   ],
   webServer: {

@@ -8,7 +8,10 @@ const routes = [
   { path: '/does-not-exist', maxBytes: 585_000 },
 ]
 
-test.skip(({ browserName }) => browserName !== 'chromium', 'budgets are measured in Chromium')
+test.skip(
+  ({ browserName }) => browserName !== 'chromium',
+  'byte counts differ by engine, so budgets are measured in Chromium'
+)
 
 for (const { path, maxBytes, printFonts } of routes) {
   test(`${path} first view stays lean`, async ({ page, baseURL }) => {

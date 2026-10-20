@@ -1,20 +1,42 @@
-import { ACTIVE_VARIANT } from '@/lib/site-config'
-import { CAREER } from '@/lib/career-data'
+import { RESUME } from '@/lib/career-data'
 
 import { markdownResponse } from '../markdown-response'
 
 export function GET() {
   return markdownResponse(
     [
-      '# Resume — Fabricio Pirini',
+      '# Fabricio Tramontano Pirini',
       '',
-      `> ${CAREER.subtitle[ACTIVE_VARIANT]} specializing in React, Next.js, and TypeScript.`,
+      `> ${RESUME.subtitle}. React, React Native, Expo, and Next.js. Brazil (UTC−3), working with US teams.`,
       '',
-      'For the full interactive resume, visit [fabriciopirini.com/resume](https://fabriciopirini.com/resume).',
+      'Email: fabricio@fabriciopirini.com · PDF: https://fabriciopirini.com/api/resume · LinkedIn: https://www.linkedin.com/in/fabriciopirini/ · GitHub: https://github.com/fabriciopirini',
       '',
-      '## Download',
+      '## Summary',
       '',
-      'PDF version: [fabriciopirini.com/api/resume](https://fabriciopirini.com/api/resume)',
+      RESUME.summary,
+      '',
+      '## Experience',
+      ...RESUME.jobs.flatMap(({ company, location, periods }) => [
+        '',
+        `### ${company} · ${location}`,
+        ...periods.flatMap(({ role, years, bullets }) => [
+          '',
+          `**${role}**, ${years}`,
+          '',
+          ...bullets.map((b) => `- ${b}`),
+        ]),
+      ]),
+      '',
+      '## Skills',
+      '',
+      ...RESUME.skills.map(({ label, value }) => `- **${label}:** ${value}`),
+      '',
+      '## Education',
+      '',
+      ...RESUME.education.map(
+        ({ institution, location, credential, years }) => `- **${institution}**, ${credential}. ${location}, ${years}`
+      ),
+      '',
     ].join('\n')
   )
 }

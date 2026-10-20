@@ -4,7 +4,7 @@ import { expect, test, type Response } from '@playwright/test'
 // Raise a budget only with a reason in the pull request.
 const routes = [
   { path: '/', maxBytes: 600_000 },
-  { path: '/resume', maxBytes: 770_000, printFonts: true },
+  { path: '/resume', maxBytes: 615_000 },
   { path: '/does-not-exist', maxBytes: 585_000 },
 ]
 
@@ -13,7 +13,7 @@ test.skip(
   'byte counts differ by engine, so budgets are measured in Chromium'
 )
 
-for (const { path, maxBytes, printFonts } of routes) {
+for (const { path, maxBytes } of routes) {
   test(`${path} first view stays lean`, async ({ page, baseURL }) => {
     const responses: Response[] = []
     page.on('response', (response) => responses.push(response))
@@ -25,12 +25,10 @@ for (const { path, maxBytes, printFonts } of routes) {
     // Modern browsers skip the nomodule polyfill, so it never blocks the first paint.
     await expect(page.locator('head script[src]:not([async]):not([defer]):not([nomodule])')).toHaveCount(0)
 
-    // The résumé still loads Roboto and Source Sans 3 for its PDF until it moves to system fonts.
-    if (!printFonts) {
-      expect(responses.filter((response) => response.request().resourceType() === 'font')).toEqual([])
-      expect(document!.headers().link ?? '').not.toMatch(/as="?font/)
-      await expect(page.locator('link[rel="preload"][as="font"]')).toHaveCount(0)
-    }
+    const fontUrls = responses.filter((r) => r.request().resourceType() === 'font').map((r) => r.url())
+    expect(fontUrls).toEqual([])
+    expect(document!.headers().link ?? '').not.toMatch(/as="?font/)
+    await expect(page.locator('link[rel="preload"][as="font"]')).toHaveCount(0)
 
     let bytes = 0
     for (const response of responses) bytes += (await response.body()).length
@@ -51,6 +49,10 @@ test('agents get markdown, describedby links, and content signals', async ({ req
     expect(vary).toContain('accept')
   }
   expect((await request.get('/resume/unknown', { headers: { accept: 'text/markdown' } })).status()).toBe(404)
+  // The résumé's markdown is the whole document, down to the last role and education.
+  const resume = await (await request.get('/resume', { headers: { accept: 'text/markdown' } })).text()
+  expect(resume).toContain('Software Engineering Intern')
+  expect(resume).toContain('Bachelor of Computer Engineering')
 
   const home = await request.get('/')
   expect(home.headers()['content-type']).toContain('text/html')

@@ -1,0 +1,135 @@
+/* The résumé on top of the Quiet Ledger, plus the print block the PDF workflow renders. */
+
+.resume .back {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.resume .proof h3 {
+  margin-bottom: 0.1rem;
+}
+
+.resume .role {
+  margin: 0;
+  font-weight: 500;
+}
+
+.resume .proof ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.resume .proof li + li {
+  margin-top: 0.35rem;
+}
+
+.resume .proof li::marker {
+  color: var(--muted);
+}
+
+.resume .continued {
+  border-top: 0;
+  padding-top: 0.25rem;
+}
+
+@media screen {
+  .resume .continued :is(h3, .where) {
+    display: none;
+  }
+}
+
+.resume .skills {
+  border-top: 1px solid var(--rule);
+}
+
+.resume .skills div {
+  padding: 0.5rem 0;
+}
+
+.resume .ledger .years {
+  white-space: normal;
+}
+
+@media (min-width: 40rem) {
+  .resume .skills div {
+    display: grid;
+    grid-template-columns: 11rem minmax(0, 1fr);
+    column-gap: 1.5rem;
+    align-items: baseline;
+  }
+
+  .resume .skills dt {
+    margin-top: 0;
+  }
+}
+
+@page {
+  size: A4;
+  margin: 1.6cm 1.8cm;
+}
+
+@media print {
+  html:has(.resume) {
+    font-size: 9.5pt;
+    background: none;
+  }
+
+  body:has(.resume) {
+    background: none;
+  }
+
+  .ledger-page.resume {
+    --bg: #fff;
+    --fg: #000;
+    --muted: #444;
+    --rule: #ccc;
+    --accent: #1d6448;
+    font-family: Roboto, Arial, sans-serif;
+    line-height: 1.4;
+    min-height: 0;
+  }
+
+  .resume .page {
+    max-width: none;
+    padding: 0;
+  }
+
+  .resume :is(.skip, .back, .invite, .outro),
+  .resume .contact li:has(a[href='/api/resume']) {
+    display: none;
+  }
+
+  .resume h2 {
+    padding-top: 1rem;
+  }
+
+  /* The role is the break unit: a company-level unit pushes a long multi-role company whole to the next page. */
+  .resume .proof {
+    padding: 0.6rem 0;
+    break-inside: avoid;
+  }
+
+  .resume :is(h2, h3) {
+    break-after: avoid;
+  }
+
+  .resume .continued {
+    padding-top: 0;
+  }
+
+  .resume .proof ul {
+    margin-top: 0.3rem;
+  }
+
+  .resume .proof li + li {
+    margin-top: 0.15rem;
+  }
+
+  .resume :is(.skills div, .ledger li) {
+    padding: 0.3rem 0;
+  }
+}

@@ -77,11 +77,6 @@ export interface SiteCopy {
     sideDismiss: string
     sideAccept: string
   }
-  errors: {
-    notFound: { heading: string; body: string; cta: string }
-    error: { heading: string; body: string; retry: string; home: string }
-  }
-  consoleMessage: string
 }
 
 export const COPY: SiteCopy = {
@@ -462,27 +457,4 @@ export const COPY: SiteCopy = {
     sideDismiss: 'No thanks',
     sideAccept: 'Sure!',
   },
-
-  // ----------------------------------------------------------
-  // ERROR PAGES
-  // ----------------------------------------------------------
-  errors: {
-    notFound: {
-      heading: 'Whoops! Empty Shelf!',
-      body: "Looks like the page you were trying to visit is out on a coffee break. Let's navigate back to the homepage before it gets lost in the void of cyberspace.",
-      cta: 'Return Home',
-    },
-    error: {
-      heading: 'Glitch in the Matrix',
-      body: "Our website's conveyor belt seems to have hit a snag. While we reboot the system, why not try refreshing, or head back to the safety of the homepage?",
-      retry: 'Try again',
-      home: 'Return Home',
-    },
-  },
-
-  // ----------------------------------------------------------
-  // CONSOLE EASTER EGG
-  // ----------------------------------------------------------
-  consoleMessage:
-    '\n%cFabricio Pirini%c\n\nYou opened DevTools. I respect that.\n\n%cBuilt with Next.js 16, React 19, Framer Motion, and strong opinions about spacing.\n\n%cWant to build something together? → fabricio@fabriciopirini.com\n\n',
 }

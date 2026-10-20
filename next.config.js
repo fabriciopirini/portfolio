@@ -3,15 +3,7 @@ const nextConfig = {
   reactCompiler: true,
   cacheComponents: true,
   experimental: {
-    viewTransition: true,
-  },
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'picsum.photos',
-      },
-    ],
+    inlineCss: true,
   },
   async redirects() {
     return [
@@ -40,14 +32,6 @@ const nextConfig = {
           source: '/robots.txt',
           destination: '/api/robots',
         },
-        {
-          source: '/ingest/static/:path*',
-          destination: 'https://us-assets.i.posthog.com/static/:path*',
-        },
-        {
-          source: '/ingest/:path*',
-          destination: 'https://us.i.posthog.com/:path*',
-        },
       ],
     }
   },
@@ -64,8 +48,6 @@ const nextConfig = {
       },
     ]
   },
-  // This is required to support PostHog trailing slash API requests
-  skipTrailingSlashRedirect: true,
 }
 
 module.exports = nextConfig

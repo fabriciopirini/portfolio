@@ -1,4 +1,36 @@
-/* Quiet Ledger homepage. System fonts, light and dark from the system, reduced motion. */
+/* Quiet Ledger. System fonts, light and dark from the system, reduced motion. */
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/* The live look where scrollbars take space: a thin scrollbar in a stable gutter over the old dark canvas. */
+html {
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: #6b7280 transparent;
+  background: #262626;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-wrap: pretty;
+}
+
+/* Links carry no underline today; drop this rule to bring the underlines below back. */
+a {
+  text-decoration: inherit;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
 
 .ledger-page {
   --bg: #faf8f3;
@@ -28,8 +60,6 @@
 }
 
 body:has(.ledger-page) {
-  display: block;
-  padding: 0;
   background: #faf8f3;
   color-scheme: light dark;
 }
@@ -48,8 +78,18 @@ body:has(.ledger-page) {
   -webkit-tap-highlight-color: transparent;
 }
 
+.ledger-page button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
 @media (hover: hover) and (pointer: fine) {
-  .ledger-page a:hover {
+  .ledger-page a:hover,
+  .ledger-page button:hover {
     color: var(--accent);
     text-decoration-color: currentColor;
   }
@@ -120,7 +160,8 @@ body:has(.ledger-page) {
   column-gap: 1.25rem;
 }
 
-.ledger-page .contact a {
+.ledger-page .contact a,
+.ledger-page .contact button {
   display: inline-flex;
   align-items: center;
   min-height: 44px;

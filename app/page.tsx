@@ -1,8 +1,5 @@
-import { cacheLife } from 'next/cache'
 import type { Metadata } from 'next'
 import type { Person, WithContext } from 'schema-dts'
-
-import './quiet-ledger.css'
 
 const jsonLd: WithContext<Person> = {
   '@context': 'https://schema.org',
@@ -47,13 +44,16 @@ const ContactLinks = () => (
   </>
 )
 
-export default async function Home() {
-  'use cache'
-  cacheLife('days')
+// Chromium prerenders the résumé on hover or pointer-down; other browsers ignore the rules.
+const speculationRules = JSON.stringify({
+  prerender: [{ where: { href_matches: '/resume' }, eagerness: 'moderate' }],
+})
 
+export default function Home() {
   return (
     <div className="ledger-page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="speculationrules" dangerouslySetInnerHTML={{ __html: speculationRules }} />
       <a className="skip" href="#work">
         Skip to selected work
       </a>

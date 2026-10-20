@@ -120,4 +120,11 @@ test.describe('Quiet Ledger homepage', () => {
     expect(await top()).toBeCloseTo(rest, 1)
     await expect(resume).toHaveCSS('text-decoration-line', 'underline')
   })
+
+  test('only the footer rule sits between Experience and Get in touch', async ({ page }) => {
+    const entries = page.locator('#experience li')
+    await expect(entries.first()).toHaveCSS('border-bottom-style', 'solid')
+    await expect(entries.last()).toHaveCSS('border-bottom-style', 'none')
+    await expect(page.locator('footer')).toHaveCSS('border-top-style', 'solid')
+  })
 })

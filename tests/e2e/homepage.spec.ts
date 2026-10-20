@@ -11,6 +11,7 @@ test.describe('Quiet Ledger homepage', () => {
     await expect(page.getByText('Building since 2017')).toBeVisible()
     await expect(page.getByText(/pre-launch US consumer fintech/i).first()).toBeVisible()
     await expect(page.getByRole('heading', { name: /technology/i })).toHaveCount(0)
+    await expect(page.getByRole('heading', { name: 'About', exact: true })).toHaveCount(0)
     await expect(page.getByRole('link', { name: 'Shop' })).toHaveCount(0)
     await expect(page.getByText(/years of experience/i)).toHaveCount(0)
     await expect(page.getByText(/Currently at Kraken/)).toHaveCount(0)

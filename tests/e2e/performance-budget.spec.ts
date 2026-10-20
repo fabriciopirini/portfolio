@@ -2,10 +2,11 @@ import { expect, test, type Response } from '@playwright/test'
 
 // Uncompressed bytes of every response during a cold load: the production build's measurement plus about 5%.
 // Raise a budget only with a reason in the pull request.
+// `/` and `/resume` ship no framework JavaScript (Pages Router, `unstable_runtimeJS: false`); the App Router's 404 does.
 const routes = [
-  { path: '/', maxBytes: 600_000 },
-  { path: '/resume', maxBytes: 580_000 },
-  { path: '/does-not-exist', maxBytes: 585_000 },
+  { path: '/', maxBytes: 15_500, runtime: false },
+  { path: '/resume', maxBytes: 32_000, runtime: false },
+  { path: '/does-not-exist', maxBytes: 585_000, runtime: true },
 ]
 
 test.skip(
@@ -13,7 +14,7 @@ test.skip(
   'byte counts differ by engine, so budgets are measured in Chromium'
 )
 
-for (const { path, maxBytes } of routes) {
+for (const { path, maxBytes, runtime } of routes) {
   test(`${path} first view stays lean`, async ({ page, baseURL }) => {
     const responses: Response[] = []
     page.on('response', (response) => responses.push(response))
@@ -29,6 +30,13 @@ for (const { path, maxBytes } of routes) {
     expect(fontUrls).toEqual([])
     expect(document!.headers().link ?? '').not.toMatch(/as="?font/)
     await expect(page.locator('link[rel="preload"][as="font"]')).toHaveCount(0)
+
+    // The flag fails silently, by shipping the runtime again, so check what it is supposed to remove.
+    if (!runtime) {
+      const scripts = await page.locator('script[src]').evaluateAll((els) => els.map((el) => el.getAttribute('src')))
+      expect(scripts).toEqual(['/_vercel/insights/script.js', '/_vercel/speed-insights/script.js'])
+      expect(await document!.text()).not.toMatch(/__next_f|__NEXT_DATA__/)
+    }
 
     let bytes = 0
     for (const response of responses) bytes += (await response.body()).length

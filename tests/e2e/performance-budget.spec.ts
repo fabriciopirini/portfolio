@@ -6,8 +6,8 @@ import { themeScript } from '@/app/theme-toggle'
 // Raise a budget only with a reason in the pull request.
 // `/` and `/resume` ship no framework JavaScript (Pages Router, `unstable_runtimeJS: false`); the App Router's 404 does.
 const routes = [
-  { path: '/', maxBytes: 18_550, runtime: false },
-  { path: '/resume', maxBytes: 33_750, runtime: false },
+  { path: '/', maxBytes: 21_300, runtime: false },
+  { path: '/resume', maxBytes: 36_500, runtime: false },
   { path: '/does-not-exist', maxBytes: 585_000, runtime: true },
 ]
 
@@ -34,7 +34,7 @@ for (const { path, maxBytes, runtime } of routes) {
     await expect(page.locator('link[rel="preload"][as="font"]')).toHaveCount(0)
 
     // The flag fails silently, by shipping the runtime again, so check what it is supposed to remove.
-    // The one script allowed inline is the theme script, which has to run before the first paint.
+    // Inline, only the theme script (which has to run before the first paint) and the loader for Vercel's two scripts.
     if (!runtime) {
       const scripts = await page.locator('script[src]').evaluateAll((els) => els.map((el) => el.getAttribute('src')))
       expect(scripts).toEqual(['/_vercel/insights/script.js', '/_vercel/speed-insights/script.js'])
@@ -43,7 +43,7 @@ for (const { path, maxBytes, runtime } of routes) {
         .evaluateAll((els: HTMLScriptElement[]) =>
           els.filter((el) => !el.type || /javascript|module/.test(el.type)).map((el) => el.textContent)
         )
-      expect(inline).toEqual([themeScript])
+      expect(inline).toEqual([themeScript, expect.stringContaining("'/_vercel/insights/script.js'")])
       expect(await document!.text()).not.toMatch(/__next_f|__NEXT_DATA__/)
     }
 

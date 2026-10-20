@@ -30,6 +30,40 @@ a {
   @view-transition {
     navigation: auto;
   }
+
+  /* The homepage's Résumé link grows into the résumé's heading, and shrinks back on the way home. */
+  .intro .contact a[href='/resume'],
+  .resume h1 {
+    view-transition-name: resume-title;
+  }
+
+  ::view-transition-group(resume-title) {
+    animation-duration: 300ms;
+    animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  /* The old page fades out before the new one fades in, so their text never overlaps while the title moves. */
+  ::view-transition-old(root) {
+    animation-duration: 120ms;
+  }
+
+  ::view-transition-new(root) {
+    animation-delay: 90ms;
+    animation-duration: 210ms;
+  }
+
+  /* Between the two fades, the page colour shows instead of the dark canvas behind it. */
+  ::view-transition {
+    color-scheme: light dark;
+    background: light-dark(#faf8f3, #121311);
+  }
+
+  /* Both snapshots stay centred on the moving box: the link's 44px tap target is taller than its text. */
+  ::view-transition-old(resume-title),
+  ::view-transition-new(resume-title) {
+    inset-block-start: 50%;
+    translate: 0 -50%;
+  }
 }
 
 .ledger-page {

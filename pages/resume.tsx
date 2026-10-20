@@ -30,6 +30,8 @@ export default function ResumePage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Resume - Fabricio Pirini</title>
         <meta name="description" content={COPY.meta.description[ACTIVE_VARIANT]} />
+        {/* First paint waits until the heading above #summary-h is parsed, so the view transition can capture it. */}
+        <link rel="expect" href="#summary-h" blocking="render" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </Head>
       <div className="ledger-page resume">

@@ -41,7 +41,7 @@ All new features, updates, and changes must include tests to prevent regressions
 ## Speed Budget
 
 - First view of `/` and `/resume`: no web fonts, no stylesheet links, no third parties, and no `/_next/` scripts. `tests/e2e/performance-budget.spec.ts` enforces it.
-- Both pages live in the Pages Router with `unstable_runtimeJS: false`, so they ship zero framework JavaScript. `pages/_document.tsx` inlines `app/ledger.css` (plus `app/resume/resume.css` on `/resume`) and carries the Vercel Analytics and Speed Insights tags. Everything else (API routes, sitemap, 404) stays in the App Router.
+- Both pages live in the Pages Router with `unstable_runtimeJS: false`, so they ship zero framework JavaScript. `pages/_document.tsx` inlines `app/ledger.css` (plus `app/resume/resume.css` on `/resume`) and loads the Vercel Analytics and Speed Insights scripts once the page is shown (not while prerendered). Everything else (API routes, sitemap, 404) stays in the App Router.
 - Exit: if the budget test's zero-JS check fails after a Next.js upgrade, or a page ever needs client interactivity, port the two pages to Astro instead of patching around the flag.
 
 ## Copy Consistency

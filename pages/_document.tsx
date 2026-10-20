@@ -25,6 +25,18 @@ const openGraph = {
   'og:type': 'website',
 }
 
+// Chromium prerenders the other page once its link is hovered for 10ms (desktop) or on screen for 50ms (mobile).
+const speculationRules = JSON.stringify({
+  prerender: [{ where: { href_matches: ['/', '/resume'] }, eagerness: 'eager' }],
+})
+
+// Vercel's scripts wait until a prerendered page is shown, so a prerender nobody opens never counts as a pageview.
+const vercelScripts = `function load() {
+  for (const src of ['/_vercel/insights/script.js', '/_vercel/speed-insights/script.js'])
+    document.body.append(Object.assign(document.createElement('script'), { src }))
+}
+document.prerendering ? document.addEventListener('prerenderingchange', load, { once: true }) : load()`
+
 /** `/` and `/resume`: inline CSS, no framework JavaScript (each page sets `unstable_runtimeJS: false`), Vercel's two scripts. */
 export default function Document({ __NEXT_DATA__ }: DocumentProps) {
   return (
@@ -42,8 +54,8 @@ export default function Document({ __NEXT_DATA__ }: DocumentProps) {
       <body>
         <Main />
         <NextScript />
-        <script defer src="/_vercel/insights/script.js" />
-        <script defer src="/_vercel/speed-insights/script.js" />
+        <script type="speculationrules" dangerouslySetInnerHTML={{ __html: speculationRules }} />
+        <script dangerouslySetInnerHTML={{ __html: vercelScripts }} />
       </body>
     </Html>
   )

@@ -9,11 +9,6 @@ import { COPY } from '@/lib/site-copy'
 // Ships no framework JavaScript; tests/e2e/performance-budget.spec.ts fails if the flag stops working.
 export const config: PageConfig = { unstable_runtimeJS: false }
 
-// Chromium prerenders the résumé on hover or pointer-down; other browsers ignore the rules.
-const speculationRules = JSON.stringify({
-  prerender: [{ where: { href_matches: '/resume' }, eagerness: 'moderate' }],
-})
-
 export default function Home() {
   return (
     <div className="ledger-page">
@@ -25,12 +20,13 @@ export default function Home() {
           content="Senior Frontend Engineer building fintech products for web and mobile. Building since 2017."
         />
         <link rel="canonical" href="https://fabriciopirini.com" />
+        {/* First paint waits until the Résumé link above #work is parsed, so the view transition can capture it. */}
+        <link rel="expect" href="#work" blocking="render" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', ...person }) }}
         />
       </Head>
-      <script type="speculationrules" dangerouslySetInnerHTML={{ __html: speculationRules }} />
       <a className="skip" href="#work">
         Skip to selected work
       </a>

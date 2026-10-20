@@ -60,4 +60,24 @@ test.describe('Quiet Ledger homepage', () => {
     await page.keyboard.press('Tab')
     await expect(page.getByRole('link', { name: 'GitHub' }).first()).toBeFocused()
   })
+
+  test('contact row keeps Résumé, LinkedIn and GitHub on one line', async ({ page }) => {
+    const tops = async () =>
+      Promise.all(
+        (await page.getByRole('list', { name: 'Contact' }).all()).map((row) =>
+          row.getByRole('link').evaluateAll((links) => links.map((a) => a.getBoundingClientRect().top))
+        )
+      )
+
+    await page.setViewportSize({ width: 1440, height: 900 })
+    for (const [email, ...rest] of await tops()) expect(rest).toEqual([email, email, email])
+
+    for (const width of [320, 375, 412]) {
+      await page.setViewportSize({ width, height: 800 })
+      for (const [email, resume, ...rest] of await tops()) {
+        expect(resume).toBeGreaterThan(email)
+        expect(rest).toEqual([resume, resume])
+      }
+    }
+  })
 })

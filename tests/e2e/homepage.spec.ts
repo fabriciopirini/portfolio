@@ -49,8 +49,10 @@ test.describe('Quiet Ledger homepage', () => {
     await expect(page.locator('#work')).toBeFocused()
   })
 
-  test('keyboard focus visits the contact links in order', async ({ page }) => {
+  test('keyboard focus visits the theme toggle, then the contact links in order', async ({ page }) => {
     await page.keyboard.press('Tab')
+    await page.keyboard.press('Tab')
+    await expect(page.getByRole('button', { name: 'Dark theme' })).toBeFocused()
     await page.keyboard.press('Tab')
     await expect(page.getByRole('link', { name: 'fabricio@fabriciopirini.com' }).first()).toBeFocused()
     await page.keyboard.press('Tab')

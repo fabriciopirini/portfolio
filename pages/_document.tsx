@@ -3,6 +3,7 @@ import { join } from 'path'
 
 import { Head, Html, Main, NextScript, type DocumentProps } from 'next/document'
 
+import { themeScript } from '@/app/theme-toggle'
 import { COPY } from '@/lib/site-copy'
 import { ACTIVE_VARIANT } from '@/lib/site-config'
 import Thumbnail from '@/public/assets/thumbnail.jpg'
@@ -37,11 +38,12 @@ const vercelScripts = `function load() {
 }
 document.prerendering ? document.addEventListener('prerenderingchange', load, { once: true }) : load()`
 
-/** `/` and `/resume`: inline CSS, no framework JavaScript (each page sets `unstable_runtimeJS: false`), Vercel's two scripts. */
+/** `/` and `/resume`: inline CSS, no framework JavaScript (each page sets `unstable_runtimeJS: false`), only the inline theme script and Vercel's two scripts. */
 export default function Document({ __NEXT_DATA__ }: DocumentProps) {
   return (
     <Html lang="en">
       <Head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <style dangerouslySetInnerHTML={{ __html: ledger }} />
         {__NEXT_DATA__.page === '/resume' && <style dangerouslySetInnerHTML={{ __html: resume }} />}
         <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />

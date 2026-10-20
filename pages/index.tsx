@@ -2,6 +2,7 @@ import type { PageConfig } from 'next'
 import Head from 'next/head'
 
 import { ContactLinks } from '@/app/contact-links'
+import { ThemeToggle } from '@/app/theme-toggle'
 import { person } from '@/lib/person'
 import { ACTIVE_VARIANT } from '@/lib/site-config'
 import { COPY } from '@/lib/site-copy'
@@ -31,6 +32,7 @@ export default function Home() {
         Skip to selected work
       </a>
       <div className="page">
+        <ThemeToggle />
         <header className="intro">
           <h1>Fabricio Pirini</h1>
           <p className="headline">Senior Frontend Engineer building fintech products for web and mobile.</p>

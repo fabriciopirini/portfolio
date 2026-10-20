@@ -1,5 +1,7 @@
 import { expect, test, type Response } from '@playwright/test'
 
+import { themeScript } from '@/app/theme-toggle'
+
 // Uncompressed bytes of every response during a cold load: the production build's measurement plus about 5%.
 // Raise a budget only with a reason in the pull request.
 // `/` and `/resume` ship no framework JavaScript (Pages Router, `unstable_runtimeJS: false`); the App Router's 404 does.
@@ -32,9 +34,16 @@ for (const { path, maxBytes, runtime } of routes) {
     await expect(page.locator('link[rel="preload"][as="font"]')).toHaveCount(0)
 
     // The flag fails silently, by shipping the runtime again, so check what it is supposed to remove.
+    // The one script allowed inline is the theme script, which has to run before the first paint.
     if (!runtime) {
       const scripts = await page.locator('script[src]').evaluateAll((els) => els.map((el) => el.getAttribute('src')))
       expect(scripts).toEqual(['/_vercel/insights/script.js', '/_vercel/speed-insights/script.js'])
+      const inline = await page
+        .locator('script:not([src])')
+        .evaluateAll((els: HTMLScriptElement[]) =>
+          els.filter((el) => !el.type || /javascript|module/.test(el.type)).map((el) => el.textContent)
+        )
+      expect(inline).toEqual([themeScript])
       expect(await document!.text()).not.toMatch(/__next_f|__NEXT_DATA__/)
     }
 

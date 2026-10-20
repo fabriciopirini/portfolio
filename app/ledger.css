@@ -78,25 +78,44 @@ body {
   overflow-wrap: break-word;
 }
 
-@media (prefers-color-scheme: dark) {
-  .ledger-page {
+body:has(.ledger-page) {
+  background: #faf8f3;
+  color-scheme: light dark;
+}
+
+/* Dark on screen when the system asks, unless the toggle picked light (data-theme on <html>). Print stays light. */
+@media screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .ledger-page {
     --bg: #121311;
     --fg: #ebeae5;
     --muted: #a3a097;
     --rule: #2c2e2a;
     --accent: #84cba9;
   }
-}
 
-body:has(.ledger-page) {
-  background: #faf8f3;
-  color-scheme: light dark;
-}
-
-@media (prefers-color-scheme: dark) {
-  body:has(.ledger-page) {
+  :root:not([data-theme='light']) body:has(.ledger-page) {
     background: #121311;
   }
+}
+
+@media screen {
+  [data-theme='dark'] .ledger-page {
+    --bg: #121311;
+    --fg: #ebeae5;
+    --muted: #a3a097;
+    --rule: #2c2e2a;
+    --accent: #84cba9;
+    color-scheme: dark;
+  }
+
+  [data-theme='dark'] body:has(.ledger-page) {
+    background: #121311;
+    color-scheme: dark;
+  }
+}
+
+[data-theme='light'] :is(body, .ledger-page) {
+  color-scheme: light;
 }
 
 .ledger-page a {
@@ -149,10 +168,23 @@ body:has(.ledger-page) {
 }
 
 .ledger-page .page {
+  position: relative;
   max-width: 45rem;
   margin: 0 auto;
   padding: max(2.5rem, env(safe-area-inset-top)) max(1.25rem, env(safe-area-inset-right)) 3rem
     max(1.25rem, env(safe-area-inset-left));
+}
+
+/* The theme toggle, in the column's top-right corner; muted until hovered. */
+.ledger-page .theme {
+  position: absolute;
+  top: 0;
+  right: 0.5rem;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: var(--muted);
 }
 
 .ledger-page h1 {

@@ -130,7 +130,7 @@ body:has(.ledger-page) {
 .ledger-page a {
   color: inherit;
   text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
+  text-underline-offset: 0.3em;
   text-decoration-color: var(--muted);
   -webkit-tap-highlight-color: transparent;
 }
@@ -252,11 +252,6 @@ body:has(.ledger-page) {
   overflow-wrap: anywhere;
 }
 
-.ledger-page .contact .email a {
-  font-variant-numeric: tabular-nums;
-  color: var(--accent);
-}
-
 /* Spaced links get the 2024 navbar hover (after maggieappleton.com): the text lifts and the underline hands over
    to a line that grows and drops. ::after redraws the underline in the box ::before grows in, so the fading line and
    the new one move as one. ponytail: the lines sit under one line of text; a wrapping link needs a span. */
@@ -274,7 +269,7 @@ body:has(.ledger-page) {
     content: '';
     position: absolute;
     inset-inline: 0;
-    top: calc(50% + 0.55em);
+    top: calc(50% + 0.65em);
     height: 1px;
     background: currentColor;
     transform-origin: bottom;
@@ -296,10 +291,11 @@ body:has(.ledger-page) {
     transform: translateY(-2px);
   }
 
-  /* The lines ride the link's 2px lift, so they move 4px to end 2px lower. */
+  /* The lines ride the link's 2px lift. They rest 0.1em below the old 0.2em underline, so dropping 4px less that
+     0.1em still ends them 2px below where it sat. */
   .ledger-page :is(.contact, .top nav) a:hover::before,
   .ledger-page :is(.contact, .top nav) a:hover::after {
-    transform: translateY(4px) scaleY(2);
+    transform: translateY(calc(4px - 0.1em)) scaleY(2);
   }
 
   .ledger-page :is(.contact, .top nav) a:hover::before {

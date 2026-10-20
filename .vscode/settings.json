@@ -1,11 +1,4 @@
 {
-  "tailwindCSS.experimental.classRegex": [
-    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["classed(?:\\.\\w*)?\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
-  ],
-  "files.associations": {
-    "*.css": "tailwindcss"
-  },
   "editor.quickSuggestions": {
     "strings": true
   },

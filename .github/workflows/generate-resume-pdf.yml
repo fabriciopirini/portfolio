@@ -30,7 +30,7 @@ jobs:
 
       - name: Install PDF fonts
         run: |
-          sudo apt-get install -y -qq fonts-roboto
+          sudo apt-get install -y -qq fonts-roboto poppler-utils
           mkdir -p ~/.local/share/fonts
           curl -sL "https://github.com/google/fonts/raw/main/ofl/sourcesans3/SourceSans3%5Bwght%5D.ttf" -o ~/.local/share/fonts/SourceSans3.ttf
           curl -sL "https://github.com/google/fonts/raw/main/ofl/sourcesans3/SourceSans3-Italic%5Bwght%5D.ttf" -o ~/.local/share/fonts/SourceSans3-Italic.ttf
@@ -74,6 +74,17 @@ jobs:
           })().catch(err => { console.error(err); process.exit(1); });
           SCRIPT
           node generate-pdf.js
+
+      # Synthesized small caps print one glyph per letter, so "Contractor" reaches extractors as "C" + "ontractor".
+      # Poppler's word boxes show that split; the page count guards the one-role-per-break layout.
+      - name: Check the PDF
+        run: |
+          words=$(pdftotext -bbox "$PDF_FILENAME" - | sed -n 's/.*>\(.*\)<\/word>$/\1/p' | sed 's/&amp;/\&/g' | tr '\n' ' ')
+          for line in 'Contractor - Full Stack Engineer' 'Lead Software Engineer & Tech Lead' 'Bachelor of Computer Engineering'; do
+            grep -qF "$line" <<< "$words" || { echo "::error::'$line' does not extract as words from the PDF"; exit 1; }
+          done
+          pages=$(pdfinfo "$PDF_FILENAME" | awk '/^Pages:/ { print $2 }')
+          [ "$pages" -le 2 ] || { echo "::error::The PDF has $pages pages; expected at most 2"; exit 1; }
 
       - name: Checkout utils repo
         uses: actions/checkout@v6

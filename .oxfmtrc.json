@@ -4,8 +4,5 @@
   "singleQuote": true,
   "printWidth": 120,
   "trailingComma": "es5",
-  "experimentalTailwindcss": {
-    "functions": ["clsx", "cn"]
-  },
   "ignorePatterns": []
 }

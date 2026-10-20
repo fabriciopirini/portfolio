@@ -10,7 +10,7 @@
 // across the entire site.
 // ============================================================
 
-import type { SiteVariant } from './site-config'
+import { ACTIVE_VARIANT, type SiteVariant } from './site-config'
 export type { SiteVariant }
 
 export interface RolePeriod {
@@ -178,8 +178,8 @@ export const CAREER: CareerData = {
       periods: [
         {
           role: 'Senior Frontend Engineer',
-          start: '2026',
-          end: 'now',
+          start: 'Sep. 2026',
+          end: 'Present',
           bullets: {
             default: [
               'Set up the TypeScript monorepo with one Expo and React Native app for iOS, Android, and web, plus a Next.js admin, from the first commit.',
@@ -200,7 +200,7 @@ export const CAREER: CareerData = {
         {
           role: 'Contractor - Full Stack Engineer',
           start: 'Nov. 2024',
-          end: '2026',
+          end: 'June 2026',
           bullets: {
             default: [
               'Built a React Native in-app support portal from scratch across 3 mobile apps (Kraken, Kraken Pro, Krak) with tier-aware contact options, VIP escalation, and live queue visibility. Owned end to end: frontend, backend integration, and rollout.',
@@ -450,7 +450,7 @@ export const CAREER: CareerData = {
       periods: [
         {
           role: 'Full Stack Engineer',
-          start: 'Sept. 2018',
+          start: 'Sep. 2018',
           end: 'Aug. 2020',
           bullets: {
             default: [
@@ -554,10 +554,10 @@ export const CAREER: CareerData = {
   education: [
     {
       id: 'unifei',
-      institution: 'UNIFEI — Universidade Federal de Itajubá',
-      location: 'Itajubá, Brazil',
+      institution: 'Universidade Federal de Itajubá (UNIFEI)',
+      location: 'Itabira, Brazil',
       credential: 'Bachelor of Computer Engineering',
-      start: '2012',
+      start: '2011',
       end: '2018',
       rawNotes: `
         - Computer Engineering degree — hardware + software curriculum
@@ -580,7 +580,7 @@ export const CAREER: CareerData = {
       id: 'uoft',
       institution: 'University of Toronto',
       location: 'Toronto, Canada',
-      credential: 'Exchange Program — Electrical and Computer Engineering (18 months, 3 semesters)',
+      credential: 'Exchange Program in Electrical and Computer Engineering (18 months, 3 semesters)',
       start: 'Mid 2013',
       end: 'Late 2014',
       rawNotes: `
@@ -722,4 +722,24 @@ export const CAREER: CareerData = {
       `,
     },
   ],
+}
+
+const jobOrder = CAREER.jobOrder[ACTIVE_VARIANT]
+
+/** The résumé as ACTIVE_VARIANT positions it; /resume and its markdown both render this. */
+export const RESUME = {
+  subtitle: CAREER.subtitle[ACTIVE_VARIANT],
+  summary: CAREER.summary[ACTIVE_VARIANT],
+  skills: CAREER.skills[ACTIVE_VARIANT],
+  jobs: [...CAREER.jobs]
+    .sort((a, b) => jobOrder.indexOf(a.id) - jobOrder.indexOf(b.id))
+    .map((job) => ({
+      ...job,
+      periods: job.periods.map((period) => ({
+        ...period,
+        years: `${period.start} – ${period.end}`,
+        bullets: period.bullets[ACTIVE_VARIANT] ?? period.bullets.default ?? [],
+      })),
+    })),
+  education: CAREER.education.map((entry) => ({ ...entry, years: `${entry.start}–${entry.end}` })),
 }

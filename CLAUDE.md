@@ -30,7 +30,6 @@ Use `bun`, not `npm` or `yarn`. Use `bunx` instead of `npx`.
 ## Code style
 
 - No semicolons, single quotes, 120-char line width (oxfmt enforced)
-- Tailwind classes are auto-sorted by oxfmt — don't manually reorder them
 - Inside `app/`, named exports are required. Default exports only for Next.js special files: `page.tsx`, `layout.tsx`, `opengraph-image.tsx`, `error.tsx`, `not-found.tsx`, `sitemap.ts`, `robots.ts`
 - Use `import type` for type-only imports (oxlint will error otherwise)
 - Path alias `@/` maps to the project root

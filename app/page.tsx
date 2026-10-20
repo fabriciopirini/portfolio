@@ -1,48 +1,13 @@
 import type { Metadata } from 'next'
-import type { Person, WithContext } from 'schema-dts'
 
-const jsonLd: WithContext<Person> = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: 'Fabricio Tramontano Pirini',
-  jobTitle: 'Senior Frontend Engineer',
-  gender: 'male',
-  url: 'https://fabriciopirini.com/',
-  email: 'fabricio@fabriciopirini.com',
-  description: 'Senior Frontend Engineer building fintech products for web and mobile.',
-  sameAs: ['https://www.linkedin.com/in/fabriciopirini/', 'https://github.com/fabriciopirini'],
-  address: {
-    '@type': 'PostalAddress',
-    addressCountry: 'Brazil',
-  },
-}
+import { person } from '@/lib/person'
+
+import { ContactLinks } from './contact-links'
 
 export const metadata: Metadata = {
   description: 'Senior Frontend Engineer building fintech products for web and mobile. Building since 2017.',
   alternates: { canonical: 'https://fabriciopirini.com/' },
 }
-
-const chatLine = "Building something in fintech? I'm happy to chat."
-
-const ContactLinks = () => (
-  <>
-    <p className="invite">{chatLine}</p>
-    <ul className="contact" aria-label="Contact">
-      <li className="email">
-        <a href="mailto:fabricio@fabriciopirini.com">fabricio@fabriciopirini.com</a>
-      </li>
-      <li>
-        <a href="/resume">Résumé</a>
-      </li>
-      <li>
-        <a href="https://www.linkedin.com/in/fabriciopirini/">LinkedIn</a>
-      </li>
-      <li>
-        <a href="https://github.com/fabriciopirini">GitHub</a>
-      </li>
-    </ul>
-  </>
-)
 
 // Chromium prerenders the résumé on hover or pointer-down; other browsers ignore the rules.
 const speculationRules = JSON.stringify({
@@ -52,7 +17,10 @@ const speculationRules = JSON.stringify({
 export default function Home() {
   return (
     <div className="ledger-page">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', ...person }) }}
+      />
       <script type="speculationrules" dangerouslySetInnerHTML={{ __html: speculationRules }} />
       <a className="skip" href="#work">
         Skip to selected work

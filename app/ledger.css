@@ -291,8 +291,8 @@ body:has(.ledger-page) {
     transform: translateY(-2px);
   }
 
-  /* The lines ride the link's 2px lift. They rest 0.1em below the old 0.2em underline, so dropping 4px less that
-     0.1em still ends them 2px below where it sat. */
+  /* The lines ride the link's 2px lift. Dropping 0.1em short of 4px ends them 2px below 50% + 0.55em: just under the
+     text, after a short travel from their 0.65em rest. */
   .ledger-page :is(.contact, .top nav) a:hover::before,
   .ledger-page :is(.contact, .top nav) a:hover::after {
     transform: translateY(calc(4px - 0.1em)) scaleY(2);

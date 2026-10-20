@@ -95,8 +95,8 @@ test.describe('Quiet Ledger homepage', () => {
     }
 
     // With a mouse, ::after draws the underline in the box the hover line (::before) grows in, so they move as one.
-    // They rest 1.7px (0.1em) lower than they used to, matching the text underline's wider gap, and drop 1.7px less, so
-    // they end where they always did: 33.05 + 2.3 = 31.35 + 4.
+    // They rest 0.65em (11.05px) under the middle to match the text underline's 0.3em gap, then drop 0.1em short of
+    // 4px, ending just under the text after a short travel.
     const lines = () =>
       resume.evaluate((a) =>
         ['::after', '::before'].map((pseudo) => {

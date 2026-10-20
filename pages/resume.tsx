@@ -4,6 +4,7 @@ import type { ProfilePage, WithContext } from 'schema-dts'
 
 import { ContactLinks } from '@/app/contact-links'
 import { Paper } from '@/app/resume/paper'
+import { ThemeToggle } from '@/app/theme-toggle'
 import { RESUME } from '@/lib/career-data'
 import { person } from '@/lib/person'
 import { ACTIVE_VARIANT } from '@/lib/site-config'
@@ -39,6 +40,7 @@ export default function ResumePage() {
           Skip to experience
         </a>
         <div className="page">
+          <ThemeToggle />
           <header className="intro">
             <div className="top">
               <h1>Résumé</h1>

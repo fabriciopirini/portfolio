@@ -66,9 +66,11 @@ test.describe('Résumé page', () => {
     }
   })
 
-  test('keyboard focus visits the skip link, Home, then Download PDF', async ({ page }) => {
+  test('keyboard focus visits the skip link, the theme toggle, Home, then Download PDF', async ({ page }) => {
     await page.keyboard.press('Tab')
     await expect(page.getByRole('link', { name: 'Skip to experience' })).toBeFocused()
+    await page.keyboard.press('Tab')
+    await expect(page.getByRole('button', { name: 'Dark theme' })).toBeFocused()
     await page.keyboard.press('Tab')
     await expect(page.getByRole('link', { name: 'Home' })).toBeFocused()
     await page.keyboard.press('Tab')

@@ -55,6 +55,17 @@ test.describe('Résumé page', () => {
     await expect(main.getByText('Mid 2013–Late 2014', { exact: true })).toBeVisible()
   })
 
+  test('prints each company once with all of its roles', async ({ page }) => {
+    await page.emulateMedia({ media: 'print' })
+    const paper = page.locator('.paper')
+    for (const { company, periods } of RESUME.jobs) {
+      await expect(paper.getByRole('heading', { name: company, exact: true, level: 3 })).toHaveCount(1)
+      for (const { role } of periods) {
+        await expect(paper.getByText(role, { exact: true })).toBeVisible()
+      }
+    }
+  })
+
   test('keyboard focus visits the skip link, Home, then Download PDF', async ({ page }) => {
     await page.keyboard.press('Tab')
     await expect(page.getByRole('link', { name: 'Skip to experience' })).toBeFocused()

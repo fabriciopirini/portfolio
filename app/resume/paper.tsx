@@ -64,15 +64,16 @@ export const Paper = () => (
       </h2>
       {RESUME.jobs.map(({ id, company, location, periods }) => (
         <div key={id} className="company">
-          {periods.map(({ role, start, end, bullets }) => (
+          {/* A later role at the same company shows only its own title and dates, so a promotion reads as one company. */}
+          {periods.map(({ role, start, end, bullets }, index) => (
             <div key={role} className="entry">
               <div className="heading">
                 <div>
-                  <h3>{company}</h3>
+                  {!index && <h3>{company}</h3>}
                   <p className="caps">{role}</p>
                 </div>
                 <div className="when">
-                  <p className="where">{location}</p>
+                  {!index && <p className="where">{location}</p>}
                   <p>
                     {start} - {end}
                   </p>

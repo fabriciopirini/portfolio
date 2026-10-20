@@ -178,8 +178,8 @@ export const CAREER: CareerData = {
       periods: [
         {
           role: 'Senior Frontend Engineer',
-          start: '2026',
-          end: 'now',
+          start: 'Sep. 2026',
+          end: 'Present',
           bullets: {
             default: [
               'Set up the TypeScript monorepo with one Expo and React Native app for iOS, Android, and web, plus a Next.js admin, from the first commit.',
@@ -200,7 +200,7 @@ export const CAREER: CareerData = {
         {
           role: 'Contractor - Full Stack Engineer',
           start: 'Nov. 2024',
-          end: '2026',
+          end: 'June 2026',
           bullets: {
             default: [
               'Built a React Native in-app support portal from scratch across 3 mobile apps (Kraken, Kraken Pro, Krak) with tier-aware contact options, VIP escalation, and live queue visibility. Owned end to end: frontend, backend integration, and rollout.',
@@ -450,7 +450,7 @@ export const CAREER: CareerData = {
       periods: [
         {
           role: 'Full Stack Engineer',
-          start: 'Sept. 2018',
+          start: 'Sep. 2018',
           end: 'Aug. 2020',
           bullets: {
             default: [
@@ -737,7 +737,7 @@ export const RESUME = {
       ...job,
       periods: job.periods.map((period) => ({
         ...period,
-        years: `${period.start}–${period.end}`,
+        years: `${period.start} – ${period.end}`,
         bullets: period.bullets[ACTIVE_VARIANT] ?? period.bullets.default ?? [],
       })),
     })),

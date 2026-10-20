@@ -431,6 +431,11 @@ body:has(.ledger-page) {
   border-bottom: 1px solid var(--rule);
 }
 
+/* On the homepage the footer's rule closes the Experience list. */
+.ledger-page .experience .ledger li:last-child {
+  border-bottom: 0;
+}
+
 .ledger-page .ledger .years {
   color: var(--muted);
   grid-row: span 2;

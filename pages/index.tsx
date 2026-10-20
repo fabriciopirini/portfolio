@@ -176,14 +176,6 @@ export default function Home() {
               </li>
             </ol>
           </section>
-
-          <section id="about" className="about" aria-labelledby="about-h">
-            <h2 id="about-h">About</h2>
-            <p>
-              I moved to Norway straight after graduating for my first full-time engineering job, stayed six years, and
-              now work from Brazil.
-            </p>
-          </section>
         </main>
 
         <footer className="outro" aria-labelledby="contact-h">

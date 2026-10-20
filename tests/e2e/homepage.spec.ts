@@ -11,6 +11,7 @@ test.describe('Quiet Ledger homepage', () => {
     await expect(page.getByText('Building since 2017')).toBeVisible()
     await expect(page.getByText(/pre-launch US consumer fintech/i).first()).toBeVisible()
     await expect(page.getByRole('heading', { name: /technology/i })).toHaveCount(0)
+    await expect(page.getByRole('heading', { name: 'About', exact: true })).toHaveCount(0)
     await expect(page.getByRole('link', { name: 'Shop' })).toHaveCount(0)
     await expect(page.getByText(/years of experience/i)).toHaveCount(0)
     await expect(page.getByText(/Currently at Kraken/)).toHaveCount(0)
@@ -118,5 +119,12 @@ test.describe('Quiet Ledger homepage', () => {
     await expect(resume).toHaveCSS('transform', 'none')
     expect(await top()).toBeCloseTo(rest, 1)
     await expect(resume).toHaveCSS('text-decoration-line', 'underline')
+  })
+
+  test('only the footer rule sits between Experience and Get in touch', async ({ page }) => {
+    const entries = page.locator('#experience li')
+    await expect(entries.first()).toHaveCSS('border-bottom-style', 'solid')
+    await expect(entries.last()).toHaveCSS('border-bottom-style', 'none')
+    await expect(page.locator('footer')).toHaveCSS('border-top-style', 'solid')
   })
 })

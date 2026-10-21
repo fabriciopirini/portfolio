@@ -75,7 +75,7 @@ body {
   --fg: #1c1b19;
   --muted: #5c5850;
   --rule: #e2ddd2;
-  --accent: #1d6448;
+  --accent: #9a6808;
   color-scheme: light dark;
   background: var(--bg);
   color: var(--fg);
@@ -99,7 +99,7 @@ body:has(.ledger-page) {
     --fg: #ebeae5;
     --muted: #a3a097;
     --rule: #2c2e2a;
-    --accent: #84cba9;
+    --accent: #ffc457;
   }
 
   :root:not([data-theme='light']) body:has(.ledger-page) {
@@ -113,7 +113,7 @@ body:has(.ledger-page) {
     --fg: #ebeae5;
     --muted: #a3a097;
     --rule: #2c2e2a;
-    --accent: #84cba9;
+    --accent: #ffc457;
     color-scheme: dark;
   }
 
@@ -130,7 +130,7 @@ body:has(.ledger-page) {
 .ledger-page a {
   color: inherit;
   text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
+  text-underline-offset: 0.3em;
   text-decoration-color: var(--muted);
   -webkit-tap-highlight-color: transparent;
 }
@@ -237,9 +237,16 @@ body:has(.ledger-page) {
   container-type: inline-size;
 }
 
-/* ponytail: fixed threshold sits ~7% above the one-line width in SF; revisit if the links or font change. */
-@container (max-width: 28em) {
+/* ponytail: fixed thresholds sit ~7% above the one-line widths in SF (the résumé's row is the wider); revisit if the
+   links or font change. Too narrow for one line, the email takes its own; narrower still, so does Download PDF. */
+@container (max-width: 34em) {
   .ledger-page .contact .email {
+    flex-basis: 100%;
+  }
+}
+
+@container (max-width: 18.5em) {
+  .ledger-page .contact li:has(svg) {
     flex-basis: 100%;
   }
 }
@@ -252,9 +259,14 @@ body:has(.ledger-page) {
   overflow-wrap: anywhere;
 }
 
-.ledger-page .contact .email a {
-  font-variant-numeric: tabular-nums;
-  color: var(--accent);
+.ledger-page :is(.contact, .top nav) a:has(svg) {
+  gap: 0.35em;
+}
+
+.ledger-page :is(.contact, .top nav) svg {
+  flex: none;
+  width: 1em;
+  height: 1em;
 }
 
 /* Spaced links get the 2024 navbar hover (after maggieappleton.com): the text lifts and the underline hands over
@@ -274,7 +286,7 @@ body:has(.ledger-page) {
     content: '';
     position: absolute;
     inset-inline: 0;
-    top: calc(50% + 0.55em);
+    top: calc(50% + 0.65em);
     height: 1px;
     background: currentColor;
     transform-origin: bottom;
@@ -292,14 +304,21 @@ body:has(.ledger-page) {
     background: var(--muted);
   }
 
+  /* Underline the text only: skip the 1em icon and its gap. */
+  .ledger-page :is(.contact, .top nav) a:has(svg)::before,
+  .ledger-page :is(.contact, .top nav) a:has(svg)::after {
+    inset-inline-start: 1.35em;
+  }
+
   .ledger-page :is(.contact, .top nav) a:hover {
     transform: translateY(-2px);
   }
 
-  /* The lines ride the link's 2px lift, so they move 4px to end 2px lower. */
+  /* The lines ride the link's 2px lift. Dropping 0.1em short of 4px ends them 2px below 50% + 0.55em: just under the
+     text, after a short travel from their 0.65em rest. */
   .ledger-page :is(.contact, .top nav) a:hover::before,
   .ledger-page :is(.contact, .top nav) a:hover::after {
-    transform: translateY(4px) scaleY(2);
+    transform: translateY(calc(4px - 0.1em)) scaleY(2);
   }
 
   .ledger-page :is(.contact, .top nav) a:hover::before {

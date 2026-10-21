@@ -2,7 +2,7 @@ import type { PageConfig } from 'next'
 import Head from 'next/head'
 import type { ProfilePage, WithContext } from 'schema-dts'
 
-import { ContactLinks } from '@/app/contact-links'
+import { ContactLinks, DownloadIcon } from '@/app/contact-links'
 import { Paper } from '@/app/resume/paper'
 import { ThemeToggle } from '@/app/theme-toggle'
 import { RESUME } from '@/lib/career-data'
@@ -47,6 +47,7 @@ export default function ResumePage() {
               <nav aria-label="Résumé">
                 <a href="/">Home</a>
                 <a className="pdf" href="/api/resume">
+                  <DownloadIcon />
                   Download PDF
                 </a>
               </nav>

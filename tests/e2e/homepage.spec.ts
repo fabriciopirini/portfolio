@@ -24,6 +24,8 @@ test.describe('Quiet Ledger homepage', () => {
     const resume = page.getByRole('link', { name: 'Résumé' }).first()
     await expect(email).toHaveAttribute('href', 'mailto:fabricio@fabriciopirini.com')
     await expect(resume).toHaveAttribute('href', '/resume')
+    // The email reads like the other contact links; green is kept for the Now label and highlights.
+    await expect(email).toHaveCSS('color', await resume.evaluate((a) => getComputedStyle(a).color))
     await expect(page.getByRole('link', { name: 'LinkedIn' }).first()).toHaveAttribute(
       'href',
       'https://www.linkedin.com/in/fabriciopirini/'
@@ -93,6 +95,8 @@ test.describe('Quiet Ledger homepage', () => {
     }
 
     // With a mouse, ::after draws the underline in the box the hover line (::before) grows in, so they move as one.
+    // They rest 0.65em (11.05px) under the middle to match the text underline's 0.3em gap, then drop 0.1em short of
+    // 4px, ending just under the text after a short travel.
     const lines = () =>
       resume.evaluate((a) =>
         ['::after', '::before'].map((pseudo) => {
@@ -102,13 +106,14 @@ test.describe('Quiet Ledger homepage', () => {
       )
     const [underline, line] = await lines()
     expect(underline).toMatchObject({ content: '""', transform: 'none', opacity: '1' })
+    expect(parseFloat(underline.top)).toBeCloseTo(33.05, 1)
     expect(line.top).toBe(underline.top)
 
     const top = async () => (await resume.boundingBox())!.y
     const rest = await top()
     await resume.hover()
     await expect.poll(top).toBeCloseTo(rest - 2, 1)
-    const dropped = 'matrix(1, 0, 0, 2, 0, 4)'
+    const dropped = 'matrix(1, 0, 0, 2, 0, 2.3)'
     await expect.poll(lines).toEqual([
       { ...underline, transform: dropped, opacity: '0' },
       { ...line, transform: dropped },

@@ -17,6 +17,11 @@ test.describe('Résumé page', () => {
   })
 
   test('puts the way home and the PDF on the heading line', async ({ page }) => {
+    // At 412px, not the 360px phone viewports: CI's fallback font (DejaVu Sans) is wider than phone system fonts, so
+    // the header icon pushes the nav under the heading at 360px there, while Roboto and SF still fit. The nav wraps
+    // under the heading on narrower screens by design.
+    const { width, height } = page.viewportSize()!
+    await page.setViewportSize({ width: Math.max(width, 412), height })
     const heading = await page.getByRole('heading', { level: 1 }).boundingBox()
     const nav = page.getByRole('navigation', { name: 'Résumé' })
     const home = nav.getByRole('link', { name: 'Home' })

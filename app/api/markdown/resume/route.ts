@@ -21,7 +21,7 @@ export function GET() {
         `### ${company} · ${location}`,
         ...periods.flatMap(({ role, years, bullets }) => [
           '',
-          `**${role}**, ${years}`,
+          years ? `**${role}**, ${years}` : `**${role}**`,
           '',
           ...bullets.map((b) => `- ${b}`),
         ]),

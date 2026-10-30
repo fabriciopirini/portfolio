@@ -46,7 +46,7 @@ test.describe('Résumé page', () => {
       await expect(main.getByRole('heading', { name: company, level: 3 })).toBeVisible()
       for (const { role, years } of periods) {
         await expect(main.getByText(role, { exact: true })).toBeVisible()
-        await expect(main.getByText(years, { exact: true })).toBeVisible()
+        if (years) await expect(main.getByText(years, { exact: true })).toBeVisible()
       }
     }
     for (const { institution, credential, years } of RESUME.education) {
@@ -69,6 +69,19 @@ test.describe('Résumé page', () => {
         await expect(paper.getByText(role, { exact: true })).toBeVisible()
       }
     }
+  })
+
+  test('shows MaisLegal as an undated part-time engagement after Kraken', async ({ page }) => {
+    const companies = page.getByRole('main').getByRole('heading', { level: 3 })
+    await expect(companies.nth(1)).toHaveText('Kraken')
+    await expect(companies.nth(2)).toHaveText('MaisLegal')
+    const card = page.locator('article', { has: page.getByRole('heading', { name: 'MaisLegal' }) })
+    await expect(card.getByText('Contractor - First Engineer (part-time)', { exact: true })).toBeVisible()
+    await expect(card.locator('.meta')).toHaveText('Brazil (Remote)')
+
+    await page.emulateMedia({ media: 'print' })
+    const entry = page.locator('.paper .company', { has: page.getByRole('heading', { name: 'MaisLegal' }) })
+    await expect(entry.locator('.when')).toHaveText('Brazil (Remote)')
   })
 
   test('keyboard focus visits the skip link, the theme toggle, Home, then Download PDF', async ({ page }) => {

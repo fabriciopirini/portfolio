@@ -7,7 +7,7 @@ import { themeScript } from '@/app/theme-toggle'
 // `/` and `/resume` ship no framework JavaScript (Pages Router, `unstable_runtimeJS: false`); the App Router's 404 does.
 const routes = [
   { path: '/', maxBytes: 21_300, runtime: false },
-  { path: '/resume', maxBytes: 37_556, runtime: false },
+  { path: '/resume', maxBytes: 40_640, runtime: false },
   { path: '/does-not-exist', maxBytes: 585_000, runtime: true },
 ]
 

@@ -68,7 +68,7 @@ export default function ResumePage() {
                   // A later role at the same company shows only its own years and title.
                   <article key={`${id}-${index}`} className={index ? 'proof continued' : 'proof'}>
                     <p className="meta">
-                      <span className="years">{years}</span>
+                      {years && <span className="years">{years}</span>}
                       {!index && <span>{location}</span>}
                     </p>
                     <div className="body">

@@ -257,7 +257,7 @@
     font-weight: 500;
   }
 
-  .paper .when p:last-child {
+  .paper .when p:not(.where) {
     color: #4b5563;
   }
 

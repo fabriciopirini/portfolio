@@ -74,9 +74,11 @@ export const Paper = () => (
                 </div>
                 <div className="when">
                   {!index && <p className="where">{location}</p>}
-                  <p>
-                    {start} - {end}
-                  </p>
+                  {start && (
+                    <p>
+                      {start} - {end}
+                    </p>
+                  )}
                 </div>
               </div>
               <ul>

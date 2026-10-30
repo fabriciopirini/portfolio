@@ -15,8 +15,9 @@ export type { SiteVariant }
 
 export interface RolePeriod {
   role: string
-  start: string
-  end: string
+  /** Omit both for an undated engagement; its card then shows no date range. */
+  start?: string
+  end?: string
   /** bullets keyed by variant; falls back to 'default' if variant key is absent */
   bullets: Partial<Record<SiteVariant, string[]>>
 }
@@ -165,9 +166,33 @@ export const CAREER: CareerData = {
   },
 
   jobOrder: {
-    default: ['consumer-fintech', 'crypto-exchange', 'ecommerce-platform', 'grocery-startup', 'sportradar', 'samsung'],
-    growth: ['consumer-fintech', 'crypto-exchange', 'ecommerce-platform', 'grocery-startup', 'sportradar', 'samsung'],
-    product: ['consumer-fintech', 'crypto-exchange', 'ecommerce-platform', 'grocery-startup', 'sportradar', 'samsung'],
+    default: [
+      'consumer-fintech',
+      'crypto-exchange',
+      'legal-tech',
+      'ecommerce-platform',
+      'grocery-startup',
+      'sportradar',
+      'samsung',
+    ],
+    growth: [
+      'consumer-fintech',
+      'crypto-exchange',
+      'legal-tech',
+      'ecommerce-platform',
+      'grocery-startup',
+      'sportradar',
+      'samsung',
+    ],
+    product: [
+      'consumer-fintech',
+      'crypto-exchange',
+      'legal-tech',
+      'ecommerce-platform',
+      'grocery-startup',
+      'sportradar',
+      'samsung',
+    ],
   },
 
   jobs: [
@@ -257,6 +282,26 @@ export const CAREER: CareerData = {
           1. Before starting: write one sentence in the ticket description: "The last time this hurt was when [person] had to [workaround] because [gap]." If you can't fill it in, go ask before starting.
           2. In every PR description: add a success metric field: "This should move [metric] from [baseline] to [target] by [date]." Review it two weeks post-deploy.
         - Used as Q6 Loom video topic in Buffer application (April 2026)
+      `,
+    },
+    {
+      id: 'legal-tech',
+      company: 'MaisLegal',
+      location: 'Brazil (Remote)',
+      periods: [
+        {
+          role: 'Contractor - First Engineer (part-time)',
+          bullets: {
+            default: [
+              'Joined a Brazilian legal-tech as its first engineer and took an early prototype to a production contract and dispute-resolution platform.',
+              'Set up its CI/CD and a Turborepo monorepo with OpenAPI-shared types between the Node backend and the Next.js frontend.',
+              'Built the dispute and contract-editing flows in Next.js, React, and TypeScript, including multi-step dispute filing and a rich-text contract editor.',
+            ],
+          },
+        },
+      ],
+      rawNotes: `
+        Shown undated on purpose: a past part-time engagement, not a second current job. Cleared scope: first engineer, prototype to production, CI/CD, Turborepo monorepo with OpenAPI-shared types, dispute and contract-editing flows.
       `,
     },
     {
@@ -737,7 +782,7 @@ export const RESUME = {
       ...job,
       periods: job.periods.map((period) => ({
         ...period,
-        years: `${period.start} – ${period.end}`,
+        years: period.start && `${period.start} – ${period.end}`,
         bullets: period.bullets[ACTIVE_VARIANT] ?? period.bullets.default ?? [],
       })),
     })),
